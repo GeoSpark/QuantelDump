@@ -19,11 +19,11 @@ def parse_string_candidate(buffer: bytearray):
     if buffer[0] > len(buffer) - 1:
         offset = 2
 
-    strings = []
+        # If we're still too long, then we're probably not a string. Better to be safe than sorry.
+        if buffer[1] > len(buffer) - 2:
+            return []
 
-    # If we're still too long, then we're probably not a string. Better to be safe than sorry.
-    if buffer[1] > len(buffer) - 2:
-        return strings
+    strings = []
 
     while offset < len(buffer):
         length = buffer[offset - 1]
