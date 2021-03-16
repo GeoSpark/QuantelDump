@@ -43,6 +43,7 @@ e bin.laddr = 0x00400000
 e file.offset = 0x00400000
 # Your modern types are useless here.
 t-*
+# Not sure I need this line.
 o Quantel-Paintbox-Express-v1-15-002.bin 0x00400000 r-x'''
 
 
