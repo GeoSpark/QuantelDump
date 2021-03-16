@@ -1,0 +1,584 @@
+            ;-- F20_PASCALIO:
+            0x00614576      .byte 0x00
+            0x00614577      .byte 0x00
+            0x00614578      .byte 0x00
+            0x00614579      .byte 0x00
+            0x0061457a      .byte 0x00
+            0x0061457b      .byte 0x00
+            0x0061457c      .byte 0x00
+            0x0061457d      .byte 0x00
+            0x0061457e      .byte 0x00
+            0x0061457f      .byte 0x00
+            0x00614580      .byte 0x1d
+            0x00614581     .string " reading from sequential file" ; len=29
+            0x0061459e      .byte 0x1b
+            0x0061459f     .string " writing to sequential file" ; len=27
+            0x006145ba      .byte 0x12
+            0x006145bb     .string "Bytes transferred " ; len=18
+            0x006145cd      .byte 0x08
+            0x006145ce     .string " eof is " ; len=8
+            0x006145d6      .byte 0x12
+            0x006145d7     .string "reset: name_bytes " ; len=18
+            0x006145e9      .byte 0x0b
+            0x006145ea     .string " def bytes " ; len=11
+            0x006145f5      .byte 0x10
+            0x006145f6     .string "Reset to console" ; len=16
+            0x00614606      .byte 0x0a
+            0x00614607     .string "Reset to \"" ; len=10
+            0x00614611      .byte 0x09
+            0x00614612     .string "\" length " ; len=9
+            0x0061461b      .byte 0x09
+            0x0061461c     .string "Lookup ok" ; len=9
+            0x00614625      .byte 0x07
+            0x00614626     .string "Open ok" ; len=7
+            0x0061462d      .byte 0x12
+            0x0061462e     .string "reset completed ok" ; len=18
+            0x00614640      .byte 0x09
+            0x00614641      .byte 0x20
+            0x00614642      .byte 0x69
+            0x00614643      .byte 0x6e
+            0x00614644      .byte 0x20
+            0x00614645      .byte 0x72
+            0x00614646      .byte 0x65
+            0x00614647      .byte 0x73
+            0x00614648      .byte 0x65
+            0x00614649      .byte 0x74
+            0x0061464a      .byte 0x2d
+            0x0061464b      .byte 0x57
+            0x0061464c      .byte 0x61
+            0x0061464d      .byte 0x72
+            0x0061464e      .byte 0x6e
+            0x0061464f      .byte 0x69
+            0x00614650      .byte 0x6e
+            0x00614651      .byte 0x67
+            0x00614652      .byte 0x20
+            0x00614653      .byte 0x2d
+            0x00614654      .byte 0x20
+            0x00614655      .byte 0x77
+            0x00614656      .byte 0x72
+            0x00614657      .byte 0x69
+            0x00614658      .byte 0x74
+            0x00614659      .byte 0x69
+            0x0061465a      .byte 0x6e
+            0x0061465b      .byte 0x67
+            0x0061465c      .byte 0x20
+            0x0061465d      .byte 0x74
+            0x0061465e      .byte 0x6f
+            0x0061465f      .byte 0x20
+            0x00614660      .byte 0x72
+            0x00614661      .byte 0x61
+            0x00614662      .byte 0x6d
+            0x00614663      .byte 0x20
+            0x00614664      .byte 0x64
+            0x00614665      .byte 0x69
+            0x00614666      .byte 0x73
+            0x00614667      .byte 0x6b
+            0x00614668      .byte 0x20
+            0x00614669      .byte 0x2d
+            0x0061466a      .byte 0x20
+            0x0061466b      .byte 0x64
+            0x0061466c      .byte 0x61
+            0x0061466d      .byte 0x74
+            0x0061466e      .byte 0x61
+            0x0061466f      .byte 0x20
+            0x00614670      .byte 0x76
+            0x00614671      .byte 0x6f
+            0x00614672      .byte 0x6c
+            0x00614673      .byte 0x61
+            0x00614674      .byte 0x74
+            0x00614675      .byte 0x69
+            0x00614676      .byte 0x6c
+            0x00614677      .byte 0x65
+┌ 74: F20_PASCALIO.file_driver ();
+│           0x00614678      4e56feca       link.w a6, 0xfeca
+│           0x0061467c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0061467e      6206           bhi.b 0x614686
+│       │   0x00614680      44fc0002       move.w 0x2, ccr
+│       │   0x00614684      4e76           trapv
+│       └─> 0x00614686      defc0130       adda.w 0x130, a7
+│           0x0061468a      48e7e0f8       movem.l d0-d2/a0-a4, -(a7)
+│           0x0061468e      41eefffa       lea.l -0x6(a6), a0
+│           0x00614692      43eefffe       lea.l -0x2(a6), a1
+│           0x00614696      45f9004047ea   lea.l p_wts_o, a2
+│           0x0061469c      47ee0008       lea.l 0x8(a6), a3
+│           0x006146a0      49ee000c       lea.l 0xc(a6), a4
+│           0x006146a4      720c           moveq 0xc, d1
+│           0x006146a6      7401           moveq 0x1, d2
+│           0x006146a8      4290           clr.l (a0)
+│           0x006146aa      4211           clr.b (a1)
+│           0x006146ac      302e0014       move.w 0x14(a6), d0
+│           0x006146b0      0c400002       cmpi.w 0x2, d0
+│       ┌─< 0x006146b4      620000de       bhi.w 0x614794
+│       │   0x006146b8      d040           add.w d0, d0
+│       │   0x006146ba      303b0006       move.w 0x6146c2(pc, d0.w), d0
+└       │   0x006146be      4efb0002       jmp 0x6146c2(pc, d0.w)
+        │   0x006146c2      0006005e       ori.b 0x5e, d6
+        │   0x006146c6      00c8554f       
+        │   0x006146c7      c855           and.w (a5), d4
+        │   0x006146c9      4f2f132f       chk.l 0x132f(a7), d7
+        │   0x006146cd      142f2e00       move.b 0x2e00(a7), d2
+        │   0x006146d1      10485048       
+        │   0x006146d2      4850           pea.l (a0)
+        │   0x006146d4      4851           pea.l (a1)
+        │   0x006146d6      4eb90060b880   jsr F12_SEQUENTIAL.f_read_sequenti
+        │   0x006146dc      defc0014       adda.w 0x14, a7
+        │   0x006146e0      4a1f           tst.b (a7)+
+       ┌──< 0x006146e2      663a           bne.b 0x61471e
+       ││   0x006146e4      9efc0100       suba.w 0x100, a7
+       ││   0x006146e8      4eb900408ec0   jsr p_err_string
+       ││   0x006146ee      486f0001       pea.l 0x1(a7)
+       ││   0x006146f2      42a7           clr.l -(a7)
+       ││   0x006146f4      1f6f00080003   move.b 0x8(a7), 0x3(a7)
+       ││   0x006146fa      2f17           move.l (a7), -(a7)
+       ││   0x006146fc      4e92           jsr (a2)                    ; fcn.00000009+0x2
+       ││   0x006146fe      defc010c       adda.w 0x10c, a7
+       ││   0x00614702      487afe7d       pea.l 0x614581(pc)
+       ││   0x00614706      4878001d       pea.l 0x1d
+       ││   0x0061470a      2f17           move.l (a7), -(a7)
+       ││   0x0061470c      4e92           jsr (a2)                    ; fcn.00000009+0x2
+       ││   0x0061470e      dec1           adda.w d1, a7
+       ││   0x00614710      4eb900404946   jsr p_wtln_o
+       ││   0x00614716      4eb900404188   jsr p_Unlink
+       ││   0x0061471c      1282           move.b d2, (a1)
+      ┌└──> 0x0061471e      6074           bra.b 0x614794
+      │ │   0x00614720      554f           subq.w 0x2, a7
+      │ │   0x00614722      2f13           move.l (a3), -(a7)
+      │ │   0x00614724      2f14           move.l (a4), -(a7)
+      │ │   0x00614726      02977fffffff   andi.l 0x7fffffff, (a7)
+      │ │   0x0061472c      4227           clr.b -(a7)
+      │ │   0x0061472e      2014           move.l (a4), d0
+      │ │   0x00614730      028080000000   andi.l 0x80000000, d0
+      │┌──< 0x00614736      6702           beq.b 0x61473a
+      │││   0x00614738      5217           addq.b 0x1, (a7)
+      │└──> 0x0061473a      2f2e0010       move.l 0x10(a6), -(a7)
+      │ │   0x0061473e      4850           pea.l (a0)
+      │ │   0x00614740      4eb90060b9d0   jsr F12_SEQUENTIAL.f_write_sequent
+      │ │   0x00614746      defc0012       adda.w 0x12, a7
+      │ │   0x0061474a      4a1f           tst.b (a7)+
+      │┌──< 0x0061474c      663a           bne.b 0x614788
+      │││   0x0061474e      9efc0100       suba.w 0x100, a7
+      │││   0x00614752      4eb900408ec0   jsr p_err_string
+      │││   0x00614758      486f0001       pea.l 0x1(a7)
+      │││   0x0061475c      42a7           clr.l -(a7)
+      │││   0x0061475e      1f6f00080003   move.b 0x8(a7), 0x3(a7)
+      │││   0x00614764      2f17           move.l (a7), -(a7)
+      │││   0x00614766      4e92           jsr (a2)                    ; fcn.00000009+0x2
+      │││   0x00614768      defc010c       adda.w 0x10c, a7
+      │││   0x0061476c      487afe31       pea.l 0x61459f(pc)
+      │││   0x00614770      4878001b       pea.l 0x1b
+      │││   0x00614774      2f17           move.l (a7), -(a7)
+      │││   0x00614776      4e92           jsr (a2)                    ; fcn.00000009+0x2
+      │││   0x00614778      dec1           adda.w d1, a7
+      │││   0x0061477a      4eb900404946   jsr p_wtln_o
+      │││   0x00614780      4eb900404188   jsr p_Unlink
+      │││   0x00614786      1282           move.b d2, (a1)
+     ┌─└──> 0x00614788      600a           bra.b 0x614794
+     ││ │   0x0061478a      4853           pea.l (a3)
+     ││ │   0x0061478c      4eb90060470a   jsr F9_FILERDWRT.f_close
+     ││ │   0x00614792      584f           addq.w 0x4, a7
+     └└─└─> 0x00614794      4a11           tst.b (a1)
+        ┌─< 0x00614796      6706           beq.b 0x61479e
+        │   0x00614798      009080000000   ori.l 0x80000000, (a0)
+        └─> 0x0061479e      2d500016       move.l (a0), 0x16(a6)
+            0x006147a2      4cdf1f07       movem.l (a7)+, d0-d2/a0-a4
+            0x006147a6      4e5e           unlk a6
+            0x006147a8      4e75           rts
+            ; CALL XREF from G5_BUFFER.g5_load_file @ 0x441178
+            ; CALL XREF from MENUCOM.load_dictionary @ 0x489888
+            ; CALL XREF from F21_COMMAND.com_type @ 0x61b850
+            ; CALL XREF from BOOTCOM.read_boot_list_ @ 0x68daaa
+┌ 450: F20_PASCALIO.p_reset ();
+│           0x006147aa      4e56fe66       link.w a6, 0xfe66
+│           0x006147ae      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x006147b0      6206           bhi.b 0x6147b8
+│       │   0x006147b2      44fc0002       move.w 0x2, ccr
+│       │   0x006147b6      4e76           trapv
+│       └─> 0x006147b8      defc003a       adda.w 0x3a, a7
+│           0x006147bc      48e7e0f8       movem.l d0-d2/a0-a4, -(a7)
+│           0x006147c0      45eefef2       lea.l -0x10e(a6), a2
+│           0x006147c4      47eefeea       lea.l -0x116(a6), a3
+│           0x006147c8      49eefea0       lea.l -0x160(a6), a4
+│           0x006147cc      720c           moveq 0xc, d1
+│           0x006147ce      7414           moveq 0x14, d2
+│           0x006147d0      554f           subq.w 0x2, a7
+│           0x006147d2      4854           pea.l (a4)
+│           0x006147d4      4eb900404434   jsr fcn.00404434
+│           0x006147da      584f           addq.w 0x4, a7
+│           0x006147dc      4a1f           tst.b (a7)+
+│       ┌─< 0x006147de      6700016a       beq.w 0x61494a
+│       │   0x006147e2      4aae0018       tst.l 0x18(a6)
+│      ┌──< 0x006147e6      660a           bne.b 0x6147f2
+│      ││   0x006147e8      4aae0010       tst.l 0x10(a6)
+│     ┌───< 0x006147ec      6604           bne.b 0x6147f2
+│    ┌────< 0x006147ee      6000014a       bra.w 0x61493a
+│    │└└──> 0x006147f2      4aae0014       tst.l 0x14(a6)
+│    │ ┌──< 0x006147f6      6626           bne.b 0x61481e
+│    │ ││   0x006147f8      2f2e0010       move.l 0x10(a6), -(a7)
+│    │ ││   0x006147fc      204a           movea.l a2, a0
+│    │ ││   0x006147fe      2f08           move.l a0, -(a7)
+│    │ ││   0x00614800      5297           addq.l 0x1, (a7)
+│    │ ││   0x00614802      2f2e000c       move.l 0xc(a6), -(a7)
+│    │ ││   0x00614806      4eb9006d1c4e   jsr MEM_COPY
+│    │ ││   0x0061480c      dec1           adda.w d1, a7
+│    │ ││   0x0061480e      202e000c       move.l 0xc(a6), d0
+│    │ ││   0x00614812      0c80000000ff   cmpi.l 0xff, d0
+│    │┌───< 0x00614818      6302           bls.b 0x61481c
+│    ││││   0x0061481a      4e4f           trap 0xf
+│   ┌─└───> 0x0061481c      6024           bra.b 0x614842
+│   ││ └──> 0x0061481e      2f2e0018       move.l 0x18(a6), -(a7)
+│   ││  │   0x00614822      204a           movea.l a2, a0
+│   ││  │   0x00614824      2f08           move.l a0, -(a7)
+│   ││  │   0x00614826      5297           addq.l 0x1, (a7)
+│   ││  │   0x00614828      2f2e0014       move.l 0x14(a6), -(a7)
+│   ││  │   0x0061482c      4eb9006d1c4e   jsr MEM_COPY
+│   ││  │   0x00614832      dec1           adda.w d1, a7
+│   ││  │   0x00614834      202e0014       move.l 0x14(a6), d0
+│   ││  │   0x00614838      0c80000000ff   cmpi.l 0xff, d0
+│   ││ ┌──< 0x0061483e      6302           bls.b 0x614842
+│   ││ ││   0x00614840      4e4f           trap 0xf
+│   └──└──> 0x00614842      1480           move.b d0, (a2)
+│    │  │   0x00614844      4a12           tst.b (a2)
+│    │ ┌──< 0x00614846      6642           bne.b 0x61488a
+│    │ ││   0x00614848      206e0020       movea.l 0x20(a6), a0
+│    │ ││   0x0061484c      594f           subq.w 0x4, a7
+│    │ ││   0x0061484e      2248           movea.l a0, a1
+│    │ ││   0x00614850      2f09           move.l a1, -(a7)
+│    │ ││   0x00614852      4eb900403e04   jsr p_heap_size
+│    │ ││   0x00614858      584f           addq.w 0x4, a7
+│    │ ││   0x0061485a      4a9f           tst.l (a7)+
+│    │┌───< 0x0061485c      670a           beq.b 0x614868
+│    ││││   0x0061485e      4850           pea.l (a0)
+│    ││││   0x00614860      4eb90040524a   jsr p_close
+│    ││││   0x00614866      584f           addq.w 0x4, a7
+│    │└───> 0x00614868      48780100       pea.l 0x100
+│    │ ││   0x0061486c      4878ffff       pea.l 0xffff
+│    │ ││   0x00614870      486efeee       pea.l -0x112(a6)
+│    │ ││   0x00614874      4853           pea.l (a3)
+│    │ ││   0x00614876      4eb900404678   jsr p_Chan_Create
+│    │ ││   0x0061487c      dec1           adda.w d1, a7
+│    │ ││   0x0061487e      2e93           move.l (a3), (a7)
+│    │ ││   0x00614880      4eb9004063e6   jsr p9_open_console
+│    │┌───< 0x00614886      600000a2       bra.w 0x61492a
+│    ││└──> 0x0061488a      554f           subq.w 0x2, a7
+│    ││ │   0x0061488c      4852           pea.l (a2)
+│    ││ │   0x0061488e      4227           clr.b -(a7)
+│    ││ │   0x00614890      486efff2       pea.l -0xe(a6)
+│    ││ │   0x00614894      4eb9006123d2   jsr F18_DIRECTORY.f_lookup
+│    ││ │   0x0061489a      defc000a       adda.w 0xa, a7
+│    ││ │   0x0061489e      4a1f           tst.b (a7)+
+│    ││┌──< 0x006148a0      660a           bne.b 0x6148ac
+│    ││││   0x006148a2      4854           pea.l (a4)
+│    ││││   0x006148a4      4eb900404468   jsr fcn.00404468
+│    ││││   0x006148aa      584f           addq.w 0x4, a7
+│    ││└──> 0x006148ac      554f           subq.w 0x2, a7
+│    ││ │   0x006148ae      2f2efff8       move.l -0x8(a6), -(a7)
+│    ││ │   0x006148b2      2f2efff4       move.l -0xc(a6), -(a7)
+│    ││ │   0x006148b6      3f2efff2       move.w -0xe(a6), -(a7)
+│    ││ │   0x006148ba      4227           clr.b -(a7)
+│    ││ │   0x006148bc      2f2e001c       move.l 0x1c(a6), -(a7)
+│    ││ │   0x006148c0      486efffc       pea.l -0x4(a6)
+│    ││ │   0x006148c4      4eb90060b73a   jsr F12_SEQUENTIAL.f_op_sequential
+│    ││ │   0x006148ca      dec2           adda.w d2, a7
+│    ││ │   0x006148cc      4a1f           tst.b (a7)+
+│    ││┌──< 0x006148ce      660a           bne.b 0x6148da
+│    ││││   0x006148d0      4854           pea.l (a4)
+│    ││││   0x006148d2      4eb900404468   jsr fcn.00404468
+│    ││││   0x006148d8      584f           addq.w 0x4, a7
+│    ││└──> 0x006148da      48780500       pea.l 0x500
+│    ││ │   0x006148de      4878ffff       pea.l 0xffff
+│    ││ │   0x006148e2      486efeee       pea.l -0x112(a6)
+│    ││ │   0x006148e6      4853           pea.l (a3)
+│    ││ │   0x006148e8      4eb900404678   jsr p_Chan_Create
+│    ││ │   0x006148ee      defc0010       adda.w 0x10, a7
+│    ││ │   0x006148f2      486d0010       pea.l 0x10(a5)
+│    ││ │   0x006148f6      487afd80       pea.l F20_PASCALIO.file_driver(pc)
+│    ││ │   0x006148fa      2f13           move.l (a3), -(a7)
+│    ││ │   0x006148fc      2f2efffc       move.l -0x4(a6), -(a7)
+│    ││ │   0x00614900      48780400       pea.l 0x400
+│    ││ │   0x00614904      4eb90040472c   jsr p_Chan_Driver
+│    ││ │   0x0061490a      dec2           adda.w d2, a7
+│    ││ │   0x0061490c      206e0020       movea.l 0x20(a6), a0
+│    ││ │   0x00614910      594f           subq.w 0x4, a7
+│    ││ │   0x00614912      2248           movea.l a0, a1
+│    ││ │   0x00614914      2f09           move.l a1, -(a7)
+│    ││ │   0x00614916      4eb900403e04   jsr p_heap_size
+│    ││ │   0x0061491c      584f           addq.w 0x4, a7
+│    ││ │   0x0061491e      4a9f           tst.l (a7)+
+│    ││┌──< 0x00614920      670a           beq.b 0x61492c
+│    ││││   0x00614922      4850           pea.l (a0)
+│    ││││   0x00614924      4eb90040524a   jsr p_close
+│    │└───> 0x0061492a      584f           addq.w 0x4, a7
+│    │ └──> 0x0061492c      4850           pea.l (a0)
+│    │  │   0x0061492e      2f2efeee       move.l -0x112(a6), -(a7)
+│    │  │   0x00614932      4eb9004046e2   jsr p_chan_attach
+│    │  │   0x00614938      504f           addq.w 0x8, a7
+│    └────> 0x0061493a      206e0008       movea.l 0x8(a6), a0
+│       │   0x0061493e      2248           movea.l a0, a1
+│       │   0x00614940      2f09           move.l a1, -(a7)
+│       │   0x00614942      4a9f           tst.l (a7)+
+│      ┌──< 0x00614944      671e           beq.b 0x614964
+│      ││   0x00614946      4290           clr.l (a0)
+│     ┌───< 0x00614948      601a           bra.b 0x614964
+│     ││└─> 0x0061494a      206e0008       movea.l 0x8(a6), a0
+│     ││    0x0061494e      2248           movea.l a0, a1
+│     ││    0x00614950      2f09           move.l a1, -(a7)
+│     ││    0x00614952      4a9f           tst.l (a7)+
+│     ││┌─< 0x00614954      670e           beq.b 0x614964
+│     │││   0x00614956      594f           subq.w 0x4, a7
+│     │││   0x00614958      4267           clr.w -(a7)
+│     │││   0x0061495a      4eb900404218   jsr p_Read_Stack
+│     │││   0x00614960      544f           addq.w 0x2, a7
+│     │││   0x00614962      209f           move.l (a7)+, (a0)
+│     └└└─> 0x00614964      4cdf1f07       movem.l (a7)+, d0-d2/a0-a4
+│           0x00614968      4e5e           unlk a6
+└           0x0061496a      4e75           rts
+            ; CALL XREF from G5_BUFFER.save_command @ 0x440a60
+            ; CALL XREF from G8_CRASHLOG.g8_print_log @ 0x44c3ae
+            ; CALL XREF from G8_CRASHLOG.backlog_command @ 0x44d296
+            ; CALL XREF from MENUCOM.boxlist_command @ 0x489358
+            ; CALL XREF from BOOTCOM.write_boot_list @ 0x68dda8
+┌ 788: F20_PASCALIO.p_rewrit ();
+│           ; var int32_t var_1h @ a7+0x1
+│           ; var int32_t var_2h @ a7+0x2
+│           ; var int32_t var_3h @ a7+0x3
+│           0x0061496c      4e56fe20       link.w a6, 0xfe20
+│           0x00614970      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00614972      6206           bhi.b 0x61497a
+│       │   0x00614974      44fc0002       move.w 0x2, ccr
+│       │   0x00614978      4e76           trapv
+│       └─> 0x0061497a      defc0078       adda.w 0x78, a7
+│           0x0061497e      48e7fcf8       movem.l d0-d5/a0-a4, -(a7)
+│           0x00614982      45eefeee       lea.l -0x112(a6), a2
+│           0x00614986      47eeffee       lea.l -0x12(a6), a3
+│           0x0061498a      49eefe98       lea.l -0x168(a6), a4
+│           0x0061498e      223cffff0001   move.l 0xffff0001, d1
+│           0x00614994      740c           moveq 0xc, d2
+│           0x00614996      7610           moveq 0x10, d3
+│           0x00614998      780a           moveq 0xa, d4
+│           0x0061499a      7a14           moveq 0x14, d5
+│           0x0061499c      2d41fffc       move.l d1, -0x4(a6)
+│           0x006149a0      554f           subq.w 0x2, a7
+│           0x006149a2      4854           pea.l (a4)
+│           0x006149a4      4eb900404434   jsr fcn.00404434
+│           0x006149aa      584f           addq.w 0x4, a7
+│           0x006149ac      4a1f           tst.b (a7)+
+│       ┌─< 0x006149ae      670002a2       beq.w 0x614c52
+│       │   0x006149b2      4aae0018       tst.l 0x18(a6)
+│      ┌──< 0x006149b6      660a           bne.b 0x6149c2
+│      ││   0x006149b8      4aae0010       tst.l 0x10(a6)
+│     ┌───< 0x006149bc      6604           bne.b 0x6149c2
+│    ┌────< 0x006149be      60000282       bra.w 0x614c42
+│    │└└──> 0x006149c2      4aae0014       tst.l 0x14(a6)
+│    │ ┌──< 0x006149c6      6626           bne.b 0x6149ee
+│    │ ││   0x006149c8      2f2e0010       move.l 0x10(a6), -(a7)
+│    │ ││   0x006149cc      204a           movea.l a2, a0
+│    │ ││   0x006149ce      2f08           move.l a0, -(a7)
+│    │ ││   0x006149d0      5297           addq.l 0x1, (a7)
+│    │ ││   0x006149d2      2f2e000c       move.l 0xc(a6), -(a7)
+│    │ ││   0x006149d6      4eb9006d1c4e   jsr MEM_COPY
+│    │ ││   0x006149dc      dec2           adda.w d2, a7
+│    │ ││   0x006149de      202e000c       move.l 0xc(a6), d0
+│    │ ││   0x006149e2      0c80000000ff   cmpi.l 0xff, d0
+│    │┌───< 0x006149e8      6302           bls.b 0x6149ec
+│    ││││   0x006149ea      4e4f           trap 0xf
+│   ┌─└───> 0x006149ec      6024           bra.b 0x614a12
+│   ││ └──> 0x006149ee      2f2e0018       move.l 0x18(a6), -(a7)
+│   ││  │   0x006149f2      204a           movea.l a2, a0
+│   ││  │   0x006149f4      2f08           move.l a0, -(a7)
+│   ││  │   0x006149f6      5297           addq.l 0x1, (a7)
+│   ││  │   0x006149f8      2f2e0014       move.l 0x14(a6), -(a7)
+│   ││  │   0x006149fc      4eb9006d1c4e   jsr MEM_COPY
+│   ││  │   0x00614a02      dec2           adda.w d2, a7
+│   ││  │   0x00614a04      202e0014       move.l 0x14(a6), d0
+│   ││  │   0x00614a08      0c80000000ff   cmpi.l 0xff, d0
+│   ││ ┌──< 0x00614a0e      6302           bls.b 0x614a12
+│   ││ ││   0x00614a10      4e4f           trap 0xf
+│   └──└──> 0x00614a12      1480           move.b d0, (a2)
+│    │  │   0x00614a14      4a12           tst.b (a2)
+│    │ ┌──< 0x00614a16      6666           bne.b 0x614a7e
+│    │ ││   0x00614a18      206e0020       movea.l 0x20(a6), a0
+│    │ ││   0x00614a1c      514f           subq.w 0x8, a7
+│    │ ││   0x00614a1e      1e90           move.b (a0), (a7)
+│    │ ││   0x00614a20      1f6800010001   move.b 0x1(a0), 0x1(a7)
+│    │ ││   0x00614a26      1f6800020002   move.b 0x2(a0), 0x2(a7)
+│    │ ││   0x00614a2c      1f6800030003   move.b 0x3(a0), 0x3(a7)
+│    │ ││   0x00614a32      4eb900403e04   jsr p_heap_size
+│    │ ││   0x00614a38      584f           addq.w 0x4, a7
+│    │ ││   0x00614a3a      4a9f           tst.l (a7)+
+│    │┌───< 0x00614a3c      670a           beq.b 0x614a48
+│    ││││   0x00614a3e      4850           pea.l (a0)
+│    ││││   0x00614a40      4eb90040524a   jsr p_close
+│    ││││   0x00614a46      584f           addq.w 0x4, a7
+│    │└───> 0x00614a48      48780100       pea.l 0x100
+│    │ ││   0x00614a4c      4878ffff       pea.l 0xffff
+│    │ ││   0x00614a50      486efee6       pea.l -0x11a(a6)
+│    │ ││   0x00614a54      486efee2       pea.l -0x11e(a6)
+│    │ ││   0x00614a58      4eb900404678   jsr p_Chan_Create
+│    │ ││   0x00614a5e      dec3           adda.w d3, a7
+│    │ ││   0x00614a60      4850           pea.l (a0)
+│    │ ││   0x00614a62      2f2efee2       move.l -0x11e(a6), -(a7)
+│    │ ││   0x00614a66      4eb9004046e2   jsr p_chan_attach
+│    │ ││   0x00614a6c      584f           addq.w 0x4, a7
+│    │ ││   0x00614a6e      2eaefee6       move.l -0x11a(a6), (a7)
+│    │ ││   0x00614a72      4eb9004063e6   jsr p9_open_console
+│    │ ││   0x00614a78      584f           addq.w 0x4, a7
+│    │┌───< 0x00614a7a      600001c6       bra.w 0x614c42
+│    ││└──> 0x00614a7e      554f           subq.w 0x2, a7
+│    ││ │   0x00614a80      4852           pea.l (a2)
+│    ││ │   0x00614a82      4227           clr.b -(a7)
+│    ││ │   0x00614a84      4853           pea.l (a3)
+│    ││ │   0x00614a86      4eb9006123d2   jsr F18_DIRECTORY.f_lookup
+│    ││ │   0x00614a8c      dec4           adda.w d4, a7
+│    ││ │   0x00614a8e      4a1f           tst.b (a7)+
+│    ││┌──< 0x00614a90      6704           beq.b 0x614a96
+│   ┌─────< 0x00614a92      600000a2       bra.w 0x614b36
+│   │││└──> 0x00614a96      4eb900404188   jsr p_Unlink
+│   │││ │   0x00614a9c      554f           subq.w 0x2, a7
+│   │││ │   0x00614a9e      4852           pea.l (a2)
+│   │││ │   0x00614aa0      1f01           move.b d1, -(a7)
+│   │││ │   0x00614aa2      4853           pea.l (a3)
+│   │││ │   0x00614aa4      4eb9006123d2   jsr F18_DIRECTORY.f_lookup
+│   │││ │   0x00614aaa      dec4           adda.w d4, a7
+│   │││ │   0x00614aac      4a1f           tst.b (a7)+
+│   │││┌──< 0x00614aae      660a           bne.b 0x614aba
+│   │││││   0x00614ab0      4854           pea.l (a4)
+│   │││││   0x00614ab2      4eb900404468   jsr fcn.00404468
+│   │││││   0x00614ab8      584f           addq.w 0x4, a7
+│   │││└──> 0x00614aba      2d41feea       move.l d1, -0x116(a6)
+│   │││ │   0x00614abe      554f           subq.w 0x2, a7
+│   │││ │   0x00614ac0      2f2efff4       move.l -0xc(a6), -(a7)
+│   │││ │   0x00614ac4      2f2efff0       move.l -0x10(a6), -(a7)
+│   │││ │   0x00614ac8      3f13           move.w (a3), -(a7)
+│   │││ │   0x00614aca      3f3c0022       move.w 0x22, -(a7)
+│   │││ │   0x00614ace      9efc002e       suba.w 0x2e, a7
+│   │││ │   0x00614ad2      204f           movea.l a7, a0
+│   │││ │   0x00614ad4      224a           movea.l a2, a1
+│   │││ │   0x00614ad6      700a           moveq 0xa, d0
+│   │││┌──> 0x00614ad8      20d9           move.l (a1)+, (a0)+
+│   │││└──< 0x00614ada      51c8fffc       dbra d0, 0x614ad8
+│   │││ │   0x00614ade      30d9           move.w (a1)+, (a0)+
+│   │││ │   0x00614ae0      48780001       pea.l 0x1
+│   │││ │   0x00614ae4      4853           pea.l (a3)
+│   │││ │   0x00614ae6      486efeea       pea.l -0x116(a6)
+│   │││ │   0x00614aea      4eb900613618   jsr F18_DIRECTORY.f_file_create
+│   │││ │   0x00614af0      defc0046       adda.w 0x46, a7
+│   │││ │   0x00614af4      4a1f           tst.b (a7)+
+│   │││┌──< 0x00614af6      660a           bne.b 0x614b02
+│   │││││   0x00614af8      4854           pea.l (a4)
+│   │││││   0x00614afa      4eb900404468   jsr fcn.00404468
+│   │││││   0x00614b00      584f           addq.w 0x4, a7
+│   │││└──> 0x00614b02      554f           subq.w 0x2, a7
+│   │││ │   0x00614b04      2f2efff4       move.l -0xc(a6), -(a7)
+│   │││ │   0x00614b08      2f2efff0       move.l -0x10(a6), -(a7)
+│   │││ │   0x00614b0c      3f13           move.w (a3), -(a7)
+│   │││ │   0x00614b0e      2f2e001c       move.l 0x1c(a6), -(a7)
+│   │││ │   0x00614b12      4eb90060b682   jsr F12_SEQUENTIAL.f_make_sequenti
+│   │││ │   0x00614b18      defc000e       adda.w 0xe, a7
+│   │││ │   0x00614b1c      4a1f           tst.b (a7)+
+│   │││┌──< 0x00614b1e      660a           bne.b 0x614b2a
+│   │││││   0x00614b20      4854           pea.l (a4)
+│   │││││   0x00614b22      4eb900404468   jsr fcn.00404468
+│   │││││   0x00614b28      584f           addq.w 0x4, a7
+│   │││└──> 0x00614b2a      486efeea       pea.l -0x116(a6)
+│   │││ │   0x00614b2e      4eb90060500e   jsr F9_FILERDWRT.f_free_block
+│   │││ │   0x00614b34      584f           addq.w 0x4, a7
+│   └─────> 0x00614b36      2013           move.l (a3), d0
+│    ││ │   0x00614b38      0c80ffffffff   cmpi.l 0xffffffff, d0
+│    ││┌──< 0x00614b3e      6618           bne.b 0x614b58
+│    ││││   0x00614b40      487afb09       pea.l 0x61464b(pc)
+│    ││││   0x00614b44      4878002d       pea.l 0x2d
+│    ││││   0x00614b48      2f17           move.l (a7), -(a7)
+│    ││││   0x00614b4a      4eb9004047ea   jsr p_wts_o
+│    ││││   0x00614b50      dec2           adda.w d2, a7
+│    ││││   0x00614b52      4eb900404946   jsr p_wtln_o
+│    ││└──> 0x00614b58      554f           subq.w 0x2, a7
+│    ││ │   0x00614b5a      2f2efff4       move.l -0xc(a6), -(a7)
+│    ││ │   0x00614b5e      2f2efff0       move.l -0x10(a6), -(a7)
+│    ││ │   0x00614b62      3f13           move.w (a3), -(a7)
+│    ││ │   0x00614b64      1f01           move.b d1, -(a7)
+│    ││ │   0x00614b66      2f2e001c       move.l 0x1c(a6), -(a7)
+│    ││ │   0x00614b6a      486efff8       pea.l -0x8(a6)
+│    ││ │   0x00614b6e      4eb90060b73a   jsr F12_SEQUENTIAL.f_op_sequential
+│    ││ │   0x00614b74      dec5           adda.w d5, a7
+│    ││ │   0x00614b76      4a1f           tst.b (a7)+
+│    ││┌──< 0x00614b78      660a           bne.b 0x614b84
+│    ││││   0x00614b7a      4854           pea.l (a4)
+│    ││││   0x00614b7c      4eb900404468   jsr fcn.00404468
+│    ││││   0x00614b82      584f           addq.w 0x4, a7
+│    ││└──> 0x00614b84      554f           subq.w 0x2, a7
+│    ││ │   0x00614b86      2f2efff4       move.l -0xc(a6), -(a7)
+│    ││ │   0x00614b8a      2f2efff0       move.l -0x10(a6), -(a7)
+│    ││ │   0x00614b8e      3f13           move.w (a3), -(a7)
+│    ││ │   0x00614b90      1f01           move.b d1, -(a7)
+│    ││ │   0x00614b92      486efffc       pea.l -0x4(a6)
+│    ││ │   0x00614b96      4eb9006082de   jsr F10_FILELIST.f_get_header
+│    ││ │   0x00614b9c      dec3           adda.w d3, a7
+│    ││ │   0x00614b9e      4a1f           tst.b (a7)+
+│    ││┌──< 0x00614ba0      660a           bne.b 0x614bac
+│    ││││   0x00614ba2      4854           pea.l (a4)
+│    ││││   0x00614ba4      4eb900404468   jsr fcn.00404468
+│    ││││   0x00614baa      584f           addq.w 0x4, a7
+│    ││└──> 0x00614bac      554f           subq.w 0x2, a7
+│    ││ │   0x00614bae      3f05           move.w d5, -(a7)
+│    ││ │   0x00614bb0      2f2efffc       move.l -0x4(a6), -(a7)
+│    ││ │   0x00614bb4      4852           pea.l (a2)
+│    ││ │   0x00614bb6      4eb9005eedf6   jsr f_put_string
+│    ││ │   0x00614bbc      dec4           adda.w d4, a7
+│    ││ │   0x00614bbe      1017           move.b (a7), d0
+│    ││ │   0x00614bc0      4880           ext.w d0
+│    ││ │   0x00614bc2      41bc0001       chk.w 0x1, d0
+│    ││ │   0x00614bc6      1e80           move.b d0, (a7)
+│    ││ │   0x00614bc8      4eb90040452a   jsr p_Assert
+│    ││ │   0x00614bce      544f           addq.w 0x2, a7
+│    ││ │   0x00614bd0      206e0020       movea.l 0x20(a6), a0
+│    ││ │   0x00614bd4      514f           subq.w 0x8, a7
+│    ││ │   0x00614bd6      1e90           move.b (a0), (a7)
+│    ││ │   0x00614bd8      1f6800010001   move.b 0x1(a0), 0x1(a7)
+│    ││ │   0x00614bde      1f6800020002   move.b 0x2(a0), 0x2(a7)
+│    ││ │   0x00614be4      1f6800030003   move.b 0x3(a0), 0x3(a7)
+│    ││ │   0x00614bea      4eb900403e04   jsr p_heap_size
+│    ││ │   0x00614bf0      584f           addq.w 0x4, a7
+│    ││ │   0x00614bf2      4a9f           tst.l (a7)+
+│    ││┌──< 0x00614bf4      670a           beq.b 0x614c00
+│    ││││   0x00614bf6      4850           pea.l (a0)
+│    ││││   0x00614bf8      4eb90040524a   jsr p_close
+│    ││││   0x00614bfe      584f           addq.w 0x4, a7
+│    ││└──> 0x00614c00      48780500       pea.l 0x500
+│    ││ │   0x00614c04      4878ffff       pea.l 0xffff
+│    ││ │   0x00614c08      486efee6       pea.l -0x11a(a6)
+│    ││ │   0x00614c0c      486efee2       pea.l -0x11e(a6)
+│    ││ │   0x00614c10      4eb900404678   jsr p_Chan_Create
+│    ││ │   0x00614c16      dec3           adda.w d3, a7
+│    ││ │   0x00614c18      4850           pea.l (a0)
+│    ││ │   0x00614c1a      2f2efee2       move.l -0x11e(a6), -(a7)
+│    ││ │   0x00614c1e      4eb9004046e2   jsr p_chan_attach
+│    ││ │   0x00614c24      504f           addq.w 0x8, a7
+│    ││ │   0x00614c26      486d0010       pea.l 0x10(a5)
+│    ││ │   0x00614c2a      487afa4c       pea.l F20_PASCALIO.file_driver(pc)
+│    ││ │   0x00614c2e      2f2efee6       move.l -0x11a(a6), -(a7)
+│    ││ │   0x00614c32      2f2efff8       move.l -0x8(a6), -(a7)
+│    ││ │   0x00614c36      48780400       pea.l 0x400
+│    ││ │   0x00614c3a      4eb90040472c   jsr p_Chan_Driver
+│    ││ │   0x00614c40      dec5           adda.w d5, a7
+│    └└───> 0x00614c42      206e0008       movea.l 0x8(a6), a0
+│       │   0x00614c46      2248           movea.l a0, a1
+│       │   0x00614c48      2f09           move.l a1, -(a7)
+│       │   0x00614c4a      4a9f           tst.l (a7)+
+│      ┌──< 0x00614c4c      671e           beq.b 0x614c6c
+│      ││   0x00614c4e      4290           clr.l (a0)
+│     ┌───< 0x00614c50      601a           bra.b 0x614c6c
+│     ││└─> 0x00614c52      206e0008       movea.l 0x8(a6), a0
+│     ││    0x00614c56      2248           movea.l a0, a1
+│     ││    0x00614c58      2f09           move.l a1, -(a7)
+│     ││    0x00614c5a      4a9f           tst.l (a7)+
+│     ││┌─< 0x00614c5c      670e           beq.b 0x614c6c
+│     │││   0x00614c5e      594f           subq.w 0x4, a7
+│     │││   0x00614c60      4267           clr.w -(a7)
+│     │││   0x00614c62      4eb900404218   jsr p_Read_Stack
+│     │││   0x00614c68      544f           addq.w 0x2, a7
+│     │││   0x00614c6a      209f           move.l (a7)+, (a0)
+│     └└└─> 0x00614c6c      486efffc       pea.l -0x4(a6)
+│           0x00614c70      4eb90060500e   jsr F9_FILERDWRT.f_free_block
+│           0x00614c76      584f           addq.w 0x4, a7
+│           0x00614c78      4cdf1f3f       movem.l (a7)+, d0-d5/a0-a4
+│           0x00614c7c      4e5e           unlk a6

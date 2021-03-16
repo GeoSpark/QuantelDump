@@ -1,0 +1,707 @@
+            ;-- MENUINITCOM:
+            0x0048e51a      .byte 0x00
+            0x0048e51b      .byte 0x88
+            0x0048e51c      .byte 0x00
+            0x0048e51d      .byte 0x46
+            0x0048e51e      .byte 0x00
+            0x0048e51f      .byte 0xd2
+            0x0048e520      .byte 0x00
+            0x0048e521      .byte 0x51
+            0x0048e522      .byte 0x00
+            0x0048e523      .byte 0x80
+            0x0048e524      .byte 0x00
+            0x0048e525      .byte 0x80
+            0x0048e526      .byte 0x00
+            0x0048e527      .byte 0x3c
+            0x0048e528      .byte 0x00
+            0x0048e529      .byte 0x80
+            0x0048e52a      .byte 0x00
+            0x0048e52b      .byte 0x80
+            0x0048e52c      .byte 0x00
+            0x0048e52d      .byte 0x32
+            0x0048e52e      .byte 0x00
+            0x0048e52f      .byte 0x80
+            0x0048e530      .byte 0x00
+            0x0048e531      .byte 0x80
+            0x0048e532      .byte 0x00
+            0x0048e533      .byte 0x10
+            0x0048e534      .byte 0x00
+            0x0048e535      .byte 0x80
+            0x0048e536      .byte 0x00
+            0x0048e537      .byte 0x80
+            0x0048e538      .byte 0x00
+            0x0048e539      .byte 0xa7
+            0x0048e53a      .byte 0x00
+            0x0048e53b      .byte 0x72
+            0x0048e53c      .byte 0x00
+            0x0048e53d      .byte 0x9e
+            0x0048e53e      .byte 0x00
+            0x0048e53f      .byte 0xbf
+            0x0048e540      .byte 0x00
+            0x0048e541      .byte 0x80
+            0x0048e542      .byte 0x00
+            0x0048e543      .byte 0x80
+            0x0048e544      .byte 0x00
+            0x0048e545      .byte 0xa0
+            0x0048e546      .byte 0x00
+            0x0048e547      .byte 0x96
+            0x0048e548      .byte 0x00
+            0x0048e549      .byte 0x74
+            0x0048e54a      .byte 0x00
+            0x0048e54b      .byte 0x23
+            0x0048e54c      .byte 0x00
+            0x0048e54d      .byte 0xf0
+            0x0048e54e      .byte 0x00
+            0x0048e54f      .byte 0x6e
+            0x0048e550      .byte 0x00
+            0x0048e551      .byte 0x8c
+            0x0048e552      .byte 0x00
+            0x0048e553      .byte 0x6e
+            0x0048e554      .byte 0x00
+            0x0048e555      .byte 0x6e
+            0x0048e556      .byte 0x00
+            0x0048e557      .byte 0xc4
+            0x0048e558      .byte 0x00
+            0x0048e559      .byte 0x31
+            0x0048e55a      .byte 0x00
+            0x0048e55b      .byte 0x8c
+            0x0048e55c      .byte 0x00
+            0x0048e55d      .byte 0xa8
+            0x0048e55e      .byte 0x00
+            0x0048e55f      .byte 0x28
+            0x0048e560      .byte 0x00
+            0x0048e561      .byte 0xb1
+            0x0048e562      .byte 0x00
+            0x0048e563      .byte 0x00
+            0x0048e564      .byte 0x00
+            0x0048e565      .byte 0x80
+            0x0048e566      .byte 0x00
+            0x0048e567      .byte 0x80
+            0x0048e568      .byte 0x00
+            0x0048e569      .byte 0xff
+            0x0048e56a      .byte 0x00
+            0x0048e56b      .byte 0x80
+            0x0048e56c      .byte 0x00
+            0x0048e56d      .byte 0x80
+            0x0048e56e      .byte 0x00
+            0x0048e56f      .byte 0xcc
+            0x0048e570      .byte 0x00
+            0x0048e571      .byte 0x80
+            0x0048e572      .byte 0x00
+            0x0048e573      .byte 0x80
+            0x0048e574      .byte 0x00
+            0x0048e575      .byte 0xad
+            0x0048e576      .byte 0x00
+            0x0048e577      .byte 0x80
+            0x0048e578      .byte 0x00
+            0x0048e579      .byte 0x80
+            0x0048e57a      .byte 0x00
+            0x0048e57b      .byte 0xeb
+            0x0048e57c      .byte 0x00
+            0x0048e57d      .byte 0x80
+            0x0048e57e      .byte 0x00
+            0x0048e57f      .byte 0x80
+            0x0048e580      .byte 0x00
+            0x0048e581      .byte 0x10
+            0x0048e582      .byte 0x00
+            0x0048e583      .byte 0x80
+            0x0048e584      .byte 0x00
+            0x0048e585      .byte 0x80
+            0x0048e586      .byte 0x00
+            0x0048e587      .byte 0x80
+            0x0048e588      .byte 0x00
+            0x0048e589      .byte 0x80
+            0x0048e58a      .byte 0x00
+            0x0048e58b      .byte 0x80
+            0x0048e58c      .byte 0x00
+            0x0048e58d      .byte 0x51
+            0x0048e58e      .byte 0x00
+            0x0048e58f      .byte 0x5a
+            0x0048e590      .byte 0x00
+            0x0048e591      .byte 0xf0
+            0x0048e592      .byte 0x00
+            0x0048e593      .byte 0xd2
+            0x0048e594      .byte 0x00
+            0x0048e595      .byte 0x10
+            0x0048e596      .byte 0x00
+            0x0048e597      .byte 0x92
+            0x0048e598      .byte 0x00
+            0x0048e599      .byte 0x29
+            0x0048e59a      .byte 0x00
+            0x0048e59b      .byte 0xf0
+            0x0048e59c      .byte 0x00
+            0x0048e59d      .byte 0x6e
+            0x0048e59e      .byte 0x00
+            0x0048e59f      .byte 0x91
+            0x0048e5a0      .byte 0x00
+            0x0048e5a1      .byte 0x36
+            0x0048e5a2      .byte 0x00
+            0x0048e5a3      .byte 0x22
+            0x0048e5a4      .byte 0x00
+            0x0048e5a5      .byte 0xa2
+            0x0048e5a6      .byte 0x00
+            0x0048e5a7      .byte 0x2c
+            0x0048e5a8      .byte 0x00
+            0x0048e5a9      .byte 0x8e
+            0x0048e5aa      .byte 0x00
+            0x0048e5ab      .byte 0x83
+            0x0048e5ac      .byte 0x00
+            0x0048e5ad      .byte 0x9c
+            0x0048e5ae      .byte 0x00
+            0x0048e5af      .byte 0x2c
+            0x0048e5b0      .byte 0x00
+            0x0048e5b1      .byte 0x70
+            0x0048e5b2      .byte 0x00
+            0x0048e5b3      .byte 0x48
+            0x0048e5b4      .byte 0x00
+            0x0048e5b5      .byte 0x3a
+            0x0048e5b6      .byte 0x00
+            0x0048e5b7      .byte 0x54
+            0x0048e5b8      .byte 0x00
+            0x0048e5b9      .byte 0xb8
+            0x0048e5ba      .byte 0x00
+            0x0048e5bb      .byte 0xc6
+            0x0048e5bc      .byte 0x00
+            0x0048e5bd      .byte 0x41
+            0x0048e5be      .byte 0x00
+            0x0048e5bf      .byte 0x64
+            0x0048e5c0      .byte 0x00
+            0x0048e5c1      .byte 0xd4
+            0x0048e5c2      .byte 0x00
+            0x0048e5c3      .byte 0x23
+            0x0048e5c4      .byte 0x00
+            0x0048e5c5      .byte 0xd4
+            0x0048e5c6      .byte 0x00
+            0x0048e5c7      .byte 0x72
+            0x0048e5c8      .byte 0x00
+            0x0048e5c9      .byte 0xd2
+            0x0048e5ca      .byte 0x00
+            0x0048e5cb      .byte 0x10
+            0x0048e5cc      .byte 0x00
+            0x0048e5cd      .byte 0x92
+            0x0048e5ce      .byte 0x00
+            0x0048e5cf      .byte 0xaa
+            0x0048e5d0      .byte 0x00
+            0x0048e5d1      .byte 0xa6
+            0x0048e5d2      .byte 0x00
+            0x0048e5d3      .byte 0x10
+            0x0048e5d4      .byte 0x00
+            0x0048e5d5      .byte 0x91
+            0x0048e5d6      .byte 0x00
+            0x0048e5d7      .byte 0x36
+            0x0048e5d8      .byte 0x00
+            0x0048e5d9      .byte 0x22
+            0x0048e5da      .byte 0x00
+            0x0048e5db      .byte 0x6a
+            0x0048e5dc      .byte 0x00
+            0x0048e5dd      .byte 0xca
+            0x0048e5de      .byte 0x00
+            0x0048e5df      .byte 0xde
+            0x0048e5e0      .byte 0x00
+            0x0048e5e1      .byte 0x51
+            0x0048e5e2      .byte 0x00
+            0x0048e5e3      .byte 0x5a
+            0x0048e5e4      .byte 0x00
+            0x0048e5e5      .byte 0xf0
+            0x0048e5e6      .byte 0x00
+            0x0048e5e7      .byte 0x29
+            0x0048e5e8      .byte 0x00
+            0x0048e5e9      .byte 0xf0
+            0x0048e5ea      .byte 0x00
+            0x0048e5eb      .byte 0x6e
+            0x0048e5ec      .byte 0x00
+            0x0048e5ed      .byte 0x00
+            0x0048e5ee      .byte 0x00
+            0x0048e5ef      .byte 0x00
+            0x0048e5f0      .byte 0x00
+            0x0048e5f1      .byte 0x00
+            0x0048e5f2      .byte 0x00
+            0x0048e5f3      .byte 0x00
+            0x0048e5f4      .byte 0x00
+            0x0048e5f5      .byte 0x00
+            0x0048e5f6      .byte 0x00
+            0x0048e5f7      .byte 0x00
+            0x0048e5f8      .byte 0x00
+            0x0048e5f9      .byte 0x00
+            0x0048e5fa      .byte 0x00
+            0x0048e5fb      .byte 0x00
+            0x0048e5fc      .byte 0x00
+            0x0048e5fd      .byte 0x00
+            0x0048e5fe      .byte 0x00
+            0x0048e5ff      .byte 0x00
+            0x0048e600      .byte 0x00
+            0x0048e601      .byte 0x00
+            0x0048e602      .byte 0x00
+            0x0048e603      .byte 0x00
+            0x0048e604      .byte 0x00
+            0x0048e605      .byte 0x00
+            0x0048e606      .byte 0x00
+            0x0048e607      .byte 0x00
+            0x0048e608      .byte 0x00
+            0x0048e609      .byte 0x00
+            0x0048e60a      .byte 0x00
+            0x0048e60b      .byte 0x00
+            0x0048e60c      .byte 0x02
+            0x0048e60d     .string "**" ; len=2
+            0x0048e60f      .byte 0x21
+            0x0048e610     .string "Playback seat menu initialisation" ; len=33
+            0x0048e631      .byte 0x00
+            0x0048e632      .byte 0xe4
+            0x0048e633      .byte 0x4f
+            0x0048e634      .byte 0x10
+            0x0048e635     .string "H4Machine gender" ; len=16
+            0x0048e645      .byte 0x20
+            0x0048e646     .string "= Library, but no options config" ; len=32
+            0x0048e666      .byte 0x75
+            0x0048e667     .string "red.$Please enter password(s) and restart" ; len=41
+            0x0048e690      .byte 0x17
+            0x0048e691     .string "Unknown machine gender " ; len=23
+            0x0048e6a8      .byte 0x3e
+            0x0048e6a9     .string "            **************************************************" ; len=62
+            0x0048e6e7      .byte 0x31
+            0x0048e6e8     .string "                              HENRY TEST SOFTWARE" ; len=49
+            0x0048e719      .byte 0x3e
+            0x0048e71a     .string "            **************************************************" ; len=62
+            0x0048e758      .byte 0x0a
+            0x0048e759      .byte 0x48
+            0x0048e75a      .byte 0x65
+            0x0048e75b      .byte 0x6e
+            0x0048e75c      .byte 0x72
+            0x0048e75d      .byte 0x79
+            0x0048e75e      .byte 0x20
+            0x0048e75f      .byte 0x54
+            0x0048e760      .byte 0x65
+            0x0048e761      .byte 0x73
+            0x0048e762      .byte 0x74
+            0x0048e763      .byte 0x69
+            ; CALL XREF from K05_LOADSAVE.report @ 0x5a77c0
+            ; CALL XREF from K7_HANDLERS.report @ 0x5b5632
+            ; CALL XREF from K91_LIBOPS.report @ 0x650778
+┌ 158: MENUINITCOM.report_countdow ();
+│           0x0048e764      4e56fee2       link.w a6, 0xfee2
+│           0x0048e768      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0048e76a      6206           bhi.b 0x48e772
+│       │   0x0048e76c      44fc0002       move.w 0x2, ccr
+│       │   0x0048e770      4e76           trapv
+│       └─> 0x0048e772      defc011e       adda.w 0x11e, a7
+│           0x0048e776      48e7c0e0       movem.l d0-d1/a0-a2, -(a7)
+│           0x0048e77a      45f900474af8   lea.l CONFIG.cfg_option, a2
+│           0x0048e780      323c0100       move.w 0x100, d1
+│           0x0048e784      554f           subq.w 0x2, a7
+│           0x0048e786      4eb9004755c2   jsr CONFIG.cfg_gender
+│           0x0048e78c      101f           move.b (a7)+, d0
+│           0x0048e78e      0c000003       cmpi.b 0x3, d0
+│       ┌─< 0x0048e792      672a           beq.b 0x48e7be
+│       │   0x0048e794      554f           subq.w 0x2, a7
+│       │   0x0048e796      4878000f       pea.l 0xf
+│       │   0x0048e79a      4e92           jsr (a2)                    ; fcn.00000009+0x2
+│       │   0x0048e79c      584f           addq.w 0x4, a7
+│       │   0x0048e79e      4a1f           tst.b (a7)+
+│      ┌──< 0x0048e7a0      6740           beq.b 0x48e7e2
+│      ││   0x0048e7a2      554f           subq.w 0x2, a7
+│      ││   0x0048e7a4      4878000e       pea.l 0xe
+│      ││   0x0048e7a8      4e92           jsr (a2)                    ; fcn.00000009+0x2
+│      ││   0x0048e7aa      584f           addq.w 0x4, a7
+│      ││   0x0048e7ac      4a1f           tst.b (a7)+
+│     ┌───< 0x0048e7ae      6732           beq.b 0x48e7e2
+│     │││   0x0048e7b0      554f           subq.w 0x2, a7
+│     │││   0x0048e7b2      48780002       pea.l 0x2
+│     │││   0x0048e7b6      4e92           jsr (a2)                    ; fcn.00000009+0x2
+│     │││   0x0048e7b8      584f           addq.w 0x4, a7
+│     │││   0x0048e7ba      4a1f           tst.b (a7)+
+│    ┌────< 0x0048e7bc      6624           bne.b 0x48e7e2
+│    │││└─> 0x0048e7be      9ec1           suba.w d1, a7
+│    │││    0x0048e7c0      204f           movea.l a7, a0
+│    │││    0x0048e7c2      43ee0008       lea.l 0x8(a6), a1
+│    │││    0x0048e7c6      703f           moveq 0x3f, d0
+│    │││┌─> 0x0048e7c8      20d9           move.l (a1)+, (a0)+
+│    │││└─< 0x0048e7ca      51c8fffc       dbra d0, 0x48e7c8
+│    │││    0x0048e7ce      2f3afd88       move.l 0x48e558(pc), -(a7)
+│    │││    0x0048e7d2      3f3afd82       move.w 0x48e556(pc), -(a7)
+│    │││    0x0048e7d6      4eb9007a45e6   jsr lib_show_messag
+│    │││    0x0048e7dc      defc0106       adda.w 0x106, a7
+│    │││┌─< 0x0048e7e0      6018           bra.b 0x48e7fa
+│    └└└──> 0x0048e7e2      9ec1           suba.w d1, a7
+│       │   0x0048e7e4      204f           movea.l a7, a0
+│       │   0x0048e7e6      43ee0008       lea.l 0x8(a6), a1
+│       │   0x0048e7ea      703f           moveq 0x3f, d0
+│      ┌──> 0x0048e7ec      20d9           move.l (a1)+, (a0)+
+│      └──< 0x0048e7ee      51c8fffc       dbra d0, 0x48e7ec
+│       │   0x0048e7f2      4eb900757d68   jsr MENULIBFNDCOM.pb_show_message
+│       │   0x0048e7f8      dec1           adda.w d1, a7
+│       └─> 0x0048e7fa      4cdf0703       movem.l (a7)+, d0-d1/a0-a2
+│           0x0048e7fe      4e5e           unlk a6
+└           0x0048e800      4e75           rts
+            ; CALL XREF from MENUCOM.menu_init @ 0x489d0a
+┌ 1264: MENUINITCOM.menu_def_boxes ();
+│           0x0048e802      4e56fd94       link.w a6, 0xfd94
+│           0x0048e806      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0048e808      6206           bhi.b 0x48e810
+│       │   0x0048e80a      44fc0002       move.w 0x2, ccr
+│       │   0x0048e80e      4e76           trapv
+│       └─> 0x0048e810      defc0264       adda.w 0x264, a7
+│           0x0048e814      48e7fff8       movem.l d0-d7/a0-a4, -(a7)
+│           0x0048e818      45f9004047ea   lea.l p_wts_o, a2
+│           0x0048e81e      47f900404946   lea.l p_wtln_o, a3
+│           0x0048e824      49f9004755c2   lea.l CONFIG.cfg_gender, a4
+│           0x0048e82a      7401           moveq 0x1, d2
+│           0x0048e82c      7602           moveq 0x2, d3
+│           0x0048e82e      7a03           moveq 0x3, d5
+│           0x0048e830      7c0c           moveq 0xc, d6
+│           0x0048e832      7e05           moveq 0x5, d7
+│           0x0048e834      554f           subq.w 0x2, a7
+│           0x0048e836      4eb900475a5a   jsr CONFIG.cfg_dougal
+│           0x0048e83c      4a1f           tst.b (a7)+
+│       ┌─< 0x0048e83e      670c           beq.b 0x48e84c
+│       │   0x0048e840      4eb9005b79e8   jsr HENRY_DUMMY.incmds_init
+│       │   0x0048e846      4eb9005b79fe   jsr HENRY_DUMMY.outcmds_init
+│       └─> 0x0048e84c      554f           subq.w 0x2, a7
+│           0x0048e84e      1ebafdbd       move.b 0x48e60d(pc), (a7)
+│           0x0048e852      1f7afdba0001   move.b 0x48e60e(pc), 0x1(a7)
+│           0x0048e858      3f02           move.w d2, -(a7)
+│           0x0048e85a      4267           clr.w -(a7)
+│           0x0048e85c      4267           clr.w -(a7)
+│           0x0048e85e      4267           clr.w -(a7)
+│           0x0048e860      4267           clr.w -(a7)
+│           0x0048e862      1f03           move.b d3, -(a7)
+│           0x0048e864      4227           clr.b -(a7)
+│           0x0048e866      3f3c00e5       move.w 0xe5, -(a7)
+│           0x0048e86a      4267           clr.w -(a7)
+│           0x0048e86c      2f3afd7e       move.l 0x48e5ec(pc), -(a7)
+│           0x0048e870      486f0016       pea.l 0x16(a7)
+│           0x0048e874      48780001       pea.l 0x1
+│           0x0048e878      48780002       pea.l 0x2
+│           0x0048e87c      486d0010       pea.l 0x10(a5)
+│           0x0048e880      487900481fee   pea.l MENUCOM.hit_nothing
+│           0x0048e886      4eb900487686   jsr MENUCOM.def_box
+│           0x0048e88c      defc002a       adda.w 0x2a, a7
+│           0x0048e890      4eb900490486   jsr MENURIGHTCOM.men_right_hand_
+│           0x0048e896      3d57fff8       move.w (a7), -0x8(a6)
+│           0x0048e89a      4eb900475a5a   jsr CONFIG.cfg_dougal
+│           0x0048e8a0      4a1f           tst.b (a7)+
+│       ┌─< 0x0048e8a2      6720           beq.b 0x48e8c4
+│      ┌──> 0x0048e8a4      554f           subq.w 0x2, a7
+│      ╎│   0x0048e8a6      4eb9005b7ab0   jsr HENRY_DUMMY.dougal_init_com
+│      ╎│   0x0048e8ac      4a1f           tst.b (a7)+
+│     ┌───< 0x0048e8ae      660e           bne.b 0x48e8be
+│     │╎│   0x0048e8b0      48780002       pea.l 0x2
+│     │╎│   0x0048e8b4      4eb900402e42   jsr p_Delay
+│     │╎│   0x0048e8ba      584f           addq.w 0x4, a7
+│     │└──< 0x0048e8bc      60e6           bra.b 0x48e8a4
+│     └───> 0x0048e8be      4eb9005b78c2   jsr men_edit_boxes_
+│       └─> 0x0048e8c4      4267           clr.w -(a7)
+│           0x0048e8c6      4eb9004dd4e2   jsr MENUFULLCOM.men_full_page_b
+│           0x0048e8cc      544f           addq.w 0x2, a7
+│           0x0048e8ce      4eb900638b14   jsr PALETCOM.menu_pal_init
+│           0x0048e8d4      554f           subq.w 0x2, a7
+│           0x0048e8d6      4e94           jsr (a4)                    ; fcn.0000000d
+│           0x0048e8d8      101f           move.b (a7)+, d0
+│           0x0048e8da      0c00001c       cmpi.b 0x1c, d0
+│       ┌─< 0x0048e8de      6600008c       bne.w 0x48e96c
+│       │   0x0048e8e2      487afd2c       pea.l 0x48e610(pc)
+│       │   0x0048e8e6      48780021       pea.l 0x21
+│       │   0x0048e8ea      2f17           move.l (a7), -(a7)
+│       │   0x0048e8ec      4e92           jsr (a2)                    ; fcn.00000009+0x2
+│       │   0x0048e8ee      dec6           adda.w d6, a7
+│       │   0x0048e8f0      4e93           jsr (a3)                    ; fcn.0000000c
+│      ┌──> 0x0048e8f2      3f3c0008       move.w 0x8, -(a7)
+│      ╎│   0x0048e8f6      4eb9004b1030   jsr MENUPAINTCOM.men_painting_bo
+│      ╎│   0x0048e8fc      3e83           move.w d3, (a7)
+│      ╎│   0x0048e8fe      4eb90073799c   jsr MENUGRAPHICCOM.men_graphics_bo
+│      ╎│   0x0048e904      3e85           move.w d5, (a7)
+│      ╎│   0x0048e906      4eb90074616a   jsr MENUEFFECTCOM.men_effects_box
+│      ╎│   0x0048e90c      3ebc0004       move.w 0x4, (a7)
+│      ╎│   0x0048e910      4eb9004b545e   jsr MENUPASTECOM.men_pasteup_box
+│      ╎│   0x0048e916      3e87           move.w d7, (a7)
+│      ╎│   0x0048e918      4eb9004be3b8   jsr MENUANIMCOM.men_animation_b
+│      ╎│   0x0048e91e      3ebc0006       move.w 0x6, (a7)
+│      ╎│   0x0048e922      4eb9007573c0   jsr MENULIBCOM.men_library_box
+│      ╎│   0x0048e928      3e83           move.w d3, (a7)
+│      ╎│   0x0048e92a      4227           clr.b -(a7)
+│      ╎│   0x0048e92c      4eb900483972   jsr MENUCOM.set_enable_box
+│      ╎│   0x0048e932      544f           addq.w 0x2, a7
+│      ╎│   0x0048e934      3e85           move.w d5, (a7)
+│      ╎│   0x0048e936      4227           clr.b -(a7)
+│      ╎│   0x0048e938      4eb900483972   jsr MENUCOM.set_enable_box
+│      ╎│   0x0048e93e      544f           addq.w 0x2, a7
+│      ╎│   0x0048e940      3ebc0004       move.w 0x4, (a7)
+│      ╎│   0x0048e944      4227           clr.b -(a7)
+│      ╎│   0x0048e946      4eb900483972   jsr MENUCOM.set_enable_box
+│      ╎│   0x0048e94c      544f           addq.w 0x2, a7
+│      ╎│   0x0048e94e      3e87           move.w d7, (a7)
+│      ╎│   0x0048e950      4227           clr.b -(a7)
+│      ╎│   0x0048e952      4eb900483972   jsr MENUCOM.set_enable_box
+│      ╎│   0x0048e958      544f           addq.w 0x2, a7
+│      ╎│   0x0048e95a      3ebc0006       move.w 0x6, (a7)
+│     ┌───> 0x0048e95e      4227           clr.b -(a7)
+│     ╎╎│   0x0048e960      4eb900483972   jsr MENUCOM.set_enable_box
+│     ╎╎│   0x0048e966      584f           addq.w 0x4, a7
+│    ┌────< 0x0048e968      600001da       bra.w 0x48eb44
+│    │╎╎└─> 0x0048e96c      554f           subq.w 0x2, a7
+│    │╎╎    0x0048e96e      4e94           jsr (a4)                    ; fcn.0000000d
+│    │╎╎    0x0048e970      101f           move.b (a7)+, d0
+│    │╎╎    0x0048e972      4880           ext.w d0
+│    │╎╎    0x0048e974      41fafcbc       lea.l 0x48e632(pc), a0
+│    │╎╎    0x0048e978      3200           move.w d0, d1
+│    │╎╎    0x0048e97a      e649           lsr.w 0x3, d1
+│    │╎╎    0x0048e97c      01301000       btst.l d0, (a0, d1.w)
+│    │╎╎┌─< 0x0048e980      660c           bne.b 0x48e98e
+│    │╎╎│   0x0048e982      554f           subq.w 0x2, a7
+│    │╎╎│   0x0048e984      4eb900475a5a   jsr CONFIG.cfg_dougal
+│    │╎╎│   0x0048e98a      4a1f           tst.b (a7)+
+│   ┌─────< 0x0048e98c      673c           beq.b 0x48e9ca
+│   ││╎╎└─> 0x0048e98e      3f3c0008       move.w 0x8, -(a7)
+│   ││╎╎    0x0048e992      4eb9004b1030   jsr MENUPAINTCOM.men_painting_bo
+│   ││╎╎    0x0048e998      3e83           move.w d3, (a7)
+│   ││╎╎    0x0048e99a      4eb90073799c   jsr MENUGRAPHICCOM.men_graphics_bo
+│   ││╎╎    0x0048e9a0      3e85           move.w d5, (a7)
+│   ││╎╎    0x0048e9a2      4eb90074616a   jsr MENUEFFECTCOM.men_effects_box
+│   ││╎╎    0x0048e9a8      3ebc0004       move.w 0x4, (a7)
+│   ││╎╎    0x0048e9ac      4eb9004b545e   jsr MENUPASTECOM.men_pasteup_box
+│   ││╎╎    0x0048e9b2      3e87           move.w d7, (a7)
+│   ││╎╎    0x0048e9b4      4eb9004be3b8   jsr MENUANIMCOM.men_animation_b
+│   ││╎╎    0x0048e9ba      3ebc0006       move.w 0x6, (a7)
+│   ││╎╎    0x0048e9be      4eb9007573c0   jsr MENULIBCOM.men_library_box
+│   ││╎╎    0x0048e9c4      3ebc00d3       move.w 0xd3, (a7)
+│   ││└───< 0x0048e9c8      6094           bra.b 0x48e95e
+│   └─────> 0x0048e9ca      554f           subq.w 0x2, a7
+│    │ ╎    0x0048e9cc      4e94           jsr (a4)                    ; fcn.0000000d
+│    │ ╎    0x0048e9ce      101f           move.b (a7)+, d0
+│    │ ╎    0x0048e9d0      b005           cmp.b d5, d0
+│    │ ╎┌─< 0x0048e9d2      66000140       bne.w 0x48eb14
+│    │ ╎│   0x0048e9d6      554f           subq.w 0x2, a7
+│    │ ╎│   0x0048e9d8      4878000e       pea.l 0xe
+│    │ ╎│   0x0048e9dc      4eb900474af8   jsr CONFIG.cfg_option
+│    │ ╎│   0x0048e9e2      584f           addq.w 0x4, a7
+│    │ ╎│   0x0048e9e4      4a1f           tst.b (a7)+
+│    │┌───< 0x0048e9e6      6650           bne.b 0x48ea38
+│    ││╎│   0x0048e9e8      554f           subq.w 0x2, a7
+│    ││╎│   0x0048e9ea      48780010       pea.l 0x10
+│    ││╎│   0x0048e9ee      4eb900474af8   jsr CONFIG.cfg_option
+│    ││╎│   0x0048e9f4      584f           addq.w 0x4, a7
+│    ││╎│   0x0048e9f6      4a1f           tst.b (a7)+
+│   ┌─────< 0x0048e9f8      663e           bne.b 0x48ea38
+│   │││╎│   0x0048e9fa      554f           subq.w 0x2, a7
+│   │││╎│   0x0048e9fc      4878000c       pea.l 0xc
+│   │││╎│   0x0048ea00      4eb900474af8   jsr CONFIG.cfg_option
+│   │││╎│   0x0048ea06      584f           addq.w 0x4, a7
+│   │││╎│   0x0048ea08      4a1f           tst.b (a7)+
+│  ┌──────< 0x0048ea0a      662c           bne.b 0x48ea38
+│  ││││╎│   0x0048ea0c      487afc29       pea.l 0x48e637(pc)
+│  ││││╎│   0x0048ea10      48780034       pea.l 0x34
+│  ││││╎│   0x0048ea14      2f17           move.l (a7), -(a7)
+│  ││││╎│   0x0048ea16      4e92           jsr (a2)                    ; fcn.00000009+0x2
+│  ││││╎│   0x0048ea18      dec6           adda.w d6, a7
+│  ││││╎│   0x0048ea1a      4e93           jsr (a3)                    ; fcn.0000000c
+│  ││││╎│   0x0048ea1c      487afc4e       pea.l 0x48e66c(pc)
+│  ││││╎│   0x0048ea20      48780024       pea.l 0x24
+│  ││││╎│   0x0048ea24      2f17           move.l (a7), -(a7)
+│  ││││╎│   0x0048ea26      4e92           jsr (a2)                    ; fcn.00000009+0x2
+│  ││││╎│   0x0048ea28      dec6           adda.w d6, a7
+│  ││││╎│   0x0048ea2a      4e93           jsr (a3)                    ; fcn.0000000c
+│  ││││╎│   0x0048ea2c      3f02           move.w d2, -(a7)
+│  ││││╎│   0x0048ea2e      4eb900401db6   jsr p_Set_Priority
+│  ││││╎│   0x0048ea34      544f           addq.w 0x2, a7
+│  ───────> 0x0048ea36      60fe           bra.b 0x48ea36
+│  └└─└───> 0x0048ea38      554f           subq.w 0x2, a7
+│    │ ╎│   0x0048ea3a      4878000e       pea.l 0xe
+│    │ ╎│   0x0048ea3e      4eb900474af8   jsr CONFIG.cfg_option
+│    │ ╎│   0x0048ea44      584f           addq.w 0x4, a7
+│    │ ╎│   0x0048ea46      4a1f           tst.b (a7)+
+│    │┌───< 0x0048ea48      670000a2       beq.w 0x48eaec
+│    ││╎│   0x0048ea4c      3f3c0008       move.w 0x8, -(a7)
+│    ││╎│   0x0048ea50      4eb9004b1030   jsr MENUPAINTCOM.men_painting_bo
+│    ││╎│   0x0048ea56      3e83           move.w d3, (a7)
+│    ││╎│   0x0048ea58      4eb90073799c   jsr MENUGRAPHICCOM.men_graphics_bo
+│    ││╎│   0x0048ea5e      3e85           move.w d5, (a7)
+│    ││╎│   0x0048ea60      4eb90074616a   jsr MENUEFFECTCOM.men_effects_box
+│    ││╎│   0x0048ea66      3ebc0004       move.w 0x4, (a7)
+│    ││╎│   0x0048ea6a      4eb9004b545e   jsr MENUPASTECOM.men_pasteup_box
+│    ││╎│   0x0048ea70      3e87           move.w d7, (a7)
+│    ││╎│   0x0048ea72      4eb9004be3b8   jsr MENUANIMCOM.men_animation_b
+│    ││╎│   0x0048ea78      3ebc0006       move.w 0x6, (a7)
+│    ││╎│   0x0048ea7c      4eb9007573c0   jsr MENULIBCOM.men_library_box
+│    ││╎│   0x0048ea82      3e83           move.w d3, (a7)
+│    ││╎│   0x0048ea84      4eb900482304   jsr MENUCOM.hide_box
+│    ││╎│   0x0048ea8a      3ebc0004       move.w 0x4, (a7)
+│    ││╎│   0x0048ea8e      4eb900482304   jsr MENUCOM.hide_box
+│    ││╎│   0x0048ea94      3ebc0006       move.w 0x6, (a7)
+│    ││╎│   0x0048ea98      4eb900482304   jsr MENUCOM.hide_box
+│    ││╎│   0x0048ea9e      3ebc001d       move.w 0x1d, (a7)
+│    ││╎│   0x0048eaa2      4eb900482304   jsr MENUCOM.hide_box
+│    ││╎│   0x0048eaa8      3ebc007a       move.w 0x7a, (a7)
+│    ││╎│   0x0048eaac      4eb900482304   jsr MENUCOM.hide_box
+│    ││╎│   0x0048eab2      48780010       pea.l 0x10
+│    ││╎│   0x0048eab6      4eb900474af8   jsr CONFIG.cfg_option
+│    ││╎│   0x0048eabc      584f           addq.w 0x4, a7
+│    ││╎│   0x0048eabe      4a1f           tst.b (a7)+
+│   ┌─────< 0x0048eac0      660c           bne.b 0x48eace
+│   │││╎│   0x0048eac2      3f3c0082       move.w 0x82, -(a7)
+│   │││╎│   0x0048eac6      4eb900482304   jsr MENUCOM.hide_box
+│   │││╎│   0x0048eacc      544f           addq.w 0x2, a7
+│   └─────> 0x0048eace      3f3c0049       move.w 0x49, -(a7)
+│    ││╎│   0x0048ead2      7864           moveq 0x64, d4
+│    ││╎│   0x0048ead4      4eb900408686   jsr fcn.00408686
+│    ││╎│   0x0048eada      2f04           move.l d4, -(a7)
+│    ││╎│   0x0048eadc      4227           clr.b -(a7)
+│    ││╎│   0x0048eade      4227           clr.b -(a7)
+│    ││╎│   0x0048eae0      4eb90048da84   jsr MENU2COM.set_numeric_val
+│    ││╎│   0x0048eae6      defc000a       adda.w 0xa, a7
+│   ┌─────< 0x0048eaea      6058           bra.b 0x48eb44
+│   ││└───> 0x0048eaec      554f           subq.w 0x2, a7
+│   ││ ╎│   0x0048eaee      4878000c       pea.l 0xc
+│   ││ ╎│   0x0048eaf2      4eb900474af8   jsr CONFIG.cfg_option
+│   ││ ╎│   0x0048eaf8      584f           addq.w 0x4, a7
+│   ││ ╎│   0x0048eafa      4a1f           tst.b (a7)+
+│   ││┌───< 0x0048eafc      6612           bne.b 0x48eb10
+│   │││╎│   0x0048eafe      554f           subq.w 0x2, a7
+│   │││╎│   0x0048eb00      48780010       pea.l 0x10
+│   │││╎│   0x0048eb04      4eb900474af8   jsr CONFIG.cfg_option
+│   │││╎│   0x0048eb0a      584f           addq.w 0x4, a7
+│   │││╎│   0x0048eb0c      4a1f           tst.b (a7)+
+│  ┌──────< 0x0048eb0e      6734           beq.b 0x48eb44
+│  │││└└──< 0x0048eb10      6000fde0       bra.w 0x48e8f2
+│  │││  └─> 0x0048eb14      487afb7b       pea.l 0x48e691(pc)
+│  │││      0x0048eb18      48780017       pea.l 0x17
+│  │││      0x0048eb1c      2f17           move.l (a7), -(a7)
+│  │││      0x0048eb1e      4e92           jsr (a2)                    ; fcn.00000009+0x2
+│  │││      0x0048eb20      5c4f           addq.w 0x6, a7
+│  │││      0x0048eb22      4e94           jsr (a4)                    ; fcn.0000000d
+│  │││      0x0048eb24      101f           move.b (a7)+, d0
+│  │││      0x0048eb26      4880           ext.w d0
+│  │││      0x0048eb28      48c0           ext.l d0
+│  │││      0x0048eb2a      2e80           move.l d0, (a7)
+│  │││      0x0048eb2c      48780000       pea.l 0x0
+│  │││      0x0048eb30      4eb9004070e4   jsr p_wti_o
+│  │││      0x0048eb36      504f           addq.w 0x8, a7
+│  │││      0x0048eb38      4e93           jsr (a3)                    ; fcn.0000000c
+│  │││      0x0048eb3a      4227           clr.b -(a7)
+│  │││      0x0048eb3c      4eb90040452a   jsr p_Assert
+│  │││      0x0048eb42      544f           addq.w 0x2, a7
+│  └└└────> 0x0048eb44      4eb900506870   jsr MENUOWNERCOM.owner_setups_in
+│           0x0048eb4a      3f02           move.w d2, -(a7)
+│           0x0048eb4c      4eb9004ee894   jsr LISTCOM.list_init
+│           0x0048eb52      4eb900475a5a   jsr CONFIG.cfg_dougal
+│           0x0048eb58      4a1f           tst.b (a7)+
+│       ┌─< 0x0048eb5a      6700016c       beq.w 0x48ecc8
+│       │   0x0048eb5e      3f3c00e6       move.w 0xe6, -(a7)
+│       │   0x0048eb62      3f3c0008       move.w 0x8, -(a7)
+│       │   0x0048eb66      4eb900486f94   jsr MENUCOM.add_slave
+│       │   0x0048eb6c      544f           addq.w 0x2, a7
+│       │   0x0048eb6e      3ebc00e6       move.w 0xe6, (a7)
+│       │   0x0048eb72      3f2efff8       move.w -0x8(a6), -(a7)
+│       │   0x0048eb76      4eb900486f94   jsr MENUCOM.add_slave
+│       │   0x0048eb7c      584f           addq.w 0x4, a7
+│       │   0x0048eb7e      4eb9005b791a   jsr men_view_boxes_
+│       │   0x0048eb84      3f3c00ea       move.w 0xea, -(a7)
+│       │   0x0048eb88      4eb9005b7904   jsr men_desk_boxes_
+│       │   0x0048eb8e      3ebc00e7       move.w 0xe7, (a7)
+│       │   0x0048eb92      4eb9005b7972   jsr men_ext_boxes_i
+│       │   0x0048eb98      3ebc00e8       move.w 0xe8, (a7)
+│       │   0x0048eb9c      4eb9005b78d8   jsr men_blen_boxes_
+│       │   0x0048eba2      3ebc00e9       move.w 0xe9, (a7)
+│       │   0x0048eba6      4eb9005b78ee   jsr men_alf_boxes_i
+│       │   0x0048ebac      544f           addq.w 0x2, a7
+│       │   0x0048ebae      4eb9005b7930   jsr men_mix_boxes_i
+│       │   0x0048ebb4      554f           subq.w 0x2, a7
+│       │   0x0048ebb6      4eb9006d8490   jsr MAVIS_TEST.henry_test
+│       │   0x0048ebbc      4a1f           tst.b (a7)+
+│      ┌──< 0x0048ebbe      670000da       beq.w 0x48ec9a
+│      ││   0x0048ebc2      487afae5       pea.l 0x48e6a9(pc)
+│      ││   0x0048ebc6      4878003e       pea.l 0x3e
+│      ││   0x0048ebca      2f17           move.l (a7), -(a7)
+│      ││   0x0048ebcc      4e92           jsr (a2)                    ; fcn.00000009+0x2
+│      ││   0x0048ebce      dec6           adda.w d6, a7
+│      ││   0x0048ebd0      4e93           jsr (a3)                    ; fcn.0000000c
+│      ││   0x0048ebd2      487afb14       pea.l 0x48e6e8(pc)
+│      ││   0x0048ebd6      48780031       pea.l 0x31
+│      ││   0x0048ebda      2f17           move.l (a7), -(a7)
+│      ││   0x0048ebdc      4e92           jsr (a2)                    ; fcn.00000009+0x2
+│      ││   0x0048ebde      dec6           adda.w d6, a7
+│      ││   0x0048ebe0      4e93           jsr (a3)                    ; fcn.0000000c
+│      ││   0x0048ebe2      487afb36       pea.l 0x48e71a(pc)
+│      ││   0x0048ebe6      4878003e       pea.l 0x3e
+│      ││   0x0048ebea      2f17           move.l (a7), -(a7)
+│      ││   0x0048ebec      4e92           jsr (a2)                    ; fcn.00000009+0x2
+│      ││   0x0048ebee      dec6           adda.w d6, a7
+│      ││   0x0048ebf0      4e93           jsr (a3)                    ; fcn.0000000c
+│      ││   0x0048ebf2      9efc000a       suba.w 0xa, a7
+│      ││   0x0048ebf6      204f           movea.l a7, a0
+│      ││   0x0048ebf8      43fafb5f       lea.l 0x48e759(pc), a1
+│      ││   0x0048ebfc      7009           moveq 0x9, d0
+│     ┌───> 0x0048ebfe      10d9           move.b (a1)+, (a0)+
+│     └───< 0x0048ec00      51c8fffc       dbra d0, 0x48ebfe
+│      ││   0x0048ec04      486efffc       pea.l -0x4(a6)
+│      ││   0x0048ec08      3f3c000a       move.w 0xa, -(a7)
+│      ││   0x0048ec0c      3f03           move.w d3, -(a7)
+│      ││   0x0048ec0e      3f07           move.w d7, -(a7)
+│      ││   0x0048ec10      3f02           move.w d2, -(a7)
+│      ││   0x0048ec12      4227           clr.b -(a7)
+│      ││   0x0048ec14      1f02           move.b d2, -(a7)
+│      ││   0x0048ec16      3f3c00e5       move.w 0xe5, -(a7)
+│      ││   0x0048ec1a      4267           clr.w -(a7)
+│      ││   0x0048ec1c      2f3af9ce       move.l 0x48e5ec(pc), -(a7)
+│      ││   0x0048ec20      486f0018       pea.l 0x18(a7)
+│      ││   0x0048ec24      48780001       pea.l 0x1
+│      ││   0x0048ec28      4878000a       pea.l 0xa
+│      ││   0x0048ec2c      486d0010       pea.l 0x10(a5)
+│      ││   0x0048ec30      487900481fee   pea.l MENUCOM.hit_nothing
+│      ││   0x0048ec36      4eb900487aa6   jsr MENUCOM.new_box
+│      ││   0x0048ec3c      9efc00ca       suba.w 0xca, a7
+│      ││   0x0048ec40      4eb9006d2226   jsr MAVIS_PAINT.get_version_num
+│      ││   0x0048ec46      9efc0100       suba.w 0x100, a7
+│      ││   0x0048ec4a      204f           movea.l a7, a0
+│      ││   0x0048ec4c      43ef0100       lea.l 0x100(a7), a1
+│      ││   0x0048ec50      703f           moveq 0x3f, d0
+│     ┌───> 0x0048ec52      20d9           move.l (a1)+, (a0)+
+│     └───< 0x0048ec54      51c8fffc       dbra d0, 0x48ec52
+│      ││   0x0048ec58      486efffe       pea.l -0x2(a6)
+│      ││   0x0048ec5c      3f3c000a       move.w 0xa, -(a7)
+│      ││   0x0048ec60      3f05           move.w d5, -(a7)
+│      ││   0x0048ec62      3f07           move.w d7, -(a7)
+│      ││   0x0048ec64      3f02           move.w d2, -(a7)
+│      ││   0x0048ec66      4227           clr.b -(a7)
+│      ││   0x0048ec68      1f02           move.b d2, -(a7)
+│      ││   0x0048ec6a      3f3c00e5       move.w 0xe5, -(a7)
+│      ││   0x0048ec6e      4267           clr.w -(a7)
+│      ││   0x0048ec70      2f3af97a       move.l 0x48e5ec(pc), -(a7)
+│      ││   0x0048ec74      486f0018       pea.l 0x18(a7)
+│      ││   0x0048ec78      48780000       pea.l 0x0
+│      ││   0x0048ec7c      487800ff       pea.l 0xff
+│      ││   0x0048ec80      486d0010       pea.l 0x10(a5)
+│      ││   0x0048ec84      487900481fee   pea.l MENUCOM.hit_nothing
+│      ││   0x0048ec8a      4eb900487aa6   jsr MENUCOM.new_box
+│      ││   0x0048ec90      defc022c       adda.w 0x22c, a7
+│     ┌───> 0x0048ec94      3f3c00e7       move.w 0xe7, -(a7)
+│    ┌────< 0x0048ec98      6048           bra.b 0x48ece2
+│    │╎└──> 0x0048ec9a      554f           subq.w 0x2, a7
+│    │╎ │   0x0048ec9c      4e94           jsr (a4)                    ; fcn.0000000d
+│    │╎ │   0x0048ec9e      101f           move.b (a7)+, d0
+│    │╎ │   0x0048eca0      0c00001c       cmpi.b 0x1c, d0
+│    │╎┌──< 0x0048eca4      6612           bne.b 0x48ecb8
+│   ┌─────> 0x0048eca6      3f02           move.w d2, -(a7)
+│   ╎│╎││   0x0048eca8      1f02           move.b d2, -(a7)
+│   ╎│╎││   0x0048ecaa      4eb900483776   jsr MENUCOM.swtch_box
+│   ╎│╎││   0x0048ecb0      544f           addq.w 0x2, a7
+│   ╎│╎││   0x0048ecb2      3ebc0007       move.w 0x7, (a7)
+│  ┌──────< 0x0048ecb6      602a           bra.b 0x48ece2
+│  │╎│╎└──> 0x0048ecb8      3f3c00e6       move.w 0xe6, -(a7)
+│  │╎│╎ │   0x0048ecbc      1f02           move.b d2, -(a7)
+│  │╎│╎ │   0x0048ecbe      4eb900483776   jsr MENUCOM.swtch_box
+│  │╎│╎ │   0x0048ecc4      584f           addq.w 0x4, a7
+│  │╎│└───< 0x0048ecc6      60cc           bra.b 0x48ec94
+│  │╎│  └─> 0x0048ecc8      554f           subq.w 0x2, a7
+│  │╎│      0x0048ecca      4e94           jsr (a4)                    ; fcn.0000000d
+│  │╎│      0x0048eccc      101f           move.b (a7)+, d0
+│  │╎│      0x0048ecce      b005           cmp.b d5, d0
+│  │╎│  ┌─< 0x0048ecd0      6602           bne.b 0x48ecd4
+│  │└─────< 0x0048ecd2      60d2           bra.b 0x48eca6
+│  │ │  └─> 0x0048ecd4      3f02           move.w d2, -(a7)
+│  │ │      0x0048ecd6      1f02           move.b d2, -(a7)
+│  │ │      0x0048ecd8      4eb900483776   jsr MENUCOM.swtch_box
+│  │ │      0x0048ecde      544f           addq.w 0x2, a7
+│  │ │      0x0048ece0      3e83           move.w d3, (a7)
+│  └─└────> 0x0048ece2      4eb9004836a4   jsr MENUCOM.push_box
+│           0x0048ece8      544f           addq.w 0x2, a7
+│           0x0048ecea      4cdf1fff       movem.l (a7)+, d0-d7/a0-a4
+│           0x0048ecee      4e5e           unlk a6

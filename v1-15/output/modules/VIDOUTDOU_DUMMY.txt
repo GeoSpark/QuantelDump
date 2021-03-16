@@ -1,0 +1,50 @@
+            ; CALL XREFS from K91_LIBOPS @ +0x3ce0, +0x3d06
+            ;-- VIDOUTDOU_DUMMY:
+┌ 34: VIDOUTDOU_DUMMY.save_clip ();
+│           ; var int32_t var_158h @ a6-0x158
+│           ; var int32_t var_153h @ a6-0x153
+│           0x00707a46      4e56fffc       link.w a6, 0xfffc
+│           0x00707a4a      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707a4c      6206           bhi.b 0x707a54
+│       │   0x00707a4e      44fc0002       move.w 0x2, ccr
+│       │   0x00707a52      4e76           trapv
+│       └─> 0x00707a54      defc0004       adda.w 0x4, a7
+│           0x00707a58      1d7afead0060   move.b 0x707907(pc), 0x60(a6)
+│           0x00707a5e      1d7afea80061   move.b 0x707908(pc), 0x61(a6)
+│           0x00707a64      4e5e           unlk a6
+└           0x00707a66      4e75           rts
+┌ 28: VIDOUTDOU_DUMMY.fetch_clip ();
+│           ; var int32_t var_172h @ a6-0x172
+│           0x00707a68      4e56fffc       link.w a6, 0xfffc
+│           0x00707a6c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707a6e      6206           bhi.b 0x707a76
+│       │   0x00707a70      44fc0002       move.w 0x2, ccr
+│       │   0x00707a74      4e76           trapv
+│       └─> 0x00707a76      defc0004       adda.w 0x4, a7
+│           0x00707a7a      3d7afe8e000e   move.w 0x70790a(pc), 0xe(a6)
+│           0x00707a80      4e5e           unlk a6
+└           0x00707a82      4e75           rts
+            ; CALL XREF from K91_LIBOPS.k91_delete @ 0x64f53c
+┌ 34: VIDOUTDOU_DUMMY.remove_clip ();
+│           ; var int32_t var_190h @ a6-0x190
+│           ; var int32_t var_18bh @ a6-0x18b
+│           0x00707a84      4e56fffc       link.w a6, 0xfffc
+│           0x00707a88      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707a8a      6206           bhi.b 0x707a92
+│       │   0x00707a8c      44fc0002       move.w 0x2, ccr
+│       │   0x00707a90      4e76           trapv
+│       └─> 0x00707a92      defc0004       adda.w 0x4, a7
+│           0x00707a96      1d7afe75000e   move.b 0x70790d(pc), 0xe(a6)
+│           0x00707a9c      1d7afe70000f   move.b 0x70790e(pc), 0xf(a6)
+│           0x00707aa2      4e5e           unlk a6
+└           0x00707aa4      4e75           rts
+┌ 28: VIDOUTDOU_DUMMY.transfer_clip ();
+│           ; var int32_t var_1aah @ a6-0x1aa
+│           0x00707aa6      4e56fffc       link.w a6, 0xfffc
+│           0x00707aaa      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707aac      6206           bhi.b 0x707ab4
+│       │   0x00707aae      44fc0002       move.w 0x2, ccr
+│       │   0x00707ab2      4e76           trapv
+│       └─> 0x00707ab4      defc0004       adda.w 0x4, a7
+│           0x00707ab8      3d7afe560064   move.w 0x707910(pc), 0x64(a6)
+│           0x00707abe      4e5e           unlk a6

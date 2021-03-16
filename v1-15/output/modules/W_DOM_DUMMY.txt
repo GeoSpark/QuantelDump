@@ -1,0 +1,668 @@
+            ;-- W_DOM_DUMMY:
+            0x007057f0      .byte 0x02
+            0x007057f1      .byte 0xc7
+            0x007057f2      .byte 0x01
+            0x007057f3      .byte 0xe5
+            0x007057f4      .byte 0x03
+            0x007057f5      .byte 0x00
+            0x007057f6      .byte 0x01
+            0x007057f7      .byte 0xe4
+            0x007057f8      .byte 0x02
+            0x007057f9      .byte 0xbd
+            0x007057fa      .byte 0x02
+            0x007057fb      .byte 0x3f
+            0x007057fc      .byte 0x05
+            0x007057fd      .byte 0x78
+            0x007057fe      .byte 0x04
+            0x007057ff      .byte 0x10
+            0x00705800      .byte 0x05
+            0x00705801      .byte 0xa0
+            0x00705802      .byte 0x04
+            0x00705803      .byte 0x80
+            0x00705804      .byte 0x05
+            0x00705805      .byte 0xa0
+            0x00705806      .byte 0x03
+            0x00705807      .byte 0xd0
+            0x00705808      .byte 0x05
+            0x00705809      .byte 0x60
+            0x0070580a      .byte 0x04
+            0x0070580b      .byte 0x10
+            0x0070580c      .byte 0x05
+            0x0070580d      .byte 0xa0
+            0x0070580e      .byte 0x04
+            0x0070580f      .byte 0x00
+            0x00705810      .byte 0x3f
+            0x00705811      .byte 0xaf
+            0x00705812      .byte 0x1a
+            0x00705813      .byte 0xa0
+            0x00705814      .byte 0x3f
+            0x00705815      .byte 0xea
+            0x00705816      .byte 0x1c
+            0x00705817      .byte 0xac
+            0x00705818      .byte 0x3f
+            0x00705819      .byte 0xaa
+            0x0070581a      .byte 0xc0
+            0x0070581b      .byte 0x83
+            0x0070581c      .byte 0x3f
+            0x0070581d      .byte 0xc0
+            0x0070581e      .byte 0x00
+            0x0070581f      .byte 0x00
+            0x00705820      .byte 0x40
+            0x00705821      .byte 0x2a
+            0x00705822      .byte 0xc0
+            0x00705823      .byte 0x83
+            0x00705824      .byte 0x00
+            0x00705825      .byte 0x00
+            0x00705826      .byte 0x00
+            0x00705827      .byte 0x00
+            0x00705828      .byte 0x10
+            0x00705829      .byte 0x00
+            0x0070582a      .byte 0x40
+            0x0070582b      .byte 0x00
+            0x0070582c      .byte 0x00
+            0x0070582d      .byte 0x00
+            0x0070582e      .byte 0x00
+            0x0070582f      .byte 0x00
+            0x00705830      .byte 0x0b
+            0x00705831      .byte 0x40
+            0x00705832      .byte 0x0b
+            0x00705833      .byte 0x60
+            0x00705834      .byte 0x00
+            0x00705835      .byte 0x00
+            0x00705836      .byte 0x00
+            0x00705837      .byte 0x00
+            0x00705838      .byte 0x05
+            0x00705839      .byte 0x78
+            0x0070583a      .byte 0x04
+            0x0070583b      .byte 0x90
+            0x0070583c      .byte 0x00
+            0x0070583d      .byte 0x00
+            0x0070583e      .byte 0x00
+            0x0070583f      .byte 0x00
+            0x00705840      .byte 0x05
+            0x00705841      .byte 0xa0
+            0x00705842      .byte 0x05
+            0x00705843      .byte 0x00
+            0x00705844      .byte 0x00
+            0x00705845      .byte 0x00
+            0x00705846      .byte 0x00
+            0x00705847      .byte 0x00
+            0x00705848      .byte 0x05
+            0x00705849      .byte 0xa0
+            0x0070584a      .byte 0x04
+            0x0070584b      .byte 0x50
+            0x0070584c      .byte 0x00
+            0x0070584d      .byte 0x00
+            0x0070584e      .byte 0x00
+            0x0070584f      .byte 0x00
+            0x00705850      .byte 0x05
+            0x00705851      .byte 0x60
+            0x00705852      .byte 0x04
+            0x00705853      .byte 0x90
+            0x00705854      .byte 0x00
+            0x00705855      .byte 0x00
+            0x00705856      .byte 0x00
+            0x00705857      .byte 0x00
+            0x00705858      .byte 0x05
+            0x00705859      .byte 0xa0
+            0x0070585a      .byte 0x04
+            0x0070585b      .byte 0x80
+            0x0070585c      .byte 0x00
+            0x0070585d      .byte 0xc0
+            0x0070585e      .byte 0x00
+            0x0070585f      .byte 0x04
+            0x00705860      .byte 0x01
+            0x00705861      .byte 0xb0
+            0x00705862      .byte 0x00
+            0x00705863      .byte 0x77
+            0x00705864      .byte 0x00
+            0x00705865      .byte 0xd0
+            0x00705866      .byte 0x00
+            0x00705867      .byte 0x04
+            0x00705868      .byte 0x01
+            0x00705869      .byte 0xa0
+            0x0070586a      .byte 0x00
+            0x0070586b      .byte 0x77
+            0x0070586c      .byte 0x00
+            0x0070586d      .byte 0xd0
+            0x0070586e      .byte 0x00
+            0x0070586f      .byte 0x04
+            0x00705870      .byte 0x01
+            0x00705871      .byte 0xa0
+            0x00705872      .byte 0x00
+            0x00705873      .byte 0x77
+            0x00705874      .byte 0x00
+            0x00705875      .byte 0xb0
+            0x00705876      .byte 0x00
+            0x00705877      .byte 0x04
+            0x00705878      .byte 0x01
+            0x00705879      .byte 0xc0
+            0x0070587a      .byte 0x00
+            0x0070587b      .byte 0x77
+            0x0070587c      .byte 0x01
+            0x0070587d      .byte 0x80
+            0x0070587e      .byte 0x00
+            0x0070587f      .byte 0x04
+            0x00705880      .byte 0x03
+            0x00705881      .byte 0x60
+            0x00705882      .byte 0x00
+            0x00705883      .byte 0x77
+            0x00705884      .byte 0x00
+            0x00705885      .byte 0x00
+            0x00705886      .byte 0x00
+            0x00705887      .byte 0x00
+            0x00705888      .byte 0x05
+            0x00705889      .byte 0x78
+            0x0070588a      .byte 0x04
+            0x0070588b      .byte 0x10
+            0x0070588c      .byte 0x00
+            0x0070588d      .byte 0x00
+            0x0070588e      .byte 0x00
+            0x0070588f      .byte 0x00
+            0x00705890      .byte 0x05
+            0x00705891      .byte 0xa0
+            0x00705892      .byte 0x04
+            0x00705893      .byte 0x80
+            0x00705894      .byte 0x00
+            0x00705895      .byte 0x00
+            0x00705896      .byte 0x00
+            0x00705897      .byte 0x00
+            0x00705898      .byte 0x05
+            0x00705899      .byte 0xa0
+            0x0070589a      .byte 0x03
+            0x0070589b      .byte 0xd0
+            0x0070589c      .byte 0x00
+            0x0070589d      .byte 0x00
+            0x0070589e      .byte 0x00
+            0x0070589f      .byte 0x00
+            0x007058a0      .byte 0x05
+            0x007058a1      .byte 0x60
+            0x007058a2      .byte 0x04
+            0x007058a3      .byte 0x10
+            0x007058a4      .byte 0x00
+            0x007058a5      .byte 0x00
+            0x007058a6      .byte 0x00
+            0x007058a7      .byte 0x00
+            0x007058a8      .byte 0x05
+            0x007058a9      .byte 0xa0
+            0x007058aa      .byte 0x04
+            0x007058ab      .byte 0x00
+            0x007058ac      .byte 0x00
+            0x007058ad      .byte 0x78
+            0x007058ae      .byte 0x02
+            0x007058af      .byte 0xd8
+            0x007058b0      .byte 0x01
+            0x007058b1      .byte 0xf8
+            0x007058b2      .byte 0x0b
+            0x007058b3      .byte 0x60
+            0x007058b4      .byte 0x01
+            0x007058b5      .byte 0xf8
+            0x007058b6      .byte 0x05
+            0x007058b7      .byte 0xb0
+            0x007058b8      .byte 0x07
+            0x007058b9      .byte 0xf8
+            0x007058ba      .byte 0x0b
+            0x007058bb      .byte 0x60
+            0x007058bc      .byte 0x00
+            0x007058bd      .byte 0x00
+            0x007058be      .byte 0x00
+            0x007058bf      .byte 0x00
+            0x007058c0      .byte 0x00
+            0x007058c1      .byte 0x00
+            0x007058c2      .byte 0xb0
+            0x007058c3      .byte 0x33
+            0x007058c4      .byte 0x00
+            0x007058c5      .byte 0x00
+            0x007058c6      .byte 0x50
+            0x007058c7      .byte 0x74
+            0x007058c8      .byte 0x00
+            0x007058c9      .byte 0x00
+            0x007058ca      .byte 0x20
+            0x007058cb      .byte 0x8a
+            0x007058cc      .byte 0x00
+            0x007058cd      .byte 0x00
+            0x007058ce      .byte 0xc1
+            0x007058cf      .byte 0x77
+            0x007058d0      .byte 0x00
+            0x007058d1      .byte 0x00
+            0x007058d2      .byte 0x02
+            0x007058d3      .byte 0x8c
+            0x007058d4      .byte 0x00
+            0x007058d5      .byte 0x00
+            0x007058d6      .byte 0x55
+            0x007058d7      .byte 0x2e
+            0x007058d8      .byte 0x00
+            0x007058d9      .byte 0x00
+            0x007058da      .byte 0x2a
+            0x007058db      .byte 0x3f
+            0x007058dc      .byte 0x00
+            0x007058dd      .byte 0x00
+            0x007058de      .byte 0xd4
+            0x007058df      .byte 0x1d
+            0x007058e0      .byte 0x00
+            0x007058e1      .byte 0x00
+            0x007058e2      .byte 0x28
+            0x007058e3      .byte 0x58
+            0x007058e4      .byte 0x00
+            0x007058e5      .byte 0x00
+            0x007058e6      .byte 0x40
+            0x007058e7      .byte 0xc2
+            0x007058e8      .byte 0x00
+            0x007058e9      .byte 0x00
+            0x007058ea      .byte 0xb1
+            0x007058eb      .byte 0xd4
+            0x007058ec      .byte 0x00
+            0x007058ed      .byte 0x00
+            0x007058ee      .byte 0x53
+            0x007058ef      .byte 0xf9
+            0x007058f0      .byte 0x00
+            0x007058f1      .byte 0x00
+            0x007058f2      .byte 0x97
+            0x007058f3      .byte 0xa2
+            0x007058f4      .byte 0x00
+            0x007058f5      .byte 0x00
+            0x007058f6      .byte 0x1f
+            0x007058f7      .byte 0x15
+            0x007058f8      .byte 0x00
+            0x007058f9      .byte 0x00
+            0x007058fa      .byte 0xde
+            0x007058fb      .byte 0x2f
+            0x007058fc      .byte 0x00
+            0x007058fd      .byte 0x00
+            0x007058fe      .byte 0x8c
+            0x007058ff      .byte 0x0f
+            0x00705900      .byte 0x00
+            0x00705901      .byte 0x00
+            0x00705902      .byte 0xf8
+            0x00705903      .byte 0x1a
+            0x00705904      .byte 0x00
+            0x00705905      .byte 0x00
+            0x00705906      .byte 0x9b
+            0x00705907      .byte 0x5c
+            0x00705908      .byte 0x00
+            0x00705909      .byte 0x00
+            0x0070590a      .byte 0x86
+            0x0070590b      .byte 0x8a
+            0x0070590c      .byte 0x00
+            0x0070590d      .byte 0x00
+            0x0070590e      .byte 0x4f
+            0x0070590f      .byte 0x2d
+            0x00705910      .byte 0x00
+            0x00705911      .byte 0x00
+            0x00705912      .byte 0x25
+            0x00705913      .byte 0xa1
+            0x00705914      .byte 0x00
+            0x00705915      .byte 0x00
+            0x00705916      .byte 0xf0
+            0x00705917      .byte 0xb9
+            0x00705918      .byte 0x00
+            0x00705919      .byte 0x00
+            0x0070591a      .byte 0x5a
+            0x0070591b      .byte 0x89
+            0x0070591c      .byte 0x00
+            0x0070591d      .byte 0x00
+            0x0070591e      .byte 0x28
+            0x0070591f      .byte 0x93
+            0x00705920      .byte 0x00
+            0x00705921      .byte 0x00
+            0x00705922      .byte 0xea
+            0x00705923      .byte 0xdd
+            0x00705924      .byte 0x00
+            0x00705925      .byte 0x00
+            0x00705926      .byte 0x6e
+            0x00705927      .byte 0x40
+            0x00705928      .byte 0x00
+            0x00705929      .byte 0x00
+            0x0070592a      .byte 0x67
+            0x0070592b      .byte 0x7a
+            0x0070592c      .byte 0x00
+            0x0070592d      .byte 0x00
+            0x0070592e      .byte 0x7e
+            0x0070592f      .byte 0x42
+            0x00705930      .byte 0x00
+            0x00705931      .byte 0x00
+            0x00705932      .byte 0x5a
+            0x00705933      .byte 0xa9
+            0x00705934      .byte 0x00
+            0x00705935      .byte 0x00
+            0x00705936      .byte 0x13
+            0x00705937      .byte 0x7e
+            0x00705938      .byte 0x00
+            0x00705939      .byte 0x00
+            0x0070593a      .byte 0x80
+            0x0070593b      .byte 0xd1
+            0x0070593c      .byte 0x00
+            0x0070593d      .byte 0x00
+            0x0070593e      .byte 0xa7
+            0x0070593f      .byte 0x8e
+            0x00705940      .byte 0x00
+            0x00705941      .byte 0x00
+            0x00705942      .byte 0xcf
+            0x00705943      .byte 0x4a
+            0x00705944      .byte 0x00
+            0x00705945      .byte 0x00
+            0x00705946      .byte 0x38
+            0x00705947      .byte 0xb8
+            0x00705948      .byte 0x00
+            0x00705949      .byte 0x00
+            0x0070594a      .byte 0xf1
+            0x0070594b      .byte 0x26
+            0x0070594c      .byte 0x00
+            0x0070594d      .byte 0x00
+            0x0070594e      .byte 0x00
+            0x0070594f      .byte 0x00
+            0x00705950      .byte 0x00
+            0x00705951      .byte 0x00
+            0x00705952      .byte 0x00
+            0x00705953      .byte 0xff
+            0x00705954      .byte 0x00
+            0x00705955      .byte 0x00
+            0x00705956      .byte 0x00
+            0x00705957      .byte 0x01
+            0x00705958      .byte 0x00
+            0x00705959      .byte 0x00
+            0x0070595a      .byte 0x00
+            0x0070595b      .byte 0x02
+            0x0070595c      .byte 0x00
+            0x0070595d      .byte 0x00
+            0x0070595e      .byte 0x00
+            0x0070595f      .byte 0x04
+            0x00705960      .byte 0x00
+            0x00705961      .byte 0x00
+            0x00705962      .byte 0x00
+            0x00705963      .byte 0x08
+            0x00705964      .byte 0x00
+            0x00705965      .byte 0x00
+            0x00705966      .byte 0x00
+            0x00705967      .byte 0x10
+            0x00705968      .byte 0x00
+            0x00705969      .byte 0x00
+            0x0070596a      .byte 0x00
+            0x0070596b      .byte 0x20
+            0x0070596c      .byte 0x00
+            0x0070596d      .byte 0x00
+            0x0070596e      .byte 0x00
+            0x0070596f      .byte 0x40
+            0x00705970      .byte 0x00
+            0x00705971      .byte 0x00
+            0x00705972      .byte 0x00
+            0x00705973      .byte 0x80
+            0x00705974      .byte 0x00
+            0x00705975      .byte 0x00
+            0x00705976      .byte 0x00
+            0x00705977      .byte 0x00
+            0x00705978      .byte 0x00
+            0x00705979      .byte 0x00
+            0x0070597a      .byte 0x00
+            0x0070597b      .byte 0x00
+            0x0070597c      .byte 0x00
+            0x0070597d      .byte 0x00
+            0x0070597e      .byte 0x00
+            0x0070597f      .byte 0x00
+            0x00705980      .byte 0x00
+            0x00705981      .byte 0x00
+            0x00705982      .byte 0x00
+            0x00705983      .byte 0x00
+            0x00705984      .byte 0x00
+            0x00705985      .byte 0x00
+            0x00705986      .byte 0x00
+            0x00705987      .byte 0x00
+            0x00705988      .byte 0x00
+            0x00705989      .byte 0x00
+            0x0070598a      .byte 0x00
+            0x0070598b      .byte 0x00
+            0x0070598c      .byte 0x00
+            0x0070598d      .byte 0x00
+            0x0070598e      .byte 0x00
+            0x0070598f      .byte 0x00
+            0x00705990      .byte 0x00
+            0x00705991      .byte 0x00
+            0x00705992      .byte 0x00
+            0x00705993      .byte 0x00
+            0x00705994      .byte 0x00
+            0x00705995      .byte 0x00
+            0x00705996      .byte 0x00
+            0x00705997      .byte 0x00
+            0x00705998      .byte 0x00
+            0x00705999      .byte 0x00
+            0x0070599a      .byte 0x00
+            0x0070599b      .byte 0xff
+            0x0070599c      .byte 0x00
+            0x0070599d      .byte 0x00
+            0x0070599e      .byte 0x00
+            0x0070599f      .byte 0x00
+            0x007059a0      .byte 0x00
+            0x007059a1      .byte 0x00
+            0x007059a2      .byte 0x00
+            0x007059a3      .byte 0x00
+            0x007059a4      .byte 0x00
+            0x007059a5      .byte 0x00
+            0x007059a6      .byte 0x00
+            0x007059a7      .byte 0x00
+            0x007059a8      .byte 0x00
+            0x007059a9      .byte 0x00
+            0x007059aa      .byte 0x00
+            0x007059ab      .byte 0x00
+            0x007059ac      .byte 0x00
+            0x007059ad      .byte 0x00
+            0x007059ae      .byte 0x00
+            0x007059af      .byte 0x00
+            0x007059b0      .byte 0x00
+            0x007059b1      .byte 0x00
+            0x007059b2      .byte 0x00
+            0x007059b3      .byte 0x00
+            0x007059b4      .byte 0x00
+            0x007059b5      .byte 0x00
+            0x007059b6      .byte 0x00
+            0x007059b7      .byte 0x00
+            0x007059b8      .byte 0x00
+            0x007059b9      .byte 0x00
+            0x007059ba      .byte 0x00
+            0x007059bb      .byte 0x00
+            0x007059bc      .byte 0x00
+            0x007059bd      .byte 0x00
+            0x007059be      .byte 0x00
+            0x007059bf      .byte 0x01
+            0x007059c0      .byte 0x00
+            0x007059c1      .byte 0x00
+            0x007059c2      .byte 0x00
+            0x007059c3      .byte 0x02
+            0x007059c4      .byte 0x00
+            0x007059c5      .byte 0x00
+            0x007059c6      .byte 0x00
+            0x007059c7      .byte 0x04
+            0x007059c8      .byte 0x00
+            0x007059c9      .byte 0x00
+            0x007059ca      .byte 0x00
+            0x007059cb      .byte 0x08
+            0x007059cc      .byte 0x00
+            0x007059cd      .byte 0x00
+            0x007059ce      .byte 0x00
+            0x007059cf      .byte 0x10
+            0x007059d0      .byte 0x00
+            0x007059d1      .byte 0x00
+            0x007059d2      .byte 0x00
+            0x007059d3      .byte 0x20
+            0x007059d4      .byte 0x00
+            0x007059d5      .byte 0x00
+            0x007059d6      .byte 0x00
+            0x007059d7      .byte 0x40
+            0x007059d8      .byte 0x00
+            0x007059d9      .byte 0x00
+            0x007059da      .byte 0x00
+            0x007059db      .byte 0x80
+┌ 28: W_DOM_DUMMY.dim_program_fle ();
+│           0x007059dc      4e56fffc       link.w a6, 0xfffc
+│           0x007059e0      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007059e2      6206           bhi.b 0x7059ea
+│       │   0x007059e4      44fc0002       move.w 0x2, ccr
+│       │   0x007059e8      4e76           trapv
+│       └─> 0x007059ea      defc0004       adda.w 0x4, a7
+│           0x007059ee      1d7c00010008   move.b 0x1, 0x8(a6)
+│           0x007059f4      4e5e           unlk a6
+└           0x007059f6      4e75           rts
+            ; CALL XREF from W9_SYS_DIAG.w9_init_dom @ 0x6ed52e
+┌ 22: W_DOM_DUMMY.w61_init ();
+│           0x007059f8      4e56fffc       link.w a6, 0xfffc
+│           0x007059fc      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007059fe      6206           bhi.b 0x705a06
+│       │   0x00705a00      44fc0002       move.w 0x2, ccr
+│       │   0x00705a04      4e76           trapv
+│       └─> 0x00705a06      defc0004       adda.w 0x4, a7
+│           0x00705a0a      4e5e           unlk a6
+└           0x00705a0c      4e75           rts
+            ; CALL XREF from W9_SYS_DIAG.w9_init_dom @ 0x6ed528
+┌ 22: W_DOM_DUMMY.w65_reset_cube ();
+│           0x00705a0e      4e56fffc       link.w a6, 0xfffc
+│           0x00705a12      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705a14      6206           bhi.b 0x705a1c
+│       │   0x00705a16      44fc0002       move.w 0x2, ccr
+│       │   0x00705a1a      4e76           trapv
+│       └─> 0x00705a1c      defc0004       adda.w 0x4, a7
+│           0x00705a20      4e5e           unlk a6
+└           0x00705a22      4e75           rts
+            ; CALL XREF from W9_SYS_DIAG.w9_init_dom @ 0x6ed534
+┌ 22: W_DOM_DUMMY.ver_reset_log_g ();
+│           0x00705a24      4e56fffc       link.w a6, 0xfffc
+│           0x00705a28      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705a2a      6206           bhi.b 0x705a32
+│       │   0x00705a2c      44fc0002       move.w 0x2, ccr
+│       │   0x00705a30      4e76           trapv
+│       └─> 0x00705a32      defc0004       adda.w 0x4, a7
+│           0x00705a36      4e5e           unlk a6
+└           0x00705a38      4e75           rts
+            ; CALL XREF from W9_SYS_DIAG.w9_dom_int @ 0x6ed59a
+┌ 28: W_DOM_DUMMY.e_dom_verify_in ();
+│           0x00705a3a      4e56fffc       link.w a6, 0xfffc
+│           0x00705a3e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705a40      6206           bhi.b 0x705a48
+│       │   0x00705a42      44fc0002       move.w 0x2, ccr
+│       │   0x00705a46      4e76           trapv
+│       └─> 0x00705a48      defc0004       adda.w 0x4, a7
+│           0x00705a4c      1d7c00010008   move.b 0x1, 0x8(a6)
+│           0x00705a52      4e5e           unlk a6
+└           0x00705a54      4e75           rts
+┌ 22: W_DOM_DUMMY.huge_cbars_comm ();
+│           0x00705a56      4e56fffc       link.w a6, 0xfffc
+│           0x00705a5a      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705a5c      6206           bhi.b 0x705a64
+│       │   0x00705a5e      44fc0002       move.w 0x2, ccr
+│       │   0x00705a62      4e76           trapv
+│       └─> 0x00705a64      defc0004       adda.w 0x4, a7
+│           0x00705a68      4e5e           unlk a6
+└           0x00705a6a      4e75           rts
+┌ 22: W_DOM_DUMMY.huge_wedge_comm ();
+│           0x00705a6c      4e56fffc       link.w a6, 0xfffc
+│           0x00705a70      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705a72      6206           bhi.b 0x705a7a
+│       │   0x00705a74      44fc0002       move.w 0x2, ccr
+│       │   0x00705a78      4e76           trapv
+│       └─> 0x00705a7a      defc0004       adda.w 0x4, a7
+│           0x00705a7e      4e5e           unlk a6
+└           0x00705a80      4e75           rts
+┌ 22: W_DOM_DUMMY.test_scan_comma ();
+│           0x00705a82      4e56fffc       link.w a6, 0xfffc
+│           0x00705a86      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705a88      6206           bhi.b 0x705a90
+│       │   0x00705a8a      44fc0002       move.w 0x2, ccr
+│       │   0x00705a8e      4e76           trapv
+│       └─> 0x00705a90      defc0004       adda.w 0x4, a7
+│           0x00705a94      4e5e           unlk a6
+└           0x00705a96      4e75           rts
+┌ 22: W_DOM_DUMMY.huge_kill601_co ();
+│           0x00705a98      4e56fffc       link.w a6, 0xfffc
+│           0x00705a9c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705a9e      6206           bhi.b 0x705aa6
+│       │   0x00705aa0      44fc0002       move.w 0x2, ccr
+│       │   0x00705aa4      4e76           trapv
+│       └─> 0x00705aa6      defc0004       adda.w 0x4, a7
+│           0x00705aaa      4e5e           unlk a6
+└           0x00705aac      4e75           rts
+┌ 22: W_DOM_DUMMY.dom_paint_field ();
+│           0x00705aae      4e56fffc       link.w a6, 0xfffc
+│           0x00705ab2      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705ab4      6206           bhi.b 0x705abc
+│       │   0x00705ab6      44fc0002       move.w 0x2, ccr
+│       │   0x00705aba      4e76           trapv
+│       └─> 0x00705abc      defc0004       adda.w 0x4, a7
+│           0x00705ac0      4e5e           unlk a6
+└           0x00705ac2      4e75           rts
+            ; CALL XREF from W10_VERIFY.w10_init @ 0x6f0dfe
+┌ 22: W_DOM_DUMMY.ver_clear_start ();
+│           0x00705ac4      4e56fffc       link.w a6, 0xfffc
+│           0x00705ac8      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705aca      6206           bhi.b 0x705ad2
+│       │   0x00705acc      44fc0002       move.w 0x2, ccr
+│       │   0x00705ad0      4e76           trapv
+│       └─> 0x00705ad2      defc0004       adda.w 0x4, a7
+│           0x00705ad6      4e5e           unlk a6
+└           0x00705ad8      4e75           rts
+            ; CALL XREFS from W10_VERIFY.w10_do_verify @ 0x6f0230, 0x6f04ba
+┌ 22: W_DOM_DUMMY.ver_in_use ();
+│           0x00705ada      4e56fffc       link.w a6, 0xfffc
+│           0x00705ade      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705ae0      6206           bhi.b 0x705ae8
+│       │   0x00705ae2      44fc0002       move.w 0x2, ccr
+│       │   0x00705ae6      4e76           trapv
+│       └─> 0x00705ae8      defc0004       adda.w 0x4, a7
+│           0x00705aec      4e5e           unlk a6
+└           0x00705aee      4e75           rts
+            ; CALL XREF from W10_VERIFY @ +0x1d6a
+┌ 22: W_DOM_DUMMY.w60_dom_out_ver ();
+│           0x00705af0      4e56fffc       link.w a6, 0xfffc
+│           0x00705af4      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705af6      6206           bhi.b 0x705afe
+│       │   0x00705af8      44fc0002       move.w 0x2, ccr
+│       │   0x00705afc      4e76           trapv
+│       └─> 0x00705afe      defc0004       adda.w 0x4, a7
+│           0x00705b02      4e5e           unlk a6
+└           0x00705b04      4e75           rts
+            ; CALL XREF from W10_VERIFY @ +0x1d7a
+┌ 22: W_DOM_DUMMY.w61_dsw_verify ();
+│           0x00705b06      4e56fffc       link.w a6, 0xfffc
+│           0x00705b0a      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705b0c      6206           bhi.b 0x705b14
+│       │   0x00705b0e      44fc0002       move.w 0x2, ccr
+│       │   0x00705b12      4e76           trapv
+│       └─> 0x00705b14      defc0004       adda.w 0x4, a7
+│           0x00705b18      4e5e           unlk a6
+└           0x00705b1a      4e75           rts
+            ; CALL XREF from W10_VERIFY @ +0x1d8a
+┌ 22: W_DOM_DUMMY.w62_dsm_verify ();
+│           0x00705b1c      4e56fffc       link.w a6, 0xfffc
+│           0x00705b20      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705b22      6206           bhi.b 0x705b2a
+│       │   0x00705b24      44fc0002       move.w 0x2, ccr
+│       │   0x00705b28      4e76           trapv
+│       └─> 0x00705b2a      defc0004       adda.w 0x4, a7
+│           0x00705b2e      4e5e           unlk a6
+└           0x00705b30      4e75           rts
+            ; CALL XREF from W10_VERIFY @ +0x1dba
+┌ 22: W_DOM_DUMMY.w63_scanner_ver ();
+│           0x00705b32      4e56fffc       link.w a6, 0xfffc
+│           0x00705b36      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705b38      6206           bhi.b 0x705b40
+│       │   0x00705b3a      44fc0002       move.w 0x2, ccr
+│       │   0x00705b3e      4e76           trapv
+│       └─> 0x00705b40      defc0004       adda.w 0x4, a7
+│           0x00705b44      4e5e           unlk a6
+└           0x00705b46      4e75           rts
+            ; CALL XREF from W10_VERIFY @ +0x1d9a
+┌ 22: W_DOM_DUMMY.w64_tape_verify ();
+│           0x00705b48      4e56fffc       link.w a6, 0xfffc
+│           0x00705b4c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705b4e      6206           bhi.b 0x705b56
+│       │   0x00705b50      44fc0002       move.w 0x2, ccr
+│       │   0x00705b54      4e76           trapv
+│       └─> 0x00705b56      defc0004       adda.w 0x4, a7
+│           0x00705b5a      4e5e           unlk a6
+└           0x00705b5c      4e75           rts
+            ; CALL XREF from W10_VERIFY @ +0x1daa
+┌ 22: W_DOM_DUMMY.w65_colour_veri ();
+│           0x00705b5e      4e56fffc       link.w a6, 0xfffc
+│           0x00705b62      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00705b64      6206           bhi.b 0x705b6c
+│       │   0x00705b66      44fc0002       move.w 0x2, ccr
+│       │   0x00705b6a      4e76           trapv
+│       └─> 0x00705b6c      defc0004       adda.w 0x4, a7
+│           0x00705b70      4e5e           unlk a6

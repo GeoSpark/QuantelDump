@@ -1,0 +1,42 @@
+            ; CALL XREF from W9_SYS_DIAG.w9_init_dom @ 0x6ed51c
+            ;-- DOMINO_DUMMY:
+┌ 30: DOMINO_DUMMY.get_live_state_ ();
+│           0x005b780e      4e56fffc       link.w a6, 0xfffc
+│           0x005b7812      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005b7814      6206           bhi.b 0x5b781c
+│       │   0x005b7816      44fc0002       move.w 0x2, ccr
+│       │   0x005b781a      4e76           trapv
+│       └─> 0x005b781c      defc0004       adda.w 0x4, a7
+│           0x005b7820      2d7c00000001.  move.l 0x1, 0x8(a6)
+│           0x005b7828      4e5e           unlk a6
+└           0x005b782a      4e75           rts
+            ; CALL XREF from W9_SYS_DIAG.w9_dom_int @ 0x6ed594
+┌ 22: DOMINO_DUMMY.vhd_frame_count ();
+│           0x005b782c      4e56fffc       link.w a6, 0xfffc
+│           0x005b7830      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005b7832      6206           bhi.b 0x5b783a
+│       │   0x005b7834      44fc0002       move.w 0x2, ccr
+│       │   0x005b7838      4e76           trapv
+│       └─> 0x005b783a      defc0004       adda.w 0x4, a7
+│           0x005b783e      4e5e           unlk a6
+└           0x005b7840      4e75           rts
+            ; CALL XREF from C0_CURSOR_DRIVER.c_cur_colour @ 0x452828
+            ; CALL XREF from C0_CURSOR_DRIVER.c_gr_colour @ 0x452904
+┌ 22: DOMINO_DUMMY.dom_curs_col ();
+│           0x005b7842      4e56fffc       link.w a6, 0xfffc
+│           0x005b7846      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005b7848      6206           bhi.b 0x5b7850
+│       │   0x005b784a      44fc0002       move.w 0x2, ccr
+│       │   0x005b784e      4e76           trapv
+│       └─> 0x005b7850      defc0004       adda.w 0x4, a7
+│           0x005b7854      4e5e           unlk a6
+└           0x005b7856      4e75           rts
+            ; CALL XREF from MAVIS_TEST.main_code @ 0x6d9ad4
+┌ 22: DOMINO_DUMMY.init_domtiming ();
+│           0x005b7858      4e56fffc       link.w a6, 0xfffc
+│           0x005b785c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005b785e      6206           bhi.b 0x5b7866
+│       │   0x005b7860      44fc0002       move.w 0x2, ccr
+│       │   0x005b7864      4e76           trapv
+│       └─> 0x005b7866      defc0004       adda.w 0x4, a7
+│           0x005b786a      4e5e           unlk a6

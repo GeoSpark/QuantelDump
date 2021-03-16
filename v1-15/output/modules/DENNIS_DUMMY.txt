@@ -1,0 +1,72 @@
+            ;-- DENNIS_DUMMY:
+┌ 26: DENNIS_DUMMY.clip_play_abort ();
+│           0x007081ea      4e56fffc       link.w a6, 0xfffc
+│           0x007081ee      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007081f0      6206           bhi.b 0x7081f8
+│       │   0x007081f2      44fc0002       move.w 0x2, ccr
+│       │   0x007081f6      4e76           trapv
+│       └─> 0x007081f8      defc0004       adda.w 0x4, a7
+│           0x007081fc      422e001c       clr.b 0x1c(a6)
+│           0x00708200      4e5e           unlk a6
+└           0x00708202      4e75           rts
+┌ 26: DENNIS_DUMMY.get_clip_data ();
+│           0x00708204      4e56fffc       link.w a6, 0xfffc
+│           0x00708208      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0070820a      6206           bhi.b 0x708212
+│       │   0x0070820c      44fc0002       move.w 0x2, ccr
+│       │   0x00708210      4e76           trapv
+│       └─> 0x00708212      defc0004       adda.w 0x4, a7
+│           0x00708216      422e0016       clr.b 0x16(a6)
+│           0x0070821a      4e5e           unlk a6
+└           0x0070821c      4e75           rts
+            ; CALL XREF from MENUPASTECOM.hit_pasteup @ 0x4b5248
+            ; CALL XREFS from PANEL_UTILS.video_disks_ok @ 0x785384, 0x7853c6
+┌ 26: DENNIS_DUMMY.e_disk_ok ();
+│           0x0070821e      4e56fffc       link.w a6, 0xfffc
+│           0x00708222      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00708224      6206           bhi.b 0x70822c
+│       │   0x00708226      44fc0002       move.w 0x2, ccr
+│       │   0x0070822a      4e76           trapv
+│       └─> 0x0070822c      defc0004       adda.w 0x4, a7
+│           0x00708230      422e000c       clr.b 0xc(a6)
+│           0x00708234      4e5e           unlk a6
+└           0x00708236      4e75           rts
+┌ 26: DENNIS_DUMMY.load_clip ();
+│           0x00708238      4e56fffc       link.w a6, 0xfffc
+│           0x0070823c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0070823e      6206           bhi.b 0x708246
+│       │   0x00708240      44fc0002       move.w 0x2, ccr
+│       │   0x00708244      4e76           trapv
+│       └─> 0x00708246      defc0004       adda.w 0x4, a7
+│           0x0070824a      422e0028       clr.b 0x28(a6)
+│           0x0070824e      4e5e           unlk a6
+└           0x00708250      4e75           rts
+            ; CALL XREF from fcn.005aa600 @ 0x5aad78
+┌ 22: DENNIS_DUMMY.load_mid_clip_f ();
+│           0x00708252      4e56fffc       link.w a6, 0xfffc
+│           0x00708256      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00708258      6206           bhi.b 0x708260
+│       │   0x0070825a      44fc0002       move.w 0x2, ccr
+│       │   0x0070825e      4e76           trapv
+│       └─> 0x00708260      defc0004       adda.w 0x4, a7
+│           0x00708264      4e5e           unlk a6
+└           0x00708266      4e75           rts
+┌ 28: DENNIS_DUMMY.rem_clip_alloca ();
+│           0x00708268      4e56fffc       link.w a6, 0xfffc
+│           0x0070826c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0070826e      6206           bhi.b 0x708276
+│       │   0x00708270      44fc0002       move.w 0x2, ccr
+│       │   0x00708274      4e76           trapv
+│       └─> 0x00708276      defc0004       adda.w 0x4, a7
+│           0x0070827a      1d7c00010012   move.b 0x1, 0x12(a6)
+│           0x00708280      4e5e           unlk a6
+└           0x00708282      4e75           rts
+┌ 26: DENNIS_DUMMY.play_panel_clip ();
+│           0x00708284      4e56fffc       link.w a6, 0xfffc
+│           0x00708288      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0070828a      6206           bhi.b 0x708292
+│       │   0x0070828c      44fc0002       move.w 0x2, ccr
+│       │   0x00708290      4e76           trapv
+│       └─> 0x00708292      defc0004       adda.w 0x4, a7
+│           0x00708296      422e001e       clr.b 0x1e(a6)
+│           0x0070829a      4e5e           unlk a6

@@ -1,0 +1,133 @@
+            ;-- PICPORT_DUMMY:
+            0x006d173c      .byte 0x00
+            0x006d173d      .byte 0x00
+            0x006d173e      .byte 0x00
+            0x006d173f      .byte 0x00
+            0x006d1740      .byte 0x00
+            0x006d1741      .byte 0x00
+            0x006d1742      .byte 0x00
+            0x006d1743      .byte 0x80
+            0x006d1744      .byte 0x00
+            0x006d1745      .byte 0x00
+            0x006d1746      .byte 0x00
+            0x006d1747      .byte 0x00
+            0x006d1748      .byte 0x02
+            0x006d1749      .byte 0xd0
+            0x006d174a      .byte 0x02
+            0x006d174b      .byte 0xc0
+            0x006d174c      .byte 0x18
+            0x006d174d     .string ">>Q<uantel Pic<tu>r<ebox" ; len=24
+            0x006d1765      .byte 0x00
+            0x006d1766      .byte 0x00
+            0x006d1767      .byte 0x00
+            0x006d1768      .byte 0x00
+            0x006d1769      .byte 0x00
+            0x006d176a      .byte 0x00
+            0x006d176b      .byte 0x00
+            0x006d176c      .byte 0x00
+            0x006d176d      .byte 0x00
+            0x006d176e      .byte 0x00
+            0x006d176f      .byte 0x00
+            0x006d1770      .byte 0x16
+            0x006d1771      .byte 0x64
+            0x006d1772      .byte 0x75
+            0x006d1773      .byte 0x6d
+            0x006d1774      .byte 0x6d
+            0x006d1775      .byte 0x79
+            0x006d1776      .byte 0x20
+            0x006d1777      .byte 0x50
+            0x006d1778      .byte 0x49
+            0x006d1779      .byte 0x43
+            0x006d177a      .byte 0x50
+            0x006d177b      .byte 0x4f
+            0x006d177c      .byte 0x52
+            0x006d177d      .byte 0x54
+            0x006d177e      .byte 0x5f
+            0x006d177f      .byte 0x56
+            0x006d1780      .byte 0x48
+            0x006d1781      .byte 0x44
+            0x006d1782      .byte 0x20
+            0x006d1783      .byte 0x69
+            0x006d1784      .byte 0x6e
+            0x006d1785      .byte 0x69
+            0x006d1786      .byte 0x74
+            0x006d1787      .byte 0x69
+┌ 26: PICPORT_DUMMY.port_wait_displ ();
+│           0x006d1788      4e56fffc       link.w a6, 0xfffc
+│           0x006d178c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x006d178e      6206           bhi.b 0x6d1796
+│       │   0x006d1790      44fc0002       move.w 0x2, ccr
+│       │   0x006d1794      4e76           trapv
+│       └─> 0x006d1796      defc0004       adda.w 0x4, a7
+│           0x006d179a      426e0008       clr.w 0x8(a6)
+│           0x006d179e      4e5e           unlk a6
+└           0x006d17a0      4e75           rts
+┌ 22: PICPORT_DUMMY.port_message_se ();
+│           0x006d17a2      4e56fffc       link.w a6, 0xfffc
+│           0x006d17a6      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x006d17a8      6206           bhi.b 0x6d17b0
+│       │   0x006d17aa      44fc0002       move.w 0x2, ccr
+│       │   0x006d17ae      4e76           trapv
+│       └─> 0x006d17b0      defc0004       adda.w 0x4, a7
+│           0x006d17b4      4e5e           unlk a6
+└           0x006d17b6      4e75           rts
+            ; CALL XREF from MENUDISKSCOM.hit_qifap_abort @ 0x4e43b0
+┌ 22: PICPORT_DUMMY.port_flag_abort ();
+│           0x006d17b8      4e56fffc       link.w a6, 0xfffc
+│           0x006d17bc      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x006d17be      6206           bhi.b 0x6d17c6
+│       │   0x006d17c0      44fc0002       move.w 0x2, ccr
+│       │   0x006d17c4      4e76           trapv
+│       └─> 0x006d17c6      defc0004       adda.w 0x4, a7
+│           0x006d17ca      4e5e           unlk a6
+└           0x006d17cc      4e75           rts
+            ; CALL XREF from HANDCOM.draw_init @ 0x634688
+┌ 22: PICPORT_DUMMY.port_read_queue ();
+│           0x006d17ce      4e56fffc       link.w a6, 0xfffc
+│           0x006d17d2      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x006d17d4      6206           bhi.b 0x6d17dc
+│       │   0x006d17d6      44fc0002       move.w 0x2, ccr
+│       │   0x006d17da      4e76           trapv
+│       └─> 0x006d17dc      defc0004       adda.w 0x4, a7
+│           0x006d17e0      4e5e           unlk a6
+└           0x006d17e2      4e75           rts
+            ; CALL XREF from K96_LIB2OPS.create_proofer_ @ 0x666256
+            ; CALL XREF from K96_LIB2OPS.create_qcr_temp @ 0x666c96
+            ; CALL XREF from K96_LIB2OPS.create_export_t @ 0x667248
+            ; CALL XREF from K96_LIB2OPS.create_solitair @ 0x66759c
+┌ 26: PICPORT_DUMMY.port_queue_add ();
+│           0x006d17e4      4e56fffc       link.w a6, 0xfffc
+│           0x006d17e8      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x006d17ea      6206           bhi.b 0x6d17f2
+│       │   0x006d17ec      44fc0002       move.w 0x2, ccr
+│       │   0x006d17f0      4e76           trapv
+│       └─> 0x006d17f2      defc0004       adda.w 0x4, a7
+│           0x006d17f6      422e0016       clr.b 0x16(a6)
+│           0x006d17fa      4e5e           unlk a6
+└           0x006d17fc      4e75           rts
+            ; CALL XREF from MENUDISKSCOM.show_qifap_stat @ 0x4e320a
+┌ 26: PICPORT_DUMMY.new_qifap_statu ();
+│           0x006d17fe      4e56fffc       link.w a6, 0xfffc
+│           0x006d1802      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x006d1804      6206           bhi.b 0x6d180c
+│       │   0x006d1806      44fc0002       move.w 0x2, ccr
+│       │   0x006d180a      4e76           trapv
+│       └─> 0x006d180c      defc0004       adda.w 0x4, a7
+│           0x006d1810      422e000c       clr.b 0xc(a6)
+│           0x006d1814      4e5e           unlk a6
+└           0x006d1816      4e75           rts
+            ; CALL XREF from MAVIS_TEST.main_code @ 0x6d9af2
+┌ 48: PICPORT_DUMMY.init_vhd_port ();
+│           0x006d1818      4e56fff0       link.w a6, 0xfff0
+│           0x006d181c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x006d181e      6206           bhi.b 0x6d1826
+│       │   0x006d1820      44fc0002       move.w 0x2, ccr
+│       │   0x006d1824      4e76           trapv
+│       └─> 0x006d1826      defc0010       adda.w 0x10, a7
+│           0x006d182a      487aff45       pea.l 0x6d1771(pc)
+│           0x006d182e      48780016       pea.l 0x16
+│           0x006d1832      2f17           move.l (a7), -(a7)
+│           0x006d1834      4eb9004047ea   jsr p_wts_o
+│           0x006d183a      defc000c       adda.w 0xc, a7
+│           0x006d183e      4eb900404946   jsr p_wtln_o
+│           0x006d1844      4e5e           unlk a6

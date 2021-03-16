@@ -1,0 +1,392 @@
+            ;-- MENUJOCKCOM:
+┌ 28: MENUJOCKCOM.e_field_int ();
+│           0x00717b90      4e56fffc       link.w a6, 0xfffc
+│           0x00717b94      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717b96      6206           bhi.b 0x717b9e
+│       │   0x00717b98      44fc0002       move.w 0x2, ccr
+│       │   0x00717b9c      4e76           trapv
+│       └─> 0x00717b9e      defc0004       adda.w 0x4, a7
+│           0x00717ba2      1d7c00010008   move.b 0x1, 0x8(a6)
+│           0x00717ba8      4e5e           unlk a6
+└           0x00717baa      4e75           rts
+            ; CALL XREF from BRUSHCOM.field_interrupt @ 0x523e74
+            ; CALL XREF from W9_SYS_DIAG.w9_field_int @ 0x6ed658
+┌ 28: MENUJOCKCOM.e_gord_field_in ();
+│           0x00717bac      4e56fffc       link.w a6, 0xfffc
+│           0x00717bb0      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717bb2      6206           bhi.b 0x717bba
+│       │   0x00717bb4      44fc0002       move.w 0x2, ccr
+│       │   0x00717bb8      4e76           trapv
+│       └─> 0x00717bba      defc0004       adda.w 0x4, a7
+│           0x00717bbe      1d7c00010008   move.b 0x1, 0x8(a6)
+│           0x00717bc4      4e5e           unlk a6
+└           0x00717bc6      4e75           rts
+┌ 28: MENUJOCKCOM.e_dom_field_int ();
+│           0x00717bc8      4e56fffc       link.w a6, 0xfffc
+│           0x00717bcc      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717bce      6206           bhi.b 0x717bd6
+│       │   0x00717bd0      44fc0002       move.w 0x2, ccr
+│       │   0x00717bd4      4e76           trapv
+│       └─> 0x00717bd6      defc0004       adda.w 0x4, a7
+│           0x00717bda      1d7c00010008   move.b 0x1, 0x8(a6)
+│           0x00717be0      4e5e           unlk a6
+└           0x00717be2      4e75           rts
+            ; XREFS: CALL 0x0050d778  CALL 0x0075cdd0  CALL 0x007611da  
+            ; XREFS: CALL 0x00761348  CALL 0x007613c4  CALL 0x007614e0  
+┌ 104: MENUJOCKCOM.do_jock_bgnd ();
+│           0x00717be4      4e56ffe8       link.w a6, 0xffe8
+│           0x00717be8      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717bea      6206           bhi.b 0x717bf2
+│       │   0x00717bec      44fc0002       move.w 0x2, ccr
+│       │   0x00717bf0      4e76           trapv
+│       └─> 0x00717bf2      defc0018       adda.w 0x18, a7
+│           0x00717bf6      48e7c080       movem.l d0-d1/a0, -(a7)
+│           0x00717bfa      41f90085a2ee   lea.l 0x85a2ee, a0
+│           0x00717c00      7201           moveq 0x1, d1
+│           0x00717c02      4a10           tst.b (a0)
+│       ┌─< 0x00717c04      6708           beq.b 0x717c0e
+│       │   0x00717c06      1010           move.b (a0), d0
+│       │   0x00717c08      b001           cmp.b d1, d0
+│      ┌──< 0x00717c0a      671c           beq.b 0x717c28
+│      ││   0x00717c0c      4e4e           trap 0xe
+│      │└─> 0x00717c0e      1f2e000e       move.b 0xe(a6), -(a7)
+│      │    0x00717c12      3f2e000c       move.w 0xc(a6), -(a7)
+│      │    0x00717c16      1f2e000a       move.b 0xa(a6), -(a7)
+│      │    0x00717c1a      1f2e0008       move.b 0x8(a6), -(a7)
+│      │    0x00717c1e      4eb900720e30   jsr MENUA60COM.do_a60_bgnd
+│      │┌─> 0x00717c24      504f           addq.w 0x8, a7
+│     ┌───< 0x00717c26      6018           bra.b 0x717c40
+│     │└──> 0x00717c28      1f2e000e       move.b 0xe(a6), -(a7)
+│     │ ╎   0x00717c2c      3f2e000c       move.w 0xc(a6), -(a7)
+│     │ ╎   0x00717c30      1f2e000a       move.b 0xa(a6), -(a7)
+│     │ ╎   0x00717c34      1f2e0008       move.b 0x8(a6), -(a7)
+│     │ ╎   0x00717c38      4eb900718a14   jsr MENUCRLCOM.do_crl_bgnd
+│     │ └─< 0x00717c3e      60e4           bra.b 0x717c24
+│     └───> 0x00717c40      1d410010       move.b d1, 0x10(a6)
+│           0x00717c44      4cdf0103       movem.l (a7)+, d0-d1/a0
+│           0x00717c48      4e5e           unlk a6
+└           0x00717c4a      4e75           rts
+            ; CALL XREF from PASTECOM.load_unsized_cu @ 0x67378c
+┌ 84: MENUJOCKCOM.do_jock_cutout ();
+│           0x00717c4c      4e56ffee       link.w a6, 0xffee
+│           0x00717c50      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717c52      6206           bhi.b 0x717c5a
+│       │   0x00717c54      44fc0002       move.w 0x2, ccr
+│       │   0x00717c58      4e76           trapv
+│       └─> 0x00717c5a      defc0012       adda.w 0x12, a7
+│           0x00717c5e      48e78080       movem.l d0/a0, -(a7)
+│           0x00717c62      41f90085a2ee   lea.l 0x85a2ee, a0
+│           0x00717c68      4a10           tst.b (a0)
+│       ┌─< 0x00717c6a      670a           beq.b 0x717c76
+│       │   0x00717c6c      1010           move.b (a0), d0
+│       │   0x00717c6e      0c000001       cmpi.b 0x1, d0
+│      ┌──< 0x00717c72      6714           beq.b 0x717c88
+│      ││   0x00717c74      4e4e           trap 0xe
+│      │└─> 0x00717c76      1f2e000c       move.b 0xc(a6), -(a7)
+│      │    0x00717c7a      2f2e0008       move.l 0x8(a6), -(a7)
+│      │    0x00717c7e      4eb900720e46   jsr MENUA60COM.do_a60_cutout
+│      │┌─> 0x00717c84      5c4f           addq.w 0x6, a7
+│     ┌───< 0x00717c86      6010           bra.b 0x717c98
+│     │└──> 0x00717c88      1f2e000c       move.b 0xc(a6), -(a7)
+│     │ ╎   0x00717c8c      2f2e0008       move.l 0x8(a6), -(a7)
+│     │ ╎   0x00717c90      4eb900718976   jsr MENUCRLCOM.do_crl_cutout
+│     │ └─< 0x00717c96      60ec           bra.b 0x717c84
+│     └───> 0x00717c98      4cdf0101       movem.l (a7)+, d0/a0
+│           0x00717c9c      4e5e           unlk a6
+└           0x00717c9e      4e75           rts
+            ; CALL XREF from MENUVTRCOM.do_to_vtr @ 0x7272f8
+            ; CALL XREF from MENUKEYFRMCOM.do_carousel_try @ 0x76121c
+            ; CALL XREF from MENUKEYFRMCOM @ +0x4e96
+┌ 110: MENUJOCKCOM.do_jock_grab ();
+│           0x00717ca0      4e56ffe6       link.w a6, 0xffe6
+│           0x00717ca4      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717ca6      6206           bhi.b 0x717cae
+│       │   0x00717ca8      44fc0002       move.w 0x2, ccr
+│       │   0x00717cac      4e76           trapv
+│       └─> 0x00717cae      defc001a       adda.w 0x1a, a7
+│           0x00717cb2      48e78080       movem.l d0/a0, -(a7)
+│           0x00717cb6      41f90085a2ee   lea.l 0x85a2ee, a0
+│           0x00717cbc      4a10           tst.b (a0)
+│       ┌─< 0x00717cbe      670a           beq.b 0x717cca
+│       │   0x00717cc0      1010           move.b (a0), d0
+│       │   0x00717cc2      0c000001       cmpi.b 0x1, d0
+│      ┌──< 0x00717cc6      6722           beq.b 0x717cea
+│      ││   0x00717cc8      4e4e           trap 0xe
+│      │└─> 0x00717cca      3f2e0014       move.w 0x14(a6), -(a7)
+│      │    0x00717cce      1f2e0012       move.b 0x12(a6), -(a7)
+│      │    0x00717cd2      1f2e0010       move.b 0x10(a6), -(a7)
+│      │    0x00717cd6      2f2e000c       move.l 0xc(a6), -(a7)
+│      │    0x00717cda      2f2e0008       move.l 0x8(a6), -(a7)
+│      │    0x00717cde      4eb900720e72   jsr MENUA60COM.do_a60_grab
+│      │┌─> 0x00717ce4      defc000e       adda.w 0xe, a7
+│     ┌───< 0x00717ce8      601c           bra.b 0x717d06
+│     │└──> 0x00717cea      3f2e0014       move.w 0x14(a6), -(a7)
+│     │ ╎   0x00717cee      1f2e0012       move.b 0x12(a6), -(a7)
+│     │ ╎   0x00717cf2      1f2e0010       move.b 0x10(a6), -(a7)
+│     │ ╎   0x00717cf6      2f2e000c       move.l 0xc(a6), -(a7)
+│     │ ╎   0x00717cfa      2f2e0008       move.l 0x8(a6), -(a7)
+│     │ ╎   0x00717cfe      4eb9007189a6   jsr MENUCRLCOM.do_crl_grab
+│     │ └─< 0x00717d04      60de           bra.b 0x717ce4
+│     └───> 0x00717d06      4cdf0101       movem.l (a7)+, d0/a0
+│           0x00717d0a      4e5e           unlk a6
+└           0x00717d0c      4e75           rts
+┌ 76: MENUJOCKCOM.do_jock_play ();
+│           0x00717d0e      4e56fff2       link.w a6, 0xfff2
+│           0x00717d12      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717d14      6206           bhi.b 0x717d1c
+│       │   0x00717d16      44fc0002       move.w 0x2, ccr
+│       │   0x00717d1a      4e76           trapv
+│       └─> 0x00717d1c      defc000e       adda.w 0xe, a7
+│           0x00717d20      48e78080       movem.l d0/a0, -(a7)
+│           0x00717d24      41f90085a2ee   lea.l 0x85a2ee, a0
+│           0x00717d2a      4a10           tst.b (a0)
+│       ┌─< 0x00717d2c      670a           beq.b 0x717d38
+│       │   0x00717d2e      1010           move.b (a0), d0
+│       │   0x00717d30      0c000001       cmpi.b 0x1, d0
+│      ┌──< 0x00717d34      6710           beq.b 0x717d46
+│      ││   0x00717d36      4e4e           trap 0xe
+│      │└─> 0x00717d38      3f2e0008       move.w 0x8(a6), -(a7)
+│      │    0x00717d3c      4eb900720e5c   jsr MENUA60COM.do_a60_play
+│      │┌─> 0x00717d42      544f           addq.w 0x2, a7
+│     ┌───< 0x00717d44      600c           bra.b 0x717d52
+│     │└──> 0x00717d46      3f2e0008       move.w 0x8(a6), -(a7)
+│     │ ╎   0x00717d4a      4eb900718c48   jsr MENUCRLCOM.do_crl_play
+│     │ └─< 0x00717d50      60f0           bra.b 0x717d42
+│     └───> 0x00717d52      4cdf0101       movem.l (a7)+, d0/a0
+│           0x00717d56      4e5e           unlk a6
+└           0x00717d58      4e75           rts
+┌ 74: MENUJOCKCOM.get_jock_bgnd ();
+│           0x00717d5a      4e56fff0       link.w a6, 0xfff0
+│           0x00717d5e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717d60      6206           bhi.b 0x717d68
+│       │   0x00717d62      44fc0002       move.w 0x2, ccr
+│       │   0x00717d66      4e76           trapv
+│       └─> 0x00717d68      defc0010       adda.w 0x10, a7
+│           0x00717d6c      48e78080       movem.l d0/a0, -(a7)
+│           0x00717d70      41f90085a2ee   lea.l 0x85a2ee, a0
+│           0x00717d76      4a10           tst.b (a0)
+│       ┌─< 0x00717d78      670a           beq.b 0x717d84
+│       │   0x00717d7a      1010           move.b (a0), d0
+│       │   0x00717d7c      0c000001       cmpi.b 0x1, d0
+│      ┌──< 0x00717d80      6710           beq.b 0x717d92
+│      ││   0x00717d82      4e4e           trap 0xe
+│      │└─> 0x00717d84      594f           subq.w 0x4, a7
+│      │    0x00717d86      4eb900720e12   jsr MENUA60COM.get_a60_bgnd
+│      │┌─> 0x00717d8c      2d5f0008       move.l (a7)+, 0x8(a6)
+│     ┌───< 0x00717d90      600a           bra.b 0x717d9c
+│     │└──> 0x00717d92      594f           subq.w 0x4, a7
+│     │ ╎   0x00717d94      4eb900718958   jsr MENUCRLCOM.get_crl_bgnd
+│     │ └─< 0x00717d9a      60f0           bra.b 0x717d8c
+│     └───> 0x00717d9c      4cdf0101       movem.l (a7)+, d0/a0
+│           0x00717da0      4e5e           unlk a6
+└           0x00717da2      4e75           rts
+            ; CALL XREF from MENUKEYFRMCOM.hit_doit @ 0x7615f8
+┌ 90: MENUJOCKCOM.do_doit ();
+│           0x00717da4      4e56ffec       link.w a6, 0xffec
+│           0x00717da8      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717daa      6206           bhi.b 0x717db2
+│       │   0x00717dac      44fc0002       move.w 0x2, ccr
+│       │   0x00717db0      4e76           trapv
+│       └─> 0x00717db2      defc0014       adda.w 0x14, a7
+│           0x00717db6      48e7c080       movem.l d0-d1/a0, -(a7)
+│           0x00717dba      41f90085a2ee   lea.l 0x85a2ee, a0
+│           0x00717dc0      7201           moveq 0x1, d1
+│           0x00717dc2      4a10           tst.b (a0)
+│       ┌─< 0x00717dc4      6708           beq.b 0x717dce
+│       │   0x00717dc6      1010           move.b (a0), d0
+│       │   0x00717dc8      b001           cmp.b d1, d0
+│      ┌──< 0x00717dca      671c           beq.b 0x717de8
+│      ││   0x00717dcc      4e4e           trap 0xe
+│      │└─> 0x00717dce      554f           subq.w 0x2, a7
+│      │    0x00717dd0      1f2e000a       move.b 0xa(a6), -(a7)
+│      │    0x00717dd4      4eb900720df8   jsr MENUA60COM.do_a60_doit
+│      │┌─> 0x00717dda      544f           addq.w 0x2, a7
+│      │╎   0x00717ddc      101f           move.b (a7)+, d0
+│      │╎   0x00717dde      4880           ext.w d0
+│      │╎   0x00717de0      4181           chk.w d1, d0
+│      │╎   0x00717de2      1d40000c       move.b d0, 0xc(a6)
+│     ┌───< 0x00717de6      600e           bra.b 0x717df6
+│     │└──> 0x00717de8      554f           subq.w 0x2, a7
+│     │ ╎   0x00717dea      1f2e000a       move.b 0xa(a6), -(a7)
+│     │ ╎   0x00717dee      4eb90071d01e   jsr MENUCRLCOM.do_crl_doit
+│     │ └─< 0x00717df4      60e4           bra.b 0x717dda
+│     └───> 0x00717df6      4cdf0103       movem.l (a7)+, d0-d1/a0
+│           0x00717dfa      4e5e           unlk a6
+└           0x00717dfc      4e75           rts
+┌ 84: MENUJOCKCOM.hit_jock ();
+│           0x00717dfe      4e56fff0       link.w a6, 0xfff0
+│           0x00717e02      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717e04      6206           bhi.b 0x717e0c
+│       │   0x00717e06      44fc0002       move.w 0x2, ccr
+│       │   0x00717e0a      4e76           trapv
+│       └─> 0x00717e0c      defc0010       adda.w 0x10, a7
+│           0x00717e10      48e78080       movem.l d0/a0, -(a7)
+│           0x00717e14      41f90085a2ee   lea.l 0x85a2ee, a0
+│           0x00717e1a      4a10           tst.b (a0)
+│       ┌─< 0x00717e1c      670a           beq.b 0x717e28
+│       │   0x00717e1e      1010           move.b (a0), d0
+│       │   0x00717e20      0c000001       cmpi.b 0x1, d0
+│      ┌──< 0x00717e24      6714           beq.b 0x717e3a
+│      ││   0x00717e26      4e4e           trap 0xe
+│      │└─> 0x00717e28      3f2e000a       move.w 0xa(a6), -(a7)
+│      │    0x00717e2c      3f2e0008       move.w 0x8(a6), -(a7)
+│      │    0x00717e30      4eb90072451c   jsr MENUA60COM.hit_a60
+│      │┌─> 0x00717e36      584f           addq.w 0x4, a7
+│     ┌───< 0x00717e38      6010           bra.b 0x717e4a
+│     │└──> 0x00717e3a      3f2e000a       move.w 0xa(a6), -(a7)
+│     │ ╎   0x00717e3e      3f2e0008       move.w 0x8(a6), -(a7)
+│     │ ╎   0x00717e42      4eb90071e416   jsr MENUCRLCOM.hit_crl
+│     │ └─< 0x00717e48      60ec           bra.b 0x717e36
+│     └───> 0x00717e4a      4cdf0101       movem.l (a7)+, d0/a0
+│           0x00717e4e      4e5e           unlk a6
+└           0x00717e50      4e75           rts
+            ; CALL XREF from MENUANIMCOM.do_anim_op @ 0x4bdb10
+            ; CALL XREF from MENUANIMCOM @ +0xbdc
+┌ 76: MENUJOCKCOM.do_jock_anim_op ();
+│           0x00717e52      4e56fff2       link.w a6, 0xfff2
+│           0x00717e56      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717e58      6206           bhi.b 0x717e60
+│       │   0x00717e5a      44fc0002       move.w 0x2, ccr
+│       │   0x00717e5e      4e76           trapv
+│       └─> 0x00717e60      defc000e       adda.w 0xe, a7
+│           0x00717e64      48e78080       movem.l d0/a0, -(a7)
+│           0x00717e68      41f90085a2ee   lea.l 0x85a2ee, a0
+│           0x00717e6e      4a10           tst.b (a0)
+│       ┌─< 0x00717e70      670a           beq.b 0x717e7c
+│       │   0x00717e72      1010           move.b (a0), d0
+│       │   0x00717e74      0c000001       cmpi.b 0x1, d0
+│      ┌──< 0x00717e78      6710           beq.b 0x717e8a
+│      ││   0x00717e7a      4e4e           trap 0xe
+│      │└─> 0x00717e7c      1f2e0008       move.b 0x8(a6), -(a7)
+│      │    0x00717e80      4eb900724424   jsr MENUA60COM.do_a60_anim_op
+│      │┌─> 0x00717e86      544f           addq.w 0x2, a7
+│     ┌───< 0x00717e88      600c           bra.b 0x717e96
+│     │└──> 0x00717e8a      1f2e0008       move.b 0x8(a6), -(a7)
+│     │ ╎   0x00717e8e      4eb90071aa6a   jsr MENUCRLCOM.do_crl_anim_op
+│     │ └─< 0x00717e94      60f0           bra.b 0x717e86
+│     └───> 0x00717e96      4cdf0101       movem.l (a7)+, d0/a0
+│           0x00717e9a      4e5e           unlk a6
+└           0x00717e9c      4e75           rts
+            ; CALL XREF from MENUCONFIGCOM.init_serial_sel @ 0x709426
+┌ 66: MENUJOCKCOM.set_a60_channel ();
+│           0x00717e9e      4e56fff0       link.w a6, 0xfff0
+│           0x00717ea2      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717ea4      6206           bhi.b 0x717eac
+│       │   0x00717ea6      44fc0002       move.w 0x2, ccr
+│       │   0x00717eaa      4e76           trapv
+│       └─> 0x00717eac      defc0010       adda.w 0x10, a7
+│           0x00717eb0      48e78080       movem.l d0/a0, -(a7)
+│           0x00717eb4      41f90085a2ee   lea.l 0x85a2ee, a0
+│           0x00717eba      4a10           tst.b (a0)
+│       ┌─< 0x00717ebc      670a           beq.b 0x717ec8
+│       │   0x00717ebe      1010           move.b (a0), d0
+│       │   0x00717ec0      0c000001       cmpi.b 0x1, d0
+│      ┌──< 0x00717ec4      6712           beq.b 0x717ed8
+│      ││   0x00717ec6      4e4e           trap 0xe
+│      │└─> 0x00717ec8      1f2e000a       move.b 0xa(a6), -(a7)
+│      │    0x00717ecc      1f2e0008       move.b 0x8(a6), -(a7)
+│      │    0x00717ed0      4eb9007241da   jsr MENUA60COM.a60_channel
+│      │    0x00717ed6      584f           addq.w 0x4, a7
+│      └──> 0x00717ed8      4cdf0101       movem.l (a7)+, d0/a0
+│           0x00717edc      4e5e           unlk a6
+└           0x00717ede      4e75           rts
+            ; CALL XREF from MENUCONFIGCOM.init_serial_sel @ 0x709416
+┌ 68: MENUJOCKCOM.set_crl_channel ();
+│           0x00717ee0      4e56fff0       link.w a6, 0xfff0
+│           0x00717ee4      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717ee6      6206           bhi.b 0x717eee
+│       │   0x00717ee8      44fc0002       move.w 0x2, ccr
+│       │   0x00717eec      4e76           trapv
+│       └─> 0x00717eee      defc0010       adda.w 0x10, a7
+│           0x00717ef2      48e78080       movem.l d0/a0, -(a7)
+│           0x00717ef6      41f90085a2ee   lea.l 0x85a2ee, a0
+│           0x00717efc      4a10           tst.b (a0)
+│       ┌─< 0x00717efe      670a           beq.b 0x717f0a
+│       │   0x00717f00      1010           move.b (a0), d0
+│       │   0x00717f02      0c000001       cmpi.b 0x1, d0
+│      ┌──< 0x00717f06      6704           beq.b 0x717f0c
+│      ││   0x00717f08      4e4e           trap 0xe
+│     ┌─└─> 0x00717f0a      6010           bra.b 0x717f1c
+│     │└──> 0x00717f0c      1f2e000a       move.b 0xa(a6), -(a7)
+│     │     0x00717f10      1f2e0008       move.b 0x8(a6), -(a7)
+│     │     0x00717f14      4eb90071e34c   jsr MENUCRLCOM.crl_channel
+│     │     0x00717f1a      584f           addq.w 0x4, a7
+│     └───> 0x00717f1c      4cdf0101       movem.l (a7)+, d0/a0
+│           0x00717f20      4e5e           unlk a6
+└           0x00717f22      4e75           rts
+            ; CALL XREF from MENUCONFIGCOM.hit_a60_len @ 0x709e98
+            ; CALL XREF from fcn.0070be5a @ 0x70cf3a
+┌ 62: MENUJOCKCOM.set_a60_fields ();
+│           0x00717f24      4e56fff0       link.w a6, 0xfff0
+│           0x00717f28      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717f2a      6206           bhi.b 0x717f32
+│       │   0x00717f2c      44fc0002       move.w 0x2, ccr
+│       │   0x00717f30      4e76           trapv
+│       └─> 0x00717f32      defc0010       adda.w 0x10, a7
+│           0x00717f36      48e78080       movem.l d0/a0, -(a7)
+│           0x00717f3a      41f90085a2ee   lea.l 0x85a2ee, a0
+│           0x00717f40      4a10           tst.b (a0)
+│       ┌─< 0x00717f42      670a           beq.b 0x717f4e
+│       │   0x00717f44      1010           move.b (a0), d0
+│       │   0x00717f46      0c000001       cmpi.b 0x1, d0
+│      ┌──< 0x00717f4a      670e           beq.b 0x717f5a
+│      ││   0x00717f4c      4e4e           trap 0xe
+│      │└─> 0x00717f4e      2f2e0008       move.l 0x8(a6), -(a7)
+│      │    0x00717f52      4eb9007244fe   jsr MENUA60COM.a60_fields
+│      │    0x00717f58      584f           addq.w 0x4, a7
+│      └──> 0x00717f5a      4cdf0101       movem.l (a7)+, d0/a0
+│           0x00717f5e      4e5e           unlk a6
+└           0x00717f60      4e75           rts
+            ; CALL XREF from MENUANIMCOM.men_animation_b @ 0x4be9e4
+            ; CALL XREF from MAVIS_TEST.main_code @ 0x6d9ec4
+┌ 30: MENUJOCKCOM.jock_setup ();
+│           0x00717f62      4e56fffc       link.w a6, 0xfffc
+│           0x00717f66      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717f68      6206           bhi.b 0x717f70
+│       │   0x00717f6a      44fc0002       move.w 0x2, ccr
+│       │   0x00717f6e      4e76           trapv
+│       └─> 0x00717f70      defc0004       adda.w 0x4, a7
+│           0x00717f74      13ee00080085.  move.b 0x8(a6), 0x85a2ee.l
+│           0x00717f7c      4e5e           unlk a6
+└           0x00717f7e      4e75           rts
+            ; CALL XREF from MENUANIMCOM.men_animation_b @ 0x4bea0c
+┌ 130: MENUJOCKCOM.menu_jock_init ();
+│           0x00717f80      4e56ffde       link.w a6, 0xffde
+│           0x00717f84      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00717f86      6206           bhi.b 0x717f8e
+│       │   0x00717f88      44fc0002       move.w 0x2, ccr
+│       │   0x00717f8c      4e76           trapv
+│       └─> 0x00717f8e      defc0022       adda.w 0x22, a7
+│           0x00717f92      48e780c0       movem.l d0/a0-a1, -(a7)
+│           0x00717f96      43f90085a2ee   lea.l 0x85a2ee, a1
+│           0x00717f9c      4a11           tst.b (a1)
+│       ┌─< 0x00717f9e      670a           beq.b 0x717faa
+│       │   0x00717fa0      1011           move.b (a1), d0
+│       │   0x00717fa2      0c000001       cmpi.b 0x1, d0
+│      ┌──< 0x00717fa6      672c           beq.b 0x717fd4
+│      ││   0x00717fa8      4e4e           trap 0xe
+│      │└─> 0x00717faa      206e0016       movea.l 0x16(a6), a0
+│      │    0x00717fae      4850           pea.l (a0)
+│      │    0x00717fb0      206e0012       movea.l 0x12(a6), a0
+│      │    0x00717fb4      4850           pea.l (a0)
+│      │    0x00717fb6      3f2e0010       move.w 0x10(a6), -(a7)
+│      │    0x00717fba      3f2e000e       move.w 0xe(a6), -(a7)
+│      │    0x00717fbe      3f2e000c       move.w 0xc(a6), -(a7)
+│      │    0x00717fc2      206e0008       movea.l 0x8(a6), a0
+│      │    0x00717fc6      4850           pea.l (a0)
+│      │    0x00717fc8      4eb90072475e   jsr MENUA60COM.menu_a60_init
+│      │┌─> 0x00717fce      defc0012       adda.w 0x12, a7
+│     ┌───< 0x00717fd2      6026           bra.b 0x717ffa
+│     │└──> 0x00717fd4      206e0016       movea.l 0x16(a6), a0
+│     │ ╎   0x00717fd8      4850           pea.l (a0)
+│     │ ╎   0x00717fda      206e0012       movea.l 0x12(a6), a0
+│     │ ╎   0x00717fde      4850           pea.l (a0)
+│     │ ╎   0x00717fe0      3f2e0010       move.w 0x10(a6), -(a7)
+│     │ ╎   0x00717fe4      3f2e000e       move.w 0xe(a6), -(a7)
+│     │ ╎   0x00717fe8      3f2e000c       move.w 0xc(a6), -(a7)
+│     │ ╎   0x00717fec      206e0008       movea.l 0x8(a6), a0
+│     │ ╎   0x00717ff0      4850           pea.l (a0)
+│     │ ╎   0x00717ff2      4eb90071e8d8   jsr MENUCRLCOM.menu_crl_init
+│     │ └─< 0x00717ff8      60d4           bra.b 0x717fce
+│     └───> 0x00717ffa      4cdf0301       movem.l (a7)+, d0/a0-a1
+│           0x00717ffe      4e5e           unlk a6

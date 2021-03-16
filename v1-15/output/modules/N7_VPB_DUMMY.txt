@@ -1,0 +1,148 @@
+            ; CALL XREF from N5_PICTURENET.n5_net_transfer @ 0x66bd2a
+            ;-- N7_VPB_DUMMY:
+┌ 36: N7_VPB_DUMMY.n4_net_xfer ();
+│           0x0066e25a      4e56fffa       link.w a6, 0xfffa
+│           0x0066e25e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0066e260      6206           bhi.b 0x66e268
+│       │   0x0066e262      44fc0002       move.w 0x2, ccr
+│       │   0x0066e266      4e76           trapv
+│       └─> 0x0066e268      defc0006       adda.w 0x6, a7
+│           0x0066e26c      4227           clr.b -(a7)
+│           0x0066e26e      4eb90040452a   jsr p_Assert
+│           0x0066e274      544f           addq.w 0x2, a7
+│           0x0066e276      422e0022       clr.b 0x22(a6)
+│           0x0066e27a      4e5e           unlk a6
+└           0x0066e27c      4e75           rts
+            ; CALL XREF from F0_MONICA.f0_receive @ 0x473812
+┌ 22: N7_VPB_DUMMY.n4_return_statu ();
+│           0x0066e27e      4e56fffc       link.w a6, 0xfffc
+│           0x0066e282      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0066e284      6206           bhi.b 0x66e28c
+│       │   0x0066e286      44fc0002       move.w 0x2, ccr
+│       │   0x0066e28a      4e76           trapv
+│       └─> 0x0066e28c      defc0004       adda.w 0x4, a7
+│           0x0066e290      4e5e           unlk a6
+└           0x0066e292      4e75           rts
+┌ 36: N7_VPB_DUMMY.n4_is_controlle ();
+│           0x0066e294      4e56fffa       link.w a6, 0xfffa
+│           0x0066e298      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0066e29a      6206           bhi.b 0x66e2a2
+│       │   0x0066e29c      44fc0002       move.w 0x2, ccr
+│       │   0x0066e2a0      4e76           trapv
+│       └─> 0x0066e2a2      defc0006       adda.w 0x6, a7
+│           0x0066e2a6      4227           clr.b -(a7)
+│           0x0066e2a8      4eb90040452a   jsr p_Assert
+│           0x0066e2ae      544f           addq.w 0x2, a7
+│           0x0066e2b0      422e000a       clr.b 0xa(a6)
+│           0x0066e2b4      4e5e           unlk a6
+└           0x0066e2b6      4e75           rts
+┌ 36: N7_VPB_DUMMY.n4_is_user ();
+│           0x0066e2b8      4e56fffa       link.w a6, 0xfffa
+│           0x0066e2bc      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0066e2be      6206           bhi.b 0x66e2c6
+│       │   0x0066e2c0      44fc0002       move.w 0x2, ccr
+│       │   0x0066e2c4      4e76           trapv
+│       └─> 0x0066e2c6      defc0006       adda.w 0x6, a7
+│           0x0066e2ca      4227           clr.b -(a7)
+│           0x0066e2cc      4eb90040452a   jsr p_Assert
+│           0x0066e2d2      544f           addq.w 0x2, a7
+│           0x0066e2d4      422e000a       clr.b 0xa(a6)
+│           0x0066e2d8      4e5e           unlk a6
+└           0x0066e2da      4e75           rts
+            ; CALL XREF from PICPORT.send_data @ 0x6c87e0
+┌ 36: N7_VPB_DUMMY.n4_data_return ();
+│           0x0066e2dc      4e56fffa       link.w a6, 0xfffa
+│           0x0066e2e0      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0066e2e2      6206           bhi.b 0x66e2ea
+│       │   0x0066e2e4      44fc0002       move.w 0x2, ccr
+│       │   0x0066e2e8      4e76           trapv
+│       └─> 0x0066e2ea      defc0006       adda.w 0x6, a7
+│           0x0066e2ee      4227           clr.b -(a7)
+│           0x0066e2f0      4eb90040452a   jsr p_Assert
+│           0x0066e2f6      544f           addq.w 0x2, a7
+│           0x0066e2f8      422e0014       clr.b 0x14(a6)
+│           0x0066e2fc      4e5e           unlk a6
+└           0x0066e2fe      4e75           rts
+┌ 40: N7_VPB_DUMMY.n4_net_ref ();
+│           0x0066e300      4e56fffa       link.w a6, 0xfffa
+│           0x0066e304      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0066e306      6206           bhi.b 0x66e30e
+│       │   0x0066e308      44fc0002       move.w 0x2, ccr
+│       │   0x0066e30c      4e76           trapv
+│       └─> 0x0066e30e      defc0006       adda.w 0x6, a7
+│           0x0066e312      4227           clr.b -(a7)
+│           0x0066e314      4eb90040452a   jsr p_Assert
+│           0x0066e31a      544f           addq.w 0x2, a7
+│           0x0066e31c      2d7c00000001.  move.l 0x1, 0xa(a6)
+│           0x0066e324      4e5e           unlk a6
+└           0x0066e326      4e75           rts
+            ; CALL XREF from N5_PICTURENET.n5_get_comms @ 0x66ba34
+┌ 70: N7_VPB_DUMMY.n4_get_comms ();
+│           0x0066e328      4e56fff8       link.w a6, 0xfff8
+│           0x0066e32c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0066e32e      6206           bhi.b 0x66e336
+│       │   0x0066e330      44fc0002       move.w 0x2, ccr
+│       │   0x0066e334      4e76           trapv
+│       └─> 0x0066e336      defc0008       adda.w 0x8, a7
+│           0x0066e33a      48e70080       movem.l a0, -(a7)
+│           0x0066e33e      206e0014       movea.l 0x14(a6), a0
+│           0x0066e342      20bc00002710   move.l 0x2710, (a0)
+│           0x0066e348      206e000c       movea.l 0xc(a6), a0
+│           0x0066e34c      20bc00000018   move.l 0x18, (a0)
+│           0x0066e352      206e0010       movea.l 0x10(a6), a0
+│           0x0066e356      20bc00000030   move.l 0x30, (a0)
+│           0x0066e35c      206e0008       movea.l 0x8(a6), a0
+│           0x0066e360      20bc00000007   move.l 0x7, (a0)
+│           0x0066e366      4cdf0100       movem.l (a7)+, a0
+│           0x0066e36a      4e5e           unlk a6
+└           0x0066e36c      4e75           rts
+┌ 32: N7_VPB_DUMMY.show_controller ();
+│           0x0066e36e      4e56fffa       link.w a6, 0xfffa
+│           0x0066e372      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0066e374      6206           bhi.b 0x66e37c
+│       │   0x0066e376      44fc0002       move.w 0x2, ccr
+│       │   0x0066e37a      4e76           trapv
+│       └─> 0x0066e37c      defc0006       adda.w 0x6, a7
+│           0x0066e380      4227           clr.b -(a7)
+│           0x0066e382      4eb90040452a   jsr p_Assert
+│           0x0066e388      544f           addq.w 0x2, a7
+│           0x0066e38a      4e5e           unlk a6
+└           0x0066e38c      4e75           rts
+┌ 32: N7_VPB_DUMMY.show_users ();
+│           0x0066e38e      4e56fffa       link.w a6, 0xfffa
+│           0x0066e392      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0066e394      6206           bhi.b 0x66e39c
+│       │   0x0066e396      44fc0002       move.w 0x2, ccr
+│       │   0x0066e39a      4e76           trapv
+│       └─> 0x0066e39c      defc0006       adda.w 0x6, a7
+│           0x0066e3a0      4227           clr.b -(a7)
+│           0x0066e3a2      4eb90040452a   jsr p_Assert
+│           0x0066e3a8      544f           addq.w 0x2, a7
+│           0x0066e3aa      4e5e           unlk a6
+└           0x0066e3ac      4e75           rts
+┌ 38: N7_VPB_DUMMY.n2_get_name ();
+│           ; var int32_t var_1a0h @ a6-0x1a0
+│           0x0066e3ae      4e56fffa       link.w a6, 0xfffa
+│           0x0066e3b2      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0066e3b4      6206           bhi.b 0x66e3bc
+│       │   0x0066e3b6      44fc0002       move.w 0x2, ccr
+│       │   0x0066e3ba      4e76           trapv
+│       └─> 0x0066e3bc      defc0006       adda.w 0x6, a7
+│           0x0066e3c0      4227           clr.b -(a7)
+│           0x0066e3c2      4eb90040452a   jsr p_Assert
+│           0x0066e3c8      544f           addq.w 0x2, a7
+│           0x0066e3ca      1d7afe60000c   move.b 0x66e22c(pc), 0xc(a6)
+│           0x0066e3d0      4e5e           unlk a6
+└           0x0066e3d2      4e75           rts
+┌ 36: N7_VPB_DUMMY.n4_connected ();
+│           0x0066e3d4      4e56fffa       link.w a6, 0xfffa
+│           0x0066e3d8      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0066e3da      6206           bhi.b 0x66e3e2
+│       │   0x0066e3dc      44fc0002       move.w 0x2, ccr
+│       │   0x0066e3e0      4e76           trapv
+│       └─> 0x0066e3e2      defc0006       adda.w 0x6, a7
+│           0x0066e3e6      4227           clr.b -(a7)
+│           0x0066e3e8      4eb90040452a   jsr p_Assert
+│           0x0066e3ee      544f           addq.w 0x2, a7
+│           0x0066e3f0      422e000c       clr.b 0xc(a6)
+│           0x0066e3f4      4e5e           unlk a6

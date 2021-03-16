@@ -1,0 +1,111 @@
+            ; CALL XREF from LISTCOM @ +0xf90
+            ;-- PICBOX_DUMMY:
+┌ 26: PICBOX_DUMMY.lib_key_decode ();
+│           0x007a4696      4e56fffc       link.w a6, 0xfffc
+│           0x007a469a      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a469c      6206           bhi.b 0x7a46a4
+│       │   0x007a469e      44fc0002       move.w 0x2, ccr
+│       │   0x007a46a2      4e76           trapv
+│       └─> 0x007a46a4      defc0004       adda.w 0x4, a7
+│           0x007a46a8      422e000a       clr.b 0xa(a6)
+│           0x007a46ac      4e5e           unlk a6
+└           0x007a46ae      4e75           rts
+┌ 22: PICBOX_DUMMY.hit_num_control ();
+│           0x007a46b0      4e56fffc       link.w a6, 0xfffc
+│           0x007a46b4      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a46b6      6206           bhi.b 0x7a46be
+│       │   0x007a46b8      44fc0002       move.w 0x2, ccr
+│       │   0x007a46bc      4e76           trapv
+│       └─> 0x007a46be      defc0004       adda.w 0x4, a7
+│           0x007a46c2      4e5e           unlk a6
+└           0x007a46c4      4e75           rts
+            ; CALL XREF from PANEL_STACK.panel_activated @ 0x779546
+┌ 46: PICBOX_DUMMY.get_default_tit ();
+│           0x007a46c6      4e56fff0       link.w a6, 0xfff0
+│           0x007a46ca      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a46cc      6206           bhi.b 0x7a46d4
+│       │   0x007a46ce      44fc0002       move.w 0x2, ccr
+│       │   0x007a46d2      4e76           trapv
+│       └─> 0x007a46d4      defc0010       adda.w 0x10, a7
+│           0x007a46d8      48e780c0       movem.l d0/a0-a1, -(a7)
+│           0x007a46dc      206e0008       movea.l 0x8(a6), a0
+│           0x007a46e0      43fafece       lea.l 0x7a45b0(pc), a1
+│           0x007a46e4      701c           moveq 0x1c, d0
+│       ┌─> 0x007a46e6      10d9           move.b (a1)+, (a0)+
+│       └─< 0x007a46e8      51c8fffc       dbra d0, 0x7a46e6
+│           0x007a46ec      4cdf0301       movem.l (a7)+, d0/a0-a1
+│           0x007a46f0      4e5e           unlk a6
+└           0x007a46f2      4e75           rts
+            ; CALL XREF from MENUPOS2DCOM.position_enter @ 0x4b8f78
+            ; CALL XREF from MENU3DCOM.PAS.check_enable_li @ 0x512732
+┌ 26: PICBOX_DUMMY.vls_input ();
+│           0x007a46f4      4e56fffc       link.w a6, 0xfffc
+│           0x007a46f8      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a46fa      6206           bhi.b 0x7a4702
+│       │   0x007a46fc      44fc0002       move.w 0x2, ccr
+│       │   0x007a4700      4e76           trapv
+│       └─> 0x007a4702      defc0004       adda.w 0x4, a7
+│           0x007a4706      422e0008       clr.b 0x8(a6)
+│           0x007a470a      4e5e           unlk a6
+└           0x007a470c      4e75           rts
+┌ 26: PICBOX_DUMMY.vls_key_expand ();
+│           0x007a470e      4e56fffc       link.w a6, 0xfffc
+│           0x007a4712      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4714      6206           bhi.b 0x7a471c
+│       │   0x007a4716      44fc0002       move.w 0x2, ccr
+│       │   0x007a471a      4e76           trapv
+│       └─> 0x007a471c      defc0004       adda.w 0x4, a7
+│           0x007a4720      422e0008       clr.b 0x8(a6)
+│           0x007a4724      4e5e           unlk a6
+└           0x007a4726      4e75           rts
+            ; CALL XREF from K91_LIBOPS.k91_choose_item @ 0x64f072
+┌ 28: PICBOX_DUMMY.ins_fid_at_curs ();
+│           ; var int32_t var_16eh @ a6-0x16e
+│           0x007a4728      4e56fffc       link.w a6, 0xfffc
+│           0x007a472c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a472e      6206           bhi.b 0x7a4736
+│       │   0x007a4730      44fc0002       move.w 0x2, ccr
+│       │   0x007a4734      4e76           trapv
+│       └─> 0x007a4736      defc0004       adda.w 0x4, a7
+│           0x007a473a      3d7afe920012   move.w 0x7a45ce(pc), 0x12(a6)
+│           0x007a4740      4e5e           unlk a6
+└           0x007a4742      4e75           rts
+            ; CALL XREFS from MENUOWNERCOM.set_owner_enabl @ 0x50677c, 0x5067ae
+┌ 22: PICBOX_DUMMY.lib_diag_enable ();
+│           0x007a4744      4e56fffc       link.w a6, 0xfffc
+│           0x007a4748      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a474a      6206           bhi.b 0x7a4752
+│       │   0x007a474c      44fc0002       move.w 0x2, ccr
+│       │   0x007a4750      4e76           trapv
+│       └─> 0x007a4752      defc0004       adda.w 0x4, a7
+│           0x007a4756      4e5e           unlk a6
+└           0x007a4758      4e75           rts
+            ; CALL XREFS from MENUOWNERCOM.set_owner_enabl @ 0x506784, 0x5067c2
+┌ 22: PICBOX_DUMMY.lib_eng_enables ();
+│           0x007a475a      4e56fffc       link.w a6, 0xfffc
+│           0x007a475e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4760      6206           bhi.b 0x7a4768
+│       │   0x007a4762      44fc0002       move.w 0x2, ccr
+│       │   0x007a4766      4e76           trapv
+│       └─> 0x007a4768      defc0004       adda.w 0x4, a7
+│           0x007a476c      4e5e           unlk a6
+└           0x007a476e      4e75           rts
+            ; CALL XREFS from MENUOWNERCOM.set_owner_enabl @ 0x50678c, 0x5067d6
+┌ 22: PICBOX_DUMMY.lib_pnet_enable ();
+│           0x007a4770      4e56fffc       link.w a6, 0xfffc
+│           0x007a4774      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4776      6206           bhi.b 0x7a477e
+│       │   0x007a4778      44fc0002       move.w 0x2, ccr
+│       │   0x007a477c      4e76           trapv
+│       └─> 0x007a477e      defc0004       adda.w 0x4, a7
+│           0x007a4782      4e5e           unlk a6
+└           0x007a4784      4e75           rts
+            ; CALL XREF from MENUOWNERCOM.set_owner_enabl @ 0x506794
+┌ 22: PICBOX_DUMMY.lib_udf_enables ();
+│           0x007a4786      4e56fffc       link.w a6, 0xfffc
+│           0x007a478a      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a478c      6206           bhi.b 0x7a4794
+│       │   0x007a478e      44fc0002       move.w 0x2, ccr
+│       │   0x007a4792      4e76           trapv
+│       └─> 0x007a4794      defc0004       adda.w 0x4, a7
+│           0x007a4798      4e5e           unlk a6

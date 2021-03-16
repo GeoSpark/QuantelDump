@@ -1,0 +1,886 @@
+            ;-- PRESENTCOM:
+            0x007a479c      .byte 0x00
+            0x007a479d      .byte 0x00
+            0x007a479e      .byte 0x00
+            0x007a479f      .byte 0x00
+            0x007a47a0      .byte 0x00
+            0x007a47a1      .byte 0x00
+            0x007a47a2      .byte 0x00
+            0x007a47a3      .byte 0x00
+            0x007a47a4      .byte 0x00
+            0x007a47a5      .byte 0x00
+            0x007a47a6      .byte 0x3f
+            0x007a47a7      .byte 0x80
+            0x007a47a8      .byte 0x00
+            0x007a47a9      .byte 0x00
+            0x007a47aa      .byte 0x3f
+            0x007a47ab      .byte 0x80
+            0x007a47ac      .byte 0x00
+            0x007a47ad      .byte 0x00
+            0x007a47ae      .byte 0x00
+            0x007a47af      .byte 0x00
+            0x007a47b0      .byte 0x00
+            0x007a47b1      .byte 0x00
+            0x007a47b2      .byte 0x00
+            0x007a47b3      .byte 0x00
+            0x007a47b4      .byte 0x00
+            0x007a47b5      .byte 0x00
+            0x007a47b6      .byte 0x00
+            0x007a47b7      .byte 0x00
+            0x007a47b8      .byte 0x00
+            0x007a47b9      .byte 0x00
+            0x007a47ba      .byte 0x00
+            0x007a47bb      .byte 0x00
+            0x007a47bc      .byte 0x00
+            0x007a47bd      .byte 0x00
+            0x007a47be      .byte 0x00
+            0x007a47bf      .byte 0x00
+            0x007a47c0      .byte 0x00
+            0x007a47c1      .byte 0x02
+            0x007a47c2      .byte 0x00
+            0x007a47c3      .byte 0x00
+            0x007a47c4      .byte 0x3f
+            0x007a47c5      .byte 0x80
+            0x007a47c6      .byte 0x00
+            0x007a47c7      .byte 0x00
+            0x007a47c8      .byte 0x3f
+            0x007a47c9      .byte 0x80
+            0x007a47ca      .byte 0x00
+            0x007a47cb      .byte 0x00
+            0x007a47cc      .byte 0x00
+            0x007a47cd      .byte 0x00
+            0x007a47ce      .byte 0x00
+            0x007a47cf      .byte 0x00
+            0x007a47d0      .byte 0x00
+            0x007a47d1      .byte 0x00
+            0x007a47d2      .byte 0x00
+            0x007a47d3      .byte 0x00
+            0x007a47d4      .byte 0x3f
+            0x007a47d5      .byte 0x80
+            0x007a47d6      .byte 0x00
+            0x007a47d7      .byte 0x00
+            0x007a47d8      .byte 0x3f
+            0x007a47d9      .byte 0x80
+            0x007a47da      .byte 0x00
+            0x007a47db      .byte 0x00
+            0x007a47dc      .byte 0x00
+            0x007a47dd      .byte 0x00
+            0x007a47de      .byte 0x00
+            0x007a47df      .byte 0x00
+            0x007a47e0      .byte 0x00
+            0x007a47e1      .byte 0x00
+            0x007a47e2      .byte 0x00
+            0x007a47e3      .byte 0x00
+            0x007a47e4      .byte 0x00
+            0x007a47e5      .byte 0x00
+            0x007a47e6      .byte 0x00
+            0x007a47e7      .byte 0x00
+            0x007a47e8      .byte 0x00
+            0x007a47e9      .byte 0x00
+            0x007a47ea      .byte 0x00
+            0x007a47eb      .byte 0x00
+            0x007a47ec      .byte 0x00
+            0x007a47ed      .byte 0x00
+            0x007a47ee      .byte 0x00
+            0x007a47ef      .byte 0x01
+            0x007a47f0      .byte 0x00
+            0x007a47f1      .byte 0x00
+            0x007a47f2      .byte 0x00
+            0x007a47f3      .byte 0x00
+            0x007a47f4      .byte 0x00
+            0x007a47f5      .byte 0x00
+            0x007a47f6      .byte 0x00
+            0x007a47f7      .byte 0x00
+            0x007a47f8      .byte 0x00
+            0x007a47f9      .byte 0x00
+            0x007a47fa      .byte 0x00
+            0x007a47fb      .byte 0x00
+            0x007a47fc      .byte 0x00
+            0x007a47fd      .byte 0x00
+            0x007a47fe      .byte 0x00
+            0x007a47ff      .byte 0x00
+            0x007a4800      .byte 0x00
+            0x007a4801      .byte 0x00
+            0x007a4802      .byte 0x00
+            0x007a4803      .byte 0x88
+            0x007a4804      .byte 0x00
+            0x007a4805      .byte 0x46
+            0x007a4806      .byte 0x00
+            0x007a4807      .byte 0xd2
+            0x007a4808      .byte 0x00
+            0x007a4809      .byte 0x51
+            0x007a480a      .byte 0x00
+            0x007a480b      .byte 0x80
+            0x007a480c      .byte 0x00
+            0x007a480d      .byte 0x80
+            0x007a480e      .byte 0x00
+            0x007a480f      .byte 0x3c
+            0x007a4810      .byte 0x00
+            0x007a4811      .byte 0x80
+            0x007a4812      .byte 0x00
+            0x007a4813      .byte 0x80
+            0x007a4814      .byte 0x00
+            0x007a4815      .byte 0x32
+            0x007a4816      .byte 0x00
+            0x007a4817      .byte 0x80
+            0x007a4818      .byte 0x00
+            0x007a4819      .byte 0x80
+            0x007a481a      .byte 0x00
+            0x007a481b      .byte 0x10
+            0x007a481c      .byte 0x00
+            0x007a481d      .byte 0x80
+            0x007a481e      .byte 0x00
+            0x007a481f      .byte 0x80
+            0x007a4820      .byte 0x00
+            0x007a4821      .byte 0xa7
+            0x007a4822      .byte 0x00
+            0x007a4823      .byte 0x72
+            0x007a4824      .byte 0x00
+            0x007a4825      .byte 0x9e
+            0x007a4826      .byte 0x00
+            0x007a4827      .byte 0xbf
+            0x007a4828      .byte 0x00
+            0x007a4829      .byte 0x80
+            0x007a482a      .byte 0x00
+            0x007a482b      .byte 0x80
+            0x007a482c      .byte 0x00
+            0x007a482d      .byte 0xa0
+            0x007a482e      .byte 0x00
+            0x007a482f      .byte 0x96
+            0x007a4830      .byte 0x00
+            0x007a4831      .byte 0x74
+            0x007a4832      .byte 0x00
+            0x007a4833      .byte 0x23
+            0x007a4834      .byte 0x00
+            0x007a4835      .byte 0xf0
+            0x007a4836      .byte 0x00
+            0x007a4837      .byte 0x6e
+            0x007a4838      .byte 0x00
+            0x007a4839      .byte 0x8c
+            0x007a483a      .byte 0x00
+            0x007a483b      .byte 0x6e
+            0x007a483c      .byte 0x00
+            0x007a483d      .byte 0x6e
+            0x007a483e      .byte 0x00
+            0x007a483f      .byte 0xc4
+            0x007a4840      .byte 0x00
+            0x007a4841      .byte 0x31
+            0x007a4842      .byte 0x00
+            0x007a4843      .byte 0x8c
+            0x007a4844      .byte 0x00
+            0x007a4845      .byte 0xa8
+            0x007a4846      .byte 0x00
+            0x007a4847      .byte 0x28
+            0x007a4848      .byte 0x00
+            0x007a4849      .byte 0xb1
+            0x007a484a      .byte 0x00
+            0x007a484b      .byte 0x00
+            0x007a484c      .byte 0x00
+            0x007a484d      .byte 0x80
+            0x007a484e      .byte 0x00
+            0x007a484f      .byte 0x80
+            0x007a4850      .byte 0x00
+            0x007a4851      .byte 0xff
+            0x007a4852      .byte 0x00
+            0x007a4853      .byte 0x80
+            0x007a4854      .byte 0x00
+            0x007a4855      .byte 0x80
+            0x007a4856      .byte 0x00
+            0x007a4857      .byte 0xcc
+            0x007a4858      .byte 0x00
+            0x007a4859      .byte 0x80
+            0x007a485a      .byte 0x00
+            0x007a485b      .byte 0x80
+            0x007a485c      .byte 0x00
+            0x007a485d      .byte 0xad
+            0x007a485e      .byte 0x00
+            0x007a485f      .byte 0x80
+            0x007a4860      .byte 0x00
+            0x007a4861      .byte 0x80
+            0x007a4862      .byte 0x00
+            0x007a4863      .byte 0xeb
+            0x007a4864      .byte 0x00
+            0x007a4865      .byte 0x80
+            0x007a4866      .byte 0x00
+            0x007a4867      .byte 0x80
+            0x007a4868      .byte 0x00
+            0x007a4869      .byte 0x10
+            0x007a486a      .byte 0x00
+            0x007a486b      .byte 0x80
+            0x007a486c      .byte 0x00
+            0x007a486d      .byte 0x80
+            0x007a486e      .byte 0x00
+            0x007a486f      .byte 0x80
+            0x007a4870      .byte 0x00
+            0x007a4871      .byte 0x80
+            0x007a4872      .byte 0x00
+            0x007a4873      .byte 0x80
+            0x007a4874      .byte 0x00
+            0x007a4875      .byte 0x51
+            0x007a4876      .byte 0x00
+            0x007a4877      .byte 0x5a
+            0x007a4878      .byte 0x00
+            0x007a4879      .byte 0xf0
+            0x007a487a      .byte 0x00
+            0x007a487b      .byte 0xd2
+            0x007a487c      .byte 0x00
+            0x007a487d      .byte 0x10
+            0x007a487e      .byte 0x00
+            0x007a487f      .byte 0x92
+            0x007a4880      .byte 0x00
+            0x007a4881      .byte 0x29
+            0x007a4882      .byte 0x00
+            0x007a4883      .byte 0xf0
+            0x007a4884      .byte 0x00
+            0x007a4885      .byte 0x6e
+            0x007a4886      .byte 0x00
+            0x007a4887      .byte 0x91
+            0x007a4888      .byte 0x00
+            0x007a4889      .byte 0x36
+            0x007a488a      .byte 0x00
+            0x007a488b      .byte 0x22
+            0x007a488c      .byte 0x00
+            0x007a488d      .byte 0xa2
+            0x007a488e      .byte 0x00
+            0x007a488f      .byte 0x2c
+            0x007a4890      .byte 0x00
+            0x007a4891      .byte 0x8e
+            0x007a4892      .byte 0x00
+            0x007a4893      .byte 0x83
+            0x007a4894      .byte 0x00
+            0x007a4895      .byte 0x9c
+            0x007a4896      .byte 0x00
+            0x007a4897      .byte 0x2c
+            0x007a4898      .byte 0x00
+            0x007a4899      .byte 0x70
+            0x007a489a      .byte 0x00
+            0x007a489b      .byte 0x48
+            0x007a489c      .byte 0x00
+            0x007a489d      .byte 0x3a
+            0x007a489e      .byte 0x00
+            0x007a489f      .byte 0x54
+            0x007a48a0      .byte 0x00
+            0x007a48a1      .byte 0xb8
+            0x007a48a2      .byte 0x00
+            0x007a48a3      .byte 0xc6
+            0x007a48a4      .byte 0x00
+            0x007a48a5      .byte 0x41
+            0x007a48a6      .byte 0x00
+            0x007a48a7      .byte 0x64
+            0x007a48a8      .byte 0x00
+            0x007a48a9      .byte 0xd4
+            0x007a48aa      .byte 0x00
+            0x007a48ab      .byte 0x23
+            0x007a48ac      .byte 0x00
+            0x007a48ad      .byte 0xd4
+            0x007a48ae      .byte 0x00
+            0x007a48af      .byte 0x72
+            0x007a48b0      .byte 0x00
+            0x007a48b1      .byte 0xd2
+            0x007a48b2      .byte 0x00
+            0x007a48b3      .byte 0x10
+            0x007a48b4      .byte 0x00
+            0x007a48b5      .byte 0x92
+            0x007a48b6      .byte 0x00
+            0x007a48b7      .byte 0xaa
+            0x007a48b8      .byte 0x00
+            0x007a48b9      .byte 0xa6
+            0x007a48ba      .byte 0x00
+            0x007a48bb      .byte 0x10
+            0x007a48bc      .byte 0x00
+            0x007a48bd      .byte 0x91
+            0x007a48be      .byte 0x00
+            0x007a48bf      .byte 0x36
+            0x007a48c0      .byte 0x00
+            0x007a48c1      .byte 0x22
+            0x007a48c2      .byte 0x00
+            0x007a48c3      .byte 0x6a
+            0x007a48c4      .byte 0x00
+            0x007a48c5      .byte 0xca
+            0x007a48c6      .byte 0x00
+            0x007a48c7      .byte 0xde
+            0x007a48c8      .byte 0x00
+            0x007a48c9      .byte 0x51
+            0x007a48ca      .byte 0x00
+            0x007a48cb      .byte 0x5a
+            0x007a48cc      .byte 0x00
+            0x007a48cd      .byte 0xf0
+            0x007a48ce      .byte 0x00
+            0x007a48cf      .byte 0x29
+            0x007a48d0      .byte 0x00
+            0x007a48d1      .byte 0xf0
+            0x007a48d2      .byte 0x00
+            0x007a48d3      .byte 0x6e
+            0x007a48d4      .byte 0x02
+            0x007a48d5      .byte 0xc7
+            0x007a48d6      .byte 0x01
+            0x007a48d7      .byte 0xe5
+            0x007a48d8      .byte 0x03
+            0x007a48d9      .byte 0x00
+            0x007a48da      .byte 0x01
+            0x007a48db      .byte 0xe4
+            0x007a48dc      .byte 0x02
+            0x007a48dd      .byte 0xbd
+            0x007a48de      .byte 0x02
+            0x007a48df      .byte 0x3f
+            0x007a48e0      .byte 0x02
+            0x007a48e1      .byte 0x4f
+            0x007a48e2      .byte 0x4b
+            0x007a48e3      .byte 0x18
+            0x007a48e4     .string "unable to load story pic" ; len=24
+            0x007a48fc      .byte 0x02
+            0x007a48fd      .byte 0x4f
+            0x007a48fe      .byte 0x4b
+            0x007a48ff      .byte 0x69
+            ; CALL XREF from PRESENTCOM.present_stack @ 0x7a4d66
+┌ 76: PRESENTCOM.clear_stack ();
+│           0x007a4900      4e56ffe0       link.w a6, 0xffe0
+│           0x007a4904      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4906      6206           bhi.b 0x7a490e
+│       │   0x007a4908      44fc0002       move.w 0x2, ccr
+│       │   0x007a490c      4e76           trapv
+│       └─> 0x007a490e      defc001c       adda.w 0x1c, a7
+│           0x007a4912      48e700c0       movem.l a0-a1, -(a7)
+│           0x007a4916      206e0008       movea.l 0x8(a6), a0
+│       ┌─> 0x007a491a      2250           movea.l (a0), a1
+│       ╎   0x007a491c      b2fc0001       cmpa.w 0x1, a1
+│      ┌──< 0x007a4920      6722           beq.b 0x7a4944
+│      │╎   0x007a4922      2d49fffc       move.l a1, -0x4(a6)
+│      │╎   0x007a4926      b3e9fffc       cmpa.l -0x4(a1), a1
+│     ┌───< 0x007a492a      6702           beq.b 0x7a492e
+│     ││╎   0x007a492c      4e4d           trap 0xd
+│     └───> 0x007a492e      20a9000e       move.l 0xe(a1), (a0)
+│      │╎   0x007a4932      486efffc       pea.l -0x4(a6)
+│      │╎   0x007a4936      48780012       pea.l 0x12
+│      │╎   0x007a493a      4eb900403b98   jsr p_Dispos
+│      │╎   0x007a4940      504f           addq.w 0x8, a7
+│      │└─< 0x007a4942      60d6           bra.b 0x7a491a
+│      └──> 0x007a4944      4cdf0300       movem.l (a7)+, a0-a1
+│           0x007a4948      4e5e           unlk a6
+└           0x007a494a      4e75           rts
+┌ 120: PRESENTCOM.stack_add ();
+│           0x007a494c      4e56ffd8       link.w a6, 0xffd8
+│           0x007a4950      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4952      6206           bhi.b 0x7a495a
+│       │   0x007a4954      44fc0002       move.w 0x2, ccr
+│       │   0x007a4958      4e76           trapv
+│       └─> 0x007a495a      defc0024       adda.w 0x24, a7
+│           0x007a495e      48e7c0f0       movem.l d0-d1/a0-a3, -(a7)
+│           0x007a4962      7201           moveq 0x1, d1
+│           0x007a4964      486efffc       pea.l -0x4(a6)
+│           0x007a4968      48780012       pea.l 0x12
+│           0x007a496c      4eb900403a92   jsr p_New
+│           0x007a4972      504f           addq.w 0x8, a7
+│           0x007a4974      206c0004       movea.l 0x4(a4), a0
+│           0x007a4978      b0c1           cmpa.w d1, a0
+│       ┌─< 0x007a497a      660a           bne.b 0x7a4986
+│       │   0x007a497c      226c0010       movea.l 0x10(a4), a1
+│       │   0x007a4980      22aefffc       move.l -0x4(a6), (a1)
+│      ┌──< 0x007a4984      600e           bra.b 0x7a4994
+│      │└─> 0x007a4986      b1e8fffc       cmpa.l -0x4(a0), a0
+│      │┌─< 0x007a498a      6702           beq.b 0x7a498e
+│      ││   0x007a498c      4e4d           trap 0xd
+│      │└─> 0x007a498e      216efffc000e   move.l -0x4(a6), 0xe(a0)
+│      └──> 0x007a4994      226efffc       movea.l -0x4(a6), a1
+│           0x007a4998      b3e9fffc       cmpa.l -0x4(a1), a1
+│       ┌─< 0x007a499c      6702           beq.b 0x7a49a0
+│       │   0x007a499e      4e4d           trap 0xd
+│       └─> 0x007a49a0      2449           movea.l a1, a2
+│           0x007a49a2      47ee0008       lea.l 0x8(a6), a3
+│           0x007a49a6      7009           moveq 0x9, d0
+│       ┌─> 0x007a49a8      14db           move.b (a3)+, (a2)+
+│       └─< 0x007a49aa      51c8fffc       dbra d0, 0x7a49a8
+│           0x007a49ae      2341000e       move.l d1, 0xe(a1)
+│           0x007a49b2      2348000a       move.l a0, 0xa(a1)
+│           0x007a49b6      296efffc0004   move.l -0x4(a6), 0x4(a4)
+│           0x007a49bc      4cdf0f03       movem.l (a7)+, d0-d1/a0-a3
+│           0x007a49c0      4e5e           unlk a6
+└           0x007a49c2      4e75           rts
+            ; CALL XREF from PRESENTCOM.present_stack @ 0x7a4d74
+┌ 58: PRESENTCOM.get_stack ();
+│           0x007a49c4      4e56ffe4       link.w a6, 0xffe4
+│           0x007a49c8      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a49ca      6206           bhi.b 0x7a49d2
+│       │   0x007a49cc      44fc0002       move.w 0x2, ccr
+│       │   0x007a49d0      4e76           trapv
+│       └─> 0x007a49d2      defc0018       adda.w 0x18, a7
+│           0x007a49d6      48e78088       movem.l d0/a0/a4, -(a7)
+│           0x007a49da      7001           moveq 0x1, d0
+│           0x007a49dc      206e0008       movea.l 0x8(a6), a0
+│           0x007a49e0      2080           move.l d0, (a0)
+│           0x007a49e2      2d40fffc       move.l d0, -0x4(a6)
+│           0x007a49e6      486efff8       pea.l -0x8(a6)
+│           0x007a49ea      487aff60       pea.l PRESENTCOM.stack_add(pc)
+│           0x007a49ee      4eb900499a28   jsr DESKCOM.desk_get_files
+│           0x007a49f4      504f           addq.w 0x8, a7
+│           0x007a49f6      4cdf1101       movem.l (a7)+, d0/a0/a4
+│           0x007a49fa      4e5e           unlk a6
+└           0x007a49fc      4e75           rts
+┌ 148: PRESENTCOM.screen_blank ();
+│           0x007a49fe      4e56ffd8       link.w a6, 0xffd8
+│           0x007a4a02      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4a04      6206           bhi.b 0x7a4a0c
+│       │   0x007a4a06      44fc0002       move.w 0x2, ccr
+│       │   0x007a4a0a      4e76           trapv
+│       └─> 0x007a4a0c      defc0028       adda.w 0x28, a7
+│           0x007a4a10      48e7e0e0       movem.l d0-d2/a0-a2, -(a7)
+│           0x007a4a14      43f9008740c6   lea.l 0x8740c6, a1
+│           0x007a4a1a      45f9008740ca   lea.l 0x8740ca, a2
+│           0x007a4a20      7401           moveq 0x1, d2
+│           0x007a4a22      4eb900523cda   jsr BRUSHCOM.open_block
+│           0x007a4a28      1012           move.b (a2), d0
+│           0x007a4a2a      4880           ext.w d0
+│           0x007a4a2c      4182           chk.w d2, d0
+│           0x007a4a2e      2049           movea.l a1, a0
+│           0x007a4a30      12300005       move.b 0x5(a0, d0.w), d1
+│           0x007a4a34      4881           ext.w d1
+│           0x007a4a36      43bc0009       chk.w 0x9, d1
+│           0x007a4a3a      1f01           move.b d1, -(a7)
+│           0x007a4a3c      e740           asl.w 0x3, d0
+│           0x007a4a3e      2049           movea.l a1, a0
+│           0x007a4a40      2f30001c       move.l 0x1c(a0, d0.w), -(a7)
+│           0x007a4a44      2f300018       move.l 0x18(a0, d0.w), -(a7)
+│           0x007a4a48      4eb900518a2a   jsr OUTCOM.set_video_crops
+│           0x007a4a4e      504f           addq.w 0x8, a7
+│           0x007a4a50      1ebc0015       move.b 0x15, (a7)
+│           0x007a4a54      4eb900518dd8   jsr OUTCOM.set_out
+│           0x007a4a5a      544f           addq.w 0x2, a7
+│           0x007a4a5c      1012           move.b (a2), d0
+│           0x007a4a5e      4880           ext.w d0
+│           0x007a4a60      4182           chk.w d2, d0
+│           0x007a4a62      2049           movea.l a1, a0
+│           0x007a4a64      12300005       move.b 0x5(a0, d0.w), d1
+│           0x007a4a68      4881           ext.w d1
+│           0x007a4a6a      5341           subq.w 0x1, d1
+│           0x007a4a6c      43bc0008       chk.w 0x8, d1
+│           0x007a4a70      5241           addq.w 0x1, d1
+│           0x007a4a72      1f01           move.b d1, -(a7)
+│           0x007a4a74      e540           asl.w 0x2, d0
+│           0x007a4a76      2049           movea.l a1, a0
+│           0x007a4a78      2f300008       move.l 0x8(a0, d0.w), -(a7)
+│           0x007a4a7c      4eb90051872e   jsr OUTCOM.set_scroll
+│           0x007a4a82      5c4f           addq.w 0x6, a7
+│           0x007a4a84      4eb900523cf0   jsr BRUSHCOM.close_block
+│           0x007a4a8a      4cdf0707       movem.l (a7)+, d0-d2/a0-a2
+│           0x007a4a8e      4e5e           unlk a6
+└           0x007a4a90      4e75           rts
+┌ 166: PRESENTCOM.show_prefetched ();
+│           0x007a4a92      4e56ffd8       link.w a6, 0xffd8
+│           0x007a4a96      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4a98      6206           bhi.b 0x7a4aa0
+│       │   0x007a4a9a      44fc0002       move.w 0x2, ccr
+│       │   0x007a4a9e      4e76           trapv
+│       └─> 0x007a4aa0      defc0028       adda.w 0x28, a7
+│           0x007a4aa4      48e7e0e0       movem.l d0-d2/a0-a2, -(a7)
+│           0x007a4aa8      43f9008740c6   lea.l 0x8740c6, a1
+│           0x007a4aae      45f9008740ca   lea.l 0x8740ca, a2
+│           0x007a4ab4      7401           moveq 0x1, d2
+│           0x007a4ab6      4eb900523cda   jsr BRUSHCOM.open_block
+│           0x007a4abc      1012           move.b (a2), d0
+│           0x007a4abe      4880           ext.w d0
+│           0x007a4ac0      4182           chk.w d2, d0
+│           0x007a4ac2      2049           movea.l a1, a0
+│           0x007a4ac4      12300005       move.b 0x5(a0, d0.w), d1
+│           0x007a4ac8      4881           ext.w d1
+│           0x007a4aca      43bc0009       chk.w 0x9, d1
+│           0x007a4ace      1f01           move.b d1, -(a7)
+│           0x007a4ad0      e740           asl.w 0x3, d0
+│           0x007a4ad2      2049           movea.l a1, a0
+│           0x007a4ad4      2f30001c       move.l 0x1c(a0, d0.w), -(a7)
+│           0x007a4ad8      2f300018       move.l 0x18(a0, d0.w), -(a7)
+│           0x007a4adc      4eb900518a2a   jsr OUTCOM.set_video_crops
+│           0x007a4ae2      defc000a       adda.w 0xa, a7
+│           0x007a4ae6      1012           move.b (a2), d0
+│           0x007a4ae8      4880           ext.w d0
+│           0x007a4aea      4182           chk.w d2, d0
+│           0x007a4aec      2049           movea.l a1, a0
+│           0x007a4aee      12300028       move.b 0x28(a0, d0.w), d1
+│           0x007a4af2      4881           ext.w d1
+│           0x007a4af4      43bc0031       chk.w 0x31, d1
+│           0x007a4af8      1f01           move.b d1, -(a7)
+│           0x007a4afa      4eb900518dd8   jsr OUTCOM.set_out
+│           0x007a4b00      544f           addq.w 0x2, a7
+│           0x007a4b02      1012           move.b (a2), d0
+│           0x007a4b04      4880           ext.w d0
+│           0x007a4b06      4182           chk.w d2, d0
+│           0x007a4b08      2049           movea.l a1, a0
+│           0x007a4b0a      12300005       move.b 0x5(a0, d0.w), d1
+│           0x007a4b0e      4881           ext.w d1
+│           0x007a4b10      5341           subq.w 0x1, d1
+│           0x007a4b12      43bc0008       chk.w 0x8, d1
+│           0x007a4b16      5241           addq.w 0x1, d1
+│           0x007a4b18      1f01           move.b d1, -(a7)
+│           0x007a4b1a      e540           asl.w 0x2, d0
+│           0x007a4b1c      2049           movea.l a1, a0
+│           0x007a4b1e      2f300008       move.l 0x8(a0, d0.w), -(a7)
+│           0x007a4b22      4eb90051872e   jsr OUTCOM.set_scroll
+│           0x007a4b28      5c4f           addq.w 0x6, a7
+│           0x007a4b2a      4eb900523cf0   jsr BRUSHCOM.close_block
+│           0x007a4b30      4cdf0707       movem.l (a7)+, d0-d2/a0-a2
+│           0x007a4b34      4e5e           unlk a6
+└           0x007a4b36      4e75           rts
+┌ 360: PRESENTCOM.fetch_file ();
+│           0x007a4b38      4e56ff68       link.w a6, 0xff68
+│           0x007a4b3c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4b3e      6206           bhi.b 0x7a4b46
+│       │   0x007a4b40      44fc0002       move.w 0x2, ccr
+│       │   0x007a4b44      4e76           trapv
+│       └─> 0x007a4b46      defc0056       adda.w 0x56, a7
+│           0x007a4b4a      48e7fcf0       movem.l d0-d5/a0-a3, -(a7)
+│           0x007a4b4e      45f9008740c6   lea.l 0x8740c6, a2
+│           0x007a4b54      47f9008740ca   lea.l 0x8740ca, a3
+│           0x007a4b5a      7601           moveq 0x1, d3
+│           0x007a4b5c      7809           moveq 0x9, d4
+│           0x007a4b5e      7a0c           moveq 0xc, d5
+│           0x007a4b60      2052           movea.l (a2), a0
+│           0x007a4b62      b1e8fffc       cmpa.l -0x4(a0), a0
+│       ┌─< 0x007a4b66      6702           beq.b 0x7a4b6a
+│       │   0x007a4b68      4e4d           trap 0xd
+│       └─> 0x007a4b6a      9efc000a       suba.w 0xa, a7
+│           0x007a4b6e      224f           movea.l a7, a1
+│           0x007a4b70      7009           moveq 0x9, d0
+│       ┌─> 0x007a4b72      12d8           move.b (a0)+, (a1)+
+│       └─< 0x007a4b74      51c8fffc       dbra d0, 0x7a4b72
+│           0x007a4b78      4854           pea.l (a4)
+│           0x007a4b7a      4eb90059866e   jsr K0_DISKMGR.k_gen_file
+│           0x007a4b80      defc000e       adda.w 0xe, a7
+│           0x007a4b84      1013           move.b (a3), d0
+│           0x007a4b86      4880           ext.w d0
+│           0x007a4b88      4183           chk.w d3, d0
+│           0x007a4b8a      3200           move.w d0, d1
+│           0x007a4b8c      e541           asl.w 0x2, d1
+│           0x007a4b8e      204a           movea.l a2, a0
+│           0x007a4b90      34301010       move.w 0x10(a0, d1.w), d2
+│           0x007a4b94      48c2           ext.l d2
+│           0x007a4b96      e182           asl.l 0x8, d2
+│           0x007a4b98      e182           asl.l 0x8, d2
+│           0x007a4b9a      2d42ffc0       move.l d2, -0x40(a6)
+│           0x007a4b9e      34301012       move.w 0x12(a0, d1.w), d2
+│           0x007a4ba2      48c2           ext.l d2
+│           0x007a4ba4      e182           asl.l 0x8, d2
+│           0x007a4ba6      e182           asl.l 0x8, d2
+│           0x007a4ba8      2d42ffc4       move.l d2, -0x3c(a6)
+│           0x007a4bac      1d7c0004ffc8   move.b 0x4, -0x38(a6)
+│           0x007a4bb2      204a           movea.l a2, a0
+│           0x007a4bb4      12300005       move.b 0x5(a0, d0.w), d1
+│           0x007a4bb8      4881           ext.w d1
+│           0x007a4bba      4384           chk.w d4, d1
+│           0x007a4bbc      1f01           move.b d1, -(a7)
+│           0x007a4bbe      e740           asl.w 0x3, d0
+│           0x007a4bc0      204a           movea.l a2, a0
+│           0x007a4bc2      2f30001c       move.l 0x1c(a0, d0.w), -(a7)
+│           0x007a4bc6      2f300018       move.l 0x18(a0, d0.w), -(a7)
+│           0x007a4bca      4eb9005223fc   jsr BRUSHCOM.str_write_area
+│           0x007a4bd0      5c4f           addq.w 0x6, a7
+│           0x007a4bd2      2ebafc96       move.l 0x7a486a(pc), (a7)
+│           0x007a4bd6      3f3afc90       move.w 0x7a4868(pc), -(a7)
+│           0x007a4bda      4eb900520fa4   jsr BRUSHCOM.set_br_colour
+│           0x007a4be0      5c4f           addq.w 0x6, a7
+│           0x007a4be2      1013           move.b (a3), d0
+│           0x007a4be4      4880           ext.w d0
+│           0x007a4be6      4183           chk.w d3, d0
+│           0x007a4be8      204a           movea.l a2, a0
+│           0x007a4bea      12300005       move.b 0x5(a0, d0.w), d1
+│           0x007a4bee      4881           ext.w d1
+│           0x007a4bf0      4384           chk.w d4, d1
+│           0x007a4bf2      1f01           move.b d1, -(a7)
+│           0x007a4bf4      4227           clr.b -(a7)
+│           0x007a4bf6      e740           asl.w 0x3, d0
+│           0x007a4bf8      204a           movea.l a2, a0
+│           0x007a4bfa      2f30001c       move.l 0x1c(a0, d0.w), -(a7)
+│           0x007a4bfe      2f300018       move.l 0x18(a0, d0.w), -(a7)
+│           0x007a4c02      4eb9005213b4   jsr BRUSHCOM.br_wipe
+│           0x007a4c08      dec5           adda.w d5, a7
+│           0x007a4c0a      41eeffd2       lea.l -0x2e(a6), a0
+│           0x007a4c0e      43fafbc4       lea.l 0x7a47d4(pc), a1
+│           0x007a4c12      700a           moveq 0xa, d0
+│       ┌─> 0x007a4c14      20d9           move.l (a1)+, (a0)+
+│       └─< 0x007a4c16      51c8fffc       dbra d0, 0x7a4c14
+│           0x007a4c1a      30d9           move.w (a1)+, (a0)+
+│           0x007a4c1c      1d7c0005ffee   move.b 0x5, -0x12(a6)
+│           0x007a4c22      1013           move.b (a3), d0
+│           0x007a4c24      4880           ext.w d0
+│           0x007a4c26      4183           chk.w d3, d0
+│           0x007a4c28      554f           subq.w 0x2, a7
+│           0x007a4c2a      4854           pea.l (a4)
+│           0x007a4c2c      2f2effc4       move.l -0x3c(a6), -(a7)
+│           0x007a4c30      2f2effc0       move.l -0x40(a6), -(a7)
+│           0x007a4c34      2f2effce       move.l -0x32(a6), -(a7)
+│           0x007a4c38      2f2effca       move.l -0x36(a6), -(a7)
+│           0x007a4c3c      3f2effc8       move.w -0x38(a6), -(a7)
+│           0x007a4c40      204a           movea.l a2, a0
+│           0x007a4c42      12300005       move.b 0x5(a0, d0.w), d1
+│           0x007a4c46      4881           ext.w d1
+│           0x007a4c48      4384           chk.w d4, d1
+│           0x007a4c4a      1f01           move.b d1, -(a7)
+│           0x007a4c4c      4227           clr.b -(a7)
+│           0x007a4c4e      e740           asl.w 0x3, d0
+│           0x007a4c50      204a           movea.l a2, a0
+│           0x007a4c52      2f30001c       move.l 0x1c(a0, d0.w), -(a7)
+│           0x007a4c56      2f300018       move.l 0x18(a0, d0.w), -(a7)
+│           0x007a4c5a      486effd2       pea.l -0x2e(a6)
+│           0x007a4c5e      4eb9005a9f3c   jsr K05_LOADSAVE.k_load
+│           0x007a4c64      defc0026       adda.w 0x26, a7
+│           0x007a4c68      1017           move.b (a7), d0
+│           0x007a4c6a      b03afc75       cmp.b 0x7a48e1(pc), d0
+│       ┌─< 0x007a4c6e      6608           bne.b 0x7a4c78
+│       │   0x007a4c70      102f0001       move.b 0x1(a7), d0
+│       │   0x007a4c74      b03afc6c       cmp.b 0x7a48e2(pc), d0
+│      ┌└─> 0x007a4c78      6604           bne.b 0x7a4c7e
+│      │    0x007a4c7a      544f           addq.w 0x2, a7
+│      │┌─< 0x007a4c7c      601a           bra.b 0x7a4c98
+│      └──> 0x007a4c7e      487afc64       pea.l 0x7a48e4(pc)
+│       │   0x007a4c82      48780018       pea.l 0x18
+│       │   0x007a4c86      2f17           move.l (a7), -(a7)
+│       │   0x007a4c88      4eb9004047ea   jsr p_wts_o
+│       │   0x007a4c8e      dec5           adda.w d5, a7
+│       │   0x007a4c90      4eb900404946   jsr p_wtln_o
+│       │   0x007a4c96      544f           addq.w 0x2, a7
+│       └─> 0x007a4c98      4cdf0f3f       movem.l (a7)+, d0-d5/a0-a3
+│           0x007a4c9c      4e5e           unlk a6
+└           0x007a4c9e      4e75           rts
+┌ 144: PRESENTCOM.step_play_item ();
+│           0x007a4ca0      4e56ffce       link.w a6, 0xffce
+│           0x007a4ca4      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4ca6      6206           bhi.b 0x7a4cae
+│       │   0x007a4ca8      44fc0002       move.w 0x2, ccr
+│       │   0x007a4cac      4e76           trapv
+│       └─> 0x007a4cae      defc0032       adda.w 0x32, a7
+│           0x007a4cb2      48e7e0f0       movem.l d0-d2/a0-a3, -(a7)
+│           0x007a4cb6      47f9008740c6   lea.l 0x8740c6, a3
+│           0x007a4cbc      7201           moveq 0x1, d1
+│           0x007a4cbe      7402           moveq 0x2, d2
+│           0x007a4cc0      2053           movea.l (a3), a0
+│           0x007a4cc2      b0c1           cmpa.w d1, a0
+│       ┌─< 0x007a4cc4      663c           bne.b 0x7a4d02
+│       │   0x007a4cc6      102c000c       move.b 0xc(a4), d0
+│       │   0x007a4cca      b001           cmp.b d1, d0
+│      ┌──< 0x007a4ccc      6706           beq.b 0x7a4cd4
+│      ││   0x007a4cce      b002           cmp.b d2, d0
+│     ┌───< 0x007a4cd0      670a           beq.b 0x7a4cdc
+│     │││   0x007a4cd2      4e4e           trap 0xe
+│     │└──> 0x007a4cd4      26b9008740f2   move.l 0x8740f2, (a3)
+│     │┌──< 0x007a4cda      604e           bra.b 0x7a4d2a
+│     └───> 0x007a4cdc      26b9008740f2   move.l 0x8740f2, (a3)
+│      ││   0x007a4ce2      2253           movea.l (a3), a1
+│      ││   0x007a4ce4      b2c1           cmpa.w d1, a1
+│     ┌───< 0x007a4ce6      6716           beq.b 0x7a4cfe
+│    ┌────> 0x007a4ce8      2253           movea.l (a3), a1
+│    ╎│││   0x007a4cea      b3e9fffc       cmpa.l -0x4(a1), a1
+│   ┌─────< 0x007a4cee      6702           beq.b 0x7a4cf2
+│   │╎│││   0x007a4cf0      4e4d           trap 0xd
+│   └─────> 0x007a4cf2      2469000e       movea.l 0xe(a1), a2
+│    ╎│││   0x007a4cf6      b4c1           cmpa.w d1, a2
+│   ┌─────< 0x007a4cf8      6704           beq.b 0x7a4cfe
+│   │╎│││   0x007a4cfa      268a           move.l a2, (a3)
+│   │└────< 0x007a4cfc      60ea           bra.b 0x7a4ce8
+│   └┌└───> 0x007a4cfe      602a           bra.b 0x7a4d2a
+     │┌───< 0x007a4d00      6028           bra.b 0x7a4d2a              ; PRESENTCOM.step_play_item+0x8a
+│    │││└─> 0x007a4d02      102c000c       move.b 0xc(a4), d0
+│    │││    0x007a4d06      b001           cmp.b d1, d0
+│    │││┌─< 0x007a4d08      6706           beq.b 0x7a4d10
+│    ││││   0x007a4d0a      b002           cmp.b d2, d0
+│   ┌─────< 0x007a4d0c      6710           beq.b 0x7a4d1e
+│   │││││   0x007a4d0e      4e4e           trap 0xe
+│   ││││└─> 0x007a4d10      b1e8fffc       cmpa.l -0x4(a0), a0
+│   ││││┌─< 0x007a4d14      6702           beq.b 0x7a4d18
+│   │││││   0x007a4d16      4e4d           trap 0xd
+│   ││││└─> 0x007a4d18      26a8000e       move.l 0xe(a0), (a3)
+│   ││││┌─< 0x007a4d1c      600c           bra.b 0x7a4d2a
+│   └─────> 0x007a4d1e      b1e8fffc       cmpa.l -0x4(a0), a0
+│   ┌─────< 0x007a4d22      6702           beq.b 0x7a4d26
+│   │││││   0x007a4d24      4e4d           trap 0xd
+│   └─────> 0x007a4d26      26a8000a       move.l 0xa(a0), (a3)
+│    └└└└─> 0x007a4d2a      4cdf0f07       movem.l (a7)+, d0-d2/a0-a3
+│           0x007a4d2e      4e5e           unlk a6
+└           0x007a4d30      4e75           rts
+            ; CALL XREFS from MENURIGHT2COM.do_action @ 0x492a04, 0x492a0e
+            ; CALL XREF from MENURIGHT2COM.do_pressed @ 0x492be8
+┌ 116: PRESENTCOM.present_stack ();
+│           0x007a4d32      4e56ffd2       link.w a6, 0xffd2
+│           0x007a4d36      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4d38      6206           bhi.b 0x7a4d40
+│       │   0x007a4d3a      44fc0002       move.w 0x2, ccr
+│       │   0x007a4d3e      4e76           trapv
+│       └─> 0x007a4d40      defc002a       adda.w 0x2a, a7
+│           0x007a4d44      48e7e0f8       movem.l d0-d2/a0-a4, -(a7)
+│           0x007a4d48      43f9008740c6   lea.l 0x8740c6, a1
+│           0x007a4d4e      45eefffc       lea.l -0x4(a6), a2
+│           0x007a4d52      47f9008740ca   lea.l 0x8740ca, a3
+│           0x007a4d58      7401           moveq 0x1, d2
+│           0x007a4d5a      4a2e0008       tst.b 0x8(a6)
+│       ┌─< 0x007a4d5e      6628           bne.b 0x7a4d88
+│       │   0x007a4d60      4879008740f2   pea.l 0x8740f2
+│       │   0x007a4d66      4ebafb98       jsr PRESENTCOM.clear_stack(pc)
+│       │   0x007a4d6a      584f           addq.w 0x4, a7
+│       │   0x007a4d6c      4879008740f2   pea.l 0x8740f2
+│       │   0x007a4d72      284a           movea.l a2, a4
+│       │   0x007a4d74      4ebafc4e       jsr PRESENTCOM.get_stack(pc)
+│       │   0x007a4d78      584f           addq.w 0x4, a7
+│       │   0x007a4d7a      2282           move.l d2, (a1)
+│       │   0x007a4d7c      4213           clr.b (a3)
+│       │   0x007a4d7e      13c2008740f0   move.b d2, 0x8740f0
+│      ┌──< 0x007a4d84      600000d0       bra.w loc.007a4e56
+│      │└─> 0x007a4d88      2482           move.l d2, (a2)
+│      │    0x007a4d8a      102e0008       move.b 0x8(a6), d0
+│      │    0x007a4d8e      4880           ext.w d0
+│      │    0x007a4d90      3200           move.w d0, d1
+│      │    0x007a4d92      5341           subq.w 0x1, d1
+│      │    0x007a4d94      0c410002       cmpi.w 0x2, d1
+│      │┌─< 0x007a4d98      6302           bls.b 0x7a4d9c
+│      ││   0x007a4d9a      4e4e           trap 0xe
+│      │└─> 0x007a4d9c      d241           add.w d1, d1
+│      │    0x007a4d9e      323b1006       move.w 0x7a4da6(pc, d1.w), d1
+└      │    0x007a4da2      4efb1002       jmp 0x7a4da6(pc, d1.w)
+       │    0x007a4da6      003000300006   ori.b 0x30, 0x6(a0, d0.w)
+       │    0x007a4dac      13c2008740f0   move.b d2, 0x8740f0
+       │    0x007a4db2      4ebafc4a       jsr PRESENTCOM.screen_blank(pc)
+       │    0x007a4db6      22b9008740f2   move.l 0x8740f2, (a1)
+       │    0x007a4dbc      1213           move.b (a3), d1
+       │    0x007a4dbe      4401           neg.b d1
+       │    0x007a4dc0      5201           addq.b 0x1, d1
+       │    0x007a4dc2      4881           ext.w d1
+       │    0x007a4dc4      4382           chk.w d2, d1
+       │    0x007a4dc6      1681           move.b d1, (a3)
+       │    0x007a4dc8      2051           movea.l (a1), a0
+       │    0x007a4dca      b0c2           cmpa.w d2, a0
+       │┌─< 0x007a4dcc      6706           beq.b 0x7a4dd4
+       ││   0x007a4dce      284a           movea.l a2, a4
+       ││   0x007a4dd0      4ebafd66       jsr PRESENTCOM.fetch_file(pc)
+      ┌─└─> 0x007a4dd4      6056           bra.b 0x7a4e2c
+      ││    0x007a4dd6      b039008740f0   cmp.b 0x8740f0, d0
+      ││┌─< 0x007a4ddc      6718           beq.b 0x7a4df6
+      │││   0x007a4dde      284a           movea.l a2, a4
+      │││   0x007a4de0      4ebafebe       jsr PRESENTCOM.step_play_item(pc)
+      │││   0x007a4de4      284a           movea.l a2, a4
+      │││   0x007a4de6      4ebafeb8       jsr PRESENTCOM.step_play_item(pc)
+      │││   0x007a4dea      2051           movea.l (a1), a0
+      │││   0x007a4dec      b0c2           cmpa.w d2, a0
+     ┌────< 0x007a4dee      6706           beq.b 0x7a4df6
+     ││││   0x007a4df0      284a           movea.l a2, a4
+     ││││   0x007a4df2      4ebafd44       jsr PRESENTCOM.fetch_file(pc)
+     └──└─> 0x007a4df6      13ee00080087.  move.b 0x8(a6), 0x8740f0.l
+      ││    0x007a4dfe      2051           movea.l (a1), a0
+      ││    0x007a4e00      b0c2           cmpa.w d2, a0
+      ││┌─< 0x007a4e02      6606           bne.b 0x7a4e0a
+      │││   0x007a4e04      4ebafbf8       jsr PRESENTCOM.screen_blank(pc)
+     ┌────< 0x007a4e08      6004           bra.b 0x7a4e0e
+     │││└─> 0x007a4e0a      4ebafc86       jsr PRESENTCOM.show_prefetched(pc)
+     └────> 0x007a4e0e      284a           movea.l a2, a4
+      ││    0x007a4e10      4ebafe8e       jsr PRESENTCOM.step_play_item(pc)
+      ││    0x007a4e14      1213           move.b (a3), d1
+      ││    0x007a4e16      4401           neg.b d1
+      ││    0x007a4e18      5201           addq.b 0x1, d1
+      ││    0x007a4e1a      4881           ext.w d1
+      ││    0x007a4e1c      4382           chk.w d2, d1
+      ││    0x007a4e1e      1681           move.b d1, (a3)
+      ││    0x007a4e20      2051           movea.l (a1), a0
+      ││    0x007a4e22      b0c2           cmpa.w d2, a0
+      ││┌─< 0x007a4e24      6706           beq.b 0x7a4e2c
+      │││   0x007a4e26      284a           movea.l a2, a4
+      │││   0x007a4e28      4ebafd0e       jsr PRESENTCOM.fetch_file(pc)
+      └─└─> 0x007a4e2c      2052           movea.l (a2), a0
+       │    0x007a4e2e      b0c2           cmpa.w d2, a0
+       │┌─< 0x007a4e30      6724           beq.b loc.007a4e56
+       ││   0x007a4e32      554f           subq.w 0x2, a7
+       ││   0x007a4e34      4852           pea.l (a2)
+       ││   0x007a4e36      4eb900594e02   jsr K0_DISKMGR.k_lose_ref
+       ││   0x007a4e3c      584f           addq.w 0x4, a7
+       ││   0x007a4e3e      1017           move.b (a7), d0
+       ││   0x007a4e40      b03afabb       cmp.b 0x7a48fd(pc), d0
+      ┌───< 0x007a4e44      6608           bne.b 0x7a4e4e
+      │││   0x007a4e46      102f0001       move.b 0x1(a7), d0
+      │││   0x007a4e4a      b03afab2       cmp.b 0x7a48fe(pc), d0
+     ┌└───> 0x007a4e4e      6604           bne.b 0x7a4e54
+     │ ││   0x007a4e50      544f           addq.w 0x2, a7
+     │┌───< 0x007a4e52      6002           bra.b loc.007a4e56
+     └────> 0x007a4e54      544f           addq.w 0x2, a7
+      │││   ; CODE XREF from PRESENTCOM.present_stack @ 0x7a4d84
+├ 8: loc.007a4e56 ();
+│     └└└─> 0x007a4e56      4cdf1f07       movem.l (a7)+, d0-d2/a0-a4
+│           0x007a4e5a      4e5e           unlk a6
+└           0x007a4e5c      4e75           rts
+            ; CALL XREFS from PRESENTCOM.present_init @ 0x7a4f3e, 0x7a4f52
+┌ 162: PRESENTCOM.init_data ();
+│           0x007a4e5e      4e56ffbc       link.w a6, 0xffbc
+│           0x007a4e62      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4e64      6206           bhi.b 0x7a4e6c
+│       │   0x007a4e66      44fc0002       move.w 0x2, ccr
+│       │   0x007a4e6a      4e76           trapv
+│       └─> 0x007a4e6c      defc0044       adda.w 0x44, a7
+│           0x007a4e70      48e7fef0       movem.l d0-d6/a0-a3, -(a7)
+│           0x007a4e74      47f9008740c6   lea.l 0x8740c6, a3
+│           0x007a4e7a      7a02           moveq 0x2, d5
+│           0x007a4e7c      2c3cffff8000   move.l 0xffff8000, d6
+│           0x007a4e82      102e0010       move.b 0x10(a6), d0
+│           0x007a4e86      4880           ext.w d0
+│           0x007a4e88      3200           move.w d0, d1
+│           0x007a4e8a      e741           asl.w 0x3, d1
+│           0x007a4e8c      204b           movea.l a3, a0
+│           0x007a4e8e      21ae00081018   move.l 0x8(a6), 0x18(a0, d1.w)
+│           0x007a4e94      21ae000c101c   move.l 0xc(a6), 0x1c(a0, d1.w)
+│           0x007a4e9a      224b           movea.l a3, a1
+│           0x007a4e9c      13850005       move.b d5, 0x5(a1, d0.w)
+│           0x007a4ea0      3400           move.w d0, d2
+│           0x007a4ea2      e542           asl.w 0x2, d2
+│           0x007a4ea4      244b           movea.l a3, a2
+│           0x007a4ea6      25b010182008   move.l 0x18(a0, d1.w), 0x8(a2, d2.w)
+│           0x007a4eac      3630101c       move.w 0x1c(a0, d1.w), d3
+│           0x007a4eb0      48c3           ext.l d3
+│           0x007a4eb2      87c5           divs.w d5, d3
+│           0x007a4eb4      38301018       move.w 0x18(a0, d1.w), d4
+│           0x007a4eb8      48c4           ext.l d4
+│           0x007a4eba      48c3           ext.l d3
+│           0x007a4ebc      d684           add.l d4, d3
+│           0x007a4ebe      9686           sub.l d6, d3
+│           0x007a4ec0      0c830000ffff   cmpi.l 0xffff, d3
+│       ┌─< 0x007a4ec6      6302           bls.b 0x7a4eca
+│       │   0x007a4ec8      4e4f           trap 0xf
+│       └─> 0x007a4eca      d686           add.l d6, d3
+│           0x007a4ecc      35832010       move.w d3, 0x10(a2, d2.w)
+│           0x007a4ed0      3630101e       move.w 0x1e(a0, d1.w), d3
+│           0x007a4ed4      48c3           ext.l d3
+│           0x007a4ed6      87c5           divs.w d5, d3
+│           0x007a4ed8      3830101a       move.w 0x1a(a0, d1.w), d4
+│           0x007a4edc      48c4           ext.l d4
+│           0x007a4ede      48c3           ext.l d3
+│           0x007a4ee0      d684           add.l d4, d3
+│           0x007a4ee2      9686           sub.l d6, d3
+│           0x007a4ee4      0c830000ffff   cmpi.l 0xffff, d3
+│       ┌─< 0x007a4eea      6302           bls.b 0x7a4eee
+│       │   0x007a4eec      4e4f           trap 0xf
+│       └─> 0x007a4eee      d686           add.l d6, d3
+│           0x007a4ef0      35832012       move.w d3, 0x12(a2, d2.w)
+│           0x007a4ef4      42310028       clr.b 0x28(a1, d0.w)
+│           0x007a4ef8      4cdf0f7f       movem.l (a7)+, d0-d6/a0-a3
+│           0x007a4efc      4e5e           unlk a6
+└           0x007a4efe      4e75           rts
+┌ 98: PRESENTCOM.present_init ();
+│           0x007a4f00      4e56ffec       link.w a6, 0xffec
+│           0x007a4f04      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4f06      6206           bhi.b 0x7a4f0e
+│       │   0x007a4f08      44fc0002       move.w 0x2, ccr
+│       │   0x007a4f0c      4e76           trapv
+│       └─> 0x007a4f0e      defc0014       adda.w 0x14, a7
+│           0x007a4f12      48e78000       movem.l d0, -(a7)
+│           0x007a4f16      7001           moveq 0x1, d0
+│           0x007a4f18      23c0008740c6   move.l d0, 0x8740c6
+│           0x007a4f1e      4239008740ca   clr.b 0x8740ca
+│           0x007a4f24      23c0008740f2   move.l d0, 0x8740f2
+│           0x007a4f2a      13c0008740f0   move.b d0, 0x8740f0
+│           0x007a4f30      4227           clr.b -(a7)
+│           0x007a4f32      514f           subq.w 0x8, a7
+│           0x007a4f34      4227           clr.b -(a7)
+│           0x007a4f36      4eb9006336ea   jsr HANDCOM.get_area
+│           0x007a4f3c      544f           addq.w 0x2, a7
+│           0x007a4f3e      4ebaff1e       jsr PRESENTCOM.init_data(pc)
+│           0x007a4f42      504f           addq.w 0x8, a7
+│           0x007a4f44      1e80           move.b d0, (a7)
+│           0x007a4f46      514f           subq.w 0x8, a7
+│           0x007a4f48      1f00           move.b d0, -(a7)
+│           0x007a4f4a      4eb9006336ea   jsr HANDCOM.get_area
+│           0x007a4f50      544f           addq.w 0x2, a7
+│           0x007a4f52      4ebaff0a       jsr PRESENTCOM.init_data(pc)
+│           0x007a4f56      defc000a       adda.w 0xa, a7
+│           0x007a4f5a      4cdf0001       movem.l (a7)+, d0
+│           0x007a4f5e      4e5e           unlk a6

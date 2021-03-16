@@ -1,0 +1,529 @@
+            ;-- K8_DRIVES:
+            0x005b7226      .byte 0x00
+            0x005b7227      .byte 0x00
+            0x005b7228      .byte 0x00
+            0x005b7229      .byte 0x00
+            0x005b722a      .byte 0x00
+            0x005b722b      .byte 0x00
+            0x005b722c      .byte 0x00
+            0x005b722d      .byte 0x00
+            0x005b722e      .byte 0x00
+            0x005b722f      .byte 0x00
+            0x005b7230      .byte 0x3f
+            0x005b7231      .byte 0x80
+            0x005b7232      .byte 0x00
+            0x005b7233      .byte 0x00
+            0x005b7234      .byte 0x3f
+            0x005b7235      .byte 0x80
+            0x005b7236      .byte 0x00
+            0x005b7237      .byte 0x00
+            0x005b7238      .byte 0x00
+            0x005b7239      .byte 0x00
+            0x005b723a      .byte 0x00
+            0x005b723b      .byte 0x00
+            0x005b723c      .byte 0x00
+            0x005b723d      .byte 0x00
+            0x005b723e      .byte 0x00
+            0x005b723f      .byte 0x00
+            0x005b7240      .byte 0x02
+            0x005b7241      .byte 0x00
+            0x005b7242      .byte 0x00
+            0x005b7243      .byte 0x00
+            0x005b7244      .byte 0x3f
+            0x005b7245      .byte 0x80
+            0x005b7246      .byte 0x00
+            0x005b7247      .byte 0x00
+            0x005b7248      .byte 0x3f
+            0x005b7249      .byte 0x80
+            0x005b724a      .byte 0x00
+            0x005b724b      .byte 0x00
+            0x005b724c      .byte 0x00
+            0x005b724d      .byte 0x00
+            0x005b724e      .byte 0x00
+            0x005b724f      .byte 0x00
+            0x005b7250      .byte 0x00
+            0x005b7251      .byte 0x00
+            0x005b7252      .byte 0x00
+            0x005b7253      .byte 0x00
+            0x005b7254      .byte 0x02
+            0x005b7255      .byte 0x4f
+            0x005b7256      .byte 0x4b
+            0x005b7257      .byte 0x12
+            0x005b7258     .string " Add drive result " ; len=18
+            0x005b726a      .byte 0x13
+            0x005b726b     .string " volumes configured" ; len=19
+            0x005b727e      .byte 0x13
+            0x005b727f     .string "Configuring volume " ; len=19
+            0x005b7292      .byte 0x08
+            0x005b7293     .string "  ident " ; len=8
+            0x005b729b      .byte 0x0a
+            0x005b729c     .string "AFS remote" ; len=10
+            0x005b72a6      .byte 0x12
+            0x005b72a7     .string "k8_dismount drive " ; len=18
+            0x005b72b9      .byte 0x1e
+            0x005b72ba     .string "k8_dismount/f_dismount failed " ; len=30
+            0x005b72d8      .byte 0x12
+            0x005b72d9     .string " drives configured" ; len=18
+            0x005b72eb      .byte 0x08
+            0x005b72ec     .string ", drive " ; len=8
+            0x005b72f4      .byte 0x06
+            0x005b72f5     .string "Drive " ; len=6
+            0x005b72fb      .byte 0x00
+            0x005b72fc      .byte 0x03
+            0x005b72fd      .byte 0x00
+            0x005b72fe      .byte 0x01
+            0x005b72ff      .byte 0x00
+            0x005b7300      .byte 0x00
+            0x005b7301      .byte 0x00
+            0x005b7302      .byte 0x00
+            0x005b7303      .byte 0x00
+            0x005b7304      .byte 0x00
+            0x005b7305      .byte 0x00
+            0x005b7306      .byte 0x00
+            0x005b7307      .byte 0x00
+            0x005b7308      .byte 0x00
+            0x005b7309      .byte 0x00
+            0x005b730a      .byte 0x00
+            0x005b730b      .byte 0x00
+            0x005b730c      .byte 0x00
+            0x005b730d      .byte 0x00
+            0x005b730e      .byte 0x00
+            0x005b730f      .byte 0x00
+            0x005b7310      .byte 0x00
+            0x005b7311      .byte 0x00
+            0x005b7312      .byte 0x00
+            0x005b7313      .byte 0x00
+            0x005b7314      .byte 0x00
+            0x005b7315      .byte 0x00
+            0x005b7316      .byte 0x00
+            0x005b7317      .byte 0x00
+            0x005b7318      .byte 0x00
+            0x005b7319      .byte 0x00
+            0x005b731a      .byte 0x00
+            0x005b731b      .byte 0x00
+            0x005b731c      .byte 0x03
+            0x005b731d      .byte 0x41
+            0x005b731e      .byte 0x46
+            0x005b731f      .byte 0x53
+            0x005b7320      .byte 0x03
+            0x005b7321      .byte 0x43
+            0x005b7322      .byte 0x4c
+            0x005b7323      .byte 0x4c
+            0x005b7324      .byte 0x03
+            0x005b7325      .byte 0x44
+            0x005b7326      .byte 0x50
+            0x005b7327      .byte 0x42
+┌ 98: K8_DRIVES.drive ();
+│           ; var int32_t var_4h @ a6-0x4
+│           0x005b7328      4e56fff0       link.w a6, 0xfff0
+│           0x005b732c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005b732e      6206           bhi.b 0x5b7336
+│       │   0x005b7330      44fc0002       move.w 0x2, ccr
+│       │   0x005b7334      4e76           trapv
+│       └─> 0x005b7336      defc000c       adda.w 0xc, a7
+│           0x005b733a      48e7c000       movem.l d0-d1, -(a7)
+│           0x005b733e      223c000000ff   move.l 0xff, d1
+│           0x005b7344      202e0014       move.l 0x14(a6), d0
+│           0x005b7348      b081           cmp.l d1, d0
+│       ┌─< 0x005b734a      6302           bls.b 0x5b734e
+│       │   0x005b734c      4e4f           trap 0xf
+│       └─> 0x005b734e      1d40fffc       move.b d0, -0x4(a6)
+│           0x005b7352      202e0010       move.l 0x10(a6), d0
+│           0x005b7356      b081           cmp.l d1, d0
+│       ┌─< 0x005b7358      6302           bls.b 0x5b735c
+│       │   0x005b735a      4e4f           trap 0xf
+│       └─> 0x005b735c      1d40fffd       move.b d0, -0x3(a6)
+│           0x005b7360      202e000c       move.l 0xc(a6), d0
+│           0x005b7364      b081           cmp.l d1, d0
+│       ┌─< 0x005b7366      6302           bls.b 0x5b736a
+│       │   0x005b7368      4e4f           trap 0xf
+│       └─> 0x005b736a      1d40fffe       move.b d0, -0x2(a6)
+│           0x005b736e      202e0008       move.l 0x8(a6), d0
+│           0x005b7372      b081           cmp.l d1, d0
+│       ┌─< 0x005b7374      6302           bls.b 0x5b7378
+│       │   0x005b7376      4e4f           trap 0xf
+│       └─> 0x005b7378      1d40ffff       move.b d0, -0x1(a6)
+│           0x005b737c      2d6efffc0018   move.l -0x4(a6), 0x18(a6)
+│           0x005b7382      4cdf0003       movem.l (a7)+, d0-d1
+│           0x005b7386      4e5e           unlk a6
+└           0x005b7388      4e75           rts
+            ; CALL XREF from K8_DRIVES.add_existing_vo @ 0x5b74a0
+            ; CALL XREF from K8_DRIVES.add_existing_dr @ 0x5b763c
+            ; CALL XREFS from K8_DRIVES.k8_init @ 0x5b76e6, 0x5b7734
+┌ 110: K8_DRIVES.warn_if_fail ();
+│           ; var int32_t var_ah @ a7+0xa
+│           0x005b738a      4e56ffe4       link.w a6, 0xffe4
+│           0x005b738e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005b7390      6206           bhi.b 0x5b7398
+│       │   0x005b7392      44fc0002       move.w 0x2, ccr
+│       │   0x005b7396      4e76           trapv
+│       └─> 0x005b7398      defc001c       adda.w 0x1c, a7
+│           0x005b739c      48e7c080       movem.l d0-d1/a0, -(a7)
+│           0x005b73a0      41f9004047ea   lea.l p_wts_o, a0
+│           0x005b73a6      720c           moveq 0xc, d1
+│           0x005b73a8      102e0008       move.b 0x8(a6), d0
+│           0x005b73ac      b03afea7       cmp.b 0x5b7255(pc), d0
+│       ┌─< 0x005b73b0      6608           bne.b 0x5b73ba
+│       │   0x005b73b2      102e0009       move.b 0x9(a6), d0
+│       │   0x005b73b6      b03afe9e       cmp.b 0x5b7256(pc), d0
+│      ┌└─> 0x005b73ba      6734           beq.b 0x5b73f0
+│      │    0x005b73bc      486e000b       pea.l 0xb(a6)
+│      │    0x005b73c0      42a7           clr.l -(a7)
+│      │    0x005b73c2      1f6e000a0003   move.b 0xa(a6), 0x3(a7)
+│      │    0x005b73c8      2f17           move.l (a7), -(a7)
+│      │    0x005b73ca      4e90           jsr (a0)                    ; fcn.00000009
+│      │    0x005b73cc      dec1           adda.w d1, a7
+│      │    0x005b73ce      487afe88       pea.l 0x5b7258(pc)
+│      │    0x005b73d2      48780012       pea.l 0x12
+│      │    0x005b73d6      2f17           move.l (a7), -(a7)
+│      │    0x005b73d8      4e90           jsr (a0)                    ; fcn.00000009
+│      │    0x005b73da      dec1           adda.w d1, a7
+│      │    0x005b73dc      486e0008       pea.l 0x8(a6)
+│      │    0x005b73e0      48780002       pea.l 0x2
+│      │    0x005b73e4      2f17           move.l (a7), -(a7)
+│      │    0x005b73e6      4e90           jsr (a0)                    ; fcn.00000009
+│      │    0x005b73e8      dec1           adda.w d1, a7
+│      │    0x005b73ea      4eb900404946   jsr p_wtln_o
+│      └──> 0x005b73f0      4cdf0103       movem.l (a7)+, d0-d1/a0
+│           0x005b73f4      4e5e           unlk a6
+└           0x005b73f6      4e75           rts
+            ; CALL XREF from K8_DRIVES.k8_init @ 0x5b7764
+┌ 190: K8_DRIVES.add_existing_vo ();
+│           0x005b73f8      4e56fcb6       link.w a6, 0xfcb6
+│           0x005b73fc      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005b73fe      6206           bhi.b 0x5b7406
+│       │   0x005b7400      44fc0002       move.w 0x2, ccr
+│       │   0x005b7404      4e76           trapv
+│       └─> 0x005b7406      defc0136       adda.w 0x136, a7
+│           0x005b740a      48e7e1e0       movem.l d0-d2/d7/a0-a2, -(a7)
+│           0x005b740e      747f           moveq 0x7f, d2
+│           0x005b7410      594f           subq.w 0x4, a7
+│           0x005b7412      486efdf4       pea.l -0x20c(a6)
+│           0x005b7416      4267           clr.w -(a7)
+│           0x005b7418      3f02           move.w d2, -(a7)
+│           0x005b741a      4eb9005fb874   jsr F6_VOLUME.f_list_volumes
+│           0x005b7420      504f           addq.w 0x8, a7
+│           0x005b7422      2d5ffdf0       move.l (a7)+, -0x210(a6)
+│           0x005b7426      2f2efdf0       move.l -0x210(a6), -(a7)
+│           0x005b742a      5397           subq.l 0x1, (a7)
+│           0x005b742c      7e00           moveq 0x0, d7
+│       ┌─> 0x005b742e      be97           cmp.l (a7), d7
+│      ┌──< 0x005b7430      6e7a           bgt.b 0x5b74ac
+│      │╎   0x005b7432      be82           cmp.l d2, d7
+│     ┌───< 0x005b7434      6302           bls.b 0x5b7438
+│     ││╎   0x005b7436      4e4f           trap 0xf
+│     └───> 0x005b7438      2007           move.l d7, d0
+│      │╎   0x005b743a      e580           asl.l 0x2, d0
+│      │╎   0x005b743c      41eefdec       lea.l -0x214(a6), a0
+│      │╎   0x005b7440      9efc000c       suba.w 0xc, a7
+│      │╎   0x005b7444      2f300808       move.l 0x8(a0, d0.l), -(a7)
+│      │╎   0x005b7448      4eb9005fb748   jsr F6_VOLUME.f_vol_status
+│      │╎   0x005b744e      584f           addq.w 0x4, a7
+│      │╎   0x005b7450      2d5ffff4       move.l (a7)+, -0xc(a6)
+│      │╎   0x005b7454      2d5ffff8       move.l (a7)+, -0x8(a6)
+│      │╎   0x005b7458      2d5ffffc       move.l (a7)+, -0x4(a6)
+│      │╎   0x005b745c      4a2efff7       tst.b -0x9(a6)
+│     ┌───< 0x005b7460      670c           beq.b 0x5b746e
+│     ││╎   0x005b7462      222efffc       move.l -0x4(a6), d1
+│     ││╎   0x005b7466      028100000200   andi.l 0x200, d1
+│    ┌────< 0x005b746c      660c           bne.b 0x5b747a
+│    │└───> 0x005b746e      4a2efff6       tst.b -0xa(a6)
+│    │┌───< 0x005b7472      6734           beq.b 0x5b74a8
+│    │││╎   0x005b7474      4a2efff7       tst.b -0x9(a6)
+│   ┌─────< 0x005b7478      662e           bne.b 0x5b74a8
+│   │└────> 0x005b747a      9efc0100       suba.w 0x100, a7
+│   │ ││╎   0x005b747e      224f           movea.l a7, a1
+│   │ ││╎   0x005b7480      45fafe19       lea.l 0x5b729b(pc), a2
+│   │ ││╎   0x005b7484      720a           moveq 0xa, d1
+│   │┌────> 0x005b7486      12da           move.b (a2)+, (a1)+
+│   │└────< 0x005b7488      51c9fffc       dbra d1, 0x5b7486
+│   │ ││╎   0x005b748c      554f           subq.w 0x2, a7
+│   │ ││╎   0x005b748e      2f3c00ffffff   move.l 0xffffff, -(a7)
+│   │ ││╎   0x005b7494      2f300808       move.l 0x8(a0, d0.l), -(a7)
+│   │ ││╎   0x005b7498      4eb9005c3950   jsr AFS_FILER.afs_add_drive
+│   │ ││╎   0x005b749e      504f           addq.w 0x8, a7
+│   │ ││╎   0x005b74a0      4ebafee8       jsr K8_DRIVES.warn_if_fail(pc)
+│   │ ││╎   0x005b74a4      defc0102       adda.w 0x102, a7
+│   └─└───> 0x005b74a8      5287           addq.l 0x1, d7
+│      │└─< 0x005b74aa      6882           bvc.b 0x5b742e
+│      └──> 0x005b74ac      584f           addq.w 0x4, a7
+│           0x005b74ae      4cdf0787       movem.l (a7)+, d0-d2/d7/a0-a2
+│           0x005b74b2      4e5e           unlk a6
+└           0x005b74b4      4e75           rts
+            ; CALL XREF from K0_DISKMGR.k_filer_num @ 0x598642
+┌ 50: K8_DRIVES.k8_filer_num ();
+│           0x005b74b6      4e56fff4       link.w a6, 0xfff4
+│           0x005b74ba      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005b74bc      6206           bhi.b 0x5b74c4
+│       │   0x005b74be      44fc0002       move.w 0x2, ccr
+│       │   0x005b74c2      4e76           trapv
+│       └─> 0x005b74c4      defc000c       adda.w 0xc, a7
+│           0x005b74c8      48e78080       movem.l d0/a0, -(a7)
+│           0x005b74cc      102e0008       move.b 0x8(a6), d0
+│           0x005b74d0      4880           ext.w d0
+│           0x005b74d2      e540           asl.w 0x2, d0
+│           0x005b74d4      41f90084167a   lea.l 0x84167a, a0
+│           0x005b74da      2d700000000a   move.l (a0, d0.w), 0xa(a6)
+│           0x005b74e0      4cdf0101       movem.l (a7)+, d0/a0
+│           0x005b74e4      4e5e           unlk a6
+└           0x005b74e6      4e75           rts
+            ; CALL XREF from K0_DISKMGR.k_check_disks @ 0x598664
+┌ 28: K8_DRIVES.k8_check_disks ();
+│           0x005b74e8      4e56fffc       link.w a6, 0xfffc
+│           0x005b74ec      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005b74ee      6206           bhi.b 0x5b74f6
+│       │   0x005b74f0      44fc0002       move.w 0x2, ccr
+│       │   0x005b74f4      4e76           trapv
+│       └─> 0x005b74f6      defc0004       adda.w 0x4, a7
+│           0x005b74fa      4eb9005f7f5c   jsr F6_DRIVE.f_check_disks
+│           0x005b7500      4e5e           unlk a6
+└           0x005b7502      4e75           rts
+            ; CALL XREF from K0_DISKMGR.k_init_disk @ 0x597a1a
+┌ 176: K8_DRIVES.k8_dismount ();
+│           ; var int32_t var_8h @ a7+0x8
+│           0x005b7504      4e56fee8       link.w a6, 0xfee8
+│           0x005b7508      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005b750a      6206           bhi.b 0x5b7512
+│       │   0x005b750c      44fc0002       move.w 0x2, ccr
+│       │   0x005b7510      4e76           trapv
+│       └─> 0x005b7512      defc0118       adda.w 0x118, a7
+│           0x005b7516      48e7c000       movem.l d0-d1, -(a7)
+│           0x005b751a      7201           moveq 0x1, d1
+│           0x005b751c      1d41000c       move.b d1, 0xc(a6)
+│           0x005b7520      554f           subq.w 0x2, a7
+│           0x005b7522      2f2e0008       move.l 0x8(a6), -(a7)
+│           0x005b7526      1f01           move.b d1, -(a7)
+│           0x005b7528      4227           clr.b -(a7)
+│           0x005b752a      4eb9005f83e0   jsr F6_DRIVE.f_dismount
+│           0x005b7530      504f           addq.w 0x8, a7
+│           0x005b7532      4a1f           tst.b (a7)+
+│       ┌─< 0x005b7534      6676           bne.b 0x5b75ac
+│       │   0x005b7536      594f           subq.w 0x4, a7
+│       │   0x005b7538      4267           clr.w -(a7)
+│       │   0x005b753a      4eb900404218   jsr p_Read_Stack
+│       │   0x005b7540      544f           addq.w 0x2, a7
+│       │   0x005b7542      201f           move.l (a7)+, d0
+│       │   0x005b7544      0c8006060012   cmpi.l 0x6060012, d0
+│      ┌──< 0x005b754a      6602           bne.b 0x5b754e
+│     ┌───< 0x005b754c      6058           bra.b 0x5b75a6
+│     │└──> 0x005b754e      594f           subq.w 0x4, a7
+│     │ │   0x005b7550      4267           clr.w -(a7)
+│     │ │   0x005b7552      4eb900404218   jsr p_Read_Stack
+│     │ │   0x005b7558      544f           addq.w 0x2, a7
+│     │ │   0x005b755a      201f           move.l (a7)+, d0
+│     │ │   0x005b755c      0c8006060011   cmpi.l 0x6060011, d0
+│     │┌──< 0x005b7562      6602           bne.b 0x5b7566
+│    ┌────< 0x005b7564      6040           bra.b 0x5b75a6
+│    ││└──> 0x005b7566      9efc0100       suba.w 0x100, a7
+│    ││ │   0x005b756a      4eb900408ec0   jsr p_err_string
+│    ││ │   0x005b7570      487afd48       pea.l 0x5b72ba(pc)
+│    ││ │   0x005b7574      4878001e       pea.l 0x1e
+│    ││ │   0x005b7578      2f17           move.l (a7), -(a7)
+│    ││ │   0x005b757a      4eb9004047ea   jsr p_wts_o
+│    ││ │   0x005b7580      defc000c       adda.w 0xc, a7
+│    ││ │   0x005b7584      486f0001       pea.l 0x1(a7)
+│    ││ │   0x005b7588      42a7           clr.l -(a7)
+│    ││ │   0x005b758a      1f6f00080003   move.b 0x8(a7), 0x3(a7)
+│    ││ │   0x005b7590      2f17           move.l (a7), -(a7)
+│    ││ │   0x005b7592      4eb9004047ea   jsr p_wts_o
+│    ││ │   0x005b7598      defc010c       adda.w 0x10c, a7
+│    ││ │   0x005b759c      4eb900404946   jsr p_wtln_o
+│    ││ │   0x005b75a2      422e000c       clr.b 0xc(a6)
+│    └└───> 0x005b75a6      4eb900404188   jsr p_Unlink
+│       └─> 0x005b75ac      4cdf0003       movem.l (a7)+, d0-d1
+│           0x005b75b0      4e5e           unlk a6
+└           0x005b75b2      4e75           rts
+            ; CALL XREF from K8_DRIVES.k8_init @ 0x5b7760
+┌ 158: K8_DRIVES.add_existing_dr ();
+│           0x005b75b4      4e56fe7e       link.w a6, 0xfe7e
+│           0x005b75b8      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005b75ba      6206           bhi.b 0x5b75c2
+│       │   0x005b75bc      44fc0002       move.w 0x2, ccr
+│       │   0x005b75c0      4e76           trapv
+│       └─> 0x005b75c2      defc0136       adda.w 0x136, a7
+│           0x005b75c6      48e7f180       movem.l d0-d3/d7/a0, -(a7)
+│           0x005b75ca      760f           moveq 0xf, d3
+│           0x005b75cc      594f           subq.w 0x4, a7
+│           0x005b75ce      486effbc       pea.l -0x44(a6)
+│           0x005b75d2      4267           clr.w -(a7)
+│           0x005b75d4      3f03           move.w d3, -(a7)
+│           0x005b75d6      4eb9005f884e   jsr F6_DRIVE.f_list_drives
+│           0x005b75dc      504f           addq.w 0x8, a7
+│           0x005b75de      2d5fffb8       move.l (a7)+, -0x48(a6)
+│           0x005b75e2      2f2effb8       move.l -0x48(a6), -(a7)
+│           0x005b75e6      5397           subq.l 0x1, (a7)
+│           0x005b75e8      7e00           moveq 0x0, d7
+│       ┌─> 0x005b75ea      be97           cmp.l (a7), d7
+│      ┌──< 0x005b75ec      6e5a           bgt.b 0x5b7648
+│      │╎   0x005b75ee      be83           cmp.l d3, d7
+│     ┌───< 0x005b75f0      6302           bls.b 0x5b75f4
+│     ││╎   0x005b75f2      4e4f           trap 0xf
+│     └───> 0x005b75f4      2007           move.l d7, d0
+│      │╎   0x005b75f6      e580           asl.l 0x2, d0
+│      │╎   0x005b75f8      223608bc       move.l -0x44(a6, d0.l), d1
+│      │╎   0x005b75fc      0c817fffffff   cmpi.l 0x7fffffff, d1
+│     ┌───< 0x005b7602      6740           beq.b 0x5b7644
+│     ││╎   0x005b7604      2d41fffc       move.l d1, -0x4(a6)
+│     ││╎   0x005b7608      4280           clr.l d0
+│     ││╎   0x005b760a      102efffc       move.b -0x4(a6), d0
+│     ││╎   0x005b760e      41fafcec       lea.l 0x5b72fc(pc), a0
+│     ││╎   0x005b7612      3400           move.w d0, d2
+│     ││╎   0x005b7614      e64a           lsr.w 0x3, d2
+│     ││╎   0x005b7616      01302000       btst.l d0, (a0, d2.w)
+│    ┌────< 0x005b761a      6728           beq.b 0x5b7644
+│    │││╎   0x005b761c      9efc00fc       suba.w 0xfc, a7
+│    │││╎   0x005b7620      2f3afcfa       move.l 0x5b731c(pc), -(a7)
+│    │││╎   0x005b7624      554f           subq.w 0x2, a7
+│    │││╎   0x005b7626      2f01           move.l d1, -(a7)
+│    │││╎   0x005b7628      594f           subq.w 0x4, a7
+│    │││╎   0x005b762a      2f01           move.l d1, -(a7)
+│    │││╎   0x005b762c      4eb9005fb938   jsr F6_VOLUME.f_vol_on
+│    │││╎   0x005b7632      584f           addq.w 0x4, a7
+│    │││╎   0x005b7634      4eb9005c3950   jsr AFS_FILER.afs_add_drive
+│    │││╎   0x005b763a      504f           addq.w 0x8, a7
+│    │││╎   0x005b763c      4ebafd4c       jsr K8_DRIVES.warn_if_fail(pc)
+│    │││╎   0x005b7640      defc0102       adda.w 0x102, a7
+│    └└───> 0x005b7644      5287           addq.l 0x1, d7
+│      │└─< 0x005b7646      68a2           bvc.b 0x5b75ea
+│      └──> 0x005b7648      584f           addq.w 0x4, a7
+│           0x005b764a      4cdf018f       movem.l (a7)+, d0-d3/d7/a0
+│           0x005b764e      4e5e           unlk a6
+└           0x005b7650      4e75           rts
+            ; CALL XREF from K0_DISKMGR.k_init @ 0x5988aa
+┌ 444: K8_DRIVES.k8_init ();
+│           0x005b7652      4e56febc       link.w a6, 0xfebc
+│           0x005b7656      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005b7658      6206           bhi.b 0x5b7660
+│       │   0x005b765a      44fc0002       move.w 0x2, ccr
+│       │   0x005b765e      4e76           trapv
+│       └─> 0x005b7660      defc0142       adda.w 0x142, a7
+│           0x005b7664      48e7f1f8       movem.l d0-d3/d7/a0-a4, -(a7)
+│           0x005b7668      43f80000       lea.l 0x0, a1
+│           0x005b766c      45f80001       lea.l 0x1, a2
+│           0x005b7670      47fafcb6       lea.l K8_DRIVES.drive(pc), a3
+│           0x005b7674      49ed0010       lea.l 0x10(a5), a4
+│           0x005b7678      7201           moveq 0x1, d1
+│           0x005b767a      7410           moveq 0x10, d2
+│           0x005b767c      760a           moveq 0xa, d3
+│           0x005b767e      554f           subq.w 0x2, a7
+│           0x005b7680      48780016       pea.l 0x16
+│           0x005b7684      4eb900474af8   jsr CONFIG.cfg_option
+│           0x005b768a      584f           addq.w 0x4, a7
+│           0x005b768c      4a1f           tst.b (a7)+
+│       ┌─< 0x005b768e      675e           beq.b 0x5b76ee
+│       │   0x005b7690      554f           subq.w 0x2, a7
+│       │   0x005b7692      4eb9005acc9a   jsr K4_AFS_ONLY.d_smd_fitted
+│       │   0x005b7698      4a1f           tst.b (a7)+
+│      ┌──< 0x005b769a      6610           bne.b 0x5b76ac
+│      ││   0x005b769c      554f           subq.w 0x2, a7
+│      ││   0x005b769e      4eb9005acc4e   jsr K4_AFS_ONLY.get_cll_type
+│      ││   0x005b76a4      101f           move.b (a7)+, d0
+│      ││   0x005b76a6      0c00004e       cmpi.b 0x4e, d0
+│     ┌───< 0x005b76aa      6642           bne.b 0x5b76ee
+│     │└──> 0x005b76ac      594f           subq.w 0x4, a7
+│     │ │   0x005b76ae      48780003       pea.l 0x3
+│     │ │   0x005b76b2      4851           pea.l (a1)
+│     │ │   0x005b76b4      4852           pea.l (a2)
+│     │ │   0x005b76b6      4852           pea.l (a2)
+│     │ │   0x005b76b8      4e93           jsr (a3)                    ; fcn.0000000c
+│     │ │   0x005b76ba      dec2           adda.w d2, a7
+│     │ │   0x005b76bc      48780018       pea.l 0x18
+│     │ │   0x005b76c0      4eb9005f812e   jsr F6_DRIVE.f_add_drv
+│     │ │   0x005b76c6      9efc00f4       suba.w 0xf4, a7
+│     │ │   0x005b76ca      2f3afc54       move.l 0x5b7320(pc), -(a7)
+│     │ │   0x005b76ce      5d4f           subq.w 0x6, a7
+│     │ │   0x005b76d0      48780003       pea.l 0x3
+│     │ │   0x005b76d4      4851           pea.l (a1)
+│     │ │   0x005b76d6      4852           pea.l (a2)
+│     │ │   0x005b76d8      4852           pea.l (a2)
+│     │ │   0x005b76da      4e93           jsr (a3)                    ; fcn.0000000c
+│     │ │   0x005b76dc      dec2           adda.w d2, a7
+│     │ │   0x005b76de      4eb9005acbd0   jsr K4_AFS_ONLY.cll_add_drive
+│     │ │   0x005b76e4      584f           addq.w 0x4, a7
+│     │ │   0x005b76e6      4ebafca2       jsr K8_DRIVES.warn_if_fail(pc)
+│     │ │   0x005b76ea      defc0102       adda.w 0x102, a7
+│     └─└─> 0x005b76ee      554f           subq.w 0x2, a7
+│           0x005b76f0      4eb9005acc9a   jsr K4_AFS_ONLY.d_smd_fitted
+│           0x005b76f6      4a1f           tst.b (a7)+
+│       ┌─< 0x005b76f8      6742           beq.b 0x5b773c
+│       │   0x005b76fa      594f           subq.w 0x4, a7
+│       │   0x005b76fc      48780002       pea.l 0x2
+│       │   0x005b7700      4851           pea.l (a1)
+│       │   0x005b7702      4851           pea.l (a1)
+│       │   0x005b7704      4851           pea.l (a1)
+│       │   0x005b7706      4e93           jsr (a3)                    ; fcn.0000000c
+│       │   0x005b7708      dec2           adda.w d2, a7
+│       │   0x005b770a      48780814       pea.l 0x814
+│       │   0x005b770e      4eb9005f812e   jsr F6_DRIVE.f_add_drv
+│       │   0x005b7714      9efc00f4       suba.w 0xf4, a7
+│       │   0x005b7718      2f3afc0a       move.l 0x5b7324(pc), -(a7)
+│       │   0x005b771c      5d4f           subq.w 0x6, a7
+│       │   0x005b771e      48780002       pea.l 0x2
+│       │   0x005b7722      4851           pea.l (a1)
+│       │   0x005b7724      4851           pea.l (a1)
+│       │   0x005b7726      4851           pea.l (a1)
+│       │   0x005b7728      4e93           jsr (a3)                    ; fcn.0000000c
+│       │   0x005b772a      dec2           adda.w d2, a7
+│       │   0x005b772c      4eb9005acaa8   jsr K4_AFS_ONLY.dpb_add_drive
+│       │   0x005b7732      584f           addq.w 0x4, a7
+│       │   0x005b7734      4ebafc54       jsr K8_DRIVES.warn_if_fail(pc)
+│       │   0x005b7738      defc0102       adda.w 0x102, a7
+│       └─> 0x005b773c      7e00           moveq 0x0, d7
+│       ┌─> 0x005b773e      4887           ext.w d7
+│       ╎   0x005b7740      3007           move.w d7, d0
+│       ╎   0x005b7742      e540           asl.w 0x2, d0
+│       ╎   0x005b7744      41f90084167a   lea.l 0x84167a, a0
+│       ╎   0x005b774a      21bcffffffff.  move.l 0xffffffff, (a0, d0.w)
+│       ╎   0x005b7752      5207           addq.b 0x1, d7
+│       ╎   0x005b7754      0c070007       cmpi.b 0x7, d7
+│       └─< 0x005b7758      6fe4           ble.b 0x5b773e
+│           0x005b775a      23c10084167e   move.l d1, 0x84167e
+│           0x005b7760      4ebafe52       jsr K8_DRIVES.add_existing_dr(pc)
+│           0x005b7764      4ebafc92       jsr K8_DRIVES.add_existing_vo(pc)
+│           0x005b7768      554f           subq.w 0x2, a7
+│           0x005b776a      4eb9005acc6a   jsr K4_AFS_ONLY.cll_flr_present
+│           0x005b7770      4a1f           tst.b (a7)+
+│       ┌─< 0x005b7772      671a           beq.b 0x5b778e
+│       │   0x005b7774      594f           subq.w 0x4, a7
+│       │   0x005b7776      4854           pea.l (a4)
+│       │   0x005b7778      4879005acc20   pea.l K4_AFS_ONLY.cll_driver
+│       │   0x005b777e      1f01           move.b d1, -(a7)
+│       │   0x005b7780      4eb9005f783a   jsr F6_DRIVE.f_add_filer
+│       │   0x005b7786      dec3           adda.w d3, a7
+│       │   0x005b7788      23df00841686   move.l (a7)+, 0x841686
+│       └─> 0x005b778e      554f           subq.w 0x2, a7
+│           0x005b7790      4eb9005acbb6   jsr K4_AFS_ONLY.dfs_flr_present
+│           0x005b7796      4a1f           tst.b (a7)+
+│       ┌─< 0x005b7798      671a           beq.b 0x5b77b4
+│       │   0x005b779a      594f           subq.w 0x4, a7
+│       │   0x005b779c      4854           pea.l (a4)
+│       │   0x005b779e      4879005acb88   pea.l K4_AFS_ONLY.dfs_driver
+│       │   0x005b77a4      1f01           move.b d1, -(a7)
+│       │   0x005b77a6      4eb9005f783a   jsr F6_DRIVE.f_add_filer
+│       │   0x005b77ac      dec3           adda.w d3, a7
+│       │   0x005b77ae      23df0084168a   move.l (a7)+, 0x84168a
+│       └─> 0x005b77b4      554f           subq.w 0x2, a7
+│           0x005b77b6      4eb9005acb0c   jsr K4_AFS_ONLY.dpb_flr_present
+│           0x005b77bc      4a1f           tst.b (a7)+
+│       ┌─< 0x005b77be      671a           beq.b 0x5b77da
+│       │   0x005b77c0      594f           subq.w 0x4, a7
+│       │   0x005b77c2      4854           pea.l (a4)
+│       │   0x005b77c4      4879005acade   pea.l K4_AFS_ONLY.dpb_driver
+│       │   0x005b77ca      1f01           move.b d1, -(a7)
+│       │   0x005b77cc      4eb9005f783a   jsr F6_DRIVE.f_add_filer
+│       │   0x005b77d2      dec3           adda.w d3, a7
+│       │   0x005b77d4      23df00841682   move.l (a7)+, 0x841682
+│       └─> 0x005b77da      554f           subq.w 0x2, a7
+│           0x005b77dc      4eb9005acb54   jsr K4_AFS_ONLY.pbf_flr_present
+│           0x005b77e2      4a1f           tst.b (a7)+
+│       ┌─< 0x005b77e4      671a           beq.b 0x5b7800
+│       │   0x005b77e6      594f           subq.w 0x4, a7
+│       │   0x005b77e8      4854           pea.l (a4)
+│       │   0x005b77ea      4879005acb26   pea.l K4_AFS_ONLY.pbf_driver
+│       │   0x005b77f0      1f01           move.b d1, -(a7)
+│       │   0x005b77f2      4eb9005f783a   jsr F6_DRIVE.f_add_filer
+│       │   0x005b77f8      dec3           adda.w d3, a7
+│       │   0x005b77fa      23df0084168e   move.l (a7)+, 0x84168e
+│       └─> 0x005b7800      4eb9005f7f5c   jsr F6_DRIVE.f_check_disks
+│           0x005b7806      4cdf1f8f       movem.l (a7)+, d0-d3/d7/a0-a4
+│           0x005b780a      4e5e           unlk a6

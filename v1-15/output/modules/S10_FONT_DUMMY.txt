@@ -1,0 +1,19 @@
+            ; CALL XREF from K05_LOADSAVE.copy_chunk @ 0x5a61b6
+            ;-- S10_FONT_DUMMY:
+┌ 58: S10_FONT_DUMMY.s_font_encrypt ();
+│           0x004689ec      4e56fff0       link.w a6, 0xfff0
+│           0x004689f0      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x004689f2      6206           bhi.b 0x4689fa
+│       │   0x004689f4      44fc0002       move.w 0x2, ccr
+│       │   0x004689f8      4e76           trapv
+│       └─> 0x004689fa      defc0010       adda.w 0x10, a7
+│           0x004689fe      487affb7       pea.l 0x4689b7(pc)
+│           0x00468a02      4878001e       pea.l 0x1e
+│           0x00468a06      2f17           move.l (a7), -(a7)
+│           0x00468a08      4eb9004047ea   jsr p_wts_o
+│           0x00468a0e      defc000c       adda.w 0xc, a7
+│           0x00468a12      4eb900404946   jsr p_wtln_o
+│           0x00468a18      4227           clr.b -(a7)
+│           0x00468a1a      4eb90040452a   jsr p_Assert
+│           0x00468a20      544f           addq.w 0x2, a7
+│           0x00468a22      4e5e           unlk a6

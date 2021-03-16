@@ -1,0 +1,588 @@
+            ;-- F3_REMOTE:
+            0x005efbe2      .byte 0x00
+            0x005efbe3      .byte 0x00
+            0x005efbe4      .byte 0x00
+            0x005efbe5      .byte 0x00
+            0x005efbe6      .byte 0x00
+            0x005efbe7      .byte 0x00
+            0x005efbe8      .byte 0x00
+            0x005efbe9      .byte 0x00
+            0x005efbea      .byte 0x00
+            0x005efbeb      .byte 0x00
+            0x005efbec      .byte 0x00
+            0x005efbed      .byte 0x00
+            0x005efbee      .byte 0x00
+            0x005efbef      .byte 0x00
+            0x005efbf0      .byte 0x00
+            0x005efbf1      .byte 0x00
+            0x005efbf2      .byte 0x00
+            0x005efbf3      .byte 0x00
+            0x005efbf4      .byte 0x00
+            0x005efbf5      .byte 0x00
+            0x005efbf6      .byte 0x00
+            0x005efbf7      .byte 0x00
+            0x005efbf8      .byte 0x08
+            0x005efbf9     .string "Request " ; len=8
+            0x005efc01      .byte 0x06
+            0x005efc02     .string " from " ; len=6
+            0x005efc08      .byte 0x06
+            0x005efc09     .string " mode " ; len=6
+            0x005efc0f      .byte 0x05
+            0x005efc10     .string " chk " ; len=5
+            0x005efc15      .byte 0x07
+            0x005efc16     .string "Return " ; len=7
+            0x005efc1d      .byte 0x04
+            0x005efc1e      .byte 0x20
+            0x005efc1f      .byte 0x74
+            0x005efc20      .byte 0x6f
+            0x005efc21      .byte 0x20
+            0x005efc22      .byte 0x09
+            0x005efc23     .string " Updated " ; len=9
+            0x005efc2c      .byte 0x06
+            0x005efc2d     .string " held " ; len=6
+            0x005efc33      .byte 0x1a
+            0x005efc34     .string " Request volume list from " ; len=26
+            0x005efc4e      .byte 0x05
+            0x005efc4f     .string "Cant " ; len=5
+            0x005efc54      .byte 0x05
+            0x005efc55     .string "Send " ; len=5
+            0x005efc5a      .byte 0x04
+            0x005efc5b      .byte 0x20
+            0x005efc5c      .byte 0x74
+            0x005efc5d      .byte 0x6f
+            0x005efc5e      .byte 0x20
+            0x005efc5f      .byte 0x06
+            0x005efc60     .string " +dat " ; len=6
+            0x005efc66      .byte 0x04
+            0x005efc67      .byte 0x20
+            0x005efc68      .byte 0x77
+            0x005efc69      .byte 0x72
+            0x005efc6a      .byte 0x69
+            0x005efc6b      .byte 0x04
+            0x005efc6c      .byte 0x20
+            0x005efc6d      .byte 0x72
+            0x005efc6e      .byte 0x65
+            0x005efc6f      .byte 0x74
+            0x005efc70      .byte 0x0f
+            0x005efc71     .string "Request return " ; len=15
+            0x005efc80      .byte 0x06
+            0x005efc81     .string " from " ; len=6
+            0x005efc87      .byte 0x15
+            0x005efc88     .string " send volume list to " ; len=21
+            0x005efc9d      .byte 0x02
+            0x005efc9e      .byte 0x20
+            0x005efc9f      .byte 0x20
+            0x005efca0      .byte 0x05
+            0x005efca1     .string " vols" ; len=5
+            0x005efca6      .byte 0x06
+            0x005efca7     .string " extd " ; len=6
+            0x005efcad      .byte 0x1e
+            0x005efcae      .byte 0x52
+            0x005efcaf      .byte 0x65
+            0x005efcb0      .byte 0x6d
+            0x005efcb1      .byte 0x6f
+            0x005efcb2      .byte 0x74
+            0x005efcb3      .byte 0x65
+            0x005efcb4      .byte 0x20
+            0x005efcb5      .byte 0x6f
+            0x005efcb6      .byte 0x70
+            0x005efcb7      .byte 0x20
+            0x005efcb8      .byte 0x66
+            0x005efcb9      .byte 0x72
+            0x005efcba      .byte 0x6f
+            0x005efcbb      .byte 0x6d
+            0x005efcbc      .byte 0x20
+            0x005efcbd      .byte 0x75
+            0x005efcbe      .byte 0x6e
+            0x005efcbf      .byte 0x65
+            0x005efcc0      .byte 0x78
+            0x005efcc1      .byte 0x70
+            0x005efcc2      .byte 0x65
+            0x005efcc3      .byte 0x63
+            0x005efcc4      .byte 0x74
+            0x005efcc5      .byte 0x65
+            0x005efcc6      .byte 0x64
+            0x005efcc7      .byte 0x20
+            0x005efcc8      .byte 0x75
+            0x005efcc9      .byte 0x73
+            0x005efcca      .byte 0x65
+            0x005efccb      .byte 0x72
+            ; CALL XREF from F11_PROXY.f_add_remote @ 0x60b102
+┌ 96: F3_REMOTE.f3_req_flush ();
+│           ; var int32_t var_100h @ a6-0x100
+│           ; var int32_t var_feh @ a6-0xfe
+│           ; var int32_t var_fch @ a6-0xfc
+│           0x005efccc      4e56ffd2       link.w a6, 0xffd2
+│           0x005efcd0      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005efcd2      6206           bhi.b 0x5efcda
+│       │   0x005efcd4      44fc0002       move.w 0x2, ccr
+│       │   0x005efcd8      4e76           trapv
+│       └─> 0x005efcda      defc0022       adda.w 0x22, a7
+│           0x005efcde      48e70080       movem.l a0, -(a7)
+│           0x005efce2      41f80000       lea.l 0x0, a0
+│           0x005efce6      2d7aff04fff4   move.l 0x5efbec(pc), -0xc(a6)
+│           0x005efcec      2d7aff02fff8   move.l 0x5efbf0(pc), -0x8(a6)
+│           0x005efcf2      2d7aff00fffc   move.l 0x5efbf4(pc), -0x4(a6)
+│           0x005efcf8      022e00e0fff5   andi.b 0xe0, -0xb(a6)
+│           0x005efcfe      554f           subq.w 0x2, a7
+│           0x005efd00      2f2e0008       move.l 0x8(a6), -(a7)
+│           0x005efd04      486efff4       pea.l -0xc(a6)
+│           0x005efd08      4850           pea.l (a0)
+│           0x005efd0a      4850           pea.l (a0)
+│           0x005efd0c      4850           pea.l (a0)
+│           0x005efd0e      4850           pea.l (a0)
+│           0x005efd10      4eb900473564   jsr F0_MONICA.f0_to_remote
+│           0x005efd16      defc0018       adda.w 0x18, a7
+│           0x005efd1a      4a1f           tst.b (a7)+
+│       ┌─< 0x005efd1c      6606           bne.b 0x5efd24
+│       │   0x005efd1e      4eb9005ef2e8   jsr F2_UTILITY.f2_ignore
+│       └─> 0x005efd24      4cdf0100       movem.l (a7)+, a0
+│           0x005efd28      4e5e           unlk a6
+└           0x005efd2a      4e75           rts
+            ; CALL XREF from F4_CACHE.get_from_owner @ 0x5f15de
+┌ 178: F3_REMOTE.f3_req_block (int32_t arg_eh, int32_t arg_12h);
+│           ; var int32_t var_166h @ a6-0x166
+│           ; var int32_t var_164h @ a6-0x164
+│           ; var int32_t var_162h @ a6-0x162
+│           ; arg int32_t arg_eh @ a6+0xe
+│           ; arg int32_t arg_12h @ a6+0x12
+│           0x005efd2c      4e56ffae       link.w a6, 0xffae
+│           0x005efd30      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005efd32      6206           bhi.b 0x5efd3a
+│       │   0x005efd34      44fc0002       move.w 0x2, ccr
+│       │   0x005efd38      4e76           trapv
+│       └─> 0x005efd3a      defc003a       adda.w 0x3a, a7
+│           0x005efd3e      48e7e1e0       movem.l d0-d2/d7/a0-a2, -(a7)
+│           0x005efd42      43eefff2       lea.l -0xe(a6), a1
+│           0x005efd46      45eefff4       lea.l -0xc(a6), a2
+│           0x005efd4a      7401           moveq 0x1, d2
+│           0x005efd4c      2d7afe9effe8   move.l 0x5efbec(pc), -0x18(a6)
+│           0x005efd52      2d7afe9cffec   move.l 0x5efbf0(pc), -0x14(a6)
+│           0x005efd58      2d7afe9afff0   move.l 0x5efbf4(pc), -0x10(a6)
+│           0x005efd5e      022e00e0ffe9   andi.b 0xe0, -0x17(a6)
+│           0x005efd64      852effe9       or.b d2, -0x17(a6)
+│           0x005efd68      102e0008       move.b 0x8(a6), d0
+│           0x005efd6c      0211008f       andi.b 0x8f, (a1)
+│           0x005efd70      e908           lsl.b 0x4, d0
+│           0x005efd72      8111           or.b d0, (a1)
+│           0x005efd74      2d6e0012ffea   move.l 0x12(a6), -0x16(a6)
+│           0x005efd7a      2d6e000effee   move.l 0xe(a6), -0x12(a6)
+│           0x005efd80      021100f7       andi.b 0xf7, (a1)
+│           0x005efd84      202e000a       move.l 0xa(a6), d0
+│           0x005efd88      0c80ffffffff   cmpi.l 0xffffffff, d0
+│       ┌─< 0x005efd8e      6704           beq.b 0x5efd94
+│       │   0x005efd90      00110008       ori.b 0x8, (a1)
+│       └─> 0x005efd94      1211           move.b (a1), d1
+│           0x005efd96      e909           lsl.b 0x4, d1
+│           0x005efd98      ee09           lsr.b 0x7, d1
+│       ┌─< 0x005efd9a      670c           beq.b 0x5efda8
+│       │   0x005efd9c      2d40fff8       move.l d0, -0x8(a6)
+│       │   0x005efda0      2480           move.l d0, (a2)
+│       │   0x005efda2      4692           not.l (a2)
+│       │   0x005efda4      7e08           moveq 0x8, d7
+│      ┌──< 0x005efda6      6002           bra.b 0x5efdaa
+│      │└─> 0x005efda8      7e00           moveq 0x0, d7
+│      └──> 0x005efdaa      554f           subq.w 0x2, a7
+│           0x005efdac      2f2e0016       move.l 0x16(a6), -(a7)
+│           0x005efdb0      486effe8       pea.l -0x18(a6)
+│           0x005efdb4      4878000c       pea.l 0xc
+│           0x005efdb8      204a           movea.l a2, a0
+│           0x005efdba      2f08           move.l a0, -(a7)
+│           0x005efdbc      2f07           move.l d7, -(a7)
+│           0x005efdbe      48780000       pea.l 0x0
+│           0x005efdc2      4eb900473564   jsr F0_MONICA.f0_to_remote
+│           0x005efdc8      defc0018       adda.w 0x18, a7
+│           0x005efdcc      101f           move.b (a7)+, d0
+│           0x005efdce      4880           ext.w d0
+│           0x005efdd0      4182           chk.w d2, d0
+│           0x005efdd2      1d40001a       move.b d0, 0x1a(a6)
+│           0x005efdd6      4cdf0787       movem.l (a7)+, d0-d2/d7/a0-a2
+│           0x005efdda      4e5e           unlk a6
+└           0x005efddc      4e75           rts
+            ; CALL XREF from F4_CACHE.return_to_owner @ 0x5f1b0e
+            ; CALL XREF from F4_CACHE.f4_req_return @ 0x5f3c5e
+            ; CALL XREF from F11_PROXY.return_requeste @ 0x60a534
+┌ 196: F3_REMOTE.f3_return_block (int32_t arg_14h, int32_t arg_18h);
+│           ; var int32_t var_22ch @ a6-0x22c
+│           ; var int32_t var_22ah @ a6-0x22a
+│           ; var int32_t var_228h @ a6-0x228
+│           ; arg int32_t arg_14h @ a6+0x14
+│           ; arg int32_t arg_18h @ a6+0x18
+│           0x005efdde      4e56ffbe       link.w a6, 0xffbe
+│           0x005efde2      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005efde4      6206           bhi.b 0x5efdec
+│       │   0x005efde6      44fc0002       move.w 0x2, ccr
+│       │   0x005efdea      4e76           trapv
+│       └─> 0x005efdec      defc0032       adda.w 0x32, a7
+│           0x005efdf0      48e7c1c0       movem.l d0-d1/d7/a0-a1, -(a7)
+│           0x005efdf4      41eefffa       lea.l -0x6(a6), a0
+│           0x005efdf8      43ee000c       lea.l 0xc(a6), a1
+│           0x005efdfc      7201           moveq 0x1, d1
+│           0x005efdfe      4227           clr.b -(a7)
+│           0x005efe00      1011           move.b (a1), d0
+│           0x005efe02      b02e000a       cmp.b 0xa(a6), d0
+│       ┌─< 0x005efe06      6602           bne.b 0x5efe0a
+│       │   0x005efe08      5217           addq.b 0x1, (a7)
+│       └─> 0x005efe0a      4eb90040452a   jsr p_Assert
+│           0x005efe10      544f           addq.w 0x2, a7
+│           0x005efe12      2d7afdd8fff0   move.l 0x5efbec(pc), -0x10(a6)
+│           0x005efe18      2d7afdd6fff4   move.l 0x5efbf0(pc), -0xc(a6)
+│           0x005efe1e      2d7afdd4fff8   move.l 0x5efbf4(pc), -0x8(a6)
+│           0x005efe24      022e00e0fff1   andi.b 0xe0, -0xf(a6)
+│           0x005efe2a      002e0003fff1   ori.b 0x3, -0xf(a6)
+│           0x005efe30      4a2e000e       tst.b 0xe(a6)
+│       ┌─< 0x005efe34      6704           beq.b 0x5efe3a
+│       │   0x005efe36      00100008       ori.b 0x8, (a0)
+│       └─> 0x005efe3a      4a2e0008       tst.b 0x8(a6)
+│       ┌─< 0x005efe3e      6702           beq.b 0x5efe42
+│       │   0x005efe40      8310           or.b d1, (a0)
+│       └─> 0x005efe42      4a2e000a       tst.b 0xa(a6)
+│       ┌─< 0x005efe46      6704           beq.b 0x5efe4c
+│       │   0x005efe48      00100002       ori.b 0x2, (a0)
+│       └─> 0x005efe4c      4a11           tst.b (a1)
+│       ┌─< 0x005efe4e      6704           beq.b 0x5efe54
+│       │   0x005efe50      00100004       ori.b 0x4, (a0)
+│       └─> 0x005efe54      2d6e0018fff2   move.l 0x18(a6), -0xe(a6)
+│           0x005efe5a      2d6e0014fff6   move.l 0x14(a6), -0xa(a6)
+│           0x005efe60      4a11           tst.b (a1)
+│       ┌─< 0x005efe62      6708           beq.b 0x5efe6c
+│       │   0x005efe64      2e3c00000400   move.l 0x400, d7
+│      ┌──< 0x005efe6a      6002           bra.b 0x5efe6e
+│      │└─> 0x005efe6c      7e00           moveq 0x0, d7
+│      └──> 0x005efe6e      554f           subq.w 0x2, a7
+│           0x005efe70      2f2e001c       move.l 0x1c(a6), -(a7)
+│           0x005efe74      486efff0       pea.l -0x10(a6)
+│           0x005efe78      4878000c       pea.l 0xc
+│           0x005efe7c      2f2e0010       move.l 0x10(a6), -(a7)
+│           0x005efe80      2f07           move.l d7, -(a7)
+│           0x005efe82      48780000       pea.l 0x0
+│           0x005efe86      4eb900473564   jsr F0_MONICA.f0_to_remote
+│           0x005efe8c      defc0018       adda.w 0x18, a7
+│           0x005efe90      101f           move.b (a7)+, d0
+│           0x005efe92      4880           ext.w d0
+│           0x005efe94      4181           chk.w d1, d0
+│           0x005efe96      1d400020       move.b d0, 0x20(a6)
+│           0x005efe9a      4cdf0383       movem.l (a7)+, d0-d1/d7/a0-a1
+│           0x005efe9e      4e5e           unlk a6
+└           0x005efea0      4e75           rts
+            ; CALL XREF from F8_MASTER.vol_req @ 0x600dc4
+            ; CALL XREF from F11_PROXY.f_add_remote @ 0x60b114
+            ; CALL XREF from F11_PROXY.f_check_remotes @ 0x60b34e
+            ; CALL XREF from F11_PROXY.f_net_user_enab @ 0x60b418
+┌ 110: F3_REMOTE.f3_req_vol_list ();
+│           ; var int32_t var_2d8h @ a6-0x2d8
+│           ; var int32_t var_2d6h @ a6-0x2d6
+│           ; var int32_t var_2d4h @ a6-0x2d4
+│           0x005efea2      4e56ffc6       link.w a6, 0xffc6
+│           0x005efea6      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005efea8      6206           bhi.b 0x5efeb0
+│       │   0x005efeaa      44fc0002       move.w 0x2, ccr
+│       │   0x005efeae      4e76           trapv
+│       └─> 0x005efeb0      defc002a       adda.w 0x2a, a7
+│           0x005efeb4      48e7c080       movem.l d0-d1/a0, -(a7)
+│           0x005efeb8      41f80000       lea.l 0x0, a0
+│           0x005efebc      7201           moveq 0x1, d1
+│           0x005efebe      2d7afd2cfff0   move.l 0x5efbec(pc), -0x10(a6)
+│           0x005efec4      2d7afd2afff4   move.l 0x5efbf0(pc), -0xc(a6)
+│           0x005efeca      2d7afd28fff8   move.l 0x5efbf4(pc), -0x8(a6)
+│           0x005efed0      022e00e0fff1   andi.b 0xe0, -0xf(a6)
+│           0x005efed6      002e0006fff1   ori.b 0x6, -0xf(a6)
+│           0x005efedc      1d41fffa       move.b d1, -0x6(a6)
+│           0x005efee0      554f           subq.w 0x2, a7
+│           0x005efee2      2f2e0008       move.l 0x8(a6), -(a7)
+│           0x005efee6      486efff0       pea.l -0x10(a6)
+│           0x005efeea      4878000c       pea.l 0xc
+│           0x005efeee      4850           pea.l (a0)
+│           0x005efef0      4850           pea.l (a0)
+│           0x005efef2      4850           pea.l (a0)
+│           0x005efef4      4eb900473564   jsr F0_MONICA.f0_to_remote
+│           0x005efefa      defc0018       adda.w 0x18, a7
+│           0x005efefe      101f           move.b (a7)+, d0
+│           0x005eff00      4880           ext.w d0
+│           0x005eff02      4181           chk.w d1, d0
+│           0x005eff04      1d40000c       move.b d0, 0xc(a6)
+│           0x005eff08      4cdf0103       movem.l (a7)+, d0-d1/a0
+│           0x005eff0c      4e5e           unlk a6
+└           0x005eff0e      4e75           rts
+            ; CALL XREF from F4_CACHE.f4_send_block @ 0x5f3402
+            ; CALL XREF from F11_PROXY.block_requested @ 0x60a1d8
+┌ 186: F3_REMOTE.f3_send_block (int32_t arg_16h, int32_t arg_1ah);
+│           ; var int32_t var_348h @ a6-0x348
+│           ; var int32_t var_346h @ a6-0x346
+│           ; var int32_t var_344h @ a6-0x344
+│           ; arg int32_t arg_16h @ a6+0x16
+│           ; arg int32_t arg_1ah @ a6+0x1a
+│           0x005eff10      4e56ffbe       link.w a6, 0xffbe
+│           0x005eff14      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005eff16      6206           bhi.b 0x5eff1e
+│       │   0x005eff18      44fc0002       move.w 0x2, ccr
+│       │   0x005eff1c      4e76           trapv
+│       └─> 0x005eff1e      defc0032       adda.w 0x32, a7
+│           0x005eff22      48e7e180       movem.l d0-d2/d7/a0, -(a7)
+│           0x005eff26      41eefffa       lea.l -0x6(a6), a0
+│           0x005eff2a      7202           moveq 0x2, d1
+│           0x005eff2c      7401           moveq 0x1, d2
+│           0x005eff2e      2d7afcbcfff0   move.l 0x5efbec(pc), -0x10(a6)
+│           0x005eff34      2d7afcbafff4   move.l 0x5efbf0(pc), -0xc(a6)
+│           0x005eff3a      2d7afcb8fff8   move.l 0x5efbf4(pc), -0x8(a6)
+│           0x005eff40      022e00e0fff1   andi.b 0xe0, -0xf(a6)
+│           0x005eff46      832efff1       or.b d1, -0xf(a6)
+│           0x005eff4a      4a2e0010       tst.b 0x10(a6)
+│       ┌─< 0x005eff4e      6704           beq.b 0x5eff54
+│       │   0x005eff50      00100008       ori.b 0x8, (a0)
+│       └─> 0x005eff54      4a2e000a       tst.b 0xa(a6)
+│       ┌─< 0x005eff58      6702           beq.b 0x5eff5c
+│       │   0x005eff5a      8510           or.b d2, (a0)
+│       └─> 0x005eff5c      4a2e000c       tst.b 0xc(a6)
+│       ┌─< 0x005eff60      6702           beq.b 0x5eff64
+│       │   0x005eff62      8310           or.b d1, (a0)
+│       └─> 0x005eff64      4a2e000e       tst.b 0xe(a6)
+│       ┌─< 0x005eff68      6704           beq.b 0x5eff6e
+│       │   0x005eff6a      00100004       ori.b 0x4, (a0)
+│       └─> 0x005eff6e      102e0008       move.b 0x8(a6), d0
+│           0x005eff72      0210007f       andi.b 0x7f, (a0)
+│           0x005eff76      ef08           lsl.b 0x7, d0
+│           0x005eff78      8110           or.b d0, (a0)
+│           0x005eff7a      2d6e001afff2   move.l 0x1a(a6), -0xe(a6)
+│           0x005eff80      2d6e0016fff6   move.l 0x16(a6), -0xa(a6)
+│           0x005eff86      4a2e000e       tst.b 0xe(a6)
+│       ┌─< 0x005eff8a      6708           beq.b 0x5eff94
+│       │   0x005eff8c      2e3c00000400   move.l 0x400, d7
+│      ┌──< 0x005eff92      6002           bra.b 0x5eff96
+│      │└─> 0x005eff94      7e00           moveq 0x0, d7
+│      └──> 0x005eff96      554f           subq.w 0x2, a7
+│           0x005eff98      2f2e001e       move.l 0x1e(a6), -(a7)
+│           0x005eff9c      486efff0       pea.l -0x10(a6)
+│           0x005effa0      4878000c       pea.l 0xc
+│           0x005effa4      2f2e0012       move.l 0x12(a6), -(a7)
+│           0x005effa8      2f07           move.l d7, -(a7)
+│           0x005effaa      48780000       pea.l 0x0
+│           0x005effae      4eb900473564   jsr F0_MONICA.f0_to_remote
+│           0x005effb4      defc0018       adda.w 0x18, a7
+│           0x005effb8      101f           move.b (a7)+, d0
+│           0x005effba      4880           ext.w d0
+│           0x005effbc      4182           chk.w d2, d0
+│           0x005effbe      1d400022       move.b d0, 0x22(a6)
+│           0x005effc2      4cdf0187       movem.l (a7)+, d0-d2/d7/a0
+│           0x005effc6      4e5e           unlk a6
+└           0x005effc8      4e75           rts
+            ; CALL XREF from F4_CACHE.unborrow @ 0x5f1ffe
+┌ 118: F3_REMOTE.f3_req_return (int32_t arg_8h, int32_t arg_ch);
+│           ; var int32_t var_3feh @ a6-0x3fe
+│           ; var int32_t var_3fch @ a6-0x3fc
+│           ; var int32_t var_3fah @ a6-0x3fa
+│           ; arg int32_t arg_8h @ a6+0x8
+│           ; arg int32_t arg_ch @ a6+0xc
+│           0x005effca      4e56ffce       link.w a6, 0xffce
+│           0x005effce      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005effd0      6206           bhi.b 0x5effd8
+│       │   0x005effd2      44fc0002       move.w 0x2, ccr
+│       │   0x005effd6      4e76           trapv
+│       └─> 0x005effd8      defc0026       adda.w 0x26, a7
+│           0x005effdc      48e78080       movem.l d0/a0, -(a7)
+│           0x005effe0      41f80000       lea.l 0x0, a0
+│           0x005effe4      2d7afc06fff4   move.l 0x5efbec(pc), -0xc(a6)
+│           0x005effea      2d7afc04fff8   move.l 0x5efbf0(pc), -0x8(a6)
+│           0x005efff0      2d7afc02fffc   move.l 0x5efbf4(pc), -0x4(a6)
+│           0x005efff6      022e00e0fff5   andi.b 0xe0, -0xb(a6)
+│           0x005efffc      002e0004fff5   ori.b 0x4, -0xb(a6)
+│           0x005f0002      2d6e000cfff6   move.l 0xc(a6), -0xa(a6)
+│           0x005f0008      2d6e0008fffa   move.l 0x8(a6), -0x6(a6)
+│           0x005f000e      554f           subq.w 0x2, a7
+│           0x005f0010      2f2e0010       move.l 0x10(a6), -(a7)
+│           0x005f0014      486efff4       pea.l -0xc(a6)
+│           0x005f0018      4878000c       pea.l 0xc
+│           0x005f001c      4850           pea.l (a0)
+│           0x005f001e      4850           pea.l (a0)
+│           0x005f0020      4850           pea.l (a0)
+│           0x005f0022      4eb900473564   jsr F0_MONICA.f0_to_remote
+│           0x005f0028      defc0018       adda.w 0x18, a7
+│           0x005f002c      101f           move.b (a7)+, d0
+│           0x005f002e      4880           ext.w d0
+│           0x005f0030      41bc0001       chk.w 0x1, d0
+│           0x005f0034      1d400014       move.b d0, 0x14(a6)
+│           0x005f0038      4cdf0101       movem.l (a7)+, d0/a0
+│           0x005f003c      4e5e           unlk a6
+└           0x005f003e      4e75           rts
+            ; CALL XREF from F11_PROXY.send_vol_list @ 0x609e8c
+┌ 142: F3_REMOTE.f3_vol_list (int32_t arg_12h);
+│           ; var int32_t var_474h @ a6-0x474
+│           ; var int32_t var_472h @ a6-0x472
+│           ; var int32_t var_470h @ a6-0x470
+│           ; arg int32_t arg_12h @ a6+0x12
+│           0x005f0040      4e56ffca       link.w a6, 0xffca
+│           0x005f0044      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005f0046      6206           bhi.b 0x5f004e
+│       │   0x005f0048      44fc0002       move.w 0x2, ccr
+│       │   0x005f004c      4e76           trapv
+│       └─> 0x005f004e      defc002a       adda.w 0x2a, a7
+│           0x005f0052      48e78080       movem.l d0/a0, -(a7)
+│           0x005f0056      41eefff5       lea.l -0xb(a6), a0
+│           0x005f005a      2d7afb90fff4   move.l 0x5efbec(pc), -0xc(a6)
+│           0x005f0060      2d7afb8efff8   move.l 0x5efbf0(pc), -0x8(a6)
+│           0x005f0066      2d7afb8cfffc   move.l 0x5efbf4(pc), -0x4(a6)
+│           0x005f006c      4a2e0008       tst.b 0x8(a6)
+│       ┌─< 0x005f0070      670a           beq.b 0x5f007c
+│       │   0x005f0072      021000e0       andi.b 0xe0, (a0)
+│       │   0x005f0076      0010000a       ori.b 0xa, (a0)
+│      ┌──< 0x005f007a      6008           bra.b 0x5f0084
+│      │└─> 0x005f007c      021000e0       andi.b 0xe0, (a0)
+│      │    0x005f0080      00100005       ori.b 0x5, (a0)
+│      └──> 0x005f0084      4280           clr.l d0
+│           0x005f0086      302e000e       move.w 0xe(a6), d0
+│           0x005f008a      2d40fffa       move.l d0, -0x6(a6)
+│           0x005f008e      2d6e0012fff6   move.l 0x12(a6), -0xa(a6)
+│           0x005f0094      1d7c0001fffe   move.b 0x1, -0x2(a6)
+│           0x005f009a      554f           subq.w 0x2, a7
+│           0x005f009c      2f2e0012       move.l 0x12(a6), -(a7)
+│           0x005f00a0      486efff4       pea.l -0xc(a6)
+│           0x005f00a4      4878000c       pea.l 0xc
+│           0x005f00a8      2f2e000a       move.l 0xa(a6), -(a7)
+│           0x005f00ac      2f00           move.l d0, -(a7)
+│           0x005f00ae      48780000       pea.l 0x0
+│           0x005f00b2      4eb900473564   jsr F0_MONICA.f0_to_remote
+│           0x005f00b8      defc0018       adda.w 0x18, a7
+│           0x005f00bc      4a1f           tst.b (a7)+
+│       ┌─< 0x005f00be      6606           bne.b 0x5f00c6
+│       │   0x005f00c0      4eb9005ef2e8   jsr F2_UTILITY.f2_ignore
+│       └─> 0x005f00c6      4cdf0101       movem.l (a7)+, d0/a0
+│           0x005f00ca      4e5e           unlk a6
+└           0x005f00cc      4e75           rts
+            ; CALL XREF from F6_VOLUME.f6_read @ 0x5fa5ce
+            ; CALL XREF from F6_VOLUME.f6_write @ 0x5fa776
+            ; CALL XREF from F6_VOLUME.f6_verify @ 0x5fa840
+┌ 180: F3_REMOTE.f3_rem_transfer (int32_t arg_10h, int32_t arg_14h, int32_t arg_18h, int32_t arg_20h);
+│           ; var int32_t var_508h @ a6-0x508
+│           ; var int32_t var_506h @ a6-0x506
+│           ; var int32_t var_504h @ a6-0x504
+│           ; arg int32_t arg_10h @ a6+0x10
+│           ; arg int32_t arg_14h @ a6+0x14
+│           ; arg int32_t arg_18h @ a6+0x18
+│           ; arg int32_t arg_20h @ a6+0x20
+│           0x005f00ce      4e56ffbe       link.w a6, 0xffbe
+│           0x005f00d2      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005f00d4      6206           bhi.b 0x5f00dc
+│       │   0x005f00d6      44fc0002       move.w 0x2, ccr
+│       │   0x005f00da      4e76           trapv
+│       └─> 0x005f00dc      defc002a       adda.w 0x2a, a7
+│           0x005f00e0      48e780c0       movem.l d0/a0-a1, -(a7)
+│           0x005f00e4      41f900841fae   lea.l 0x841fae, a0
+│           0x005f00ea      43f80000       lea.l 0x0, a1
+│           0x005f00ee      2d7afafcfff4   move.l 0x5efbec(pc), -0xc(a6)
+│           0x005f00f4      2d7afafafff8   move.l 0x5efbf0(pc), -0x8(a6)
+│           0x005f00fa      2d7afaf8fffc   move.l 0x5efbf4(pc), -0x4(a6)
+│           0x005f0100      022e00e0fff5   andi.b 0xe0, -0xb(a6)
+│           0x005f0106      002e0007fff5   ori.b 0x7, -0xb(a6)
+│           0x005f010c      2d6e0020fff6   move.l 0x20(a6), -0xa(a6)
+│           0x005f0112      2d6e0018ffe8   move.l 0x18(a6), -0x18(a6)
+│           0x005f0118      2d6e0014ffec   move.l 0x14(a6), -0x14(a6)
+│           0x005f011e      2d6e0010fff0   move.l 0x10(a6), -0x10(a6)
+│           0x005f0124      4850           pea.l (a0)
+│           0x005f0126      4eb9004023c4   jsr p_Wait
+│           0x005f012c      584f           addq.w 0x4, a7
+│           0x005f012e      23ee00080084.  move.l 0x8(a6), 0x841fc8.l
+│           0x005f0136      23ee001c0084.  move.l 0x1c(a6), 0x841fc0.l
+│           0x005f013e      23ee000c0084.  move.l 0xc(a6), 0x841fbc.l
+│           0x005f0146      554f           subq.w 0x2, a7
+│           0x005f0148      2f2e001c       move.l 0x1c(a6), -(a7)
+│           0x005f014c      486efff4       pea.l -0xc(a6)
+│           0x005f0150      4878000c       pea.l 0xc
+│           0x005f0154      4851           pea.l (a1)
+│           0x005f0156      4851           pea.l (a1)
+│           0x005f0158      4851           pea.l (a1)
+│           0x005f015a      4eb900473564   jsr F0_MONICA.f0_to_remote
+│           0x005f0160      defc0018       adda.w 0x18, a7
+│           0x005f0164      101f           move.b (a7)+, d0
+│           0x005f0166      4880           ext.w d0
+│           0x005f0168      41bc0001       chk.w 0x1, d0
+│           0x005f016c      1d400024       move.b d0, 0x24(a6)
+│           0x005f0170      4850           pea.l (a0)
+│           0x005f0172      4eb90040234e   jsr p_Signal
+│           0x005f0178      584f           addq.w 0x4, a7
+│           0x005f017a      4cdf0301       movem.l (a7)+, d0/a0-a1
+│           0x005f017e      4e5e           unlk a6
+└           0x005f0180      4e75           rts
+┌ 230: F3_REMOTE.f3_puff_req ();
+│           ; var int32_t var_616h @ a6-0x616
+│           ; var int32_t var_614h @ a6-0x614
+│           ; var int32_t var_612h @ a6-0x612
+│           0x005f0182      4e56ffaa       link.w a6, 0xffaa
+│           0x005f0186      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005f0188      6206           bhi.b 0x5f0190
+│       │   0x005f018a      44fc0002       move.w 0x2, ccr
+│       │   0x005f018e      4e76           trapv
+│       └─> 0x005f0190      defc0046       adda.w 0x46, a7
+│           0x005f0194      48e7e1f0       movem.l d0-d2/d7/a0-a3, -(a7)
+│           0x005f0198      41f900841fc4   lea.l 0x841fc4, a0
+│           0x005f019e      43ee0008       lea.l 0x8(a6), a1
+│           0x005f01a2      45f900841fc0   lea.l 0x841fc0, a2
+│           0x005f01a8      47f900841fbc   lea.l 0x841fbc, a3
+│           0x005f01ae      202e000c       move.l 0xc(a6), d0
+│           0x005f01b2      b092           cmp.l (a2), d0
+│       ┌─< 0x005f01b4      673e           beq.b 0x5f01f4
+│       │   0x005f01b6      487afaf6       pea.l 0x5efcae(pc)
+│       │   0x005f01ba      4878001e       pea.l 0x1e
+│       │   0x005f01be      2f17           move.l (a7), -(a7)
+│       │   0x005f01c0      4eb9004047ea   jsr p_wts_o
+│       │   0x005f01c6      defc000c       adda.w 0xc, a7
+│       │   0x005f01ca      4eb900404946   jsr p_wtln_o
+│       │   0x005f01d0      2f3c00030001   move.l 0x30001, -(a7)
+│       │   0x005f01d6      4eb9005ef230   jsr F2_UTILITY.f2_error
+│       │   0x005f01dc      2e80           move.l d0, (a7)
+│       │   0x005f01de      4eb900404012   jsr p_Push
+│       │   0x005f01e4      2e92           move.l (a2), (a7)
+│       │   0x005f01e6      4eb900404012   jsr p_Push
+│       │   0x005f01ec      584f           addq.w 0x4, a7
+│       │   0x005f01ee      422e0010       clr.b 0x10(a6)
+│      ┌──< 0x005f01f2      606c           bra.b 0x5f0260
+│      │└─> 0x005f01f4      2211           move.l (a1), d1
+│      │    0x005f01f6      b290           cmp.l (a0), d1
+│      │┌─< 0x005f01f8      6f02           ble.b 0x5f01fc
+│      ││   0x005f01fa      2290           move.l (a0), (a1)
+│      │└─> 0x005f01fc      2d7af9eefff4   move.l 0x5efbec(pc), -0xc(a6)
+│      │    0x005f0202      2d7af9ecfff8   move.l 0x5efbf0(pc), -0x8(a6)
+│      │    0x005f0208      2d7af9eafffc   move.l 0x5efbf4(pc), -0x4(a6)
+│      │    0x005f020e      022e00e0fff5   andi.b 0xe0, -0xb(a6)
+│      │    0x005f0214      002e0009fff5   ori.b 0x9, -0xb(a6)
+│      │    0x005f021a      2d51fffa       move.l (a1), -0x6(a6)
+│      │    0x005f021e      2e3900841fc8   move.l 0x841fc8, d7
+│      │    0x005f0224      2211           move.l (a1), d1
+│      │    0x005f0226      b290           cmp.l (a0), d1
+│      │┌─< 0x005f0228      670a           beq.b 0x5f0234
+│      ││   0x005f022a      594f           subq.w 0x4, a7
+│      ││   0x005f022c      4eb900472030   jsr F0_MONICA.f0_continue_fla
+│      ││   0x005f0232      8e9f           or.l (a7)+, d7
+│      │└─> 0x005f0234      554f           subq.w 0x2, a7
+│      │    0x005f0236      2f00           move.l d0, -(a7)
+│      │    0x005f0238      486efff4       pea.l -0xc(a6)
+│      │    0x005f023c      4878000c       pea.l 0xc
+│      │    0x005f0240      2f13           move.l (a3), -(a7)
+│      │    0x005f0242      2f01           move.l d1, -(a7)
+│      │    0x005f0244      2f07           move.l d7, -(a7)
+│      │    0x005f0246      4eb900473564   jsr F0_MONICA.f0_to_remote
+│      │    0x005f024c      defc0018       adda.w 0x18, a7
+│      │    0x005f0250      141f           move.b (a7)+, d2
+│      │    0x005f0252      4882           ext.w d2
+│      │    0x005f0254      45bc0001       chk.w 0x1, d2
+│      │    0x005f0258      1d420010       move.b d2, 0x10(a6)
+│      │    0x005f025c      d393           add.l d1, (a3)
+│      │    0x005f025e      9390           sub.l d1, (a0)
+│      └──> 0x005f0260      4cdf0f87       movem.l (a7)+, d0-d2/d7/a0-a3
+│           0x005f0264      4e5e           unlk a6
+└           0x005f0266      4e75           rts
+┌ 50: F3_REMOTE.f3_puffed ();
+│           0x005f0268      4e56fff6       link.w a6, 0xfff6
+│           0x005f026c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005f026e      6206           bhi.b 0x5f0276
+│       │   0x005f0270      44fc0002       move.w 0x2, ccr
+│       │   0x005f0274      4e76           trapv
+│       └─> 0x005f0276      defc000a       adda.w 0xa, a7
+│           0x005f027a      48e78000       movem.l d0, -(a7)
+│           0x005f027e      554f           subq.w 0x2, a7
+│           0x005f0280      4eb9005ef27e   jsr F2_UTILITY.f2_unimplemente
+│           0x005f0286      101f           move.b (a7)+, d0
+│           0x005f0288      4880           ext.w d0
+│           0x005f028a      41bc0001       chk.w 0x1, d0
+│           0x005f028e      1d400010       move.b d0, 0x10(a6)
+│           0x005f0292      4cdf0001       movem.l (a7)+, d0
+│           0x005f0296      4e5e           unlk a6

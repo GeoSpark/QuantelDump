@@ -1,0 +1,110 @@
+            ;-- DKPAS:
+            0x004740ba      .byte 0x11
+            0x004740bb     .string "dk-encode-title (" ; len=17
+            0x004740cc      .byte 0x02
+            0x004740cd      .byte 0x29
+            0x004740ce      .byte 0x3c
+            0x004740cf      .byte 0x69
+            ; CALL XREFS from DKPAS.dk_encode_title @ 0x4741c0, 0x4741cc, 0x4741dc
+┌ 58: DKPAS.add_char ();
+│           0x004740d0      4e56ffea       link.w a6, 0xffea
+│           0x004740d4      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x004740d6      6206           bhi.b 0x4740de
+│       │   0x004740d8      44fc0002       move.w 0x2, ccr
+│       │   0x004740dc      4e76           trapv
+│       └─> 0x004740de      defc0016       adda.w 0x16, a7
+│           0x004740e2      48e7c080       movem.l d0-d1/a0, -(a7)
+│           0x004740e6      223c000000ff   move.l 0xff, d1
+│           0x004740ec      206c0114       movea.l 0x114(a4), a0
+│           0x004740f0      1010           move.b (a0), d0
+│           0x004740f2      c081           and.l d1, d0
+│           0x004740f4      5240           addq.w 0x1, d0
+│           0x004740f6      4181           chk.w d1, d0
+│           0x004740f8      1080           move.b d0, (a0)
+│           0x004740fa      c081           and.l d1, d0
+│           0x004740fc      11ae00080000   move.b 0x8(a6), (a0, d0.w)
+│           0x00474102      4cdf0103       movem.l (a7)+, d0-d1/a0
+│           0x00474106      4e5e           unlk a6
+└           0x00474108      4e75           rts
+            ; CALL XREF from K0_DISKMGR.k_start_search @ 0x596264
+            ; CALL XREF from PICPORT.set_filter @ 0x6c921c
+┌ 224: DKPAS.dk_encode_title ();
+│           0x0047410a      4e56febc       link.w a6, 0xfebc
+│           0x0047410e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00474110      6206           bhi.b 0x474118
+│       │   0x00474112      44fc0002       move.w 0x2, ccr
+│       │   0x00474116      4e76           trapv
+│       └─> 0x00474118      defc0038       adda.w 0x38, a7
+│           0x0047411c      48e7e7f8       movem.l d0-d2/d5-d7/a0-a4, -(a7)
+│           0x00474120      47eefef4       lea.l -0x10c(a6), a3
+│           0x00474124      223c000000ff   move.l 0xff, d1
+│           0x0047412a      744f           moveq 0x4f, d2
+│           0x0047412c      206e000c       movea.l 0xc(a6), a0
+│           0x00474130      43eeff00       lea.l -0x100(a6), a1
+│           0x00474134      2448           movea.l a0, a2
+│           0x00474136      3001           move.w d1, d0
+│       ┌─> 0x00474138      12da           move.b (a2)+, (a1)+
+│       └─< 0x0047413a      51c8fffc       dbra d0, 0x474138
+│           0x0047413e      486eff00       pea.l -0x100(a6)
+│           0x00474142      4eb900408fa8   jsr p_upper
+│           0x00474148      584f           addq.w 0x4, a7
+│           0x0047414a      226e0008       movea.l 0x8(a6), a1
+│           0x0047414e      4211           clr.b (a1)
+│           0x00474150      7c00           moveq 0x0, d6
+│           0x00474152      1010           move.b (a0), d0
+│           0x00474154      c081           and.l d1, d0
+│           0x00474156      2d40fef6       move.l d0, -0x10a(a6)
+│           0x0047415a      b082           cmp.l d2, d0
+│       ┌─< 0x0047415c      6f04           ble.b 0x474162
+│       │   0x0047415e      2d42fef6       move.l d2, -0x10a(a6)
+│       └─> 0x00474162      2f2efef6       move.l -0x10a(a6), -(a7)
+│           0x00474166      7001           moveq 0x1, d0
+│       ┌─> 0x00474168      b097           cmp.l (a7), d0
+│      ┌──< 0x0047416a      6e6a           bgt.b 0x4741d6
+│      │╎   0x0047416c      2d40fefa       move.l d0, -0x106(a6)
+│      │╎   0x00474170      b081           cmp.l d1, d0
+│     ┌───< 0x00474172      6302           bls.b 0x474176
+│     ││╎   0x00474174      4e4f           trap 0xf
+│     └───> 0x00474176      204b           movea.l a3, a0
+│      │╎   0x00474178      1e30080c       move.b 0xc(a0, d0.l), d7
+│      │╎   0x0047417c      7a01           moveq 0x1, d5
+│      │╎   0x0047417e      0c070026       cmpi.b 0x26, d7
+│     ┌───< 0x00474182      660a           bne.b 0x47418e
+│     ││╎   0x00474184      1d7c0002feff   move.b 0x2, -0x101(a6)
+│    ┌────> 0x0047418a      7c01           moveq 0x1, d6
+│   ┌─────< 0x0047418c      6022           bra.b 0x4741b0
+│   │╎└───> 0x0047418e      0c070020       cmpi.b 0x20, d7
+│   │╎┌───< 0x00474192      660c           bne.b 0x4741a0
+│   │╎││╎   0x00474194      4a06           tst.b d6
+│  ┌──────< 0x00474196      6606           bne.b 0x47419e
+│  ││╎││╎   0x00474198      1d7c0001feff   move.b 0x1, -0x101(a6)
+│  └─└────< 0x0047419e      60ea           bra.b 0x47418a
+│   │ └───> 0x004741a0      0c07002a       cmpi.b 0x2a, d7
+│   │ ┌───< 0x004741a4      6604           bne.b 0x4741aa
+│   │ ││╎   0x004741a6      7e03           moveq 0x3, d7
+│   │┌────< 0x004741a8      6008           bra.b 0x4741b2
+│   ││└───> 0x004741aa      0c07001b       cmpi.b 0x1b, d7
+│   ││┌───< 0x004741ae      6402           bcc.b 0x4741b2
+│   └─────> 0x004741b0      7a00           moveq 0x0, d5
+│    └└───> 0x004741b2      4a05           tst.b d5
+│     ┌───< 0x004741b4      671c           beq.b 0x4741d2
+│     ││╎   0x004741b6      4a06           tst.b d6
+│    ┌────< 0x004741b8      670e           beq.b 0x4741c8
+│    │││╎   0x004741ba      1f2efeff       move.b -0x101(a6), -(a7)
+│    │││╎   0x004741be      284b           movea.l a3, a4
+│    │││╎   0x004741c0      4ebaff0e       jsr DKPAS.add_char(pc)
+│    │││╎   0x004741c4      544f           addq.w 0x2, a7
+│    │││╎   0x004741c6      7c00           moveq 0x0, d6
+│    └────> 0x004741c8      1f07           move.b d7, -(a7)
+│     ││╎   0x004741ca      284b           movea.l a3, a4
+│     ││╎   0x004741cc      4ebaff02       jsr DKPAS.add_char(pc)
+│     ││╎   0x004741d0      544f           addq.w 0x2, a7
+│     └───> 0x004741d2      5280           addq.l 0x1, d0
+│      │└─< 0x004741d4      6892           bvc.b 0x474168
+│      └──> 0x004741d6      544f           addq.w 0x2, a7
+│           0x004741d8      4217           clr.b (a7)
+│           0x004741da      284b           movea.l a3, a4
+│           0x004741dc      4ebafef2       jsr DKPAS.add_char(pc)
+│           0x004741e0      544f           addq.w 0x2, a7
+│           0x004741e2      4cdf1fe7       movem.l (a7)+, d0-d2/d5-d7/a0-a4
+│           0x004741e6      4e5e           unlk a6

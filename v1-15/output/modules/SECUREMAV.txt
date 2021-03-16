@@ -1,0 +1,351 @@
+            ;-- SECUREMAV:
+            0x004692f0      .byte 0x00
+            0x004692f1      .byte 0x00
+            0x004692f2      .byte 0x00
+            0x004692f3      .byte 0x00
+            0x004692f4      .byte 0x00
+            0x004692f5      .byte 0x00
+            0x004692f6      .byte 0x00
+            0x004692f7      .byte 0x00
+            0x004692f8      .byte 0x00
+            0x004692f9      .byte 0x00
+            0x004692fa      .byte 0x00
+            0x004692fb      .byte 0x00
+            0x004692fc      .byte 0x4e
+            0x004692fd      .byte 0xa0
+            0x004692fe      .byte 0x00
+            0x004692ff      .byte 0x00
+            0x00469300      .byte 0x76
+            0x00469301      .byte 0xd1
+            0x00469302      .byte 0x00
+            0x00469303      .byte 0x00
+            0x00469304      .byte 0x9e
+            0x00469305      .byte 0x70
+            0x00469306      .byte 0x00
+            0x00469307      .byte 0x00
+            0x00469308      .byte 0xc6
+            0x00469309      .byte 0x66
+            0x0046930a      .byte 0x00
+            0x0046930b      .byte 0x00
+            0x0046930c      .byte 0xee
+            0x0046930d      .byte 0x74
+            0x0046930e      .byte 0x00
+            0x0046930f      .byte 0x02
+            0x00469310      .byte 0x22
+            0x00469311      .byte 0xe7
+            0x00469312      .byte 0x35
+            0x00469313     .string "Error finding volume on drive -- volume not available" ; len=53
+            0x00469348      .byte 0x11
+            0x00469349     .string "#<drive> expected" ; len=17
+            0x0046935a      .byte 0x3f
+            0x0046935b     .string "password save failed -- Error saving passwords in volume header" ; len=63
+            0x0046939a      .byte 0x3c
+            0x0046939b     .string "password save failed -- error opening volume header for save" ; len=60
+            0x004693d7      .byte 0x00
+            0x004693d8     .string ".password load failed -- no passwords on volume<password load failed -- error opening volume header for load" ; len=108
+            0x00469444      .byte 0x11
+            0x00469445      .byte 0x70
+            0x00469446      .byte 0x77
+            0x00469447      .byte 0x64
+            0x00469448      .byte 0x73
+            0x00469449      .byte 0x5f
+            0x0046944a      .byte 0x68
+            0x0046944b      .byte 0x61
+            0x0046944c      .byte 0x6e
+            0x0046944d      .byte 0x64
+            0x0046944e      .byte 0x6c
+            0x0046944f      .byte 0x65
+            0x00469450      .byte 0x72
+            0x00469451      .byte 0x2e
+            0x00469452      .byte 0x20
+            0x00469453      .byte 0x6f
+            0x00469454      .byte 0x70
+            0x00469455      .byte 0x20
+            ; CALL XREF from SECUREMAV.get_vol @ 0x469546
+┌ 122: SECUREMAV.decompress ();
+│           0x00469456      4e56ffb0       link.w a6, 0xffb0
+│           0x0046945a      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0046945c      6206           bhi.b 0x469464
+│       │   0x0046945e      44fc0002       move.w 0x2, ccr
+│       │   0x00469462      4e76           trapv
+│       └─> 0x00469464      defc0044       adda.w 0x44, a7
+│           0x00469468      48e7d8c0       movem.l d0-d1/d3-d4/a0-a1, -(a7)
+│           0x0046946c      43f900406b50   lea.l fcn.00406b50, a1
+│           0x00469472      206e0008       movea.l 0x8(a6), a0
+│           0x00469476      2010           move.l (a0), d0
+│           0x00469478      0c80000003e8   cmpi.l 0x3e8, d0
+│       ┌─< 0x0046947e      6d08           blt.b 0x469488
+│       │   0x00469480      20bc01000001   move.l 0x1000001, (a0)
+│      ┌──< 0x00469486      6040           bra.b 0x4694c8
+│      │└─> 0x00469488      2800           move.l d0, d4
+│      │    0x0046948a      760a           moveq 0xa, d3
+│      │    0x0046948c      4e91           jsr (a1)                    ; fcn.0000000a
+│      │    0x0046948e      2f03           move.l d3, -(a7)
+│      │    0x00469490      2d43fff4       move.l d3, -0xc(a6)
+│      │    0x00469494      2084           move.l d4, (a0)
+│      │    0x00469496      760a           moveq 0xa, d3
+│      │    0x00469498      4e91           jsr (a1)                    ; fcn.0000000a
+│      │    0x0046949a      2f03           move.l d3, -(a7)
+│      │    0x0046949c      2d43fff8       move.l d3, -0x8(a6)
+│      │    0x004694a0      2084           move.l d4, (a0)
+│      │    0x004694a2      760a           moveq 0xa, d3
+│      │    0x004694a4      4e91           jsr (a1)                    ; fcn.0000000a
+│      │    0x004694a6      2d43fffc       move.l d3, -0x4(a6)
+│      │    0x004694aa      594f           subq.w 0x4, a7
+│      │    0x004694ac      222f0004       move.l 0x4(a7), d1
+│      │    0x004694b0      2f01           move.l d1, -(a7)
+│      │    0x004694b2      222f000c       move.l 0xc(a7), d1
+│      │    0x004694b6      2f01           move.l d1, -(a7)
+│      │    0x004694b8      2f03           move.l d3, -(a7)
+│      │    0x004694ba      4eb90046fd40   jsr S3_SCSI.scsi_device
+│      │    0x004694c0      defc000c       adda.w 0xc, a7
+│      │    0x004694c4      209f           move.l (a7)+, (a0)
+│      │    0x004694c6      504f           addq.w 0x8, a7
+│      └──> 0x004694c8      4cdf031b       movem.l (a7)+, d0-d1/d3-d4/a0-a1
+│           0x004694cc      4e5e           unlk a6
+└           0x004694ce      4e75           rts
+┌ 228: SECUREMAV.get_vol ();
+│           0x004694d0      4e56ff92       link.w a6, 0xff92
+│           0x004694d4      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x004694d6      6206           bhi.b 0x4694de
+│       │   0x004694d8      44fc0002       move.w 0x2, ccr
+│       │   0x004694dc      4e76           trapv
+│       └─> 0x004694de      defc005a       adda.w 0x5a, a7
+│           0x004694e2      48e7c1e0       movem.l d0-d1/d7/a0-a2, -(a7)
+│           0x004694e6      45eefff6       lea.l -0xa(a6), a2
+│           0x004694ea      7201           moveq 0x1, d1
+│           0x004694ec      7eff           moveq 0xff, d7
+│           0x004694ee      554f           subq.w 0x2, a7
+│           0x004694f0      4eb90043d022   jsr G1_INPUT.g_numeric
+│           0x004694f6      4a1f           tst.b (a7)+
+│       ┌─< 0x004694f8      671a           beq.b 0x469514
+│       │   0x004694fa      594f           subq.w 0x4, a7
+│       │   0x004694fc      48780000       pea.l 0x0
+│       │   0x00469500      2f3c7fffffff   move.l 0x7fffffff, -(a7)
+│       │   0x00469506      4eb90043e376   jsr G2_EXPRESSION.g_number
+│       │   0x0046950c      504f           addq.w 0x8, a7
+│       │   0x0046950e      249f           move.l (a7)+, (a2)
+│      ┌──< 0x00469510      60000090       bra.w 0x4695a2
+│      │└─> 0x00469514      554f           subq.w 0x2, a7
+│      │    0x00469516      4eb90043cb88   jsr G1_INPUT.g_current
+│      │    0x0046951c      101f           move.b (a7)+, d0
+│      │    0x0046951e      0c000023       cmpi.b 0x23, d0
+│      │┌─< 0x00469522      665a           bne.b 0x46957e
+│      ││   0x00469524      554f           subq.w 0x2, a7
+│      ││   0x00469526      4eb90043ccf8   jsr G1_INPUT.g_char
+│      ││   0x0046952c      1d57fffa       move.b (a7), -0x6(a6)
+│      ││   0x00469530      554f           subq.w 0x2, a7
+│      ││   0x00469532      48780000       pea.l 0x0
+│      ││   0x00469536      487803e8       pea.l 0x3e8
+│      ││   0x0046953a      4eb90043e376   jsr G2_EXPRESSION.g_number
+│      ││   0x00469540      504f           addq.w 0x8, a7
+│      ││   0x00469542      249f           move.l (a7)+, (a2)
+│      ││   0x00469544      4852           pea.l (a2)
+│      ││   0x00469546      4ebaff0e       jsr SECUREMAV.decompress(pc)
+│      ││   0x0046954a      2f12           move.l (a2), -(a7)
+│      ││   0x0046954c      4eb9005fb938   jsr F6_VOLUME.f_vol_on
+│      ││   0x00469552      584f           addq.w 0x4, a7
+│      ││   0x00469554      2e1f           move.l (a7)+, d7
+│     ┌───< 0x00469556      664a           bne.b 0x4695a2
+│     │││   0x00469558      9efc0036       suba.w 0x36, a7
+│     │││   0x0046955c      204f           movea.l a7, a0
+│     │││   0x0046955e      43fafdb3       lea.l 0x469313(pc), a1
+│     │││   0x00469562      7034           moveq 0x34, d0
+│    ┌────> 0x00469564      10d9           move.b (a1)+, (a0)+
+│    └────< 0x00469566      51c8fffc       dbra d0, 0x469564
+│     │││   0x0046956a      4857           pea.l (a7)
+│     │││   0x0046956c      3f01           move.w d1, -(a7)
+│     │││   0x0046956e      3f3c0035       move.w 0x35, -(a7)
+│     │││   0x00469572      4eb90043cd18   jsr G1_INPUT.g_error
+│     │││   0x00469578      defc003e       adda.w 0x3e, a7
+│    ┌────< 0x0046957c      6024           bra.b 0x4695a2
+│    │││└─> 0x0046957e      9efc0012       suba.w 0x12, a7
+│    │││    0x00469582      204f           movea.l a7, a0
+│    │││    0x00469584      43fafdc3       lea.l 0x469349(pc), a1
+│    │││    0x00469588      7010           moveq 0x10, d0
+│    │││┌─> 0x0046958a      10d9           move.b (a1)+, (a0)+
+│    │││└─< 0x0046958c      51c8fffc       dbra d0, 0x46958a
+│    │││    0x00469590      4857           pea.l (a7)
+│    │││    0x00469592      3f01           move.w d1, -(a7)
+│    │││    0x00469594      3f3c0011       move.w 0x11, -(a7)
+│    │││    0x00469598      4eb90043cd18   jsr G1_INPUT.g_error
+│    │││    0x0046959e      defc001a       adda.w 0x1a, a7
+│    └└└──> 0x004695a2      4eb90043cc20   jsr G1_INPUT.g_check_eol
+│           0x004695a8      2d470008       move.l d7, 0x8(a6)
+│           0x004695ac      4cdf0783       movem.l (a7)+, d0-d1/d7/a0-a2
+│           0x004695b0      4e5e           unlk a6
+└           0x004695b2      4e75           rts
+┌ 188: SECUREMAV.save_pwds (int32_t arg_8h);
+│           ; arg int32_t arg_8h @ a6+0x8
+│           0x004695b4      4e56ffd0       link.w a6, 0xffd0
+│           0x004695b8      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x004695ba      6206           bhi.b 0x4695c2
+│       │   0x004695bc      44fc0002       move.w 0x2, ccr
+│       │   0x004695c0      4e76           trapv
+│       └─> 0x004695c2      defc0022       adda.w 0x22, a7
+│           0x004695c6      48e780c0       movem.l d0/a0-a1, -(a7)
+│           0x004695ca      43eefff2       lea.l -0xe(a6), a1
+│           0x004695ce      700c           moveq 0xc, d0
+│           0x004695d0      2d6e0008fff6   move.l 0x8(a6), -0xa(a6)
+│           0x004695d6      42aefffa       clr.l -0x6(a6)
+│           0x004695da      426efffe       clr.w -0x2(a6)
+│           0x004695de      22bcffff0001   move.l 0xffff0001, (a1)
+│           0x004695e4      554f           subq.w 0x2, a7
+│           0x004695e6      2f2efffc       move.l -0x4(a6), -(a7)
+│           0x004695ea      2f2efff8       move.l -0x8(a6), -(a7)
+│           0x004695ee      3f2efff6       move.w -0xa(a6), -(a7)
+│           0x004695f2      1f3c0001       move.b 0x1, -(a7)
+│           0x004695f6      4851           pea.l (a1)
+│           0x004695f8      4eb9006082de   jsr F10_FILELIST.f_get_header
+│           0x004695fe      defc0010       adda.w 0x10, a7
+│           0x00469602      4a1f           tst.b (a7)+
+│       ┌─< 0x00469604      674a           beq.b 0x469650
+│       │   0x00469606      554f           subq.w 0x2, a7
+│       │   0x00469608      3f3c0026       move.w 0x26, -(a7)
+│       │   0x0046960c      2f11           move.l (a1), -(a7)
+│       │   0x0046960e      206e000c       movea.l 0xc(a6), a0
+│       │   0x00469612      4850           pea.l (a0)
+│       │   0x00469614      4eb9005eedf6   jsr f_put_string
+│       │   0x0046961a      defc000a       adda.w 0xa, a7
+│       │   0x0046961e      4a1f           tst.b (a7)+
+│      ┌──< 0x00469620      6622           bne.b 0x469644
+│      ││   0x00469622      4851           pea.l (a1)
+│      ││   0x00469624      4eb90060500e   jsr F9_FILERDWRT.f_free_block
+│      ││   0x0046962a      584f           addq.w 0x4, a7
+│      ││   0x0046962c      487afd2d       pea.l 0x46935b(pc)
+│      ││   0x00469630      4878003f       pea.l 0x3f
+│      ││   0x00469634      2f17           move.l (a7), -(a7)
+│      ││   0x00469636      4eb9004047ea   jsr p_wts_o
+│      ││   0x0046963c      dec0           adda.w d0, a7
+│      ││   0x0046963e      4eb900404946   jsr p_wtln_o
+│      └──> 0x00469644      4851           pea.l (a1)
+│       │   0x00469646      4eb90060500e   jsr F9_FILERDWRT.f_free_block
+│       │   0x0046964c      584f           addq.w 0x4, a7
+│      ┌──< 0x0046964e      6018           bra.b 0x469668
+│      │└─> 0x00469650      487afd49       pea.l 0x46939b(pc)
+│      │    0x00469654      4878003c       pea.l 0x3c
+│      │    0x00469658      2f17           move.l (a7), -(a7)
+│      │    0x0046965a      4eb9004047ea   jsr p_wts_o
+│      │    0x00469660      dec0           adda.w d0, a7
+│      │    0x00469662      4eb900404946   jsr p_wtln_o
+│      └──> 0x00469668      4cdf0301       movem.l (a7)+, d0/a0-a1
+│           0x0046966c      4e5e           unlk a6
+└           0x0046966e      4e75           rts
+┌ 222: SECUREMAV.load_pwds (int32_t arg_8h);
+│           ; arg int32_t arg_8h @ a6+0x8
+│           0x00469670      4e56fec8       link.w a6, 0xfec8
+│           0x00469674      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00469676      6206           bhi.b 0x46967e
+│       │   0x00469678      44fc0002       move.w 0x2, ccr
+│       │   0x0046967c      4e76           trapv
+│       └─> 0x0046967e      defc012a       adda.w 0x12a, a7
+│           0x00469682      48e7e0f0       movem.l d0-d2/a0-a3, -(a7)
+│           0x00469686      47eefffc       lea.l -0x4(a6), a3
+│           0x0046968a      7226           moveq 0x26, d1
+│           0x0046968c      740c           moveq 0xc, d2
+│           0x0046968e      206e000c       movea.l 0xc(a6), a0
+│           0x00469692      10bafd43       move.b 0x4693d7(pc), (a0)
+│           0x00469696      2d6e0008fff2   move.l 0x8(a6), -0xe(a6)
+│           0x0046969c      42aefff6       clr.l -0xa(a6)
+│           0x004696a0      426efffa       clr.w -0x6(a6)
+│           0x004696a4      26bcffff0001   move.l 0xffff0001, (a3)
+│           0x004696aa      554f           subq.w 0x2, a7
+│           0x004696ac      2f2efff8       move.l -0x8(a6), -(a7)
+│           0x004696b0      2f2efff4       move.l -0xc(a6), -(a7)
+│           0x004696b4      3f2efff2       move.w -0xe(a6), -(a7)
+│           0x004696b8      4227           clr.b -(a7)
+│           0x004696ba      4853           pea.l (a3)
+│           0x004696bc      4eb9006082de   jsr F10_FILELIST.f_get_header
+│           0x004696c2      defc0010       adda.w 0x10, a7
+│           0x004696c6      4a1f           tst.b (a7)+
+│       ┌─< 0x004696c8      6764           beq.b 0x46972e
+│       │   0x004696ca      554f           subq.w 0x2, a7
+│       │   0x004696cc      3f01           move.w d1, -(a7)
+│       │   0x004696ce      2f13           move.l (a3), -(a7)
+│       │   0x004696d0      4eb9005eecfc   jsr f_field_size
+│       │   0x004696d6      5c4f           addq.w 0x6, a7
+│       │   0x004696d8      4a5f           tst.w (a7)+
+│      ┌──< 0x004696da      6624           bne.b 0x469700
+│      ││   0x004696dc      4853           pea.l (a3)
+│      ││   0x004696de      4eb90060500e   jsr F9_FILERDWRT.f_free_block
+│      ││   0x004696e4      584f           addq.w 0x4, a7
+│      ││   0x004696e6      487afcf1       pea.l 0x4693d9(pc)
+│      ││   0x004696ea      4878002e       pea.l 0x2e
+│      ││   0x004696ee      2f17           move.l (a7), -(a7)
+│      ││   0x004696f0      4eb9004047ea   jsr p_wts_o
+│      ││   0x004696f6      dec2           adda.w d2, a7
+│      ││   0x004696f8      4eb900404946   jsr p_wtln_o
+│     ┌───< 0x004696fe      6022           bra.b 0x469722
+│     │└──> 0x00469700      9efc0100       suba.w 0x100, a7
+│     │ │   0x00469704      3f01           move.w d1, -(a7)
+│     │ │   0x00469706      2f13           move.l (a3), -(a7)
+│     │ │   0x00469708      4eb9005eed64   jsr f_get_string
+│     │ │   0x0046970e      5c4f           addq.w 0x6, a7
+│     │ │   0x00469710      2248           movea.l a0, a1
+│     │ │   0x00469712      244f           movea.l a7, a2
+│     │ │   0x00469714      303c00ff       move.w 0xff, d0
+│     │┌──> 0x00469718      12da           move.b (a2)+, (a1)+
+│     │└──< 0x0046971a      51c8fffc       dbra d0, 0x469718
+│     │ │   0x0046971e      defc0100       adda.w 0x100, a7
+│     └───> 0x00469722      4853           pea.l (a3)
+│       │   0x00469724      4eb90060500e   jsr F9_FILERDWRT.f_free_block
+│       │   0x0046972a      584f           addq.w 0x4, a7
+│      ┌──< 0x0046972c      6018           bra.b 0x469746
+│      │└─> 0x0046972e      487afcd8       pea.l 0x469408(pc)
+│      │    0x00469732      4878003c       pea.l 0x3c
+│      │    0x00469736      2f17           move.l (a7), -(a7)
+│      │    0x00469738      4eb9004047ea   jsr p_wts_o
+│      │    0x0046973e      dec2           adda.w d2, a7
+│      │    0x00469740      4eb900404946   jsr p_wtln_o
+│      └──> 0x00469746      4cdf0f07       movem.l (a7)+, d0-d2/a0-a3
+│           0x0046974a      4e5e           unlk a6
+└           0x0046974c      4e75           rts
+┌ 50: SECUREMAV.pwds_handler ();
+│           0x0046974e      4e56ffe4       link.w a6, 0xffe4
+│           0x00469752      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00469754      6206           bhi.b 0x46975c
+│       │   0x00469756      44fc0002       move.w 0x2, ccr
+│       │   0x0046975a      4e76           trapv
+│       └─> 0x0046975c      defc001c       adda.w 0x1c, a7
+│           0x00469760      48e780c0       movem.l d0/a0-a1, -(a7)
+│           0x00469764      43ee0008       lea.l 0x8(a6), a1
+│           0x00469768      102e0013       move.b 0x13(a6), d0
+│           0x0046976c      4880           ext.w d0
+│           0x0046976e      0c400003       cmpi.w 0x3, d0
+│       ┌─< 0x00469772      6302           bls.b 0x469776
+│       │   0x00469774      4e4e           trap 0xe
+│       └─> 0x00469776      d040           add.w d0, d0
+│           0x00469778      303b0006       move.w 0x469780(pc, d0.w), d0
+└           0x0046977c      4efb0002       jmp 0x469780(pc, d0.w)
+            0x00469780      0008001a       
+            0x00469781      08001a00       
+            0x00469782      001a002a       ori.b 0x2a, (a2)+
+            0x00469786      0048206e       
+            0x00469787      4820           nbcd.b -(a0)
+        ┌─< 0x00469789      6e000c48       bgt.w 0x46a3d3              ; S3_SCSI.scsi_pma+0x603
+        │   0x0046978d      5020           addq.b 0x8, -(a0)
+        │   0x0046978f      512f104e       subq.b 0x8, 0x104e(a7)
+        │   0x00469793      bafedc50       
+        │   0x00469794      fedc504f6038   fbf.l 0x5095f7ce
+       ╎│   0x0046979a      206e000c       movea.l 0xc(a6), a0
+       ╎│   0x0046979e      4850           pea.l (a0)
+       ╎│   0x004697a0      2051           movea.l (a1), a0
+       ╎│   0x004697a2      2f10           move.l (a0), -(a7)
+       ╎│   0x004697a4      4ebafe0e       jsr SECUREMAV.save_pwds(pc)
+       └──< 0x004697a8      60ec           bra.b 0x469796
+        │   0x004697aa      2051           movea.l (a1), a0
+        │   0x004697ac      594f           subq.w 0x4, a7
+        │   0x004697ae      48780064       pea.l 0x64
+        │   0x004697b2      4eb90062788a   jsr PICTURENET.sysvol_wait
+        │   0x004697b8      584f           addq.w 0x4, a7
+        │   0x004697ba      209f           move.l (a7)+, (a0)
+        │   0x004697bc      4a90           tst.l (a0)
+       ┌──< 0x004697be      6606           bne.b 0x4697c6
+       ││   0x004697c0      20bcffffffff   move.l 0xffffffff, (a0)
+      ┌└──> 0x004697c6      600a           bra.b 0x4697d2
+      │ │   0x004697c8      2051           movea.l (a1), a0
+      │ │   0x004697ca      594f           subq.w 0x4, a7
+      │ │   0x004697cc      4ebafd02       jsr SECUREMAV.get_vol(pc)
+      │ │   0x004697d0      209f           move.l (a7)+, (a0)
+      └───> 0x004697d2      4cdf0301       movem.l (a7)+, d0/a0-a1
+        │   0x004697d6      4e5e           unlk a6

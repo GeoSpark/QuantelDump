@@ -1,0 +1,306 @@
+            ; CALL XREF from MENUPASTECOM.get_cutout_plan @ 0x4b23f2
+            ; CALL XREF from PASTECOM.do_save_cutout @ 0x6722ee
+            ; CALL XREF from MENUEFFECTCOM.effect_clip_buy @ 0x73e600
+            ;-- GORDON_DUMMY:
+┌ 30: GORDON_DUMMY.get_cur_clip ();
+│           0x00707d80      4e56fffc       link.w a6, 0xfffc
+│           0x00707d84      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707d86      6206           bhi.b 0x707d8e
+│       │   0x00707d88      44fc0002       move.w 0x2, ccr
+│       │   0x00707d8c      4e76           trapv
+│       └─> 0x00707d8e      defc0004       adda.w 0x4, a7
+│           0x00707d92      2d7c00000001.  move.l 0x1, 0x8(a6)
+│           0x00707d9a      4e5e           unlk a6
+└           0x00707d9c      4e75           rts
+            ; CALL XREF from MENUEFFECTCOM.bgnd_clip_buy @ 0x73e526
+┌ 30: GORDON_DUMMY.get_bgnd_clip ();
+│           0x00707d9e      4e56fffc       link.w a6, 0xfffc
+│           0x00707da2      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707da4      6206           bhi.b 0x707dac
+│       │   0x00707da6      44fc0002       move.w 0x2, ccr
+│       │   0x00707daa      4e76           trapv
+│       └─> 0x00707dac      defc0004       adda.w 0x4, a7
+│           0x00707db0      2d7c00000001.  move.l 0x1, 0x8(a6)
+│           0x00707db8      4e5e           unlk a6
+└           0x00707dba      4e75           rts
+┌ 22: GORDON_DUMMY.lose_cliplib ();
+│           0x00707dbc      4e56fffc       link.w a6, 0xfffc
+│           0x00707dc0      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707dc2      6206           bhi.b 0x707dca
+│       │   0x00707dc4      44fc0002       move.w 0x2, ccr
+│       │   0x00707dc8      4e76           trapv
+│       └─> 0x00707dca      defc0004       adda.w 0x4, a7
+│           0x00707dce      4e5e           unlk a6
+└           0x00707dd0      4e75           rts
+┌ 30: GORDON_DUMMY.new_cliplib ();
+│           0x00707dd2      4e56fffc       link.w a6, 0xfffc
+│           0x00707dd6      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707dd8      6206           bhi.b 0x707de0
+│       │   0x00707dda      44fc0002       move.w 0x2, ccr
+│       │   0x00707dde      4e76           trapv
+│       └─> 0x00707de0      defc0004       adda.w 0x4, a7
+│           0x00707de4      2d7c00000001.  move.l 0x1, 0x8(a6)
+│           0x00707dec      4e5e           unlk a6
+└           0x00707dee      4e75           rts
+            ; CALL XREF from PASTECOM.copy_cutout @ 0x67121c
+            ; CALL XREF from PASTECOM.do_save_cutout @ 0x6722e4
+┌ 30: GORDON_DUMMY.new_clip ();
+│           0x00707df0      4e56fffc       link.w a6, 0xfffc
+│           0x00707df4      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707df6      6206           bhi.b 0x707dfe
+│       │   0x00707df8      44fc0002       move.w 0x2, ccr
+│       │   0x00707dfc      4e76           trapv
+│       └─> 0x00707dfe      defc0004       adda.w 0x4, a7
+│           0x00707e02      2d7c00000001.  move.l 0x1, 0x8(a6)
+│           0x00707e0a      4e5e           unlk a6
+└           0x00707e0c      4e75           rts
+            ; CALL XREF from PASTECOM.dispose_cutout @ 0x67115c
+┌ 22: GORDON_DUMMY.lose_clip ();
+│           0x00707e0e      4e56fffc       link.w a6, 0xfffc
+│           0x00707e12      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707e14      6206           bhi.b 0x707e1c
+│       │   0x00707e16      44fc0002       move.w 0x2, ccr
+│       │   0x00707e1a      4e76           trapv
+│       └─> 0x00707e1c      defc0004       adda.w 0x4, a7
+│           0x00707e20      4e5e           unlk a6
+└           0x00707e22      4e75           rts
+            ; CALL XREF from PASTECOM.copy_cutout @ 0x671260
+            ; CALL XREF from PASTECOM.do_save_cutout @ 0x67230e
+┌ 22: GORDON_DUMMY.copy_clip_video ();
+│           0x00707e24      4e56fffc       link.w a6, 0xfffc
+│           0x00707e28      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707e2a      6206           bhi.b 0x707e32
+│       │   0x00707e2c      44fc0002       move.w 0x2, ccr
+│       │   0x00707e30      4e76           trapv
+│       └─> 0x00707e32      defc0004       adda.w 0x4, a7
+│           0x00707e36      4e5e           unlk a6
+└           0x00707e38      4e75           rts
+            ; CALL XREFS from MENUEFFECTCOM.bgnd_clip_buy @ 0x73e55a, 0x73e57c
+            ; CALL XREF from PANEL_VIDEO.buy_frame @ 0x79751a
+┌ 26: GORDON_DUMMY.clip_buy ();
+│           0x00707e3a      4e56fffc       link.w a6, 0xfffc
+│           0x00707e3e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707e40      6206           bhi.b 0x707e48
+│       │   0x00707e42      44fc0002       move.w 0x2, ccr
+│       │   0x00707e46      4e76           trapv
+│       └─> 0x00707e48      defc0004       adda.w 0x4, a7
+│           0x00707e4c      422e0016       clr.b 0x16(a6)
+│           0x00707e50      4e5e           unlk a6
+└           0x00707e52      4e75           rts
+┌ 26: GORDON_DUMMY.clip_sell ();
+│           0x00707e54      4e56fffc       link.w a6, 0xfffc
+│           0x00707e58      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707e5a      6206           bhi.b 0x707e62
+│       │   0x00707e5c      44fc0002       move.w 0x2, ccr
+│       │   0x00707e60      4e76           trapv
+│       └─> 0x00707e62      defc0004       adda.w 0x4, a7
+│           0x00707e66      422e0016       clr.b 0x16(a6)
+│           0x00707e6a      4e5e           unlk a6
+└           0x00707e6c      4e75           rts
+┌ 22: GORDON_DUMMY.clip_show ();
+│           0x00707e6e      4e56fffc       link.w a6, 0xfffc
+│           0x00707e72      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707e74      6206           bhi.b 0x707e7c
+│       │   0x00707e76      44fc0002       move.w 0x2, ccr
+│       │   0x00707e7a      4e76           trapv
+│       └─> 0x00707e7c      defc0004       adda.w 0x4, a7
+│           0x00707e80      4e5e           unlk a6
+└           0x00707e82      4e75           rts
+┌ 22: GORDON_DUMMY.clip_reset ();
+│           0x00707e84      4e56fffc       link.w a6, 0xfffc
+│           0x00707e88      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707e8a      6206           bhi.b 0x707e92
+│       │   0x00707e8c      44fc0002       move.w 0x2, ccr
+│       │   0x00707e90      4e76           trapv
+│       └─> 0x00707e92      defc0004       adda.w 0x4, a7
+│           0x00707e96      4e5e           unlk a6
+└           0x00707e98      4e75           rts
+┌ 22: GORDON_DUMMY.cliplib_update ();
+│           0x00707e9a      4e56fffc       link.w a6, 0xfffc
+│           0x00707e9e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707ea0      6206           bhi.b 0x707ea8
+│       │   0x00707ea2      44fc0002       move.w 0x2, ccr
+│       │   0x00707ea6      4e76           trapv
+│       └─> 0x00707ea8      defc0004       adda.w 0x4, a7
+│           0x00707eac      4e5e           unlk a6
+└           0x00707eae      4e75           rts
+┌ 22: GORDON_DUMMY.cliplib_undo ();
+│           0x00707eb0      4e56fffc       link.w a6, 0xfffc
+│           0x00707eb4      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707eb6      6206           bhi.b 0x707ebe
+│       │   0x00707eb8      44fc0002       move.w 0x2, ccr
+│       │   0x00707ebc      4e76           trapv
+│       └─> 0x00707ebe      defc0004       adda.w 0x4, a7
+│           0x00707ec2      4e5e           unlk a6
+└           0x00707ec4      4e75           rts
+┌ 22: GORDON_DUMMY.do_audio_snip ();
+│           0x00707ec6      4e56fffc       link.w a6, 0xfffc
+│           0x00707eca      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707ecc      6206           bhi.b 0x707ed4
+│       │   0x00707ece      44fc0002       move.w 0x2, ccr
+│       │   0x00707ed2      4e76           trapv
+│       └─> 0x00707ed4      defc0004       adda.w 0x4, a7
+│           0x00707ed8      4e5e           unlk a6
+└           0x00707eda      4e75           rts
+            ; CALL XREF from MENU3DCOM.PAS.update_many_don @ 0x50d78a
+            ; CALL XREF from PASTECOM.do_cutout @ 0x677d94
+            ; CALL XREF from PASTECOM.update_doit @ 0x67809e
+┌ 26: GORDON_DUMMY.clip_queue ();
+│           0x00707edc      4e56fffc       link.w a6, 0xfffc
+│           0x00707ee0      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707ee2      6206           bhi.b 0x707eea
+│       │   0x00707ee4      44fc0002       move.w 0x2, ccr
+│       │   0x00707ee8      4e76           trapv
+│       └─> 0x00707eea      defc0004       adda.w 0x4, a7
+│           0x00707eee      42ae000a       clr.l 0xa(a6)
+│           0x00707ef2      4e5e           unlk a6
+└           0x00707ef4      4e75           rts
+            ; CALL XREF from MENUKEYFRMCOM.hit_tryit @ 0x761578
+┌ 22: GORDON_DUMMY.do_tryit ();
+│           0x00707ef6      4e56fffc       link.w a6, 0xfffc
+│           0x00707efa      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707efc      6206           bhi.b 0x707f04
+│       │   0x00707efe      44fc0002       move.w 0x2, ccr
+│       │   0x00707f02      4e76           trapv
+│       └─> 0x00707f04      defc0004       adda.w 0x4, a7
+│           0x00707f08      4e5e           unlk a6
+└           0x00707f0a      4e75           rts
+┌ 26: GORDON_DUMMY.e_video_complet ();
+│           0x00707f0c      4e56fffc       link.w a6, 0xfffc
+│           0x00707f10      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707f12      6206           bhi.b 0x707f1a
+│       │   0x00707f14      44fc0002       move.w 0x2, ccr
+│       │   0x00707f18      4e76           trapv
+│       └─> 0x00707f1a      defc0004       adda.w 0x4, a7
+│           0x00707f1e      426e000a       clr.w 0xa(a6)
+│           0x00707f22      4e5e           unlk a6
+└           0x00707f24      4e75           rts
+┌ 22: GORDON_DUMMY.e_disk_access ();
+│           0x00707f26      4e56fffc       link.w a6, 0xfffc
+│           0x00707f2a      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707f2c      6206           bhi.b 0x707f34
+│       │   0x00707f2e      44fc0002       move.w 0x2, ccr
+│       │   0x00707f32      4e76           trapv
+│       └─> 0x00707f34      defc0004       adda.w 0x4, a7
+│           0x00707f38      4e5e           unlk a6
+└           0x00707f3a      4e75           rts
+┌ 26: GORDON_DUMMY.e_max_frame ();
+│           0x00707f3c      4e56fffc       link.w a6, 0xfffc
+│           0x00707f40      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707f42      6206           bhi.b 0x707f4a
+│       │   0x00707f44      44fc0002       move.w 0x2, ccr
+│       │   0x00707f48      4e76           trapv
+│       └─> 0x00707f4a      defc0004       adda.w 0x4, a7
+│           0x00707f4e      42ae0008       clr.l 0x8(a6)
+│           0x00707f52      4e5e           unlk a6
+└           0x00707f54      4e75           rts
+┌ 22: GORDON_DUMMY.read_frame_from ();
+│           0x00707f56      4e56fffc       link.w a6, 0xfffc
+│           0x00707f5a      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707f5c      6206           bhi.b 0x707f64
+│       │   0x00707f5e      44fc0002       move.w 0x2, ccr
+│       │   0x00707f62      4e76           trapv
+│       └─> 0x00707f64      defc0004       adda.w 0x4, a7
+│           0x00707f68      4e5e           unlk a6
+└           0x00707f6a      4e75           rts
+┌ 22: GORDON_DUMMY.slots_reset ();
+│           0x00707f6c      4e56fffc       link.w a6, 0xfffc
+│           0x00707f70      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707f72      6206           bhi.b 0x707f7a
+│       │   0x00707f74      44fc0002       move.w 0x2, ccr
+│       │   0x00707f78      4e76           trapv
+│       └─> 0x00707f7a      defc0004       adda.w 0x4, a7
+│           0x00707f7e      4e5e           unlk a6
+└           0x00707f80      4e75           rts
+┌ 22: GORDON_DUMMY.write_frame_to_ ();
+│           0x00707f82      4e56fffc       link.w a6, 0xfffc
+│           0x00707f86      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707f88      6206           bhi.b 0x707f90
+│       │   0x00707f8a      44fc0002       move.w 0x2, ccr
+│       │   0x00707f8e      4e76           trapv
+│       └─> 0x00707f90      defc0004       adda.w 0x4, a7
+│           0x00707f94      4e5e           unlk a6
+└           0x00707f96      4e75           rts
+┌ 22: GORDON_DUMMY.write_ddb_ram_s ();
+│           0x00707f98      4e56fffc       link.w a6, 0xfffc
+│           0x00707f9c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707f9e      6206           bhi.b 0x707fa6
+│       │   0x00707fa0      44fc0002       move.w 0x2, ccr
+│       │   0x00707fa4      4e76           trapv
+│       └─> 0x00707fa6      defc0004       adda.w 0x4, a7
+│           0x00707faa      4e5e           unlk a6
+└           0x00707fac      4e75           rts
+┌ 22: GORDON_DUMMY.tables_restore ();
+│           0x00707fae      4e56fffc       link.w a6, 0xfffc
+│           0x00707fb2      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707fb4      6206           bhi.b 0x707fbc
+│       │   0x00707fb6      44fc0002       move.w 0x2, ccr
+│       │   0x00707fba      4e76           trapv
+│       └─> 0x00707fbc      defc0004       adda.w 0x4, a7
+│           0x00707fc0      4e5e           unlk a6
+└           0x00707fc2      4e75           rts
+            ; CALL XREFS from MENULIBFNDCOM.hit_hal_vtr @ 0x758964, 0x75897c
+            ; CALL XREF from MENULIBFNDCOM.hit_action_sele @ 0x758d28
+┌ 22: GORDON_DUMMY.upd_vtr_info ();
+│           0x00707fc4      4e56fffc       link.w a6, 0xfffc
+│           0x00707fc8      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707fca      6206           bhi.b 0x707fd2
+│       │   0x00707fcc      44fc0002       move.w 0x2, ccr
+│       │   0x00707fd0      4e76           trapv
+│       └─> 0x00707fd2      defc0004       adda.w 0x4, a7
+│           0x00707fd6      4e5e           unlk a6
+└           0x00707fd8      4e75           rts
+┌ 34: GORDON_DUMMY.sel_audio ();
+│           ; var int32_t var_328h @ a6-0x328
+│           ; var int32_t var_323h @ a6-0x323
+│           0x00707fda      4e56fffc       link.w a6, 0xfffc
+│           0x00707fde      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707fe0      6206           bhi.b 0x707fe8
+│       │   0x00707fe2      44fc0002       move.w 0x2, ccr
+│       │   0x00707fe6      4e76           trapv
+│       └─> 0x00707fe8      defc0004       adda.w 0x4, a7
+│           0x00707fec      1d7afcdd000c   move.b 0x707ccb(pc), 0xc(a6)
+│           0x00707ff2      1d7afcd8000d   move.b 0x707ccc(pc), 0xd(a6)
+│           0x00707ff8      4e5e           unlk a6
+└           0x00707ffa      4e75           rts
+┌ 28: GORDON_DUMMY.save_audio ();
+│           ; var int32_t var_342h @ a6-0x342
+│           0x00707ffc      4e56fffc       link.w a6, 0xfffc
+│           0x00708000      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00708002      6206           bhi.b 0x70800a
+│       │   0x00708004      44fc0002       move.w 0x2, ccr
+│       │   0x00708008      4e76           trapv
+│       └─> 0x0070800a      defc0004       adda.w 0x4, a7
+│           0x0070800e      3d7afcbe0010   move.w 0x707cce(pc), 0x10(a6)
+│           0x00708014      4e5e           unlk a6
+└           0x00708016      4e75           rts
+            ; CALL XREFS from MENUEFFECTCOM.effect_clip_buy @ 0x73e834, 0x73e85a, 0x73e88a, 0x73e8ae
+┌ 22: GORDON_DUMMY.gord_field_copy ();
+│           0x00708018      4e56fffc       link.w a6, 0xfffc
+│           0x0070801c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x0070801e      6206           bhi.b 0x708026
+│       │   0x00708020      44fc0002       move.w 0x2, ccr
+│       │   0x00708024      4e76           trapv
+│       └─> 0x00708026      defc0004       adda.w 0x4, a7
+│           0x0070802a      4e5e           unlk a6
+└           0x0070802c      4e75           rts
+            ; CALL XREF from PASTECOM.load_cutouts @ 0x673412
+┌ 30: GORDON_DUMMY.load_cliplist ();
+│           0x0070802e      4e56fffc       link.w a6, 0xfffc
+│           0x00708032      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00708034      6206           bhi.b 0x70803c
+│       │   0x00708036      44fc0002       move.w 0x2, ccr
+│       │   0x0070803a      4e76           trapv
+│       └─> 0x0070803c      defc0004       adda.w 0x4, a7
+│           0x00708040      2d7c00000001.  move.l 0x1, 0x8(a6)
+│           0x00708048      4e5e           unlk a6
+└           0x0070804a      4e75           rts
+            ; CALL XREF from PASTECOM.save_cutout_lis @ 0x6709fa
+┌ 22: GORDON_DUMMY.save_cliplist ();
+│           0x0070804c      4e56fffc       link.w a6, 0xfffc
+│           0x00708050      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00708052      6206           bhi.b 0x70805a
+│       │   0x00708054      44fc0002       move.w 0x2, ccr
+│       │   0x00708058      4e76           trapv
+│       └─> 0x0070805a      defc0004       adda.w 0x4, a7
+│           0x0070805e      4e5e           unlk a6

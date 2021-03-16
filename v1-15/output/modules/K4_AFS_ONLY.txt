@@ -1,0 +1,275 @@
+            ;-- K4_AFS_ONLY:
+            0x005aca7c      .byte 0x00
+            0x005aca7d      .byte 0x00
+            0x005aca7e      .byte 0x00
+            0x005aca7f      .byte 0x00
+            0x005aca80      .byte 0x00
+            0x005aca81      .byte 0x00
+            0x005aca82      .byte 0x00
+            0x005aca83      .byte 0x00
+            0x005aca84      .byte 0x00
+            0x005aca85      .byte 0x00
+            0x005aca86      .byte 0x1a
+            0x005aca87     .string "Dummy DPB_add_drive called" ; len=26
+            0x005acaa1      .byte 0x02
+            0x005acaa2      .byte 0x44
+            0x005acaa3      .byte 0x45
+            0x005acaa4      .byte 0x02
+            0x005acaa5      .byte 0x44
+            0x005acaa6      .byte 0x45
+            0x005acaa7      .byte 0x69
+            ; CALL XREF from K8_DRIVES.k8_init @ 0x5b772c
+┌ 54: K4_AFS_ONLY.dpb_add_drive ();
+│           ; var int32_t var_34h @ a6-0x34
+│           0x005acaa8      4e56fff0       link.w a6, 0xfff0
+│           0x005acaac      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acaae      6206           bhi.b 0x5acab6
+│       │   0x005acab0      44fc0002       move.w 0x2, ccr
+│       │   0x005acab4      4e76           trapv
+│       └─> 0x005acab6      defc0010       adda.w 0x10, a7
+│           0x005acaba      487affcb       pea.l 0x5aca87(pc)
+│           0x005acabe      4878001a       pea.l 0x1a
+│           0x005acac2      2f17           move.l (a7), -(a7)
+│           0x005acac4      4eb9004047ea   jsr p_wts_o
+│           0x005acaca      defc000c       adda.w 0xc, a7
+│           0x005acace      4eb900404946   jsr p_wtln_o
+│           0x005acad4      3d7affcc000c   move.w 0x5acaa2(pc), 0xc(a6)
+│           0x005acada      4e5e           unlk a6
+└           0x005acadc      4e75           rts
+┌ 46: K4_AFS_ONLY.dpb_driver ();
+│           0x005acade      4e56fff8       link.w a6, 0xfff8
+│           0x005acae2      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acae4      6206           bhi.b 0x5acaec
+│       │   0x005acae6      44fc0002       move.w 0x2, ccr
+│       │   0x005acaea      4e76           trapv
+│       └─> 0x005acaec      defc0008       adda.w 0x8, a7
+│           0x005acaf0      4eb900404154   jsr p_Link
+│           0x005acaf6      2f3cd6010004   move.l 0xd6010004, -(a7)
+│           0x005acafc      4eb900404012   jsr p_Push
+│           0x005acb02      584f           addq.w 0x4, a7
+│           0x005acb04      42ae0014       clr.l 0x14(a6)
+│           0x005acb08      4e5e           unlk a6
+└           0x005acb0a      4e75           rts
+            ; CALL XREF from K8_DRIVES.k8_init @ 0x5b77b6
+┌ 26: K4_AFS_ONLY.dpb_flr_present ();
+│           0x005acb0c      4e56fffc       link.w a6, 0xfffc
+│           0x005acb10      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acb12      6206           bhi.b 0x5acb1a
+│       │   0x005acb14      44fc0002       move.w 0x2, ccr
+│       │   0x005acb18      4e76           trapv
+│       └─> 0x005acb1a      defc0004       adda.w 0x4, a7
+│           0x005acb1e      422e0008       clr.b 0x8(a6)
+│           0x005acb22      4e5e           unlk a6
+└           0x005acb24      4e75           rts
+┌ 46: K4_AFS_ONLY.pbf_driver ();
+│           0x005acb26      4e56fff8       link.w a6, 0xfff8
+│           0x005acb2a      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acb2c      6206           bhi.b 0x5acb34
+│       │   0x005acb2e      44fc0002       move.w 0x2, ccr
+│       │   0x005acb32      4e76           trapv
+│       └─> 0x005acb34      defc0008       adda.w 0x8, a7
+│           0x005acb38      4eb900404154   jsr p_Link
+│           0x005acb3e      2f3cd8000006   move.l 0xd8000006, -(a7)
+│           0x005acb44      4eb900404012   jsr p_Push
+│           0x005acb4a      584f           addq.w 0x4, a7
+│           0x005acb4c      42ae0014       clr.l 0x14(a6)
+│           0x005acb50      4e5e           unlk a6
+└           0x005acb52      4e75           rts
+            ; CALL XREF from K8_DRIVES.k8_init @ 0x5b77dc
+┌ 26: K4_AFS_ONLY.pbf_flr_present ();
+│           0x005acb54      4e56fffc       link.w a6, 0xfffc
+│           0x005acb58      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acb5a      6206           bhi.b 0x5acb62
+│       │   0x005acb5c      44fc0002       move.w 0x2, ccr
+│       │   0x005acb60      4e76           trapv
+│       └─> 0x005acb62      defc0004       adda.w 0x4, a7
+│           0x005acb66      422e0008       clr.b 0x8(a6)
+│           0x005acb6a      4e5e           unlk a6
+└           0x005acb6c      4e75           rts
+            ; CALL XREF from K2_TYPES.dfs2_type @ 0x5af27e
+┌ 26: K4_AFS_ONLY.name_matches ();
+│           0x005acb6e      4e56fffc       link.w a6, 0xfffc
+│           0x005acb72      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acb74      6206           bhi.b 0x5acb7c
+│       │   0x005acb76      44fc0002       move.w 0x2, ccr
+│       │   0x005acb7a      4e76           trapv
+│       └─> 0x005acb7c      defc0004       adda.w 0x4, a7
+│           0x005acb80      422e002a       clr.b 0x2a(a6)
+│           0x005acb84      4e5e           unlk a6
+└           0x005acb86      4e75           rts
+┌ 46: K4_AFS_ONLY.dfs_driver ();
+│           0x005acb88      4e56fff8       link.w a6, 0xfff8
+│           0x005acb8c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acb8e      6206           bhi.b 0x5acb96
+│       │   0x005acb90      44fc0002       move.w 0x2, ccr
+│       │   0x005acb94      4e76           trapv
+│       └─> 0x005acb96      defc0008       adda.w 0x8, a7
+│           0x005acb9a      4eb900404154   jsr p_Link
+│           0x005acba0      2f3cdd010002   move.l 0xdd010002, -(a7)
+│           0x005acba6      4eb900404012   jsr p_Push
+│           0x005acbac      584f           addq.w 0x4, a7
+│           0x005acbae      42ae0014       clr.l 0x14(a6)
+│           0x005acbb2      4e5e           unlk a6
+└           0x005acbb4      4e75           rts
+            ; CALL XREF from K8_DRIVES.k8_init @ 0x5b7790
+┌ 26: K4_AFS_ONLY.dfs_flr_present ();
+│           0x005acbb6      4e56fffc       link.w a6, 0xfffc
+│           0x005acbba      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acbbc      6206           bhi.b 0x5acbc4
+│       │   0x005acbbe      44fc0002       move.w 0x2, ccr
+│       │   0x005acbc2      4e76           trapv
+│       └─> 0x005acbc4      defc0004       adda.w 0x4, a7
+│           0x005acbc8      422e0008       clr.b 0x8(a6)
+│           0x005acbcc      4e5e           unlk a6
+└           0x005acbce      4e75           rts
+            ; CALL XREF from K8_DRIVES.k8_init @ 0x5b76de
+┌ 34: K4_AFS_ONLY.cll_add_drive ();
+│           ; var int32_t var_144h @ a6-0x144
+│           ; var int32_t var_13fh @ a6-0x13f
+│           0x005acbd0      4e56fffc       link.w a6, 0xfffc
+│           0x005acbd4      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acbd6      6206           bhi.b 0x5acbde
+│       │   0x005acbd8      44fc0002       move.w 0x2, ccr
+│       │   0x005acbdc      4e76           trapv
+│       └─> 0x005acbde      defc0004       adda.w 0x4, a7
+│           0x005acbe2      1d7afec1000c   move.b 0x5acaa5(pc), 0xc(a6)
+│           0x005acbe8      1d7afebc000d   move.b 0x5acaa6(pc), 0xd(a6)
+│           0x005acbee      4e5e           unlk a6
+└           0x005acbf0      4e75           rts
+┌ 46: K4_AFS_ONLY.f0_cl_run_up ();
+│           0x005acbf2      4e56fff8       link.w a6, 0xfff8
+│           0x005acbf6      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acbf8      6206           bhi.b 0x5acc00
+│       │   0x005acbfa      44fc0002       move.w 0x2, ccr
+│       │   0x005acbfe      4e76           trapv
+│       └─> 0x005acc00      defc0008       adda.w 0x8, a7
+│           0x005acc04      4eb900404154   jsr p_Link
+│           0x005acc0a      2f3cdb000002   move.l 0xdb000002, -(a7)
+│           0x005acc10      4eb900404012   jsr p_Push
+│           0x005acc16      584f           addq.w 0x4, a7
+│           0x005acc18      422e000c       clr.b 0xc(a6)
+│           0x005acc1c      4e5e           unlk a6
+└           0x005acc1e      4e75           rts
+┌ 46: K4_AFS_ONLY.cll_driver ();
+│           0x005acc20      4e56fff8       link.w a6, 0xfff8
+│           0x005acc24      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acc26      6206           bhi.b 0x5acc2e
+│       │   0x005acc28      44fc0002       move.w 0x2, ccr
+│       │   0x005acc2c      4e76           trapv
+│       └─> 0x005acc2e      defc0008       adda.w 0x8, a7
+│           0x005acc32      4eb900404154   jsr p_Link
+│           0x005acc38      2f3cdb000003   move.l 0xdb000003, -(a7)
+│           0x005acc3e      4eb900404012   jsr p_Push
+│           0x005acc44      584f           addq.w 0x4, a7
+│           0x005acc46      42ae0014       clr.l 0x14(a6)
+│           0x005acc4a      4e5e           unlk a6
+└           0x005acc4c      4e75           rts
+            ; CALL XREF from K8_DRIVES.k8_init @ 0x5b769e
+┌ 28: K4_AFS_ONLY.get_cll_type ();
+│           0x005acc4e      4e56fffc       link.w a6, 0xfffc
+│           0x005acc52      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acc54      6206           bhi.b 0x5acc5c
+│       │   0x005acc56      44fc0002       move.w 0x2, ccr
+│       │   0x005acc5a      4e76           trapv
+│       └─> 0x005acc5c      defc0004       adda.w 0x4, a7
+│           0x005acc60      1d7c004e0008   move.b 0x4e, 0x8(a6)
+│           0x005acc66      4e5e           unlk a6
+└           0x005acc68      4e75           rts
+            ; CALL XREF from K8_DRIVES.k8_init @ 0x5b776a
+┌ 26: K4_AFS_ONLY.cll_flr_present ();
+│           0x005acc6a      4e56fffc       link.w a6, 0xfffc
+│           0x005acc6e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acc70      6206           bhi.b 0x5acc78
+│       │   0x005acc72      44fc0002       move.w 0x2, ccr
+│       │   0x005acc76      4e76           trapv
+│       └─> 0x005acc78      defc0004       adda.w 0x4, a7
+│           0x005acc7c      422e0008       clr.b 0x8(a6)
+│           0x005acc80      4e5e           unlk a6
+└           0x005acc82      4e75           rts
+            ; CALL XREF from W2_SYS_DIAG @ +0x3c6c
+┌ 22: K4_AFS_ONLY.d7_add_commands ();
+│           0x005acc84      4e56fffc       link.w a6, 0xfffc
+│           0x005acc88      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acc8a      6206           bhi.b 0x5acc92
+│       │   0x005acc8c      44fc0002       move.w 0x2, ccr
+│       │   0x005acc90      4e76           trapv
+│       └─> 0x005acc92      defc0004       adda.w 0x4, a7
+│           0x005acc96      4e5e           unlk a6
+└           0x005acc98      4e75           rts
+            ; CALL XREFS from K8_DRIVES.k8_init @ 0x5b7692, 0x5b76f0
+┌ 26: K4_AFS_ONLY.d_smd_fitted ();
+│           0x005acc9a      4e56fffc       link.w a6, 0xfffc
+│           0x005acc9e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acca0      6206           bhi.b 0x5acca8
+│       │   0x005acca2      44fc0002       move.w 0x2, ccr
+│       │   0x005acca6      4e76           trapv
+│       └─> 0x005acca8      defc0004       adda.w 0x4, a7
+│           0x005accac      422e0008       clr.b 0x8(a6)
+│           0x005accb0      4e5e           unlk a6
+└           0x005accb2      4e75           rts
+            ; CALL XREF from MAVIS_TEST.main_code @ 0x6d98ca
+┌ 22: K4_AFS_ONLY.d7_initialise ();
+│           0x005accb4      4e56fffc       link.w a6, 0xfffc
+│           0x005accb8      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005accba      6206           bhi.b 0x5accc2
+│       │   0x005accbc      44fc0002       move.w 0x2, ccr
+│       │   0x005accc0      4e76           trapv
+│       └─> 0x005accc2      defc0004       adda.w 0x4, a7
+│           0x005accc6      4e5e           unlk a6
+└           0x005accc8      4e75           rts
+┌ 48: K4_AFS_ONLY.d_smd_state ();
+│           0x005accca      4e56fff8       link.w a6, 0xfff8
+│           0x005accce      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005accd0      6206           bhi.b 0x5accd8
+│       │   0x005accd2      44fc0002       move.w 0x2, ccr
+│       │   0x005accd6      4e76           trapv
+│       └─> 0x005accd8      defc0008       adda.w 0x8, a7
+│           0x005accdc      48e70080       movem.l a0, -(a7)
+│           0x005acce0      206e0010       movea.l 0x10(a6), a0
+│           0x005acce4      4210           clr.b (a0)
+│           0x005acce6      206e000c       movea.l 0xc(a6), a0
+│           0x005accea      4210           clr.b (a0)
+│           0x005accec      206e0008       movea.l 0x8(a6), a0
+│           0x005accf0      4210           clr.b (a0)
+│           0x005accf2      4cdf0100       movem.l (a7)+, a0
+│           0x005accf6      4e5e           unlk a6
+└           0x005accf8      4e75           rts
+            ; CALL XREF from MENUFULLCOM.do_fp_end_op @ 0x4dcf58
+┌ 26: K4_AFS_ONLY.do_cl_end_op ();
+│           0x005accfa      4e56fffc       link.w a6, 0xfffc
+│           0x005accfe      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acd00      6206           bhi.b 0x5acd08
+│       │   0x005acd02      44fc0002       move.w 0x2, ccr
+│       │   0x005acd06      4e76           trapv
+│       └─> 0x005acd08      defc0004       adda.w 0x4, a7
+│           0x005acd0c      422e0008       clr.b 0x8(a6)
+│           0x005acd10      4e5e           unlk a6
+└           0x005acd12      4e75           rts
+┌ 22: K4_AFS_ONLY.menu_clib_init ();
+│           0x005acd14      4e56fffc       link.w a6, 0xfffc
+│           0x005acd18      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acd1a      6206           bhi.b 0x5acd22
+│       │   0x005acd1c      44fc0002       move.w 0x2, ccr
+│       │   0x005acd20      4e76           trapv
+│       └─> 0x005acd22      defc0004       adda.w 0x4, a7
+│           0x005acd26      4e5e           unlk a6
+└           0x005acd28      4e75           rts
+            ; CALL XREF from MAVIS_TEST @ +0x253e
+┌ 22: K4_AFS_ONLY.vax_pre_init ();
+│           0x005acd2a      4e56fffc       link.w a6, 0xfffc
+│           0x005acd2e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acd30      6206           bhi.b 0x5acd38
+│       │   0x005acd32      44fc0002       move.w 0x2, ccr
+│       │   0x005acd36      4e76           trapv
+│       └─> 0x005acd38      defc0004       adda.w 0x4, a7
+│           0x005acd3c      4e5e           unlk a6
+└           0x005acd3e      4e75           rts
+            ; CALL XREF from MENUCONFIGCOM.init_serial_sel @ 0x7093f6
+┌ 22: K4_AFS_ONLY.set_cll_channel ();
+│           0x005acd40      4e56fffc       link.w a6, 0xfffc
+│           0x005acd44      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x005acd46      6206           bhi.b 0x5acd4e
+│       │   0x005acd48      44fc0002       move.w 0x2, ccr
+│       │   0x005acd4c      4e76           trapv
+│       └─> 0x005acd4e      defc0004       adda.w 0x4, a7
+│           0x005acd52      4e5e           unlk a6

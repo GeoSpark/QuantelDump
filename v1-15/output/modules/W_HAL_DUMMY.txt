@@ -1,0 +1,10 @@
+            ;-- W_HAL_DUMMY:
+┌ 26: W_HAL_DUMMY.get_crc ();
+│           0x007057d6      4e56fffc       link.w a6, 0xfffc
+│           0x007057da      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007057dc      6206           bhi.b 0x7057e4
+│       │   0x007057de      44fc0002       move.w 0x2, ccr
+│       │   0x007057e2      4e76           trapv
+│       └─> 0x007057e4      defc0004       adda.w 0x4, a7
+│           0x007057e8      426e000c       clr.w 0xc(a6)
+│           0x007057ec      4e5e           unlk a6

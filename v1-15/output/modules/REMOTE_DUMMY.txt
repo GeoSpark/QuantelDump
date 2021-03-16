@@ -1,0 +1,40 @@
+            ;-- REMOTE_DUMMY:
+┌ 26: REMOTE_DUMMY.queue_remote ();
+│           0x007a4f62      4e56fffc       link.w a6, 0xfffc
+│           0x007a4f66      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4f68      6206           bhi.b 0x7a4f70
+│       │   0x007a4f6a      44fc0002       move.w 0x2, ccr
+│       │   0x007a4f6e      4e76           trapv
+│       └─> 0x007a4f70      defc0004       adda.w 0x4, a7
+│           0x007a4f74      422e000c       clr.b 0xc(a6)
+│           0x007a4f78      4e5e           unlk a6
+└           0x007a4f7a      4e75           rts
+            ; CALL XREF from SERIAL.serial_init @ 0x7a458c
+┌ 22: REMOTE_DUMMY.init_remote ();
+│           0x007a4f7c      4e56fffc       link.w a6, 0xfffc
+│           0x007a4f80      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4f82      6206           bhi.b 0x7a4f8a
+│       │   0x007a4f84      44fc0002       move.w 0x2, ccr
+│       │   0x007a4f88      4e76           trapv
+│       └─> 0x007a4f8a      defc0004       adda.w 0x4, a7
+│           0x007a4f8e      4e5e           unlk a6
+└           0x007a4f90      4e75           rts
+┌ 22: REMOTE_DUMMY.remote_debug ();
+│           0x007a4f92      4e56fffc       link.w a6, 0xfffc
+│           0x007a4f96      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4f98      6206           bhi.b 0x7a4fa0
+│       │   0x007a4f9a      44fc0002       move.w 0x2, ccr
+│       │   0x007a4f9e      4e76           trapv
+│       └─> 0x007a4fa0      defc0004       adda.w 0x4, a7
+│           0x007a4fa4      4e5e           unlk a6
+└           0x007a4fa6      4e75           rts
+            ; CALL XREF from PANEL_STACK.play_update_abo @ 0x77bc1a
+┌ 26: REMOTE_DUMMY.remote_aborted ();
+│           0x007a4fa8      4e56fffc       link.w a6, 0xfffc
+│           0x007a4fac      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x007a4fae      6206           bhi.b 0x7a4fb6
+│       │   0x007a4fb0      44fc0002       move.w 0x2, ccr
+│       │   0x007a4fb4      4e76           trapv
+│       └─> 0x007a4fb6      defc0004       adda.w 0x4, a7
+│           0x007a4fba      422e0008       clr.b 0x8(a6)
+│           0x007a4fbe      4e5e           unlk a6

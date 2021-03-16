@@ -1,0 +1,181 @@
+            ;-- DYLAN_DUMMY:
+┌ 40: DYLAN_DUMMY.dylan_disks ();
+│           0x00707ac2      4e56fff8       link.w a6, 0xfff8
+│           0x00707ac6      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707ac8      6206           bhi.b 0x707ad0
+│       │   0x00707aca      44fc0002       move.w 0x2, ccr
+│       │   0x00707ace      4e76           trapv
+│       └─> 0x00707ad0      defc0008       adda.w 0x8, a7
+│           0x00707ad4      48e70080       movem.l a0, -(a7)
+│           0x00707ad8      422e000c       clr.b 0xc(a6)
+│           0x00707adc      206e0008       movea.l 0x8(a6), a0
+│           0x00707ae0      4250           clr.w (a0)
+│           0x00707ae2      4cdf0100       movem.l (a7)+, a0
+│           0x00707ae6      4e5e           unlk a6
+└           0x00707ae8      4e75           rts
+            ; CALL XREF from MAVIS_TEST @ +0x2518
+┌ 26: DYLAN_DUMMY.init_dylan ();
+│           0x00707aea      4e56fffc       link.w a6, 0xfffc
+│           0x00707aee      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707af0      6206           bhi.b 0x707af8
+│       │   0x00707af2      44fc0002       move.w 0x2, ccr
+│       │   0x00707af6      4e76           trapv
+│       └─> 0x00707af8      defc0004       adda.w 0x4, a7
+│           0x00707afc      422e000c       clr.b 0xc(a6)
+│           0x00707b00      4e5e           unlk a6
+└           0x00707b02      4e75           rts
+            ; CALL XREF from MENUDISKSCOM.hit_chatter_res @ 0x4e6d8a
+┌ 26: DYLAN_DUMMY.restart_dylan ();
+│           0x00707b04      4e56fffc       link.w a6, 0xfffc
+│           0x00707b08      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707b0a      6206           bhi.b 0x707b12
+│       │   0x00707b0c      44fc0002       move.w 0x2, ccr
+│       │   0x00707b10      4e76           trapv
+│       └─> 0x00707b12      defc0004       adda.w 0x4, a7
+│           0x00707b16      422e0008       clr.b 0x8(a6)
+│           0x00707b1a      4e5e           unlk a6
+└           0x00707b1c      4e75           rts
+            ; CALL XREF from MAVIS_TEST @ +0x2632
+┌ 22: DYLAN_DUMMY.dylan_start_dia ();
+│           0x00707b1e      4e56fffc       link.w a6, 0xfffc
+│           0x00707b22      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707b24      6206           bhi.b 0x707b2c
+│       │   0x00707b26      44fc0002       move.w 0x2, ccr
+│       │   0x00707b2a      4e76           trapv
+│       └─> 0x00707b2c      defc0004       adda.w 0x4, a7
+│           0x00707b30      4e5e           unlk a6
+└           0x00707b32      4e75           rts
+┌ 22: DYLAN_DUMMY.dylan_do_disk ();
+│           0x00707b34      4e56fffc       link.w a6, 0xfffc
+│           0x00707b38      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707b3a      6206           bhi.b 0x707b42
+│       │   0x00707b3c      44fc0002       move.w 0x2, ccr
+│       │   0x00707b40      4e76           trapv
+│       └─> 0x00707b42      defc0004       adda.w 0x4, a7
+│           0x00707b46      4e5e           unlk a6
+└           0x00707b48      4e75           rts
+┌ 26: DYLAN_DUMMY.dylan_setup ();
+│           0x00707b4a      4e56fffc       link.w a6, 0xfffc
+│           0x00707b4e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707b50      6206           bhi.b 0x707b58
+│       │   0x00707b52      44fc0002       move.w 0x2, ccr
+│       │   0x00707b56      4e76           trapv
+│       └─> 0x00707b58      defc0004       adda.w 0x4, a7
+│           0x00707b5c      422e0014       clr.b 0x14(a6)
+│           0x00707b60      4e5e           unlk a6
+└           0x00707b62      4e75           rts
+┌ 22: DYLAN_DUMMY.dylan_set_queue ();
+│           0x00707b64      4e56fffc       link.w a6, 0xfffc
+│           0x00707b68      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707b6a      6206           bhi.b 0x707b72
+│       │   0x00707b6c      44fc0002       move.w 0x2, ccr
+│       │   0x00707b70      4e76           trapv
+│       └─> 0x00707b72      defc0004       adda.w 0x4, a7
+│           0x00707b76      4e5e           unlk a6
+└           0x00707b78      4e75           rts
+┌ 30: DYLAN_DUMMY.get_sys_status ();
+│           0x00707b7a      4e56fffc       link.w a6, 0xfffc
+│           0x00707b7e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707b80      6206           bhi.b 0x707b88
+│       │   0x00707b82      44fc0002       move.w 0x2, ccr
+│       │   0x00707b86      4e76           trapv
+│       └─> 0x00707b88      defc0004       adda.w 0x4, a7
+│           0x00707b8c      2d7c00000004.  move.l 0x4, 0xc(a6)
+│           0x00707b94      4e5e           unlk a6
+└           0x00707b96      4e75           rts
+┌ 22: DYLAN_DUMMY.init_system_are ();
+│           0x00707b98      4e56fffc       link.w a6, 0xfffc
+│           0x00707b9c      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707b9e      6206           bhi.b 0x707ba6
+│       │   0x00707ba0      44fc0002       move.w 0x2, ccr
+│       │   0x00707ba4      4e76           trapv
+│       └─> 0x00707ba6      defc0004       adda.w 0x4, a7
+│           0x00707baa      4e5e           unlk a6
+└           0x00707bac      4e75           rts
+┌ 22: DYLAN_DUMMY.set_ccube ();
+│           0x00707bae      4e56fffc       link.w a6, 0xfffc
+│           0x00707bb2      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707bb4      6206           bhi.b 0x707bbc
+│       │   0x00707bb6      44fc0002       move.w 0x2, ccr
+│       │   0x00707bba      4e76           trapv
+│       └─> 0x00707bbc      defc0004       adda.w 0x4, a7
+│           0x00707bc0      4e5e           unlk a6
+└           0x00707bc2      4e75           rts
+┌ 26: DYLAN_DUMMY.dylan_fitted ();
+│           0x00707bc4      4e56fffc       link.w a6, 0xfffc
+│           0x00707bc8      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707bca      6206           bhi.b 0x707bd2
+│       │   0x00707bcc      44fc0002       move.w 0x2, ccr
+│       │   0x00707bd0      4e76           trapv
+│       └─> 0x00707bd2      defc0004       adda.w 0x4, a7
+│           0x00707bd6      422e0008       clr.b 0x8(a6)
+│           0x00707bda      4e5e           unlk a6
+└           0x00707bdc      4e75           rts
+┌ 26: DYLAN_DUMMY.peggy_fitted ();
+│           0x00707bde      4e56fffc       link.w a6, 0xfffc
+│           0x00707be2      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707be4      6206           bhi.b 0x707bec
+│       │   0x00707be6      44fc0002       move.w 0x2, ccr
+│       │   0x00707bea      4e76           trapv
+│       └─> 0x00707bec      defc0004       adda.w 0x4, a7
+│           0x00707bf0      422e0008       clr.b 0x8(a6)
+│           0x00707bf4      4e5e           unlk a6
+└           0x00707bf6      4e75           rts
+┌ 22: DYLAN_DUMMY.set_pretend ();
+│           0x00707bf8      4e56fffc       link.w a6, 0xfffc
+│           0x00707bfc      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707bfe      6206           bhi.b 0x707c06
+│       │   0x00707c00      44fc0002       move.w 0x2, ccr
+│       │   0x00707c04      4e76           trapv
+│       └─> 0x00707c06      defc0004       adda.w 0x4, a7
+│           0x00707c0a      4e5e           unlk a6
+└           0x00707c0c      4e75           rts
+┌ 22: DYLAN_DUMMY.set_q_factor ();
+│           0x00707c0e      4e56fffc       link.w a6, 0xfffc
+│           0x00707c12      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707c14      6206           bhi.b 0x707c1c
+│       │   0x00707c16      44fc0002       move.w 0x2, ccr
+│       │   0x00707c1a      4e76           trapv
+│       └─> 0x00707c1c      defc0004       adda.w 0x4, a7
+│           0x00707c20      4e5e           unlk a6
+└           0x00707c22      4e75           rts
+┌ 22: DYLAN_DUMMY.dylan_transfer ();
+│           0x00707c24      4e56fffc       link.w a6, 0xfffc
+│           0x00707c28      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707c2a      6206           bhi.b 0x707c32
+│       │   0x00707c2c      44fc0002       move.w 0x2, ccr
+│       │   0x00707c30      4e76           trapv
+│       └─> 0x00707c32      defc0004       adda.w 0x4, a7
+│           0x00707c36      4e5e           unlk a6
+└           0x00707c38      4e75           rts
+┌ 22: DYLAN_DUMMY.set_comp_ratio ();
+│           0x00707c3a      4e56fffc       link.w a6, 0xfffc
+│           0x00707c3e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707c40      6206           bhi.b 0x707c48
+│       │   0x00707c42      44fc0002       move.w 0x2, ccr
+│       │   0x00707c46      4e76           trapv
+│       └─> 0x00707c48      defc0004       adda.w 0x4, a7
+│           0x00707c4c      4e5e           unlk a6
+└           0x00707c4e      4e75           rts
+┌ 42: DYLAN_DUMMY.dylan_ready ();
+│           0x00707c50      4e56fff8       link.w a6, 0xfff8
+│           0x00707c54      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707c56      6206           bhi.b 0x707c5e
+│       │   0x00707c58      44fc0002       move.w 0x2, ccr
+│       │   0x00707c5c      4e76           trapv
+│       └─> 0x00707c5e      defc0008       adda.w 0x8, a7
+│           0x00707c62      48e70080       movem.l a0, -(a7)
+│           0x00707c66      422e000c       clr.b 0xc(a6)
+│           0x00707c6a      206e0008       movea.l 0x8(a6), a0
+│           0x00707c6e      10bc0001       move.b 0x1, (a0)
+│           0x00707c72      4cdf0100       movem.l (a7)+, a0
+│           0x00707c76      4e5e           unlk a6
+└           0x00707c78      4e75           rts
+┌ 22: DYLAN_DUMMY.set_adaptive ();
+│           0x00707c7a      4e56fffc       link.w a6, 0xfffc
+│           0x00707c7e      bfd5           cmpa.l (a5), a7
+│       ┌─< 0x00707c80      6206           bhi.b 0x707c88
+│       │   0x00707c82      44fc0002       move.w 0x2, ccr
+│       │   0x00707c86      4e76           trapv
+│       └─> 0x00707c88      defc0004       adda.w 0x4, a7
+│           0x00707c8c      4e5e           unlk a6
