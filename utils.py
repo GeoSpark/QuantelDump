@@ -1,6 +1,12 @@
 from typing import List
 from collections import OrderedDict
 
+'''Strings are tricky. Pascal strings have a byte length followed by the string rather than being null-terminated.
+But not all strings in the code are Pascal-style. Also some lengths can be in the valid 7-bit ASCII range (32-127)
+which makes figuring out where they start an interesting challenge. This code ignores strings less than 5 characters on the
+assumption that a 4-byte numerical value could look like a valid ASCII string.
+It makes an attempt to check the length of the string against its length byte, and makes a decision based on that. So far I've
+not noticed any false positives, but there are a bunch of false negatives which is preferable.'''
 
 def parse_string_candidate(buffer: bytearray):
     # The simple case that a string's length matches its length byte.

@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# It's not pretty. It's barely commented. And there's probably more bugs than in the latest AAA title.
+'''
+It's not pretty. It's barely commented. And there's probably more bugs than in the latest AAA title.
+This has only been tested on a v1-15-002 dump, YMMV for other versions.
+'''
 
 import sys
 from typing import List
@@ -10,19 +13,36 @@ import csv
 
 from r2 import print_r2_commands
 
+'''A list of ranges that correspond to source lines that simply have Addr in the 3rd column. This can be data or code, but it's
+not known which, and the Pascal compiler had a tendency to mix them.'''
 addr_blocks = [[0x400000, 0x400000]]
+
+'''This is a dictionary with function name as the key, and an address range as the value. This is code that has byte offsets in the
+dump, rather than source line numbers. This is likely to be standard library routines and other low-level code.'''
 machine_code_functions = OrderedDict()
+
+'''A dictionary of module names and address ranges. A module is any part of a function name before the last dot, if it has one.
+Usually this is in upper case and will be something like S8_SECURITY or MENUCOM.'''
 modules = OrderedDict()
+
+'''A dict of function names (with module name) and a list as the key. The list has module name, address range, and line numbers.
+The line numbers is a list of pairs of values [address, line number], where address is the start of the line, and the line
+number is relative to the start of the module.'''
 pascal_functions = OrderedDict()
-# Global and local variables usually found immediately before a function.
+
+'''Global and local variables usually found immediately before a function. The code assumes that global variables are placed at the
+top of the module, and carry on until the first function, which is assumed to be marked by the LINK instruction (0x4E56).
+It is a list of lists with start and end addresses, followed by a list of bytes (actually ints < 256).'''
 data_blocks = [[0x400006, 0x40003c, []]]
 
 
 def parse_hex(hex_string: str) -> int:
+    '''Trim off the leading $ and interpret the string as a hex value.'''
     return int(hex_string[1:], 16)
 
 
 def handle_addr_line(fields: List[str]):
+    '''Addr blocks are unknowable blobs, so just store the start and end addresses.'''
     addr = parse_hex(fields[0])
 
     if addr_blocks[-1][1] < addr - 2:
@@ -32,6 +52,8 @@ def handle_addr_line(fields: List[str]):
 
 
 def handle_machine_code_line(fields: List[str]):
+    '''Machine code functions have no metadata apart from byte offset from the start of the module. The offset is appended to the
+    function name, so strip it off and record just the address range.'''
     addr = parse_hex(fields[0])
     function_name = fields[2].split('+')[0].replace('$', '_')
 
@@ -42,6 +64,10 @@ def handle_machine_code_line(fields: List[str]):
 
 
 def handle_debug_line(fields: List[str]):
+    '''Some functions have a $ in the name which r2 doesn't like, so replace it with an underscore.
+    The globals data block is marked with a (+-1) so we don't treat that as code, instead we add the contents to the data_blocks
+    list. When we find the first LINK instruction ($4E56) we assume that everything after that is code.
+    Code line number addresses appear to be off by a WORD, so we subtract 2 from the address for each line number.'''
     addr = parse_hex(fields[0])
     signature = fields[2].replace('$', '_')
     line_number = int(fields[3])
