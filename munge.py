@@ -12,6 +12,7 @@ from collections import OrderedDict
 import csv
 
 from r2 import print_r2_commands
+from utils import print_strings, print_functions
 
 '''A list of ranges that correspond to source lines that simply have Addr in the 3rd column. This can be data or code, but it's
 not known which, and the Pascal compiler had a tendency to mix them.'''
@@ -131,6 +132,8 @@ def parse_file(file_name: str):
 def main():
     parse_file(sys.argv[1])
     print_r2_commands(addr_blocks, machine_code_functions, modules, pascal_functions, data_blocks)
+    # print_strings(data_blocks)
+    # print_functions(machine_code_functions, pascal_functions)
 
 
 if __name__ == '__main__':

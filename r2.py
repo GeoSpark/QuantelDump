@@ -87,9 +87,8 @@ def print_r2_commands(addr_blocks, machine_code_functions, modules, pascal_funct
         print(data_array_command(block))
         strings = extract_strings(block[0], block[2])
 
-        for address, length in strings.items():
-            # print(f'{hex(address)} {length}')
-            print(string_command(address, length))
+        for address, string in strings.items():
+            print(string_command(address, len(string)))
 
     # Source line numbers
     for k, v in pascal_functions.items():

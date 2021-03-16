@@ -57,11 +57,29 @@ def extract_strings(base_address: int, data_block: List[int]) -> OrderedDict:
             # Ignore short strings.
             if len(buffer) > 5:
                 for s in parse_string_candidate(buffer):
-                    # strings[base_address + buffer_origin + s[0] - 1] = s[1]
-                    strings[base_address + buffer_origin + s[0] - 1] = len(s[1])
+                    strings[base_address + buffer_origin + s[0] - 1] = s[1]
 
             buffer.clear()
 
     return strings
 
+
+def print_addr(address: int, contents: str):
+    print(f'{hex(address)} {contents}')
+
+
+def print_strings(data_blocks):
+    for block in data_blocks:
+        strings = extract_strings(block[0], block[2])
+
+        for address, string in strings.items():
+            print_addr(address, string)
+
+
+def print_functions(machine_code_functions, pascal_functions):
+    for k, v in machine_code_functions.items():
+        print_addr(v[0], k)
+
+    for k, v in pascal_functions.items():
+        print_addr(v[1][0], k)
 
