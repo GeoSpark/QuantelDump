@@ -42,20 +42,17 @@ def parse_hex(hex_string: str) -> int:
     return int(hex_string[1:], 16)
 
 
-def handle_addr_line(fields: List[str]):
+def handle_addr_line(addr: int, fields: List[str]):
     '''Addr blocks are unknowable blobs, so just store the start and end addresses.'''
-    addr = parse_hex(fields[0])
-
     if addr_blocks[-1][1] < addr - 2:
         addr_blocks.append([addr, addr])
     else:
         addr_blocks[-1][1] = addr
 
 
-def handle_machine_code_line(fields: List[str]):
+def handle_machine_code_line(addr: int, fields: List[str]):
     '''Machine code functions have no metadata apart from byte offset from the start of the module. The offset is appended to the
     function name, so strip it off and record just the address range.'''
-    addr = parse_hex(fields[0])
     function_name = fields[2].split('+')[0].replace('$', '_')
 
     if function_name not in machine_code_functions:
@@ -64,12 +61,11 @@ def handle_machine_code_line(fields: List[str]):
         machine_code_functions[function_name][1] = addr
 
 
-def handle_debug_line(fields: List[str]):
+def handle_debug_line(addr: int, fields: List[str]):
     '''Some functions have a $ in the name which r2 doesn't like, so replace it with an underscore.
     The globals data block is marked with a (+-1) so we don't treat that as code, instead we add the contents to the data_blocks
     list. When we find the first LINK instruction ($4E56) we assume that everything after that is code.
     Code line number addresses appear to be off by a WORD, so we subtract 2 from the address for each line number.'''
-    addr = parse_hex(fields[0])
     signature = fields[2].replace('$', '_')
     line_number = int(fields[3])
     is_code_line = fields[4] != '(+-1)'
@@ -111,6 +107,17 @@ def handle_debug_line(fields: List[str]):
             lines.append((addr - 2, line_number))
 
 
+def handle_custom_data_block(addr: int, fields: List[str]):
+    content = parse_hex(fields[1])
+    content_bytes = divmod(content, 256)
+
+    if len(data_blocks) == 0 or data_blocks[-1][1] < addr - 2:
+        data_blocks.append([addr, 0, list()])
+
+    data_blocks[-1][1] = addr
+    data_blocks[-1][2].extend(content_bytes)
+
+
 def parse_file(file_name: str):
     with open(file_name, 'rt') as f:
         reader = csv.reader(f, delimiter=' ', skipinitialspace=True)
@@ -118,22 +125,35 @@ def parse_file(file_name: str):
         next(reader)
 
         for row in reader:
-            if len(row) == 5:
-                handle_debug_line(row)
-            elif len(row) == 4:
-                if row[2] == 'Addr':
-                    handle_addr_line(row)
+            try:
+                addr = parse_hex(row[0])
+
+                if len(row) == 5:
+                    handle_debug_line(addr, row)
+                elif len(row) == 4:
+                    if row[2] == 'Addr':
+                        # Crappy hard-coded ranges where we suspect just data resides.
+                        if 0x4094f2 < addr < 0x43870a:
+                            handle_custom_data_block(addr, row)
+                        else:
+                            handle_addr_line(addr, row)
+
+                    else:
+                        handle_machine_code_line(addr, row)
                 else:
-                    handle_machine_code_line(row)
-            else:
+                    raise ValueError
+            except ValueError:
                 print(f'Unable to parse line: {" ".join(row)}', file=sys.stderr)
 
 
 def main():
-    parse_file(sys.argv[1])
-    print_r2_commands(addr_blocks, machine_code_functions, modules, pascal_functions, data_blocks)
-    # print_strings(data_blocks)
-    # print_functions(machine_code_functions, pascal_functions)
+    parse_file(sys.argv[2])
+    if sys.argv[1] == 'r2':
+        print_r2_commands(addr_blocks, machine_code_functions, modules, pascal_functions, data_blocks)
+    elif sys.argv[1] == 's':
+        print_strings(data_blocks)
+    elif sys.argv[1] == 'f':
+        print_functions(machine_code_functions, pascal_functions)
 
 
 if __name__ == '__main__':
