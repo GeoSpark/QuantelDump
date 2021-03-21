@@ -1,0 +1,706 @@
+00001012 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 21/03/2021 21:44:16
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :
+00000000                             3  * Written by :
+00000000                             4  * Date       :
+00000000                             5  * Description:
+00000000                             6  *-----------------------------------------------------------
+00001000                             7      ORG    $1000
+00001000                             8      
+00001000  =00002710                  9  machine_sn equ 10000
+00001000= 56 56 55 45 32 51 ...     10  password: DC.B 'VVUE2QDXV3RQQW6TRQ'
+00001012                            11  
+00001012                            12  ;machine_sn equ 13464
+00001012                            13  ;password: DC.B '2DM58M7TN37Q4P25ZY'
+00001012                            14  
+00001012  =00000FC0                 15  p_is_font equ $fc0
+00001012  =00000FD0                 16  p_serial_number equ $fd0
+00001012  =00000FE0                 17  p_options equ $fe0
+00001012  =00000FF0                 18  p_expiry equ $ff0
+00001012                            19  
+00001012                            20  START:
+00001012                            21  ; Input parameters
+00001012  2F3C 00002710             22      move.l #machine_sn, -(a7)
+00001018  2F3C 00001000             23      move.l #password, -(a7)
+0000101E                            24  
+0000101E                            25  ; Outputs
+0000101E  2F3C 00000FC0             26      move.l #p_is_font, -(a7)
+00001024  2F3C 00000FD0             27      move.l #p_serial_number, -(a7)
+0000102A  2F3C 00000FE0             28      move.l #p_options, -(a7)
+00001030  2F3C 00000FF0             29      move.l #p_expiry, -(a7)
+00001036                            30  
+00001036  4EB9 00001040             31      jsr s_decrypt
+0000103C                            32  
+0000103C  6000 0480                 33      bra.l fin
+00001040                            34  
+00001040                            35  
+00001040                            36  s_decrypt:
+00001040  4E56 FF68                 37      link a6, #-$98           ; S6_DECRYPT:117
+00001044  DEFC 0054                 38      adda.w #$54, a7
+00001048  48E7 FFF8                 39      movem.l d0-d7/a0-a4, -(a7)
+0000104C  45F9 00001434             40      lea.l integer_multiply, a2
+00001052  47EE FFE8                 41      lea.l -$18(a6), a3
+00001056  49F9 00001482             42      lea.l eor, a4
+0000105C  206E 0010                 43      movea.l $10(a6), a0        ; S6_DECRYPT:118
+00001060  20BC 0000FFFF             44      move.l #$ffff, (a0)
+00001066  206E 000C                 45      movea.l $c(a6), a0         ; S6_DECRYPT:119
+0000106A  20BC 0000FFFF             46      move.l #$ffff, (a0)
+00001070  206E 0008                 47      movea.l $8(a6), a0         ; S6_DECRYPT:128
+00001074  20BC 0000FFFF             48      move.l #$ffff, (a0)
+0000107A  7C00                      49      moveq #$0, d6               ; S6_DECRYPT:129
+0000107C  206E 0018                 50      movea.l $18(a6), a0
+00001080  7E00                      51      moveq #$0, d7               ; S6_DECRYPT:130
+00001082                            52      ; Take each byte from a0_array, look up into bitfield table_$4638ee, set d6 to true if a bit is 1.
+00001082                            53  validate_password:
+00001082  1030 7800                 54      move.b (a0, d7.l), d0
+00001086  0280 000000FF             55      andi.l #$ff, d0
+0000108C  43F9 0000153E             56      lea.l table_0x004638ee, a1
+00001092  3200                      57      move.w d0, d1
+00001094  E649                      58      lsr.w #$3, d1
+00001096  0131 1000                 59      btst d0, (a1, d1.w)
+0000109A  6602                      60      bne.b char_ok
+0000109C  7C01                      61      moveq #$1, d6
+0000109E                            62  char_ok:
+0000109E  5287                      63      addq.l #$1, d7
+000010A0  0C87 00000011             64      cmpi.l #$11, d7
+000010A6  63DA                      65      bls.b validate_password
+000010A8                            66  
+000010A8                            67  ; If 0 then return.
+000010A8  4A06                      68      tst.b d6
+000010AA  670C                      69      beq.b pwchars_are_valid
+000010AC  206E 0014                 70      movea.l $14(a6), a0
+000010B0  10BC 0001                 71      move.b #$1, (a0)
+000010B4  6000 02FC                 72      bra.w decrypt_exit
+000010B8                            73  pwchars_are_valid:
+000010B8  42AE FFE0                 74      clr.l -$20(a6)
+000010BC  207C 00001000             75      movea.l #password, a0
+000010C2  7E00                      76      moveq #$0, d7
+000010C4                            77  ; Descramble password
+000010C4                            78  descramble:
+000010C4  2007                      79      move.l d7, d0
+000010C6  E388                      80      lsl.l #$1, d0
+000010C8  43F9 0000151A             81      lea.l table_0x0046386a, a1
+000010CE  3231 0800                 82      move.w (a1, d0.l), d1
+000010D2  0281 0000FFFF             83      andi.l #$ffff, d1
+000010D8  0C81 00000011             84      cmpi.l #$11, d1
+000010DE  6302                      85      bls.b descr_bounds_check
+000010E0  4E4F                      86      trap #$f
+000010E2                            87  descr_bounds_check:
+000010E2  1DB0 1800 78EC            88      move.b (a0, d1.l), (-$14, a6, d7.l)
+000010E8  5287                      89      addq.l #$1, d7
+000010EA  0C87 00000011             90      cmpi.l #$11, d7
+000010F0  63D2                      91      bls.b descramble
+000010F2                            92  
+000010F2                            93  ; Smush bits together
+000010F2  7E00                      94      moveq #$0, d7
+000010F4                            95  smush_loop_1:
+000010F4  594F                      96      subq.w #$4, a7
+000010F6  4280                      97      clr.l d0
+000010F8  1036 78EC                 98      move.b (-$14, a6, d7.l), d0
+000010FC  0440 0030                 99      subi.w #$30, d0
+00001100  41BC 002A                100      chk.w #$2a, d0
+00001104  E340                     101      asl.w #$1, d0
+00001106                           102  
+00001106                           103  ; Look up into array of 42 words
+00001106  41F9 000014C4            104      lea.l table_0x00463814, a0
+0000110C  3230 0000                105      move.w (a0, d0.w), d1
+00001110  48C1                     106      ext.l d1
+00001112                           107  
+00001112                           108  ; xor value with a6_-#$20 mask off #$1f and add the result back to a6_-#$20
+00001112  2F01                     109      move.l d1, -(a7)
+00001114  2F2E FFE0                110      move.l -$20(a6), -(a7)
+00001118  4E94                     111      jsr (a4)                    ; eor
+0000111A  504F                     112      addq.w #$8, a7
+0000111C  2A1F                     113      move.l (a7)+, d5
+0000111E  0285 0000001F            114      andi.l #$1f, d5
+00001124                           115      
+00001124  DBAE FFE0                116      add.l d5, -$20(a6)
+00001128  2807                     117      move.l d7, d4
+0000112A  7605                     118      moveq #$5, d3
+0000112C  4E92                     119      jsr (a2)                    ; safe_integer_multiply d3 = d4 * d3
+0000112E                           120  
+0000112E  7C00                     121      moveq #$0, d6
+00001130                           122  smush_loop_2:
+00001130  2004                     123      move.l d4, d0
+00001132  D086                     124      add.l d6, d0
+00001134  204E                     125      movea.l a6, a0
+00001136  E698                     126      ror.l #$3, d0
+00001138  D0C0                     127      adda.w d0, a0
+0000113A  4840                     128      swap d0
+0000113C  E758                     129      rol.w #$3, d0
+0000113E  323C FF7F                130      move.w #$ff7f, d1
+00001142  E079                     131      ror.w d0, d1
+00001144  C328 FFBC                132      and.b d1, -$44(a0)
+00001148  594F                     133      subq.w #$4, a7
+0000114A  7204                     134      moveq #$4, d1
+0000114C  9286                     135      sub.l d6, d1
+0000114E  0481 FFFF8000            136      subi.l #$ffff8000, d1
+00001154  0C81 0000FFFF            137      cmpi.l #$ffff, d1
+0000115A  6302                     138      bls.b smush_bounds_check
+0000115C  4E4F                     139      trap #$f
+0000115E                           140  smush_bounds_check:
+0000115E  0681 FFFF8000            141      addi.l #$ffff8000, d1
+00001164  3F01                     142      move.w d1, -(a7)
+00001166  3F3C 0001                143      move.w #$1, -(a7)
+0000116A  2F05                     144      move.l d5, -(a7)
+0000116C  4EB9 00001454            145      jsr GET_BITS
+00001172  504F                     146      addq.w #$8, a7
+00001174  4A9F                     147      tst.l (a7)+
+00001176  670A                     148      beq.b smush_bit_set
+00001178  123C 0080                149      move.b #$80, d1
+0000117C  E029                     150      lsr.b d0, d1
+0000117E  8328 FFBC                151      or.b d1, -$44(a0)
+00001182                           152  smush_bit_set:
+00001182  5286                     153      addq.l #$1, d6
+00001184  0C86 00000004            154      cmpi.l #$4, d6
+0000118A  63A4                     155      bls.b smush_loop_2
+0000118C  5287                     156      addq.l #$1, d7
+0000118E  0C87 0000000F            157      cmpi.l #$f, d7
+00001194  6300 FF5E                158      bls.w smush_loop_1
+00001198                           159  
+00001198                           160  ; line 179
+00001198  206E 0014                161      movea.l $14(a6), a0
+0000119C  4210                     162      clr.b (a0)
+0000119E  4280                     163      clr.l d0
+000011A0                           164  ; Take last char of descrambled password [a], index into the scramble table and multiply it by 32, store in d0
+000011A0  102E FFFD                165      move.b -$3(a6), d0
+000011A4  0440 0030                166      subi.w #$30, d0
+000011A8  41BC 002A                167      chk.w #$2a, d0
+000011AC  E340                     168      asl.w #$1, d0
+000011AE  43F9 000014C4            169      lea.l table_0x00463814, a1
+000011B4  3031 0000                170      move.w (a1, d0.w), d0
+000011B8  EB40                     171      asl.w #$5, d0
+000011BA                           172  
+000011BA                           173  ; Take next-to-last char of descrambled password [b], index into the scamble table and add it to the previous result in d0, store in d0
+000011BA  4281                     174      clr.l d1
+000011BC  122E FFFC                175      move.b -$4(a6), d1
+000011C0  0441 0030                176      subi.w #$30, d1
+000011C4  43BC 002A                177      chk.w #$2a, d1
+000011C8  E341                     178      asl.w #$1, d1
+000011CA  43F9 000014C4            179      lea.l table_0x00463814, a1
+000011D0  D071 1000                180      add.w (a1, d1.w), d0
+000011D4                           181  
+000011D4                           182  ; Compare d0 with long -#$20(a6) [c], set is_invalid to 1 if they're not equal
+000011D4  48C0                     183      ext.l d0
+000011D6  B0AE FFE0                184      cmp.l -$20(a6), d0
+000011DA  6702                     185      beq.b cs_valid
+000011DC  5210                     186      addq.b #$1, (a0)
+000011DE                           187      
+000011DE                           188  ; line 180
+000011DE                           189  ; Xor long at param_d[d] with #$cc995533, store back to itself
+000011DE                           190  cs_valid:
+000011DE  594F                     191      subq.w #$4, a7
+000011E0  2F2E 001C                192      move.l $1c(a6), -(a7)
+000011E4  2F3C CC995533            193      move.l #$cc995533, -(a7)
+000011EA  4E94                     194      jsr (a4)                    ; eor
+000011EC  504F                     195      addq.w #$8, a7
+000011EE  2D5F 001C                196      move.l (a7)+, $1c(a6)
+000011F2                           197  
+000011F2                           198  ; line 181
+000011F2                           199  ; Take just the two MSBs of d5
+000011F2  2A2E 001C                200      move.l $1c(a6), d5
+000011F6  E08D                     201      lsr.l #$8, d5
+000011F8  E08D                     202      lsr.l #$8, d5
+000011FA                           203  
+000011FA                           204  ; Add #$10dda and mask LS word
+000011FA  0685 00010DDA            205      addi.l #$10dda, d5
+00001200  0285 0000FFFF            206      andi.l #$ffff, d5
+00001206                           207  
+00001206                           208  ; line 182
+00001206                           209  ; Take result of XOR mask off lower word, add #$10dda and mask again, storing it at address a3
+00001206  26AE 001C                210      move.l $1c(a6), (a3)
+0000120A  0293 0000FFFF            211      andi.l #$ffff, (a3)
+00001210  0693 00010DDA            212      addi.l #$10dda, (a3)
+00001216  0293 0000FFFF            213      andi.l #$ffff, (a3)
+0000121C                           214  
+0000121C                           215  ; line 183
+0000121C                           216  ; Multiply d5 by #$8301
+0000121C  283C 00008301            217      move.l #$8301, d4
+00001222  2605                     218      move.l d5, d3
+00001224  4E92                     219      jsr (a2)                    ; safe_integer_multiply d3 = d4 * d3; d4 = d3
+00001226  594F                     220      subq.w #$4, a7
+00001228                           221  
+00001228                           222  ; Add #$dbed to result and mask, store in d4
+00001228  0684 0000DBED            223      addi.l #$dbed, d4
+0000122E  0284 0000FFFF            224      andi.l #$ffff, d4
+00001234                           225  
+00001234                           226  ; XOR d4 with contents of (a3), store in d6
+00001234  2F04                     227      move.l d4, -(a7)
+00001236  2F13                     228      move.l (a3), -(a7)
+00001238  4E94                     229      jsr (a4)                    ; eor
+0000123A  504F                     230      addq.w #$8, a7
+0000123C  2C1F                     231      move.l (a7)+, d6
+0000123E                           232  
+0000123E                           233  ; line 188
+0000123E                           234  ; Multiply contents of (a3) by #$501b, add to d6 and store in d4
+0000123E  283C 0000501B            235      move.l #$501b, d4
+00001244  2613                     236      move.l (a3), d3
+00001246  4E92                     237      jsr (a2)                    ; safe_integer_multiply d3 = d4 * d3
+00001248  594F                     238      subq.w #$4, a7
+0000124A  D886                     239      add.l d6, d4
+0000124C                           240  
+0000124C                           241  ; XOR d4 and d5, store in d6
+0000124C  2F04                     242      move.l d4, -(a7)
+0000124E  2F05                     243      move.l d5, -(a7)
+00001250  4E94                     244      jsr (a4)                    ; eor
+00001252  504F                     245      addq.w #$8, a7
+00001254  2C1F                     246      move.l (a7)+, d6
+00001256                           247  
+00001256                           248  ; line 193
+00001256  7E00                     249      moveq #$0, d7
+00001258                           250  swizzle_loop:
+00001258  2807                     251      move.l d7, d4
+0000125A  7603                     252      moveq #$3, d3
+0000125C  4E92                     253      jsr (a2)                    ; safe_integer_multiply d3 = d4 * d3
+0000125E  514F                     254      subq.w #$8, a7
+00001260                           255  
+00001260                           256  ; Copy the d7-th byte from the smushed array onto the stack, and make room on the stack for a long, which is the result of the GET_BITS call I think
+00001260  4280                     257      clr.l d0
+00001262  1036 78BC                258      move.b (-$44, a6, d7.l), d0
+00001266  2F00                     259      move.l d0, -(a7)
+00001268  594F                     260      subq.w #$4, a7
+0000126A                           261  
+0000126A                           262  ; Multiply d7 by two and store in d0
+0000126A  2007                     263      move.l d7, d0
+0000126C  E388                     264      lsl.l #$1, d0
+0000126E  0480 FFFF8000            265      subi.l #$ffff8000, d0
+00001274  0C80 0000FFFF            266      cmpi.l #$ffff, d0
+0000127A  6302                     267      bls.b bounds_check_2
+0000127C  4E4F                     268      trap #$f
+0000127E                           269  bounds_check_2:
+0000127E  0680 FFFF8000            270      addi.l #$ffff8000, d0
+00001284  3F00                     271      move.w d0, -(a7) ; Offset
+00001286  3F3C 0008                272      move.w #$8, -(a7) ; Num bits
+0000128A  2F06                     273      move.l d6, -(a7) ; Value
+0000128C  4EB9 00001454            274      jsr GET_BITS
+00001292  504F                     275      addq.w #$8, a7
+00001294  4E94                     276      jsr (a4)                    ; eor
+00001296  544F                     277      addq.w #$2, a7
+00001298  0484 FFFF8000            278      subi.l #$ffff8000, d4
+0000129E  0C84 0000FFFF            279      cmpi.l #$ffff, d4
+000012A4  6302                     280      bls.b bounds_check_3
+000012A6  4E4F                     281      trap #$f
+000012A8                           282  bounds_check_3:
+000012A8  0684 FFFF8000            283      addi.l #$ffff8000, d4
+000012AE                           284     
+000012AE  3F04                     285      move.w d4, -(a7) ; Offset
+000012B0  3F3C 0003                286      move.w #$3, -(a7) ; Num bits
+000012B4  2F06                     287      move.l d6, -(a7) ; Value
+000012B6  4EB9 00001454            288      jsr GET_BITS
+000012BC  504F                     289      addq.w #$8, a7
+000012BE                           290     
+000012BE  201F                     291      move.l (a7)+, d0
+000012C0  0C80 0000FFFF            292      cmpi.l #$ffff, d0
+000012C6  6302                     293      bls.b bounds_check_4
+000012C8  4E4F                     294      trap #$f
+000012CA                           295  bounds_check_4:
+000012CA  3E80                     296      move.w d0, (a7)
+000012CC  4EB9 000014A0            297      jsr ror
+000012D2  5C4F                     298      addq.w #$6, a7
+000012D4  201F                     299      move.l (a7)+, d0
+000012D6  0C80 000000FF            300      cmpi.l #$ff, d0
+000012DC  6302                     301      bls.b bounds_check_5
+000012DE  4E4F                     302      trap #$f
+000012E0                           303  bounds_check_5:
+000012E0  1D80 78BC                304      move.b d0, (-$44, a6, d7.l)
+000012E4                           305      
+000012E4  5287                     306      addq.l #$1, d7
+000012E6  0C87 00000009            307      cmpi.l #$9, d7
+000012EC  6300 FF6A                308      bls.w swizzle_loop
+000012F0                           309  
+000012F0  7E00                     310      moveq #$0, d7
+000012F2                           311  bit_loop:
+000012F2  0807 0000                312      btst #$0, d7
+000012F6  673A                     313      beq.b even
+000012F8  204E                     314      movea.l a6, a0
+000012FA  2007                     315      move.l d7, d0
+000012FC  E698                     316      ror.l #$3, d0
+000012FE  D0C0                     317      adda.w d0, a0
+00001300  4840                     318      swap d0
+00001302  E758                     319      rol.w #$3, d0
+00001304  2807                     320      move.l d7, d4
+00001306  761D                     321      moveq #$1d, d3
+00001308  4E92                     322      jsr (a2)                    ; safe_integer_multiply d3 = d4 * d3
+0000130A  7650                     323      moveq #$50, d3
+0000130C  4EB9 000013B4            324      jsr div_mod
+00001312  4443                     325      neg.w d3
+00001314  0643 004F                326      addi.w #$4f, d3
+00001318  0283 0000FFFF            327      andi.l #$ffff, d3
+0000131E  224E                     328      movea.l a6, a1
+00001320  E69B                     329      ror.l #$3, d3
+00001322  D2C3                     330      adda.w d3, a1
+00001324  4843                     331      swap d3
+00001326  E75B                     332      rol.w #$3, d3
+00001328  1229 FFBC                333      move.b -$44(a1), d1
+0000132C  E729                     334      lsl.b d3, d1
+0000132E  EE09                     335      lsr.b #$7, d1
+00001330  603C                     336      bra.b tail
+00001332                           337  even:
+00001332  204E                     338      movea.l a6, a0
+00001334  2007                     339      move.l d7, d0
+00001336  E698                     340      ror.l #$3, d0
+00001338  D0C0                     341      adda.w d0, a0
+0000133A  4840                     342      swap d0
+0000133C  E758                     343      rol.w #$3, d0
+0000133E  2807                     344      move.l d7, d4
+00001340  761D                     345      moveq #$1d, d3
+00001342  4E92                     346      jsr (a2)                    ; safe_integer_multiply d3 = d4 * d3
+00001344  7650                     347      moveq #$50, d3
+00001346  4EB9 000013B4            348      jsr div_mod
+0000134C  4443                     349      neg.w d3
+0000134E  0643 004F                350      addi.w #$4f, d3
+00001352  0283 0000FFFF            351      andi.l #$ffff, d3
+00001358  224E                     352      movea.l a6, a1
+0000135A  E69B                     353      ror.l #$3, d3
+0000135C  D2C3                     354      adda.w d3, a1
+0000135E  4843                     355      swap d3
+00001360  E75B                     356      rol.w #$3, d3
+00001362  1229 FFBC                357      move.b -$44(a1), d1
+00001366  E729                     358      lsl.b d3, d1
+00001368  EE09                     359      lsr.b #$7, d1
+0000136A  4401                     360      neg.b d1
+0000136C  5201                     361      addq.b #$1, d1
+0000136E                           362  tail:
+0000136E  343C FF7F                363      move.w #$ff7f, d2
+00001372  E07A                     364      ror.w d0, d2
+00001374  C528 FFC6                365      and.b d2, -$3a(a0)
+00001378  0201 0001                366      andi.b #$1, d1
+0000137C  EF09                     367      lsl.b #$7, d1
+0000137E  E029                     368      lsr.b d0, d1
+00001380  8328 FFC6                369      or.b d1, -$3a(a0)
+00001384  5287                     370      addq.l #$1, d7
+00001386  0C87 0000004F            371      cmpi.l #$4f, d7
+0000138C  6300 FF64                372      bls.w bit_loop
+00001390                           373  
+00001390                           374  
+00001390  206E 0010                375      movea.l $10(a6), a0
+00001394  20AE FFC6                376      move.l -$3a(a6), (a0)
+00001398                           377  
+00001398  206E 000C                378      movea.l $0c(a6), a0
+0000139C  20AE FFCA                379      move.l -$36(a6), (a0)
+000013A0                           380  
+000013A0  206E 0008                381      movea.l $08(a6), a0
+000013A4  4280                     382      clr.l d0
+000013A6  302E FFCE                383      move.w -$32(a6), d0
+000013AA  2080                     384      move.l d0, (a0)
+000013AC                           385  
+000013AC  4CDF 1FFF                386      movem.l (a7)+, d0-d7/a0-a4
+000013B0  4E5E                     387      unlk a6
+000013B2                           388  
+000013B2                           389  decrypt_exit:
+000013B2  4E75                     390      rts
+000013B4                           391  
+000013B4                           392  
+000013B4                           393  
+000013B4                           394  
+000013B4                           395  div_mod:
+000013B4  B883                     396      cmp.l d3, d4
+000013B6  654A                     397      bcs.b x_label_2
+000013B8  4843                     398      swap d3
+000013BA  4A43                     399      tst.w d3
+000013BC  6752                     400      beq.b x_label_4
+000013BE  4843                     401      swap d3
+000013C0  6B46                     402      bmi.b x_label_3
+000013C2  48E7 E000                403      movem.l d0-d2, -(a7)
+000013C6  70FF                     404      moveq #$ff, d0
+000013C8                           405  x_loop_1:
+000013C8  D683                     406      add.l d3, d3
+000013CA  5BC8 FFFC                407      dbmi d0, x_loop_1
+000013CE  7210                     408      moveq #$10, d1
+000013D0  D240                     409      add.w d0, d1
+000013D2  3404                     410      move.w d4, d2
+000013D4  4480                     411      neg.l d0
+000013D6  E16A                     412      lsl.w d0, d2
+000013D8  E2AC                     413      lsr.l d1, d4
+000013DA  4843                     414      swap d3
+000013DC  88C3                     415      divu.w d3, d4
+000013DE  4843                     416      swap d3
+000013E0  3204                     417      move.w d4, d1
+000013E2  3802                     418      move.w d2, d4
+000013E4  3401                     419      move.w d1, d2
+000013E6  C4C3                     420      mulu.w d3, d2
+000013E8  9882                     421      sub.l d2, d4
+000013EA  640A                     422      bcc.b x_label_1
+000013EC  5341                     423      subq.w #$1, d1
+000013EE  D883                     424      add.l d3, d4
+000013F0  6504                     425      bcs.b x_label_1
+000013F2  5341                     426      subq.w #$1, d1
+000013F4  D883                     427      add.l d3, d4
+000013F6                           428  x_label_1:
+000013F6  2604                     429      move.l d4, d3
+000013F8  E0AB                     430      lsr.l d0, d3
+000013FA  2801                     431      move.l d1, d4
+000013FC  4CDF 0007                432      movem.l (a7)+, d0-d2
+00001400  4E75                     433      rts
+00001402                           434  x_label_2:
+00001402  2604                     435      move.l d4, d3
+00001404  7800                     436      moveq #$0, d4
+00001406  4E75                     437      rts
+00001408                           438  x_label_3:
+00001408  9883                     439      sub.l d3, d4
+0000140A  2604                     440      move.l d4, d3
+0000140C  7801                     441      moveq #$1, d4
+0000140E  4E75                     442      rts
+00001410                           443  x_label_4:
+00001410  4843                     444      swap d3
+00001412  4E76                     445      trapv  ; beq.w 0x406bca
+00001414  3F04                     446      move.w d4, -(a7)
+00001416  4244                     447      clr.w d4
+00001418  4844                     448      swap d4
+0000141A  6708                     449      beq.b x_label_5
+0000141C  88C3                     450      divu.w d3, d4
+0000141E  4843                     451      swap d3
+00001420  3604                     452      move.w d4, d3
+00001422  4843                     453      swap d3
+00001424                           454  x_label_5:
+00001424  381F                     455      move.w (a7)+, d4
+00001426  88C3                     456      divu.w d3, d4
+00001428  3604                     457      move.w d4, d3
+0000142A  4244                     458      clr.w d4
+0000142C  4844                     459      swap d4
+0000142E  C744                     460      exg.l d3, d4
+00001430  4A84                     461      tst.l d4
+00001432  4E75                     462      rts
+00001434                           463  
+00001434                           464  integer_multiply:
+00001434  B684                     465      cmp.l d4, d3    
+00001436  6402                     466      bcc.b label2
+00001438  C744                     467      exg.l d3, d4
+0000143A                           468  label2:    
+0000143A  2F04                     469      move.l d4, -(a7)
+0000143C  C8C3                     470      mulu.w d3, d4   
+0000143E  361F                     471      move.w (a7)+, d3
+00001440  4843                     472      swap d3         
+00001442  6604                     473      bne.b label3
+00001444  544F                     474      addq.w #$2, a7  
+00001446  6008                     475      bra.b label4
+00001448                           476  label3:
+00001448  C6DF                     477      mulu.w (a7)+, d3
+0000144A  4843                     478      swap d3         
+0000144C  4A43                     479      tst.w d3        
+0000144E  D883                     480      add.l d3, d4    
+00001450                           481  label4:
+00001450  2604                     482      move.l d4, d3   
+00001452  4E75                     483      rts
+00001454                           484  
+00001454                           485  GET_BITS:
+00001454  4E56 0000                486      link a6, #$0
+00001458  48E7 C000                487      movem.l d0-d1, -(a7)
+0000145C  202E 0008                488      move.l $8(a6), d0
+00001460  322E 000E                489      move.w $e(a6), d1
+00001464  E2A0                     490      asr.l d1, d0
+00001466  322E 000C                491      move.w $c(a6), d1
+0000146A  E541                     492      asl.w #$2, d1
+0000146C  4BF9 0000155E            493      lea BITS_TABLE, a5
+00001472  C0B5 1000                494      and.l (a5, d1.w), d0
+00001476  2D40 0010                495      move.l d0, $10(a6)
+0000147A  4CDF 0003                496      movem.l (a7)+, d0-d1
+0000147E  4E5E                     497      unlk a6
+00001480  4E75                     498      rts
+00001482                           499  
+00001482                           500  eor:
+00001482  4E56 0000                501      link a6, #$0
+00001486  48E7 C000                502      movem.l d0-d1, -(a7)
+0000148A  202E 000C                503      move.l $c(a6), d0
+0000148E  222E 0008                504      move.l $8(a6), d1
+00001492  B380                     505      eor.l d1, d0
+00001494  2D40 0010                506      move.l d0, $10(a6)
+00001498  4CDF 0003                507      movem.l (a7)+, d0-d1
+0000149C  4E5E                     508      unlk a6
+0000149E  4E75                     509      rts
+000014A0                           510  
+000014A0                           511  ror:
+000014A0  4E56 0000                512      link a6, #0
+000014A4  48E7 C000                513      movem.l d0-d1, -(a7)
+000014A8  202E 000A                514      move.l $a(a6), d0
+000014AC  322E 0008                515      move.w $8(a6), d1
+000014B0  E238                     516      ror.b d1, d0
+000014B2  2D40 000E                517      move.l d0, $e(a6)
+000014B6  4CDF 0003                518      movem.l (a7)+, d0-d1
+000014BA  4E5E                     519      unlk a6
+000014BC  4E75                     520      rts
+000014BE                           521  
+000014BE                           522  fin:
+000014BE  4E71                     523      nop
+000014C0  FFFF FFFF                524      SIMHALT             ; halt simulator
+000014C4                           525  
+000014C4                           526  * Put variables and constants here
+000014C4                           527  
+000014C4                           528  
+000014C4                           529  table_0x00463814
+000014C4= 00FF                     530      DC.W $00ff
+000014C6= 00FF                     531      DC.W $00ff
+000014C8= 0003                     532      DC.W $0003
+000014CA= 0007                     533      DC.W $0007
+000014CC= 000B                     534      DC.W $000b
+000014CE= 000F                     535      DC.W $000f
+000014D0= 0013                     536      DC.W $0013
+000014D2= 0017                     537      DC.W $0017
+000014D4= 001B                     538      DC.W $001b
+000014D6= 001F                     539      DC.W $001f
+000014D8= 00FF                     540      DC.W $00ff
+000014DA= 00FF                     541      DC.W $00ff
+000014DC= 00FF                     542      DC.W $00ff
+000014DE= 00FF                     543      DC.W $00ff
+000014E0= 00FF                     544      DC.W $00ff
+000014E2= 00FF                     545      DC.W $00ff
+000014E4= 00FF                     546      DC.W $00ff
+000014E6= 0000                     547      DC.W $0000
+000014E8= 0004                     548      DC.W $0004
+000014EA= 0008                     549      DC.W $0008
+000014EC= 000C                     550      DC.W $000c
+000014EE= 0010                     551      DC.W $0010
+000014F0= 0014                     552      DC.W $0014
+000014F2= 0018                     553      DC.W $0018
+000014F4= 001C                     554      DC.W $001c
+000014F6= 00FF                     555      DC.W $00ff
+000014F8= 0001                     556      DC.W $0001
+000014FA= 0005                     557      DC.W $0005
+000014FC= 0009                     558      DC.W $0009
+000014FE= 000D                     559      DC.W $000d
+00001500= 0011                     560      DC.W $0011
+00001502= 00FF                     561      DC.W $00ff
+00001504= 0015                     562      DC.W $0015
+00001506= 0019                     563      DC.W $0019
+00001508= 001D                     564      DC.W $001d
+0000150A= 0002                     565      DC.W $0002
+0000150C= 0006                     566      DC.W $0006
+0000150E= 000A                     567      DC.W $000a
+00001510= 000E                     568      DC.W $000e
+00001512= 0012                     569      DC.W $0012
+00001514= 0016                     570      DC.W $0016
+00001516= 001A                     571      DC.W $001a
+00001518= 001E                     572      DC.W $001e
+0000151A                           573  
+0000151A                           574  table_0x0046386a
+0000151A= 0007                     575      DC.W $0007
+0000151C= 000D                     576      DC.W $000d
+0000151E= 0002                     577      DC.W $0002
+00001520= 000A                     578      DC.W $000a
+00001522= 0006                     579      DC.W $0006
+00001524= 0000                     580      DC.W $0000
+00001526= 0010                     581      DC.W $0010
+00001528= 000B                     582      DC.W $000b
+0000152A= 0011                     583      DC.W $0011
+0000152C= 0005                     584      DC.W $0005
+0000152E= 000F                     585      DC.W $000f
+00001530= 0001                     586      DC.W $0001
+00001532= 0008                     587      DC.W $0008
+00001534= 000C                     588      DC.W $000c
+00001536= 0003                     589      DC.W $0003
+00001538= 000E                     590      DC.W $000e
+0000153A= 0004                     591      DC.W $0004
+0000153C= 0009                     592      DC.W $0009
+0000153E                           593  
+0000153E                           594  table_0x004638ee
+0000153E= 0000                     595      DC.W $0000
+00001540= 0000                     596      DC.W $0000
+00001542= 0000                     597      DC.W $0000
+00001544= FC03                     598      DC.W $fc03
+00001546= FE7D                     599      DC.W $fe7d
+00001548= FF07                     600      DC.W $ff07
+0000154A= 0000                     601      DC.W $0000
+0000154C= 0000                     602      DC.W $0000
+0000154E= 0000                     603      DC.W $0000
+00001550= 0000                     604      DC.W $0000
+00001552= 0000                     605      DC.W $0000
+00001554= 0000                     606      DC.W $0000
+00001556= 0000                     607      DC.W $0000
+00001558= 0000                     608      DC.W $0000
+0000155A= 0000                     609      DC.W $0000
+0000155C= 0000                     610      DC.W $0000
+0000155E                           611  
+0000155E                           612  BITS_TABLE:
+0000155E= 00000000                 613      DC.L $00000000
+00001562= 00000001                 614      DC.L $00000001
+00001566= 00000003                 615      DC.L $00000003
+0000156A= 00000007                 616      DC.L $00000007
+0000156E= 0000000F                 617      DC.L $0000000f
+00001572= 0000001F                 618      DC.L $0000001f
+00001576= 0000003F                 619      DC.L $0000003f
+0000157A= 0000007F                 620      DC.L $0000007f
+0000157E= 000000FF                 621      DC.L $000000ff
+00001582= 000001FF                 622      DC.L $000001ff
+00001586= 000003FF                 623      DC.L $000003ff
+0000158A= 000007FF                 624      DC.L $000007ff
+0000158E= 00000FFF                 625      DC.L $00000fff
+00001592= 00001FFF                 626      DC.L $00001fff
+00001596= 00003FFF                 627      DC.L $00003fff
+0000159A= 00007FFF                 628      DC.L $00007fff
+0000159E= 0000FFFF                 629      DC.L $0000ffff
+000015A2= 0001FFFF                 630      DC.L $0001ffff
+000015A6= 0003FFFF                 631      DC.L $0003ffff
+000015AA= 0007FFFF                 632      DC.L $0007ffff
+000015AE= 000FFFFF                 633      DC.L $000fffff
+000015B2= 001FFFFF                 634      DC.L $001fffff
+000015B6= 003FFFFF                 635      DC.L $003fffff
+000015BA= 007FFFFF                 636      DC.L $007fffff
+000015BE= 00FFFFFF                 637      DC.L $00ffffff
+000015C2= 01FFFFFF                 638      DC.L $01ffffff
+000015C6= 03FFFFFF                 639      DC.L $03ffffff
+000015CA= 07FFFFFF                 640      DC.L $07ffffff
+000015CE= 0FFFFFFF                 641      DC.L $0fffffff
+000015D2= 1FFFFFFF                 642      DC.L $1fffffff
+000015D6= 3FFFFFFF                 643      DC.L $3fffffff
+000015DA= 7FFFFFFF                 644      DC.L $7fffffff
+000015DE= FFFFFFFF                 645      DC.L $ffffffff
+000015E2                           646  
+000015E2                           647  
+000015E2                           648      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+BITS_TABLE          155E
+BIT_LOOP            12F2
+BOUNDS_CHECK_2      127E
+BOUNDS_CHECK_3      12A8
+BOUNDS_CHECK_4      12CA
+BOUNDS_CHECK_5      12E0
+CHAR_OK             109E
+CS_VALID            11DE
+DECRYPT_EXIT        13B2
+DESCRAMBLE          10C4
+DESCR_BOUNDS_CHECK  10E2
+DIV_MOD             13B4
+EOR                 1482
+EVEN                1332
+FIN                 14BE
+GET_BITS            1454
+INTEGER_MULTIPLY    1434
+LABEL2              143A
+LABEL3              1448
+LABEL4              1450
+MACHINE_SN          2710
+PASSWORD            1000
+PWCHARS_ARE_VALID   10B8
+P_EXPIRY            FF0
+P_IS_FONT           FC0
+P_OPTIONS           FE0
+P_SERIAL_NUMBER     FD0
+ROR                 14A0
+SMUSH_BIT_SET       1182
+SMUSH_BOUNDS_CHECK  115E
+SMUSH_LOOP_1        10F4
+SMUSH_LOOP_2        1130
+START               1012
+SWIZZLE_LOOP        1258
+S_DECRYPT           1040
+TABLE_0X00463814    14C4
+TABLE_0X0046386A    151A
+TABLE_0X004638EE    153E
+TAIL                136E
+VALIDATE_PASSWORD   1082
+X_LABEL_1           13F6
+X_LABEL_2           1402
+X_LABEL_3           1408
+X_LABEL_4           1410
+X_LABEL_5           1424
+X_LOOP_1            13C8

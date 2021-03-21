@@ -220,25 +220,25 @@
 │           0x00463a26      7e00           moveq 0x0, d7
 │       ┌─> 0x00463a28      be83           cmp.l d3, d7
 │      ┌──< 0x00463a2a      6302           bls.b 0x463a2e
-│      │╎   0x00463a2c      4e4f           trap 0xf
+│      │¦   0x00463a2c      4e4f           trap 0xf
 │      └──> 0x00463a2e      204e           movea.l a6, a0
-│       ╎   0x00463a30      2007           move.l d7, d0
-│       ╎   0x00463a32      e698           ror.l 0x3, d0
-│       ╎   0x00463a34      d0c0           adda.w d0, a0
-│       ╎   0x00463a36      4840           swap d0
-│       ╎   0x00463a38      e758           rol.w 0x3, d0
-│       ╎   0x00463a3a      12280008       move.b 0x8(a0), d1
-│       ╎   0x00463a3e      e129           lsl.b d0, d1
-│       ╎   0x00463a40      ee09           lsr.b 0x7, d1
+│       ¦   0x00463a30      2007           move.l d7, d0
+│       ¦   0x00463a32      e698           ror.l 0x3, d0
+│       ¦   0x00463a34      d0c0           adda.w d0, a0
+│       ¦   0x00463a36      4840           swap d0
+│       ¦   0x00463a38      e758           rol.w 0x3, d0
+│       ¦   0x00463a3a      12280008       move.b 0x8(a0), d1
+│       ¦   0x00463a3e      e129           lsl.b d0, d1
+│       ¦   0x00463a40      ee09           lsr.b 0x7, d1
 │      ┌──< 0x00463a42      6706           beq.b 0x463a4a
-│      │╎   0x00463a44      1f3c0031       move.b 0x31, -(a7)
+│      │¦   0x00463a44      1f3c0031       move.b 0x31, -(a7)
 │     ┌───< 0x00463a48      6004           bra.b 0x463a4e
 │     │└──> 0x00463a4a      1f3c0030       move.b 0x30, -(a7)
 │     └───> 0x00463a4e      48780001       pea.l 0x1
-│       ╎   0x00463a52      4eb9004048b4   jsr p_wtc_o
-│       ╎   0x00463a58      5c4f           addq.w 0x6, a7
-│       ╎   0x00463a5a      5287           addq.l 0x1, d7
-│       ╎   0x00463a5c      be83           cmp.l d3, d7
+│       ¦   0x00463a52      4eb9004048b4   jsr p_wtc_o
+│       ¦   0x00463a58      5c4f           addq.w 0x6, a7
+│       ¦   0x00463a5a      5287           addq.l 0x1, d7
+│       ¦   0x00463a5c      be83           cmp.l d3, d7
 │       └─< 0x00463a5e      6fc8           ble.b 0x463a28
 │           0x00463a60      4eb900404946   jsr p_wtln_o
 │           0x00463a66      4cdf018f       movem.l (a7)+, d0-d3/d7/a0
@@ -248,6 +248,95 @@
             ; XREFS: CALL 0x00466c3c  CALL 0x00466e44  CALL 0x00466e72  
             ; XREFS: CALL 0x00466fb6  CALL 0x00466fe2  CALL 0x004679dc  
             ; XREFS: CALL 0x00468ff6  CALL 0x0046904a  
+
+┌ 138: fcn.00406a74 ();
+│           0x00406a74      4a39007e4801   tst.b 0x7e4801
+│       ┌─< 0x00406a7a      6708           beq.b 0x406a84
+│       │   0x00406a7c      4c034804       muls.l d3, d4
+        │   0x00406a80      2604           move.l d4, d3
+        │   0x00406a82      4e75           rts
+│       └─> 0x00406a84      4a84           tst.l d4
+│       ┌─< 0x00406a86      6a2e           bpl.b 0x406ab6
+│       │   0x00406a88      4484           neg.l d4
+│       │   0x00406a8a      4a83           tst.l d3
+│      ┌──< 0x00406a8c      6a2e           bpl.b 0x406abc
+│      ││   0x00406a8e      4483           neg.l d3
+│     ┌───> 0x00406a90      b684           cmp.l d4, d3
+│    ┌────< 0x00406a92      6402           bcc.b 0x406a96
+│    │¦││   0x00406a94      c744           exg.l d3, d4
+│    └────> 0x00406a96      2f04           move.l d4, -(a7)
+│     ¦││   0x00406a98      c8c3           mulu.w d3, d4
+│     ¦││   0x00406a9a      361f           move.w (a7)+, d3
+│    ┌────< 0x00406a9c      6646           bne.b 0x406ae4
+│    │¦││   0x00406a9e      4843           swap d3
+│   ┌─────< 0x00406aa0      6604           bne.b 0x406aa6
+│   ││¦││   0x00406aa2      544f           addq.w 0x2, a7
+│  ┌──────< 0x00406aa4      600a           bra.b 0x406ab0
+│  │└─────> 0x00406aa6      c6df           mulu.w (a7)+, d3
+│  │ │¦││   0x00406aa8      4843           swap d3
+│  │ │¦││   0x00406aaa      d883           add.l d3, d4
+│  │ │¦││   0x00406aac      e253           roxr.w 0x1, d3
+│  │┌─────< 0x00406aae      6634           bne.b 0x406ae4
+│  └──────> 0x00406ab0      2604           move.l d4, d3
+│  ┌──────< 0x00406ab2      6b30           bmi.b 0x406ae4
+│  │││¦││   0x00406ab4      4e75           rts
+│  │││¦│└─> 0x00406ab6      4a83           tst.l d3
+│  │││└───< 0x00406ab8      6ad6           bpl.b 0x406a90
+│  │││ │    0x00406aba      4483           neg.l d3
+│  │││ └──> 0x00406abc      b684           cmp.l d4, d3
+│  │││  ┌─< 0x00406abe      6402           bcc.b 0x406ac2
+│  │││  │   0x00406ac0      c744           exg.l d3, d4
+│  │││  └─> 0x00406ac2      2f04           move.l d4, -(a7)
+│  │││      0x00406ac4      c8c3           mulu.w d3, d4
+│  │││      0x00406ac6      361f           move.w (a7)+, d3
+│  │││  ┌─< 0x00406ac8      661a           bne.b 0x406ae4
+│  │││  │   0x00406aca      4843           swap d3
+│  │││ ┌──< 0x00406acc      6604           bne.b 0x406ad2
+│  │││ ││   0x00406ace      544f           addq.w 0x2, a7
+│  │││┌───< 0x00406ad0      600a           bra.b 0x406adc
+│  ││││└──> 0x00406ad2      c6df           mulu.w (a7)+, d3
+│  ││││ │   0x00406ad4      4843           swap d3
+│  ││││ │   0x00406ad6      d883           add.l d3, d4
+│  ││││ │   0x00406ad8      e253           roxr.w 0x1, d3
+│  ││││┌──< 0x00406ada      6608           bne.b 0x406ae4
+│  │││└───> 0x00406adc      4484           neg.l d4
+│  │││ ││   0x00406ade      2604           move.l d4, d3
+│  │││┌───< 0x00406ae0      6e02           bgt.b 0x406ae4
+│  ││││││   0x00406ae2      4e75           rts
+│  └└└└└└─> 0x00406ae4      4e560000       link.w a6, 0x0
+│           0x00406ae8      3f3c0000       move.w 0x0, -(a7)
+│           0x00406aec      4eb900400e80   jsr unknown_0009
+│           0x00406af2      .string "integer overflow during multiplication" ; len=38
+            0x00406b18      .word 0x0000
+┌ 48: fcn.00406b1a ();
+│     ¦¦¦   0x00406b1a      4a39007e4801   tst.b 0x7e4801
+│    ┌────< 0x00406b20      6708           beq.b 0x406b2a
+│    │¦¦¦   0x00406b22      4c034004       mulu.l d3, d4
+     │¦¦¦   0x00406b26      2604           move.l d4, d3
+     │¦¦¦   0x00406b28      4e75           rts
+│    └────> 0x00406b2a      b684           cmp.l d4, d3
+│    ┌────< 0x00406b2c      6402           bcc.b 0x406b30
+│    │¦¦¦   0x00406b2e      c744           exg.l d3, d4
+│    └────> 0x00406b30      2f04           move.l d4, -(a7)
+│     ¦¦¦   0x00406b32      c8c3           mulu.w d3, d4
+│     ¦¦¦   0x00406b34      361f           move.w (a7)+, d3
+│     └───< 0x00406b36      66ac           bne.b 0x406ae4              ; fcn.00406a74+0x70
+│      ¦¦   0x00406b38      4843           swap d3
+│     ┌───< 0x00406b3a      6604           bne.b 0x406b40
+│     │¦¦   0x00406b3c      544f           addq.w 0x2, a7
+│    ┌────< 0x00406b3e      600c           bra.b 0x406b4c
+│    │└───> 0x00406b40      c6df           mulu.w (a7)+, d3
+│    │ ¦¦   0x00406b42      4843           swap d3
+│    │ ¦¦   0x00406b44      4a43           tst.w d3
+│    │ └──< 0x00406b46      669c           bne.b 0x406ae4              ; fcn.00406a74+0x70
+│    │  ¦   0x00406b48      d883           add.l d3, d4
+│    │  └─< 0x00406b4a      6598           bcs.b 0x406ae4              ; fcn.00406a74+0x70
+│    └────> 0x00406b4c      2604           move.l d4, d3
+└           0x00406b4e      4e75           rts
+
+
+
+
 ┌ 952: S6_DECRYPT.s_decrypt ();
 │           0x00463a6e      4e56ff68       link.w a6, 0xff68
 │           0x00463a72      bfd5           cmpa.l (a5), a7
@@ -259,116 +348,150 @@
 │           0x00463a84      45f900406b1a   lea.l fcn.00406b1a, a2
 │           0x00463a8a      47eeffe8       lea.l -0x18(a6), a3
 │           0x00463a8e      49f9006d1b72   lea.l eor, a4
-│           0x00463a94      206e0010       movea.l 0x10(a6), a0
+│           0x00463a94      206e0010       movea.l param_a, a0
 │           0x00463a98      20bc0000ffff   move.l 0xffff, (a0)
-│           0x00463a9e      206e000c       movea.l 0xc(a6), a0
+│           0x00463a9e      206e000c       movea.l param_b, a0
 │           0x00463aa2      20bc0000ffff   move.l 0xffff, (a0)
-│           0x00463aa8      206e0008       movea.l 0x8(a6), a0
+│           0x00463aa8      206e0008       movea.l param_c, a0
 │           0x00463aac      20bc0000ffff   move.l 0xffff, (a0)
 │           0x00463ab2      7c00           moveq 0x0, d6
-│           0x00463ab4      206e0018       movea.l 0x18(a6), a0
+│           0x00463ab4      206e0018       movea.l password, a0
 │           0x00463ab8      7e00           moveq 0x0, d7
+
+; Take each byte from a0_array, look up into bitfield table_0x4638ee, set d6 to true if a bit is 1.
 │       ┌─> 0x00463aba      0c8700000011   cmpi.l 0x11, d7
 │      ┌──< 0x00463ac0      6302           bls.b 0x463ac4
-│      │╎   0x00463ac2      4e4f           trap 0xf
+│      │¦   0x00463ac2      4e4f           trap 0xf
 │      └──> 0x00463ac4      10307800       move.b (a0, d7.l), d0
-│       ╎   0x00463ac8      0280000000ff   andi.l 0xff, d0
-│       ╎   0x00463ace      43fafe1e       lea.l 0x4638ee(pc), a1
-│       ╎   0x00463ad2      3200           move.w d0, d1
-│       ╎   0x00463ad4      e649           lsr.w 0x3, d1
-│       ╎   0x00463ad6      01311000       btst.l d0, (a1, d1.w)
+│       ¦   0x00463ac8      0280000000ff   andi.l 0xff, d0
+│       ¦   0x00463ace      43fafe1e       lea.l 0x4638ee(pc), a1
+│       ¦   0x00463ad2      3200           move.w d0, d1
+│       ¦   0x00463ad4      e649           lsr.w 0x3, d1
+│       ¦   0x00463ad6      01311000       btst.l d0, (a1, d1.w)
 │      ┌──< 0x00463ada      6602           bne.b 0x463ade
-│      │╎   0x00463adc      7c01           moveq 0x1, d6
+│      │¦   0x00463adc      7c01           moveq 0x1, d6
 │      └──> 0x00463ade      5287           addq.l 0x1, d7
-│       ╎   0x00463ae0      0c8700000011   cmpi.l 0x11, d7
+│       ¦   0x00463ae0      0c8700000011   cmpi.l 0x11, d7
 │       └─< 0x00463ae6      63d2           bls.b 0x463aba
+
+; If 0 then return.
 │           0x00463ae8      4a06           tst.b d6
 │       ┌─< 0x00463aea      670c           beq.b 0x463af8
-│       │   0x00463aec      206e0014       movea.l 0x14(a6), a0
+│       │   0x00463aec      206e0014       movea.l is_invalid, a0
 │       │   0x00463af0      10bc0001       move.b 0x1, (a0)
 │      ┌──< 0x00463af4      60000328       bra.w 0x463e1e
+; else
 │      │└─> 0x00463af8      42aeffe0       clr.l -0x20(a6)
-│      │    0x00463afc      206e0018       movea.l 0x18(a6), a0
+│      │    0x00463afc      206e0018       movea.l password, a0
 │      │    0x00463b00      7e00           moveq 0x0, d7
+
+
+; Descramble password
+for int i = 0; i < 18; ++i
+    int j = table_0x46386a[i] & 0xffff
+    if j > 17 throw
+    a6_-0x14[i] = a6_0x18[j]
+
+; Descramble password
 │      │┌─> 0x00463b02      0c8700000011   cmpi.l 0x11, d7
 │     ┌───< 0x00463b08      6302           bls.b 0x463b0c
-│     ││╎   0x00463b0a      4e4f           trap 0xf
+│     ││¦   0x00463b0a      4e4f           trap 0xf
 │     └───> 0x00463b0c      2007           move.l d7, d0
-│      │╎   0x00463b0e      e388           lsl.l 0x1, d0
-│      │╎   0x00463b10      43fafd58       lea.l 0x46386a(pc), a1
-│      │╎   0x00463b14      32310800       move.w (a1, d0.l), d1
-│      │╎   0x00463b18      02810000ffff   andi.l 0xffff, d1
-│      │╎   0x00463b1e      0c8100000011   cmpi.l 0x11, d1
+│      │¦   0x00463b0e      e388           lsl.l 0x1, d0
+│      │¦   0x00463b10      43fafd58       lea.l 0x46386a(pc), a1
+│      │¦   0x00463b14      32310800       move.w (a1, d0.l), d1
+│      │¦   0x00463b18      02810000ffff   andi.l 0xffff, d1
+│      │¦   0x00463b1e      0c8100000011   cmpi.l 0x11, d1
 │     ┌───< 0x00463b24      6302           bls.b 0x463b28
-│     ││╎   0x00463b26      4e4f           trap 0xf
+│     ││¦   0x00463b26      4e4f           trap 0xf
 │     └───> 0x00463b28      1db0180078ec   move.b (a0, d1.l), -0x14(a6, d7.l)
-│      │╎   0x00463b2e      5287           addq.l 0x1, d7
-│      │╎   0x00463b30      0c8700000011   cmpi.l 0x11, d7
+│      │¦   0x00463b2e      5287           addq.l 0x1, d7
+│      │¦   0x00463b30      0c8700000011   cmpi.l 0x11, d7
 │      │└─< 0x00463b36      63ca           bls.b 0x463b02
+
+; Smush bits together
 │      │    0x00463b38      7e00           moveq 0x0, d7
+for d7 = 0; d7 < 16; ++d7
 │      │┌─> 0x00463b3a      594f           subq.w 0x4, a7
-│      │╎   0x00463b3c      0c8700000011   cmpi.l 0x11, d7
+│      │¦   0x00463b3c      0c8700000011   cmpi.l 0x11, d7
 │     ┌───< 0x00463b42      6302           bls.b 0x463b46
-│     ││╎   0x00463b44      4e4f           trap 0xf
+│     ││¦   0x00463b44      4e4f           trap 0xf
 │     └───> 0x00463b46      4280           clr.l d0
-│      │╎   0x00463b48      103678ec       move.b -0x14(a6, d7.l), d0
-│      │╎   0x00463b4c      04400030       subi.w 0x30, d0
-│      │╎   0x00463b50      41bc002a       chk.w 0x2a, d0
-│      │╎   0x00463b54      e340           asl.w 0x1, d0
-│      │╎   0x00463b56      41fafcbc       lea.l 0x463814(pc), a0
-│      │╎   0x00463b5a      32300000       move.w (a0, d0.w), d1
-│      │╎   0x00463b5e      48c1           ext.l d1
-│      │╎   0x00463b60      2f01           move.l d1, -(a7)
-│      │╎   0x00463b62      2f2effe0       move.l -0x20(a6), -(a7)
-│      │╎   0x00463b66      4e94           jsr (a4)                    ; fcn.0000000d
-│      │╎   0x00463b68      504f           addq.w 0x8, a7
-│      │╎   0x00463b6a      2a1f           move.l (a7)+, d5
-│      │╎   0x00463b6c      02850000001f   andi.l 0x1f, d5
-│      │╎   0x00463b72      dbaeffe0       add.l d5, -0x20(a6)
-│      │╎   0x00463b76      2807           move.l d7, d4
-│      │╎   0x00463b78      7605           moveq 0x5, d3
-│      │╎   0x00463b7a      4e92           jsr (a2)                    ; fcn.00000009+0x2
-│      │╎   0x00463b7c      7c00           moveq 0x0, d6
+│      │¦   0x00463b48      103678ec       move.b -0x14(a6, d7.l), d0
+│      │¦   0x00463b4c      04400030       subi.w 0x30, d0
+│      │¦   0x00463b50      41bc002a       chk.w 0x2a, d0
+
+│      │¦   0x00463b54      e340           asl.w 0x1, d0
+
+; Look up into array of 42 words
+│      │¦   0x00463b56      41fafcbc       lea.l 0x463814(pc), a0
+│      │¦   0x00463b5a      32300000       move.w (a0, d0.w), d1
+
+│      │¦   0x00463b5e      48c1           ext.l d1
+
+xor value with a6_-0x20 mask off 0x1f and add the result back to a6_-0x20
+│      │¦   0x00463b60      2f01           move.l d1, -(a7)
+│      │¦   0x00463b62      2f2effe0       move.l -0x20(a6), -(a7)
+│      │¦   0x00463b66      4e94           jsr (a4)                    ; eor
+│      │¦   0x00463b68      504f           addq.w 0x8, a7
+│      │¦   0x00463b6a      2a1f           move.l (a7)+, d5
+│      │¦   0x00463b6c      02850000001f   andi.l 0x1f, d5
+
+│      │¦   0x00463b72      dbaeffe0       add.l d5, -0x20(a6)
+│      │¦   0x00463b76      2807           move.l d7, d4
+│      │¦   0x00463b78      7605           moveq 0x5, d3
+│      │¦   0x00463b7a      4e92           jsr (a2)                    ; safe_integer_multiply d3 = d4 * d3
+
+│      │¦   0x00463b7c      7c00           moveq 0x0, d6
+
+for d6 = 0; d6 < 5; ++d6
 │     ┌───> 0x00463b7e      2004           move.l d4, d0
-│     ╎│╎   0x00463b80      d086           add.l d6, d0
-│     ╎│╎   0x00463b82      0c800000004f   cmpi.l 0x4f, d0
+│     ¦│¦   0x00463b80      d086           add.l d6, d0
+│     ¦│¦   0x00463b82      0c800000004f   cmpi.l 0x4f, d0
 │    ┌────< 0x00463b88      6302           bls.b 0x463b8c
-│    │╎│╎   0x00463b8a      4e4f           trap 0xf
+│    │¦│¦   0x00463b8a      4e4f           trap 0xf
+
 │    └────> 0x00463b8c      204e           movea.l a6, a0
-│     ╎│╎   0x00463b8e      e698           ror.l 0x3, d0
-│     ╎│╎   0x00463b90      d0c0           adda.w d0, a0
-│     ╎│╎   0x00463b92      4840           swap d0
-│     ╎│╎   0x00463b94      e758           rol.w 0x3, d0
-│     ╎│╎   0x00463b96      323cff7f       move.w 0xff7f, d1
-│     ╎│╎   0x00463b9a      e079           ror.w d0, d1
-│     ╎│╎   0x00463b9c      c328ffbc       and.b d1, -0x44(a0)
-│     ╎│╎   0x00463ba0      594f           subq.w 0x4, a7
-│     ╎│╎   0x00463ba2      7204           moveq 0x4, d1
-│     ╎│╎   0x00463ba4      9286           sub.l d6, d1
-│     ╎│╎   0x00463ba6      0481ffff8000   subi.l 0xffff8000, d1
-│     ╎│╎   0x00463bac      0c810000ffff   cmpi.l 0xffff, d1
+│     ¦│¦   0x00463b8e      e698           ror.l 0x3, d0
+│     ¦│¦   0x00463b90      d0c0           adda.w d0, a0
+│     ¦│¦   0x00463b92      4840           swap d0
+│     ¦│¦   0x00463b94      e758           rol.w 0x3, d0
+│     ¦│¦   0x00463b96      323cff7f       move.w 0xff7f, d1
+│     ¦│¦   0x00463b9a      e079           ror.w d0, d1
+│     ¦│¦   0x00463b9c      c328ffbc       and.b d1, -0x44(a0)
+│     ¦│¦   0x00463ba0      594f           subq.w 0x4, a7
+│     ¦│¦   0x00463ba2      7204           moveq 0x4, d1
+│     ¦│¦   0x00463ba4      9286           sub.l d6, d1
+│     ¦│¦   0x00463ba6      0481ffff8000   subi.l 0xffff8000, d1
+│     ¦│¦   0x00463bac      0c810000ffff   cmpi.l 0xffff, d1
 │    ┌────< 0x00463bb2      6302           bls.b 0x463bb6
-│    │╎│╎   0x00463bb4      4e4f           trap 0xf
+│    │¦│¦   0x00463bb4      4e4f           trap 0xf
 │    └────> 0x00463bb6      0681ffff8000   addi.l 0xffff8000, d1
-│     ╎│╎   0x00463bbc      3f01           move.w d1, -(a7)
-│     ╎│╎   0x00463bbe      3f3c0001       move.w 0x1, -(a7)
-│     ╎│╎   0x00463bc2      2f05           move.l d5, -(a7)
-│     ╎│╎   0x00463bc4      4eb9006d1a4c   jsr GET_BITS
-│     ╎│╎   0x00463bca      504f           addq.w 0x8, a7
-│     ╎│╎   0x00463bcc      4a9f           tst.l (a7)+
+│     ¦│¦   0x00463bbc      3f01           move.w d1, -(a7)
+│     ¦│¦   0x00463bbe      3f3c0001       move.w 0x1, -(a7)
+│     ¦│¦   0x00463bc2      2f05           move.l d5, -(a7)
+│     ¦│¦   0x00463bc4      4eb9006d1a4c   jsr GET_BITS
+│     ¦│¦   0x00463bca      504f           addq.w 0x8, a7
+│     ¦│¦   0x00463bcc      4a9f           tst.l (a7)+
 │    ┌────< 0x00463bce      670a           beq.b 0x463bda
-│    │╎│╎   0x00463bd0      123c0080       move.b 0x80, d1
-│    │╎│╎   0x00463bd4      e029           lsr.b d0, d1
-│    │╎│╎   0x00463bd6      8328ffbc       or.b d1, -0x44(a0)
+│    │¦│¦   0x00463bd0      123c0080       move.b 0x80, d1
+│    │¦│¦   0x00463bd4      e029           lsr.b d0, d1
+│    │¦│¦   0x00463bd6      8328ffbc       or.b d1, -0x44(a0)
 │    └────> 0x00463bda      5286           addq.l 0x1, d6
-│     ╎│╎   0x00463bdc      0c8600000004   cmpi.l 0x4, d6
+│     ¦│¦   0x00463bdc      0c8600000004   cmpi.l 0x4, d6
 │     └───< 0x00463be2      639a           bls.b 0x463b7e
-│      │╎   0x00463be4      5287           addq.l 0x1, d7
-│      │╎   0x00463be6      0c870000000f   cmpi.l 0xf, d7
+
+│      │¦   0x00463be4      5287           addq.l 0x1, d7
+│      │¦   0x00463be6      0c870000000f   cmpi.l 0xf, d7
 │      │└─< 0x00463bec      6300ff4c       bls.w 0x463b3a
-│      │    0x00463bf0      206e0014       movea.l 0x14(a6), a0
+
+; All of the above merely extracts the 5 bits and concatenates them, with a cheeky xor of the sum of the values so far.
+
+; line 179
+│      │    0x00463bf0      206e0014       movea.l is_invalid, a0
 │      │    0x00463bf4      4210           clr.b (a0)
 │      │    0x00463bf6      4280           clr.l d0
+; Take last char of descrambled password [a], index into the scramble table and multiply it by 32, store in d0
 │      │    0x00463bf8      102efffd       move.b -0x3(a6), d0
 │      │    0x00463bfc      04400030       subi.w 0x30, d0
 │      │    0x00463c00      41bc002a       chk.w 0x2a, d0
@@ -376,6 +499,8 @@
 │      │    0x00463c06      43fafc0c       lea.l 0x463814(pc), a1
 │      │    0x00463c0a      30310000       move.w (a1, d0.w), d0
 │      │    0x00463c0e      eb40           asl.w 0x5, d0
+
+; Take next-to-last char of descrambled password [b], index into the scamble table and add it to the previous result in d0, store in d0
 │      │    0x00463c10      4281           clr.l d1
 │      │    0x00463c12      122efffc       move.b -0x4(a6), d1
 │      │    0x00463c16      04410030       subi.w 0x30, d1
@@ -383,170 +508,218 @@
 │      │    0x00463c1e      e341           asl.w 0x1, d1
 │      │    0x00463c20      43fafbf2       lea.l 0x463814(pc), a1
 │      │    0x00463c24      d0711000       add.w (a1, d1.w), d0
+
+; Compare d0 with long -0x20(a6) [c], set is_invalid to 1 if they're not equal
 │      │    0x00463c28      48c0           ext.l d0
 │      │    0x00463c2a      b0aeffe0       cmp.l -0x20(a6), d0
 │      │┌─< 0x00463c2e      6702           beq.b 0x463c32
 │      ││   0x00463c30      5210           addq.b 0x1, (a0)
+
+; line 180
+; Xor long at param_d[d] with 0xcc995533, store back to itself
 │      │└─> 0x00463c32      594f           subq.w 0x4, a7
-│      │    0x00463c34      2f2e001c       move.l 0x1c(a6), -(a7)
+│      │    0x00463c34      2f2e001c       move.l param_d, -(a7)
 │      │    0x00463c38      2f3ccc995533   move.l 0xcc995533, -(a7)
-│      │    0x00463c3e      4e94           jsr (a4)                    ; fcn.0000000d
+│      │    0x00463c3e      4e94           jsr (a4)                    ; eor
 │      │    0x00463c40      504f           addq.w 0x8, a7
-│      │    0x00463c42      2d5f001c       move.l (a7)+, 0x1c(a6)
-│      │    0x00463c46      2a2e001c       move.l 0x1c(a6), d5
+│      │    0x00463c42      2d5f001c       move.l (a7)+, param_d
+
+; line 181
+; Take just the two MSBs of d5
+│      │    0x00463c46      2a2e001c       move.l param_d, d5
 │      │    0x00463c4a      e08d           lsr.l 0x8, d5
 │      │    0x00463c4c      e08d           lsr.l 0x8, d5
+
+; Add 0x10dda and mask LS word
 │      │    0x00463c4e      068500010dda   addi.l 0x10dda, d5
 │      │    0x00463c54      02850000ffff   andi.l 0xffff, d5
-│      │    0x00463c5a      26ae001c       move.l 0x1c(a6), (a3)
+
+; line 182
+; Take result of XOR mask off lower word, add 0x10dda and mask again, storing it at address a3
+│      │    0x00463c5a      26ae001c       move.l param_d, (a3)
 │      │    0x00463c5e      02930000ffff   andi.l 0xffff, (a3)
 │      │    0x00463c64      069300010dda   addi.l 0x10dda, (a3)
 │      │    0x00463c6a      02930000ffff   andi.l 0xffff, (a3)
+
+; line 183
+; Multiply d5 by 0x8301
 │      │    0x00463c70      283c00008301   move.l 0x8301, d4
 │      │    0x00463c76      2605           move.l d5, d3
-│      │    0x00463c78      4e92           jsr (a2)                    ; fcn.00000009+0x2
+│      │    0x00463c78      4e92           jsr (a2)                    ; safe_integer_multiply d3 = d4 * d3; d4 = d3
 │      │    0x00463c7a      594f           subq.w 0x4, a7
+
+; Add 0xdbed to result and mask, store in d4
 │      │    0x00463c7c      06840000dbed   addi.l 0xdbed, d4
 │      │    0x00463c82      02840000ffff   andi.l 0xffff, d4
+
+; XOR d4 with contents of (a3), store in d6
 │      │    0x00463c88      2f04           move.l d4, -(a7)
 │      │    0x00463c8a      2f13           move.l (a3), -(a7)
-│      │    0x00463c8c      4e94           jsr (a4)                    ; fcn.0000000d
+│      │    0x00463c8c      4e94           jsr (a4)                    ; eor
 │      │    0x00463c8e      504f           addq.w 0x8, a7
 │      │    0x00463c90      2c1f           move.l (a7)+, d6
+
+
+; line 188
+; Multiply contents of (a3) by 0x501b, add to d6 and store in d4
 │      │    0x00463c92      283c0000501b   move.l 0x501b, d4
 │      │    0x00463c98      2613           move.l (a3), d3
-│      │    0x00463c9a      4e92           jsr (a2)                    ; fcn.00000009+0x2
+│      │    0x00463c9a      4e92           jsr (a2)                    ; safe_integer_multiply d3 = d4 * d3
 │      │    0x00463c9c      594f           subq.w 0x4, a7
 │      │    0x00463c9e      d886           add.l d6, d4
+
+; XOR d4 and d5, store in d6
 │      │    0x00463ca0      2f04           move.l d4, -(a7)
 │      │    0x00463ca2      2f05           move.l d5, -(a7)
-│      │    0x00463ca4      4e94           jsr (a4)                    ; fcn.0000000d
+│      │    0x00463ca4      4e94           jsr (a4)                    ; eor
 │      │    0x00463ca6      504f           addq.w 0x8, a7
 │      │    0x00463ca8      2c1f           move.l (a7)+, d6
+
+
+; line 193
 │      │    0x00463caa      7e00           moveq 0x0, d7
+for d7 = 0; d7 < 10; ++d7
 │      │┌─> 0x00463cac      0c8700000009   cmpi.l 0x9, d7
 │     ┌───< 0x00463cb2      6302           bls.b 0x463cb6
-│     ││╎   0x00463cb4      4e4f           trap 0xf
+│     ││¦   0x00463cb4      4e4f           trap 0xf
+; d3 = d4 = d7 * 3
 │     └───> 0x00463cb6      2807           move.l d7, d4
-│      │╎   0x00463cb8      7603           moveq 0x3, d3
-│      │╎   0x00463cba      4e92           jsr (a2)                    ; fcn.00000009+0x2
-│      │╎   0x00463cbc      514f           subq.w 0x8, a7
-│      │╎   0x00463cbe      4280           clr.l d0
-│      │╎   0x00463cc0      103678bc       move.b -0x44(a6, d7.l), d0
-│      │╎   0x00463cc4      2f00           move.l d0, -(a7)
-│      │╎   0x00463cc6      594f           subq.w 0x4, a7
-│      │╎   0x00463cc8      2007           move.l d7, d0
-│      │╎   0x00463cca      e388           lsl.l 0x1, d0
-│      │╎   0x00463ccc      0480ffff8000   subi.l 0xffff8000, d0
-│      │╎   0x00463cd2      0c800000ffff   cmpi.l 0xffff, d0
+│      │¦   0x00463cb8      7603           moveq 0x3, d3
+│      │¦   0x00463cba      4e92           jsr (a2)                    ; safe_integer_multiply d3 = d4 * d3
+│      │¦   0x00463cbc      514f           subq.w 0x8, a7
+
+; Copy the d7-th byte from the smushed array onto the stack, and make room on the stack for a long, which is the result of the GET_BITS call I think
+│      │¦   0x00463cbe      4280           clr.l d0
+│      │¦   0x00463cc0      103678bc       move.b -0x44(a6, d7.l), d0
+│      │¦   0x00463cc4      2f00           move.l d0, -(a7)
+│      │¦   0x00463cc6      594f           subq.w 0x4, a7
+
+; Multiply d7 by two and store in d0
+│      │¦   0x00463cc8      2007           move.l d7, d0
+│      │¦   0x00463cca      e388           lsl.l 0x1, d0
+│      │¦   0x00463ccc      0480ffff8000   subi.l 0xffff8000, d0
+│      │¦   0x00463cd2      0c800000ffff   cmpi.l 0xffff, d0
 │     ┌───< 0x00463cd8      6302           bls.b 0x463cdc
-│     ││╎   0x00463cda      4e4f           trap 0xf
+│     ││¦   0x00463cda      4e4f           trap 0xf
 │     └───> 0x00463cdc      0680ffff8000   addi.l 0xffff8000, d0
-│      │╎   0x00463ce2      3f00           move.w d0, -(a7)
-│      │╎   0x00463ce4      3f3c0008       move.w 0x8, -(a7)
-│      │╎   0x00463ce8      2f06           move.l d6, -(a7)
-│      │╎   0x00463cea      4eb9006d1a4c   jsr GET_BITS
-│      │╎   0x00463cf0      504f           addq.w 0x8, a7
-│      │╎   0x00463cf2      4e94           jsr (a4)                    ; fcn.0000000d
-│      │╎   0x00463cf4      544f           addq.w 0x2, a7
-│      │╎   0x00463cf6      0484ffff8000   subi.l 0xffff8000, d4
-│      │╎   0x00463cfc      0c840000ffff   cmpi.l 0xffff, d4
+
+│      │¦   0x00463ce2      3f00           move.w d0, -(a7) ; Offset
+│      │¦   0x00463ce4      3f3c0008       move.w 0x8, -(a7) ; Num bits
+│      │¦   0x00463ce8      2f06           move.l d6, -(a7) ; Value
+│      │¦   0x00463cea      4eb9006d1a4c   jsr GET_BITS
+│      │¦   0x00463cf0      504f           addq.w 0x8, a7
+
+│      │¦   0x00463cf2      4e94           jsr (a4)                    ; eor
+│      │¦   0x00463cf4      544f           addq.w 0x2, a7
+│      │¦   0x00463cf6      0484ffff8000   subi.l 0xffff8000, d4
+│      │¦   0x00463cfc      0c840000ffff   cmpi.l 0xffff, d4
 │     ┌───< 0x00463d02      6302           bls.b 0x463d06
-│     ││╎   0x00463d04      4e4f           trap 0xf
+│     ││¦   0x00463d04      4e4f           trap 0xf
 │     └───> 0x00463d06      0684ffff8000   addi.l 0xffff8000, d4
-│      │╎   0x00463d0c      3f04           move.w d4, -(a7)
-│      │╎   0x00463d0e      3f3c0003       move.w 0x3, -(a7)
-│      │╎   0x00463d12      2f06           move.l d6, -(a7)
-│      │╎   0x00463d14      4eb9006d1a4c   jsr GET_BITS
-│      │╎   0x00463d1a      504f           addq.w 0x8, a7
-│      │╎   0x00463d1c      201f           move.l (a7)+, d0
-│      │╎   0x00463d1e      0c800000ffff   cmpi.l 0xffff, d0
+
+│      │¦   0x00463d0c      3f04           move.w d4, -(a7) ; Offset
+│      │¦   0x00463d0e      3f3c0003       move.w 0x3, -(a7) ; Num bits
+│      │¦   0x00463d12      2f06           move.l d6, -(a7) ; Value
+│      │¦   0x00463d14      4eb9006d1a4c   jsr GET_BITS
+│      │¦   0x00463d1a      504f           addq.w 0x8, a7
+
+│      │¦   0x00463d1c      201f           move.l (a7)+, d0
+│      │¦   0x00463d1e      0c800000ffff   cmpi.l 0xffff, d0
 │     ┌───< 0x00463d24      6302           bls.b 0x463d28
-│     ││╎   0x00463d26      4e4f           trap 0xf
+│     ││¦   0x00463d26      4e4f           trap 0xf
+
 │     └───> 0x00463d28      3e80           move.w d0, (a7)
-│      │╎   0x00463d2a      4eb9006d1b52   jsr ror
-│      │╎   0x00463d30      5c4f           addq.w 0x6, a7
-│      │╎   0x00463d32      201f           move.l (a7)+, d0
-│      │╎   0x00463d34      0c80000000ff   cmpi.l 0xff, d0
+│      │¦   0x00463d2a      4eb9006d1b52   jsr ror
+│      │¦   0x00463d30      5c4f           addq.w 0x6, a7
+│      │¦   0x00463d32      201f           move.l (a7)+, d0
+│      │¦   0x00463d34      0c80000000ff   cmpi.l 0xff, d0
 │     ┌───< 0x00463d3a      6302           bls.b 0x463d3e
-│     ││╎   0x00463d3c      4e4f           trap 0xf
+│     ││¦   0x00463d3c      4e4f           trap 0xf
 │     └───> 0x00463d3e      1d8078bc       move.b d0, -0x44(a6, d7.l)
-│      │╎   0x00463d42      5287           addq.l 0x1, d7
-│      │╎   0x00463d44      0c8700000009   cmpi.l 0x9, d7
+
+│      │¦   0x00463d42      5287           addq.l 0x1, d7
+│      │¦   0x00463d44      0c8700000009   cmpi.l 0x9, d7
 │      │└─< 0x00463d4a      6300ff60       bls.w 0x463cac
+
+
 │      │    0x00463d4e      7e00           moveq 0x0, d7
+; for d7 = 0; d7 < 80; ++d7
 │      │┌─> 0x00463d50      08070000       btst.b 0x0, d7
 │     ┌───< 0x00463d54      6744           beq.b 0x463d9a
-│     ││╎   0x00463d56      0c870000004f   cmpi.l 0x4f, d7
+│     ││¦   0x00463d56      0c870000004f   cmpi.l 0x4f, d7
 │    ┌────< 0x00463d5c      6302           bls.b 0x463d60
-│    │││╎   0x00463d5e      4e4f           trap 0xf
+│    │││¦   0x00463d5e      4e4f           trap 0xf
 │    └────> 0x00463d60      204e           movea.l a6, a0
-│     ││╎   0x00463d62      2007           move.l d7, d0
-│     ││╎   0x00463d64      e698           ror.l 0x3, d0
-│     ││╎   0x00463d66      d0c0           adda.w d0, a0
-│     ││╎   0x00463d68      4840           swap d0
-│     ││╎   0x00463d6a      e758           rol.w 0x3, d0
-│     ││╎   0x00463d6c      2807           move.l d7, d4
-│     ││╎   0x00463d6e      761d           moveq 0x1d, d3
-│     ││╎   0x00463d70      4e92           jsr (a2)                    ; fcn.00000009+0x2
-│     ││╎   0x00463d72      7650           moveq 0x50, d3
-│     ││╎   0x00463d74      4eb900406bf4   jsr fcn.00406bf4
-│     ││╎   0x00463d7a      4443           neg.w d3
-│     ││╎   0x00463d7c      0643004f       addi.w 0x4f, d3
-│     ││╎   0x00463d80      02830000ffff   andi.l 0xffff, d3
-│     ││╎   0x00463d86      224e           movea.l a6, a1
-│     ││╎   0x00463d88      e69b           ror.l 0x3, d3
-│     ││╎   0x00463d8a      d2c3           adda.w d3, a1
-│     ││╎   0x00463d8c      4843           swap d3
-│     ││╎   0x00463d8e      e75b           rol.w 0x3, d3
-│     ││╎   0x00463d90      1229ffbc       move.b -0x44(a1), d1
-│     ││╎   0x00463d94      e729           lsl.b d3, d1
-│     ││╎   0x00463d96      ee09           lsr.b 0x7, d1
+│     ││¦   0x00463d62      2007           move.l d7, d0
+│     ││¦   0x00463d64      e698           ror.l 0x3, d0
+│     ││¦   0x00463d66      d0c0           adda.w d0, a0
+│     ││¦   0x00463d68      4840           swap d0
+│     ││¦   0x00463d6a      e758           rol.w 0x3, d0
+│     ││¦   0x00463d6c      2807           move.l d7, d4
+│     ││¦   0x00463d6e      761d           moveq 0x1d, d3
+│     ││¦   0x00463d70      4e92           jsr (a2)                    ; safe_integer_multiply d3 = d4 * d3
+│     ││¦   0x00463d72      7650           moveq 0x50, d3
+│     ││¦   0x00463d74      4eb900406bf4   jsr fcn.00406bf4
+│     ││¦   0x00463d7a      4443           neg.w d3
+│     ││¦   0x00463d7c      0643004f       addi.w 0x4f, d3
+│     ││¦   0x00463d80      02830000ffff   andi.l 0xffff, d3
+│     ││¦   0x00463d86      224e           movea.l a6, a1
+│     ││¦   0x00463d88      e69b           ror.l 0x3, d3
+│     ││¦   0x00463d8a      d2c3           adda.w d3, a1
+│     ││¦   0x00463d8c      4843           swap d3
+│     ││¦   0x00463d8e      e75b           rol.w 0x3, d3
+│     ││¦   0x00463d90      1229ffbc       move.b -0x44(a1), d1
+│     ││¦   0x00463d94      e729           lsl.b d3, d1
+│     ││¦   0x00463d96      ee09           lsr.b 0x7, d1
 │    ┌────< 0x00463d98      6046           bra.b 0x463de0
 │    │└───> 0x00463d9a      0c870000004f   cmpi.l 0x4f, d7
 │    │┌───< 0x00463da0      6302           bls.b 0x463da4
-│    │││╎   0x00463da2      4e4f           trap 0xf
+│    │││¦   0x00463da2      4e4f           trap 0xf
 │    │└───> 0x00463da4      204e           movea.l a6, a0
-│    │ │╎   0x00463da6      2007           move.l d7, d0
-│    │ │╎   0x00463da8      e698           ror.l 0x3, d0
-│    │ │╎   0x00463daa      d0c0           adda.w d0, a0
-│    │ │╎   0x00463dac      4840           swap d0
-│    │ │╎   0x00463dae      e758           rol.w 0x3, d0
-│    │ │╎   0x00463db0      2807           move.l d7, d4
-│    │ │╎   0x00463db2      761d           moveq 0x1d, d3
-│    │ │╎   0x00463db4      4e92           jsr (a2)                    ; fcn.00000009+0x2
-│    │ │╎   0x00463db6      7650           moveq 0x50, d3
-│    │ │╎   0x00463db8      4eb900406bf4   jsr fcn.00406bf4
-│    │ │╎   0x00463dbe      4443           neg.w d3
-│    │ │╎   0x00463dc0      0643004f       addi.w 0x4f, d3
-│    │ │╎   0x00463dc4      02830000ffff   andi.l 0xffff, d3
-│    │ │╎   0x00463dca      224e           movea.l a6, a1
-│    │ │╎   0x00463dcc      e69b           ror.l 0x3, d3
-│    │ │╎   0x00463dce      d2c3           adda.w d3, a1
-│    │ │╎   0x00463dd0      4843           swap d3
-│    │ │╎   0x00463dd2      e75b           rol.w 0x3, d3
-│    │ │╎   0x00463dd4      1229ffbc       move.b -0x44(a1), d1
-│    │ │╎   0x00463dd8      e729           lsl.b d3, d1
-│    │ │╎   0x00463dda      ee09           lsr.b 0x7, d1
-│    │ │╎   0x00463ddc      4401           neg.b d1
-│    │ │╎   0x00463dde      5201           addq.b 0x1, d1
+│    │ │¦   0x00463da6      2007           move.l d7, d0
+│    │ │¦   0x00463da8      e698           ror.l 0x3, d0
+│    │ │¦   0x00463daa      d0c0           adda.w d0, a0
+│    │ │¦   0x00463dac      4840           swap d0
+│    │ │¦   0x00463dae      e758           rol.w 0x3, d0
+│    │ │¦   0x00463db0      2807           move.l d7, d4
+│    │ │¦   0x00463db2      761d           moveq 0x1d, d3
+│    │ │¦   0x00463db4      4e92           jsr (a2)                    ; safe_integer_multiply d3 = d4 * d3
+│    │ │¦   0x00463db6      7650           moveq 0x50, d3
+│    │ │¦   0x00463db8      4eb900406bf4   jsr fcn.00406bf4
+│    │ │¦   0x00463dbe      4443           neg.w d3
+│    │ │¦   0x00463dc0      0643004f       addi.w 0x4f, d3
+│    │ │¦   0x00463dc4      02830000ffff   andi.l 0xffff, d3
+│    │ │¦   0x00463dca      224e           movea.l a6, a1
+│    │ │¦   0x00463dcc      e69b           ror.l 0x3, d3
+│    │ │¦   0x00463dce      d2c3           adda.w d3, a1
+│    │ │¦   0x00463dd0      4843           swap d3
+│    │ │¦   0x00463dd2      e75b           rol.w 0x3, d3
+│    │ │¦   0x00463dd4      1229ffbc       move.b -0x44(a1), d1
+│    │ │¦   0x00463dd8      e729           lsl.b d3, d1
+│    │ │¦   0x00463dda      ee09           lsr.b 0x7, d1
+│    │ │¦   0x00463ddc      4401           neg.b d1
+│    │ │¦   0x00463dde      5201           addq.b 0x1, d1
 │    └────> 0x00463de0      343cff7f       move.w 0xff7f, d2
-│      │╎   0x00463de4      e07a           ror.w d0, d2
-│      │╎   0x00463de6      c528ffc6       and.b d2, -0x3a(a0)
-│      │╎   0x00463dea      02010001       andi.b 0x1, d1
-│      │╎   0x00463dee      ef09           lsl.b 0x7, d1
-│      │╎   0x00463df0      e029           lsr.b d0, d1
-│      │╎   0x00463df2      8328ffc6       or.b d1, -0x3a(a0)
-│      │╎   0x00463df6      5287           addq.l 0x1, d7
-│      │╎   0x00463df8      0c870000004f   cmpi.l 0x4f, d7
+│      │¦   0x00463de4      e07a           ror.w d0, d2
+│      │¦   0x00463de6      c528ffc6       and.b d2, -0x3a(a0)
+│      │¦   0x00463dea      02010001       andi.b 0x1, d1
+│      │¦   0x00463dee      ef09           lsl.b 0x7, d1
+│      │¦   0x00463df0      e029           lsr.b d0, d1
+│      │¦   0x00463df2      8328ffc6       or.b d1, -0x3a(a0)
+│      │¦   0x00463df6      5287           addq.l 0x1, d7
+│      │¦   0x00463df8      0c870000004f   cmpi.l 0x4f, d7
 │      │└─< 0x00463dfe      6300ff50       bls.w 0x463d50
-│      │    0x00463e02      206e0010       movea.l 0x10(a6), a0
+
+│      │    0x00463e02      206e0010       movea.l param_a, a0
 │      │    0x00463e06      20aeffc6       move.l -0x3a(a6), (a0)
-│      │    0x00463e0a      206e000c       movea.l 0xc(a6), a0
+
+│      │    0x00463e0a      206e000c       movea.l param_b, a0
 │      │    0x00463e0e      20aeffca       move.l -0x36(a6), (a0)
-│      │    0x00463e12      206e0008       movea.l 0x8(a6), a0
+
+│      │    0x00463e12      206e0008       movea.l param_c, a0
 │      │    0x00463e16      4280           clr.l d0
 │      │    0x00463e18      302effce       move.w -0x32(a6), d0
 │      │    0x00463e1c      2080           move.l d0, (a0)
+
 │      └──> 0x00463e1e      4cdf1fff       movem.l (a7)+, d0-d7/a0-a4
 │           0x00463e22      4e5e           unlk a6
