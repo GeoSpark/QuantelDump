@@ -121,13 +121,15 @@ def decode(swizzled_bytes):
         a0 = (idx // 8)
         d0 = idx % 8
 
-        # get input bit
+        # calculate input bit position
         d3 = 79 - ((idx * 29) % 80)
+
+        # get the input bit
         d1 = swizzled_bytes[d3 // 8]
         d1 = (d1 << (d3 % 8)) >> 7
 
         if (idx & 1) == 0:
-            d1 = (-d1) + 1
+            d1 = ~d1
 
         # clear the output bit
         # we can get rid of this because we clear the buffer on creation
