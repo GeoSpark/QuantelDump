@@ -154,8 +154,7 @@ def decode2(swizzled_bytes):
             d1 = ~d1
 
         # set output bit
-        if d1 & 1:
-            output_buff.invert(idx)
+        output_buff[idx] = d1 & 1
 
     return output_buff.bytes
 
