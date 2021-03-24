@@ -144,6 +144,7 @@ def main():
         descrambled_password += password[1][j]
 
     checksum, smushed_bits = smush_bits(descrambled_password)
+
     is_font = validate_checksum(checksum, descrambled_password[17], descrambled_password[16])
     d6 = hash_serial(password[0])
     swizzled_bytes = swizzle(smushed_bits, d6)

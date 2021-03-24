@@ -207,6 +207,8 @@
 │           0x004634fa      4e5e           unlk a6
 └           0x004634fc      4e75           rts
             ; CALL XREF from S8_SECURITY @ +0x334a
+
+
 ┌ 758: S5_ENCRYPT.s_encrypt (int32_t arg_10h);
 │           ; arg int32_t arg_10h @ a6+0x10
 │           0x004634fe      4e56ff68       link.w a6, 0xff68
@@ -227,14 +229,15 @@
 │       ┌─< 0x00463538      6302           bls.b 0x46353c
 │       │   0x0046353a      4e4f           trap 0xf
 │       └─> 0x0046353c      3d40ffc6       move.w d0, -0x3a(a6)
+
 │           0x00463540      7c00           moveq 0x0, d6
 │       ┌─> 0x00463542      08060000       btst.b 0x0, d6
 │      ┌──< 0x00463546      6744           beq.b 0x46358c
 │      │╎   0x00463548      2806           move.l d6, d4
 │      │╎   0x0046354a      761d           moveq 0x1d, d3
-│      │╎   0x0046354c      4eb900406a74   jsr fcn.00406a74
+│      │╎   0x0046354c      4eb900406a74   jsr fcn.00406a74 ; Safe signed long multiply. d3 = d4 = d3 * d4
 │      │╎   0x00463552      7650           moveq 0x50, d3
-│      │╎   0x00463554      4eb900406b50   jsr fcn.00406b50
+│      │╎   0x00463554      4eb900406b50   jsr fcn.00406b50 ; Signed integer division. d4 = d4/d3, discards remainder
 │      │╎   0x0046355a      4443           neg.w d3
 │      │╎   0x0046355c      0643004f       addi.w 0x4f, d3
 │      │╎   0x00463560      48c3           ext.l d3
@@ -258,9 +261,9 @@
 │     ┌───< 0x0046358a      6046           bra.b 0x4635d2
 │     │└──> 0x0046358c      2806           move.l d6, d4
 │     │ ╎   0x0046358e      761d           moveq 0x1d, d3
-│     │ ╎   0x00463590      4eb900406a74   jsr fcn.00406a74
+│     │ ╎   0x00463590      4eb900406a74   jsr fcn.00406a74 ; Safe signed long multiply. d3 = d4 = d3 * d4
 │     │ ╎   0x00463596      7650           moveq 0x50, d3
-│     │ ╎   0x00463598      4eb900406b50   jsr fcn.00406b50
+│     │ ╎   0x00463598      4eb900406b50   jsr fcn.00406b50 ; Signed integer division. d4 = d4/d3, discards remainder
 │     │ ╎   0x0046359e      4443           neg.w d3
 │     │ ╎   0x004635a0      0643004f       addi.w 0x4f, d3
 │     │ ╎   0x004635a4      48c3           ext.l d3
@@ -293,6 +296,7 @@
 │       ╎   0x004635e8      5286           addq.l 0x1, d6
 │       ╎   0x004635ea      0c860000004f   cmpi.l 0x4f, d6
 │       └─< 0x004635f0      6f00ff50       ble.w 0x463542
+
 │           0x004635f4      594f           subq.w 0x4, a7
 │           0x004635f6      2f13           move.l (a3), -(a7)
 │           0x004635f8      2f3ccc995533   move.l 0xcc995533, -(a7)
@@ -329,13 +333,14 @@
 │           0x00463656      4e94           jsr (a4)                    ; fcn.0000000d
 │           0x00463658      504f           addq.w 0x8, a7
 │           0x0046365a      2e1f           move.l (a7)+, d7
+
 │           0x0046365c      7c00           moveq 0x0, d6
 │       ┌─> 0x0046365e      0c8600000009   cmpi.l 0x9, d6
 │      ┌──< 0x00463664      6302           bls.b 0x463668
 │      │╎   0x00463666      4e4f           trap 0xf
 │      └──> 0x00463668      2806           move.l d6, d4
 │       ╎   0x0046366a      7603           moveq 0x3, d3
-│       ╎   0x0046366c      4eb900406a74   jsr fcn.00406a74
+│       ╎   0x0046366c      4eb900406a74   jsr fcn.00406a74 ; Safe signed long multiply. d3 = d4 = d3 * d4
 │       ╎   0x00463672      514f           subq.w 0x8, a7
 │       ╎   0x00463674      4280           clr.l d0
 │       ╎   0x00463676      103668c8       move.b -0x38(a6, d6.l), d0
@@ -385,7 +390,7 @@
 │       ┌─> 0x004636fe      7e00           moveq 0x0, d7
 │       ╎   0x00463700      2806           move.l d6, d4
 │       ╎   0x00463702      7605           moveq 0x5, d3
-│       ╎   0x00463704      4eb900406a74   jsr fcn.00406a74
+│       ╎   0x00463704      4eb900406a74   jsr fcn.00406a74 ; Safe signed long multiply. d3 = d4 = d3 * d4
 │       ╎   0x0046370a      7a00           moveq 0x0, d5
 │      ┌──> 0x0046370c      e38f           lsl.l 0x1, d7
 │      ╎╎   0x0046370e      2004           move.l d4, d0
