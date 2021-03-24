@@ -61,8 +61,8 @@ valid_pw_chars_table = [
     0x0000, 0x0000, 0x0000, 0x0000
 ]
 
-# password = (10000, 'VVUE2QDXV3RQQW6TRQ')  # Option 13063 Expiry 0
-password = (13464, '2DMWG37TM37N5PAKXS')  # Option 46 Expiry 15/01/96
+password = (10000, 'VVUE2QDXV3RQQW6TRQ')  # Option 13063 Expiry 0
+# password = (13464, '2DMWG37TM37N5PAKXS')  # Option 46 Expiry 15/01/96
 # password = (13464, '7VLVYM6T634JVNS5WY')  # Option 66 Expiry 03/07/95
 
 
@@ -186,7 +186,7 @@ def main():
         descrambled_password += password[1][j]
 
     checksum, smushed_bits = smush_bits(descrambled_password)
-    is_valid = validate_checksum(checksum, descrambled_password[17], descrambled_password[16])
+    is_font = validate_checksum(checksum, descrambled_password[17], descrambled_password[16])
     d6 = hash_serial(password[0])
     swizzled_bytes = swizzle(smushed_bits, d6)
     output_buff = decode(swizzled_bytes)
@@ -198,10 +198,11 @@ def main():
     month = expiry[7:11].uint
     day = expiry[11:].uint
 
-    print(output_buff)
-    print(serial_number)
-    print(option_number)
-    print(f'{day}/{month}/{year}')
+    print(BitArray(output_buff).hex)
+    print(f'Is font: {is_font}')
+    print(f'Serial number: {serial_number}')
+    print(f'Option: {option_number}')
+    print(f'Expiry: {day}/{month}/{year}')
 
 
 if __name__ == '__main__':
