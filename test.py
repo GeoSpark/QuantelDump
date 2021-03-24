@@ -1,39 +1,38 @@
+from datetime import date
 import unittest
-from decrypt_password import descramble_password, smush_bits
-from encrypt_password import scramble_password, desmush_bits, create_checksum_characters
+from password import unshuffle_password, smush_bits, shuffle_password, desmush_bits, create_checksum_characters, PaintboxOption
 
 
 class QPasswordTest(unittest.TestCase):
     PASSWORDS = (
-        (10000, 'VVUE2QDXV3RQQW6TRQ'),  # Option 13063 Expiry 0
-        (13464, '2DMWG37TM37N5PAKXS'),  # Option 46 Expiry 15/01/96
-        (13464, '7VLVYM6T634JVNS5WY'),  # Option 66 Expiry 03/07/95
-        (10866, 'GX9EZKC4DTGSM5ZYNV')  # Font 10064
+        PaintboxOption('VVUE2QDXV3RQQW6TRQ', 10000, 13063, 0, None),
+        PaintboxOption('2DMWG37TM37N5PAKXS', 13464, 46, 0, date(1996, 1, 15)),
+        PaintboxOption('7VLVYM6T634JVNS5WY', 13464, 66, 0, date(1995, 7, 3))
     )
 
-    def test_scrambling(self):
-        # Descramble/scramble should be commutative
+    def test_shuffling(self):
+        # Unshuffle/shuffle should be commutative
         for password in self.PASSWORDS:
-            descrambled = descramble_password(password)
-            scrambled = scramble_password(descrambled)
-            print(password[1], descrambled, scrambled)
-            self.assertEqual(scrambled, password[1])
+            unshuffled = unshuffle_password(password.password)
+            shuffled = shuffle_password(unshuffled)
+            print(password.password, unshuffled, shuffled)
+            self.assertEqual(shuffled, password.password)
 
     def test_smush(self):
         # Smushing should be commutative
         for password in self.PASSWORDS:
             # decrypt
-            descrambled_password = descramble_password(password)
-            checksum, smushed_bits = smush_bits(descrambled_password)
+            unshuffled_password = unshuffle_password(password.password)
+            checksum, smushed_bits = smush_bits(unshuffled_password)
 
             # encrypt
-            checksum2, descrambled2 = desmush_bits(smushed_bits)
-            descrambled2.extend(create_checksum_characters(checksum2))
+            checksum2, unshuffled = desmush_bits(smushed_bits)
+            unshuffled += create_checksum_characters(checksum2)
 
             # debug
-            print("CS: ", checksum, checksum2, " -- PW: ", descrambled_password, ''.join(descrambled2))
+            print("CS: ", checksum, checksum2, " -- PW: ", unshuffled_password, unshuffled)
             self.assertEqual(checksum, checksum2)
-            self.assertEqual(descrambled_password, ''.join(descrambled2))
+            self.assertEqual(unshuffled_password, unshuffled)
 
 
 if __name__ == '__main__':
