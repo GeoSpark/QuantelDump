@@ -61,9 +61,10 @@ valid_pw_chars_table = [
     0x0000, 0x0000, 0x0000, 0x0000
 ]
 
-# password = (10000, 'VVUE2QDXV3RQQW6TRQ')  # Option 13063 Expiry 0
-password = (13464, '2DMWG37TM37N5PAKXS')  # Option 46 Expiry 15/01/96
+password = (10000, 'VVUE2QDXV3RQQW6TRQ')  # Option 13063 Expiry 0
+# password = (13464, '2DMWG37TM37N5PAKXS')  # Option 46 Expiry 15/01/96
 # password = (13464, '7VLVYM6T634JVNS5WY')  # Option 66 Expiry 03/07/95
+# password = (10866, 'GX9EZKC4DTGSM5ZYNV')  # Font 10064
 
 
 def hash_serial(serial_number):
@@ -114,31 +115,6 @@ def smush_bits(descrambled_password):
 
 
 def decode(swizzled_bytes):
-    output_buff = bytearray([0x00] * 10)
-
-    for idx in range(80):
-        # calculate output byte and bit offset
-        a0 = (idx // 8)
-        d0 = idx % 8
-
-        # calculate input bit position
-        d3 = 79 - ((idx * 29) % 80)
-
-        # get the input bit
-        d1 = swizzled_bytes[d3 // 8]
-        d1 = (d1 << (d3 % 8)) >> 7
-
-        # invert every other bit
-        if (idx & 1) == 0:
-            d1 = ~d1
-
-         # set output bit
-        d1 = ((d1 & 0x01) << 7) >> d0
-        output_buff[a0] |= d1
-    return output_buff
-
-
-def decode2(swizzled_bytes):
     output_buff = BitArray([0] * 80)
     input_buff = BitArray(swizzled_bytes)
 
@@ -158,6 +134,7 @@ def decode2(swizzled_bytes):
 
     return output_buff.bytes
 
+
 def main():
     descrambled_password = ''
 
@@ -167,10 +144,10 @@ def main():
         descrambled_password += password[1][j]
 
     checksum, smushed_bits = smush_bits(descrambled_password)
-    is_valid = validate_checksum(checksum, descrambled_password[17], descrambled_password[16])
+    is_font = validate_checksum(checksum, descrambled_password[17], descrambled_password[16])
     d6 = hash_serial(password[0])
     swizzled_bytes = swizzle(smushed_bits, d6)
-    output_buff = decode2(swizzled_bytes)
+    output_buff = decode(swizzled_bytes)
 
     serial_number = int.from_bytes(output_buff[0:4], byteorder='big', signed=False)
     option_number = int.from_bytes(output_buff[4:8], byteorder='big', signed=False)
@@ -179,10 +156,11 @@ def main():
     month = expiry[7:11].uint
     day = expiry[11:].uint
 
-    print(output_buff)
-    print(serial_number)
-    print(option_number)
-    print(f'{day}/{month}/{year}')
+    print(BitArray(output_buff).hex)
+    print(f'Is font: {is_font}')
+    print(f'Serial number: {serial_number}')
+    print(f'Option: {option_number}')
+    print(f'Expiry: {day}/{month}/{year}')
 
 
 if __name__ == '__main__':
