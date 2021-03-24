@@ -71,15 +71,12 @@ def hash_serial(serial_number):
     d5 = ((serial_number >> 16) + 0x10dda) & 0xffff
     a3 = ((serial_number & 0xffff) + 0x10dda) & 0xffff
     d4 = ((d5 * 0x8301) + 0xdbed) & 0xffff
-    d6 = d4 ^ a3
-    d4 = (a3 * 0x501b) + d6
+    d4 = (a3 * 0x501b) + (d4 ^ a3)
     return d4 ^ d5
 
 
 def validate_checksum(checksum, a, b):
-    aa = bits_table[a] << 5
-    bb = bits_table[b]
-    cc = aa + bb
+    cc = (bits_table[a] << 5) + bits_table[b]
     if cc != checksum:
         return 1
     else:
@@ -116,66 +113,51 @@ def smush_bits(descrambled_password):
     return checksum, smushed_bits
 
 
-def ror_l(value, count):
-    a = BitArray(uint=value, length=32)
-    a.ror(count)
-
-    return a.uintbe
-
-
-def rol_w(value, count):
-    a = BitArray(uint=value, length=32)
-    a.rol(count, 16, 32)
-
-    return a.uintbe
-
-
-def ror_w(value, count):
-    a = BitArray(uint=value, length=32)
-    a.ror(count, 16, 32)
-
-    return a.uintbe
-
-
-def swap(value):
-    a = value & 0xffff
-    b = value >> 16
-    return (a << 16) + b
-
-
 def decode(swizzled_bytes):
     output_buff = bytearray([0x00] * 10)
 
     for idx in range(80):
-        d0 = ror_l(idx, 3)
-        a0 = d0 & 0xff
-        d0 = swap(d0)
-        d0 = rol_w(d0, 3) & 0xffff
-        d4 = idx * 0x1d
-        d3 = -(d4 % 80)
-        d3 += 0x4f
-        d3 &= 0xffff
-        d3 = BitArray(uintbe=d3, length=32)
-        d3.ror(3)
-        offset = d3[16:].uintbe
-        d1 = swizzled_bytes[offset]
-        d3 = d3[:16]
-        d3.rol(3)
-        d1 = (d1 << d3.uintbe) & 0xff
-        d1 >>= 7
+        # calculate output byte and bit offset
+        a0 = (idx // 8)
+        d0 = idx % 8
 
-        if idx % 2 == 0:
-            d1 = -d1
-            d1 += 1
+        # calculate input bit position
+        d3 = 79 - ((idx * 29) % 80)
 
-        d2 = ror_w(0xff7f, d0)
-        output_buff[a0] = d2 & output_buff[a0]
-        d1 = d1 & 0x01
-        d1 <<= 7
-        d1 >>= d0
-        output_buff[a0] = d1 | output_buff[a0]
+        # get the input bit
+        d1 = swizzled_bytes[d3 // 8]
+        d1 = (d1 << (d3 % 8)) >> 7
+
+        # invert every other bit
+        if (idx & 1) == 0:
+            d1 = ~d1
+
+         # set output bit
+        d1 = ((d1 & 0x01) << 7) >> d0
+        output_buff[a0] |= d1
     return output_buff
 
+
+def decode2(swizzled_bytes):
+    output_buff = BitArray([0] * 80)
+    input_buff = BitArray(swizzled_bytes)
+
+    for idx in range(80):
+        # calculate input bit position
+        d3 = 79 - ((idx * 29) % 80)
+
+        # get the input bit
+        d1 = input_buff[d3]
+
+        # invert every other bit
+        if (idx & 1) == 0:
+            d1 = ~d1
+
+        # set output bit
+        if d1 & 1:
+            output_buff.invert(idx)
+
+    return output_buff.bytes
 
 def main():
     descrambled_password = ''
@@ -189,7 +171,7 @@ def main():
     is_font = validate_checksum(checksum, descrambled_password[17], descrambled_password[16])
     d6 = hash_serial(password[0])
     swizzled_bytes = swizzle(smushed_bits, d6)
-    output_buff = decode(swizzled_bytes)
+    output_buff = decode2(swizzled_bytes)
 
     serial_number = int.from_bytes(output_buff[0:4], byteorder='big', signed=False)
     option_number = int.from_bytes(output_buff[4:8], byteorder='big', signed=False)
