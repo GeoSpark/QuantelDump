@@ -107,10 +107,9 @@ def smush_bits(descrambled_password):
     for idx in range(16):
         # Extract the 5-bit value for each character and concatenate them.
         v = bits_table[descrambled_password[idx]]
-        v = v ^ checksum
-        v = v & 0x1f
-        checksum += v
-        smushed_bits.append(BitArray(uint=v, length=5))
+        w = (v ^ checksum) & 0x1f
+        checksum += w
+        smushed_bits.append(BitArray(uint=w, length=5))
     return checksum, smushed_bits
 
 
@@ -135,13 +134,22 @@ def decode(swizzled_bytes):
     return output_buff.bytes
 
 
-def main():
+def descramble_password(password):
     descrambled_password = ''
 
     # Descramble the incoming string.
     for idx in range(18):
         j = shuffle_table[idx]
         descrambled_password += password[1][j]
+
+    return descrambled_password
+
+
+def main():
+    descrambled_password = descramble_password(password)
+
+    print("Password:    ", password[1])
+    print("Descrambled: ", descrambled_password)
 
     checksum, smushed_bits = smush_bits(descrambled_password)
 

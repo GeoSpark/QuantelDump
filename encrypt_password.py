@@ -55,12 +55,12 @@ def desmush_bits(smushed_bits):
     scrambled_password = []
     checksum = 0
 
+
     for idx in range(16):
         v = smushed_bits[idx * 5:(idx + 1) * 5].uint
+        w = (v ^ checksum) & 0x1f
         checksum += v
-        v = v ^ checksum
-        v = v & 0x1f
-        scrambled_password.append(bits_table[v])
+        scrambled_password.append(bits_table[w])
     return checksum, scrambled_password
 
 
@@ -105,7 +105,6 @@ def main():
     print(checksum)
     print(''.join(scrambled_password))
     print(scramble_password(scrambled_password))
-
 
 if __name__ == '__main__':
     main()
